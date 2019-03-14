@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: Controlling ActiveSync device access on Exchange 2013
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 874
+wordpress_url: http://www.cgoosen.com/?p=874
+date: '2012-11-06 16:34:10 +0000'
+date_gmt: '2012-11-06 05:34:10 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 257212
+  author: Outlook App Datenschutzrisiken Vorbeugung und Deinstallation | www.reimling.eu
+  author_email: ''
+  author_url: http://www.reimling.eu/2015/01/30/outlook-app-datenschutzrisiken-vorbeugung-und-deinstallation/
+  date: '2015-01-30 05:13:15 +0000'
+  date_gmt: '2015-01-30 11:13:15 +0000'
+  content: "[&#8230;] Zur Vermeidung, das weitere Daten abgezogen werden, k&ouml;nnt
+    ihr die App im &#8220;Exchange Admin Center&#8221; (Exchange 2013) in die Quar&auml;ne
+    schieben. Die App gibt sich in der Quarant&auml;ne-Verwaltung als &#8220;Outlook
+    for IOS and Android&#8221; aus. Wie ihr die Quarant&auml;ne aktiviert und entsprechend
+    konfiguriert ist in diesem Blog-Eintrag sehr gut erkl&auml;rt. [&#8230;]"
+---
+<p>I previously blogged about <a href="http://www.cgoosen.com/2012/10/controlling-activesync-device-access-on-exchange-2010-and-exchange-online/" target="_blank">controlling ActiveSync device access on Exchange 2010 and Exchange Online</a> and thought I would follow-up with quick post on how to accomplish the same results on Exchange 2013. For this post, I will create the same policy as before..&nbsp; a device policy to quarantine any iPad devices. The use case for this scenario is that an organisation may for example allow users to choose whatever mobile phone they would like to use but block the use of iPads because these are not devices issued by the company. By quarantining a device, we can easily see who is attempting to use such a device, how many are out there and even decide to create a new policy specific to these devices.</p>
+<p>To create a device policy, we need to access the &ldquo;Mobile Device Access&rdquo; option under the &ldquo;Mobile&rdquo; menu item in EAC. It should look something like this:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog1.png"><img title="blog1" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="blog1" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog1_thumb.png" width="588" height="259"></a></p>
+<p>Clicking the &ldquo;Edit&rdquo; button will allow you to edit various settings. As you can see, I have decided to be permissive and allow all devices unless they are managed by a rule. You can select a distribution group or administrative account that will receive quarantine notification emails. You also have the option to add any custom or organisation specific text that will be included in the email notification sent to users when their device is blocked or quarantined.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog2.png"><img title="blog2" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog2" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog2_thumb.png" width="446" height="482"></a></p>
+<p>We then click &ldquo;+&rdquo; under &ldquo;Device Access Rules&rdquo; at the bottom of the page to define our new rule. Here we can browse a list of all the devices and device families that have recently connected to our Exchange environment. Device family is a grouping of similar devices, in our case for example if we choose a Device family of &ldquo;iPad&rdquo; we can then decide to only apply this rule to iPad2 models or &ldquo;All models&rdquo; by selecting the appropriate device type. Lastly, we select our ABQ action:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog3.png"><img title="blog3" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog3" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog3_thumb.png" width="357" height="410"></a></p>
+<p>Once we have clicked &ldquo;Save&rdquo; we should see the new device access rule listed under &ldquo;Device Access Rules&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog4.png"><img title="blog4" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog4" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog4_thumb.png" width="764" height="118"></a></p>
+<p>Once we have created the access rule, if any users attempt to connect using an iPad, they will be listed under &ldquo;Quarantines Devices&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog5.png"><img title="blog5" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog5" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog5_thumb.png" width="655" height="107"></a></p>
+<p>Users will receive a notification email similar to the following if they try to connect using an iPad:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/photo.png"><img title="photo" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="photo" src="http://www.cgoosen.com/wp-content/uploads/2012/11/photo_thumb.png" width="482" height="456"></a></p>

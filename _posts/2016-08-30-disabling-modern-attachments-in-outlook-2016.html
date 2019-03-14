@@ -1,0 +1,106 @@
+---
+layout: post
+status: publish
+published: true
+title: Disabling Modern Attachments in Outlook 2016
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1848
+wordpress_url: http://www.cgoosen.com/?p=1848
+date: '2016-08-30 19:20:34 +0000'
+date_gmt: '2016-08-31 01:20:34 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 269318
+  author: Anwar
+  author_email: amahmood5@uclan.ac.uk
+  author_url: ''
+  date: '2016-11-15 07:33:49 +0000'
+  date_gmt: '2016-11-15 13:33:49 +0000'
+  content: To add, this workaround is impractical when users have Office 365 accounts
+    with Exchange Online and Office 365 ProPlus - one would need them to add these
+    registry values whenever and wherever they install Office 365 ProPlus; impractical.
+- id: 271556
+  author: Mary
+  author_email: marmstrong@milchev.com
+  author_url: ''
+  date: '2017-06-27 10:32:39 +0000'
+  date_gmt: '2017-06-27 16:32:39 +0000'
+  content: Thank you for this information!  I'm pushing the registry change via login
+    script!
+- id: 271560
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-06-27 20:50:59 +0000'
+  date_gmt: '2017-06-28 02:50:59 +0000'
+  content: |-
+    No worries Mary. Glad I could help.
+
+    All the best,
+
+    Chris
+- id: 272156
+  author: Pepito
+  author_email: test@gmail.com
+  author_url: ''
+  date: '2017-08-21 01:43:16 +0000'
+  date_gmt: '2017-08-21 07:43:16 +0000'
+  content: Typo in the blog, should have a \ between 'OutlookDisabledCmdBarItemsList'
+    = Outlook\DisabledCmdBarItemsList thanks for share works great
+- id: 272159
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-08-21 10:44:39 +0000'
+  date_gmt: '2017-08-21 16:44:39 +0000'
+  content: Thanks for pointing that out. I've corrected it.
+- id: 272878
+  author: Bobby
+  author_email: bobby.lansing@cosalesnw.com
+  author_url: ''
+  date: '2017-12-01 10:06:16 +0000'
+  date_gmt: '2017-12-01 16:06:16 +0000'
+  content: "Has this been fixed with this new Registry key and Outlook setting?\r\nhttps://support.microsoft.com/en-us/help/4011261/how-to-set-attachment-preference-for-attaching-a-cloud-file-in-outlook\r\n\r\nLooks
+    promising, but I am having difficulty getting it to work."
+- id: 273029
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-01-05 10:38:40 +0000'
+  date_gmt: '2018-01-05 16:38:40 +0000'
+  content: |-
+    Hi Bobby,
+
+    It does look promising - I haven't tested it though, I'll update this again if when I do.
+
+    Cheers,
+
+    Chris
+---
+<p>The modern attachments (aka cloudy attachments) feature in Outlook 2016 makes it simple for users to share documents stored in OneDrive for Business or SharePoint with each other as links instead of actually attaching the file and emailing it around. This is a great way to reduce the number of different document versions floating around the organization and helps promote collaboration and co-authoring. Once a cloudy attachment is attached to an email, the user can grant view only or edit permissions to the recipient and Exchange will automatically take care of applying the appropriate permission to the document.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/08/blog1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="blog1" src="http://www.cgoosen.com/wp-content/uploads/2016/08/blog1_thumb.png" alt="blog1" width="249" height="206" border="0" /></a></p>
+<p align="left">This feature is available out of the box for Exchange Online users using Outlook 2016 and can be enabled for on-premises users with mailboxes on Exchange 2016 provided OAuth between Exchange 2016 and Office 365 has been <a href="https://technet.microsoft.com/EN-US/library/mt589761%28v=exchg.150%29.aspx" target="_blank" rel="noopener noreferrer">configured properly and the appropriate prerequisites are in place</a>, but what happens to on-premises customers who do not have Exchange 2016 deployed? The scenario is really interesting in that Outlook will still allow users to send cloudy attachments, but because the backend Exchange environment isn&rsquo;t able to apply the appropriate permission to the document the recipient will be unable to view the attachment:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/08/bog2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="bog2" src="http://www.cgoosen.com/wp-content/uploads/2016/08/bog2_thumb.png" alt="bog2" width="413" height="234" border="0" /></a></p>
+<p align="left">This behavior may confuse users and may not be desirable in some environments and while there is no way to specifically disable modern attachments, there is a workaround that may help achieve similar results. There are two options in Outlook that enable modern attachments:</p>
+<ul>
+<li>The &ldquo;Browse Web Locations&rdquo; option allows users to select files from OneDrive for Business, SharePoint sites or Groups.</li>
+<li>The &ldquo;Recent items&rdquo; list provides a list of recently saved documents and when these documents are saved to OneDrive for Business or SharePoint it will automatically provide the option to attach a cloudy attachment version of the document.</li>
+</ul>
+<p>Disabling these two options in Outlook will effectively prevent users from being able to send cloudy attachments and change the user experience from this:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/08/default.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="default" src="http://www.cgoosen.com/wp-content/uploads/2016/08/default_thumb.png" alt="default" width="455" height="127" border="0" /></a></p>
+<p align="left">To this:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/08/after.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="after" src="http://www.cgoosen.com/wp-content/uploads/2016/08/after_thumb.png" alt="after" width="366" height="122" border="0" /></a></p>
+<p align="left">In order to do this, the following registry keys need to be added to the client machine for each user:</p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2016/08/Screen-Shot-2017-08-21-at-11.43.08-AM.png"><img class="aligncenter size-full wp-image-2963" src="https://www.cgoosen.com/wp-content/uploads/2016/08/Screen-Shot-2017-08-21-at-11.43.08-AM.png" alt="" width="646" height="76" /></a></p>
+<p>To simplify this, you can <a href="http://www.cgoosen.com/downloads/DisableModernAttachments.zip" target="_blank" rel="noopener noreferrer">download the registry keys here</a></p>

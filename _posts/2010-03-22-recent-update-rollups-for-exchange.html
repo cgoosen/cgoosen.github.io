@@ -1,0 +1,41 @@
+---
+layout: post
+status: publish
+published: true
+title: Recent Update Rollups for Exchange
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 239
+wordpress_url: http://www.cgoosen.com/2010/03/recent-update-rollups-for-exchange/
+date: '2010-03-22 11:16:16 +0000'
+date_gmt: '2010-03-22 00:16:16 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 31
+  author: draytek help &raquo; PKI Certificate
+  author_email: ''
+  author_url: http://draytekhelp.blogs.weaselmail.co.uk/?p=145
+  date: '2010-03-23 02:50:43 +0000'
+  date_gmt: '2010-03-22 15:50:43 +0000'
+  content: "[...] Recent Update Rollups for Exchange [...]"
+---
+<p>The last three weeks have seen the release of a couple of update rollups. The first of these was Update Rollup 2 for Exchange Server 2010 RTM.&#160; Article ID: <a href="http://support.microsoft.com/?kbid=979611" target="_blank">979611</a> describes all issues that the update rollup fixes.</p>
+<p>Article ID: <a href="http://support.microsoft.com/?kbid=979784" target="_blank">979784</a> describes Update Rollup 3 for Exchange Server 2007 Service Pack 2 which was released on 18/03/2010. This update rollup does not apply to Exchange Server 2007 RTM or to Exchange 2007 Service Pack 1. The series of update rollup packages for Exchange Server 2007 SP2 is independent of the corresponding series of update rollups for Exchange Server 2007 RTM or Exchange 2007 SP1. For a list of update rollups that apply to Exchange Server 2007 RTM or to Exchange Server 2007 SP1, see <a href="http://technet.microsoft.com/en-us/library/ee221180(EXCHG.80).aspx" target="_blank">How to Obtain the Latest Service Pack or Update Rollup for Exchange 2007</a></p>
+<p><font color="#ff0000">Important information for customers who install the update rollup on computers that are not connected to the Internet:</font></p>
+<p>When you install the update rollup on a computer that is not connected to the Internet, you may experience long installation times. Additionally, you may receive the following message: </p>
+<p><strong><em>"Creating Native images for .Net assemblies."</em></strong> </p>
+<p>This behavior is caused by network requests that connect to the <a href="http://crl.microsoft.com/pki/crl/products/CodeSigPCA.crl">http://crl.microsoft.com/pki/crl/products/CodeSigPCA.crl</a> Web site. The network requests look up the certificate revocation list for each assembly that native image generation (NGen) compiles to native code. However, the Exchange Server is not connected to the Internet. Therefore, each request must wait to time-out before it moves on. To fix this problem, turn off the &ldquo;Check for publisher&rsquo;s certificate revocation&rdquo; security option on the server that is being upgraded. To do this, follow these steps:</p>
+<ol>
+<li>In Internet Explorer, select Tools, select Internet Options, and then click the Advanced Tab.</li>
+<li>In the Security section, click to clear the Check for publisher's certificate revocation check box.</li>
+<li>Click OK to close the Internet Options dialog box.</li>
+</ol>
+<p>When setup is complete, recheck the &ldquo;Check for publisher&rsquo;s certificate revocation&rdquo; check box.</p>

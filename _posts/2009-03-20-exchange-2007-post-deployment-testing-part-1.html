@@ -1,0 +1,43 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Exchange 2007 Post Deployment Testing: Part 1'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 95
+wordpress_url: http://www.cgoosen.com/2009/03/exchange-2007-post-deployment-testing-part-1/
+date: '2009-03-20 10:59:31 +0000'
+date_gmt: '2009-03-19 23:59:31 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 4
+  author: 'Exchange 2007 Post Deployment Testing: Part 2'
+  author_email: ''
+  author_url: http://www.cgoosen.com/2009/04/exchange-2007-post-deployment-testing-part-2/
+  date: '2009-04-03 15:49:04 +0000'
+  date_gmt: '2009-04-03 04:49:04 +0000'
+  content: "[...] 2007 Post Deployment Testing: Part 2 Filed in Exchange Server on
+    Apr.03, 2009 In part 1 of this series, I wrote about how to go about testing your
+    new deployment by making use of several [...]"
+---
+<p>After your planning and deployment phases have been completed, its very important to ensure proper testing of your new environment before moving user accounts and putting the servers into production. Exchange 2007 provides several powershell cmdlets that make it really easy.</p>
+<p>a list of all test cmdlets can be obtained by issuing the <em>Get-Command Test*</em> cmd in EMS.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image7.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb7.png" width="548" height="273" /></a>&#160;</p>
+<p align="left">For the purposes of this post, lets look at a couple of these:</p>
+<p align="left"><em>Test-Mailfow</em></p>
+<p align="left">The <em>Test-Mailflow</em> cmdlet is used to check whether mail can be successfully sent from and delivered to the System Mailbox mailbox on a computer that has the Mailbox server role installed.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image8.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb8.png" width="546" height="146" /></a> <em></em></p>
+<p align="left"><em>Test-ServiceHealth</em></p>
+<p align="left">Use the <em>Test-ServiceHealth</em> cmdlet to test whether all the required services that are configured to start automatically on a server have started. The Test-ServiceHealth cmdlet returns an error for any service that is required by a configured role and is set to start automatically but is not currently running. The output will vary depending on the role of the server you issue the cmd on.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image9.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb9.png" width="546" height="264" /></a> </p>
+<p> <em><font size="2"></font></em></p>
+<p>For a full list of cmdlets, see <a href="http://technet.microsoft.com/en-us/library/bb123703.aspx">Microsoft Technet</a></p>

@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! </title>
+    <meta property="og:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+    <meta name="twitter:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+
+    <meta name="description" content="">
+    <meta name="description" property="og:description" content="" />
+    <meta name="twitter:description" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:site" content="@chrisgoosen" />
+    
+    <meta property="og:url" content="http://172.16.7.177:4000/page9/" />
+
+    <meta property="og:image" content="" />
+    <meta name="twitter:image" content="" />
+
+    <meta name="author" content="Chris's Blog" />
+
+    <meta name="copyright" content="Copyright by Chris's Blog. All Rights Reserved." />
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v15/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(https://fonts.gstatic.com/s/roboto/v15/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="http://172.16.7.177:4000/assets/css/main.css">
+
+    <link rel="canonical" href="http://172.16.7.177:4000/page9/">
+
+    <link rel="alternate" type="application/rss+xml" title="" href="http://172.16.7.177:4000/feed.xml">
+</head>
+
+    <body>
+        <div class="wrapper">
+            <aside class="user-profile fixed" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
+    </div>
+
+    <div class="compact-header">
+        <a class="avatar" href="http://172.16.7.177:4000"><img alt="Avatar" src="/assets/img/headshot.jpg" /></a>
+        <div class="my-info">
+            <strong class="my-name">Chris's Blog</strong>
+            <span class="my-job-title">It's called thinking...  go with it!</span>
+        </div>
+    </div>
+
+    
+        
+        <div class="mainmenu">
+            <a href="http://172.16.7.177:4000" >Home</a>
+            
+                
+            
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/contact/" >Contact</a>
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/about/" >About</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+    
+    
+    <div>
+    	<img src="/assets/img/mvp.png" style="width:181px;height:74px;">
+    </div>
+
+    <p class="about-me"> </p>
+    
+    <ul class="socials">
+        <li><a href="https://twitter.com/chrisgoosen" target="_blank"><svg title="twitter" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li><li><a href="https://www.linkedin.com/in/ctgoosen/" target="_blank"><svg title="linkedin" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#linkedin-icon"></use></svg></a></li><li><a href="https://github.com/cgoosen" target="_blank"><svg title="github" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#github-icon"></use></svg></a></li>
+
+        
+            <li><a href="/contact" target="_blank"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        
+
+        
+         <li><a href="http://feeds.cgoosen.com/cgoosen"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        
+    </ul>
+</aside>
+
+
+            <main class="the-content" role="main">
+                <div class="search" role="search">
+    <div>
+        <div class="show-results-count">0 Results</div>
+        <div class="search-holder">
+            <input type="text" id="search-input" placeholder="search for..." />
+        </div>
+    </div>
+    <ul id="results-container" class="results-container"></ul>
+</div>
+
+
+                
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-07-26T10:43:16-05:00" itemprop="datePublished">26 Jul, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/07/ill-be-speaking-at-teched-australia-2013">I&rsquo;ll be speaking at TechEd Australia 2013</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Mario Tevanian (Microsoft) and I will be presenting a &ldquo;Exchange 2013 Hybrid Deployments&rdquo; session at TechEd Australia 2013 (3-6 September, Gold Coast) The session will provide an overview of the complete range of migration options that are available when migrating to Exchange Online and discuss the new Exchange 2013 hybrid configuration wizard. Did you know that public folders are now supported in Exchange Online? Come and learn more about modern public folders and how to migrate them. In this session we also share some notes from the field and highlight the recommended approach and best practices you should consider as you plan to migrate your existing Exchange environment to Exchange Online. </p>
+<p>Room and time slot details are not available yet, but I&rsquo;ll share them as soon as I know what they are. The session code is: EXL314. See you there! </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/07/SMIC1608_blogBling_speaking.jpg"><img title="SMIC1608_blogBling_speaking" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="SMIC1608_blogBling_speaking" src="http://www.cgoosen.com/wp-content/uploads/2013/07/SMIC1608_blogBling_speaking_thumb.jpg" width="216" height="216"></a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=I&rsquo;ll be speaking at TechEd Australia 2013&p[summary]=Mario Tevanian (Microsoft) and I will be presenting a &ldquo;Exchange 2013 Hybrid Deployments&rdquo; session at TechEd Australia 2013 (3-...&p[url]=http://172.16.7.177:4000/2013/07/ill-be-speaking-at-teched-australia-2013" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/07/ill-be-speaking-at-teched-australia-2013&text=Mario Tevanian (Microsoft) and I will be presenting a &ldquo;Exchange 2013 Hybrid Deployments&rdquo; session at TechEd Australia 2013 (3-...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-07-23T07:41:13-05:00" itemprop="datePublished">23 Jul, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/07/reverse-proxy-for-exchange-server-2013-using-iis-arr">Reverse Proxy for Exchange Server 2013 using IIS ARR</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Microsoft Application Request Routing (ARR) is a proxy-based routing module for IIS that forwards HTTP requests to content servers based on HTTP headers, server variables, and load balance algorithms. After my recent posts on reverse proxy servers and Exchange Server I received a few emails about using ARR as a reverse proxy for Exchange Server. The Exchange Team recently released some guidance on how to achieve this on their blog for those of you who are interested in this setup, <a href="http://blogs.technet.com/b/exchange/archive/2013/07/19/reverse-proxy-for-exchange-server-2013-using-iis-arr-part-1.aspx" target="_blank">here is a link to the post.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Reverse Proxy for Exchange Server 2013 using IIS ARR&p[summary]=Microsoft Application Request Routing (ARR) is a proxy-based routing module for IIS that forwards HTTP requests to content servers based ...&p[url]=http://172.16.7.177:4000/2013/07/reverse-proxy-for-exchange-server-2013-using-iis-arr" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/07/reverse-proxy-for-exchange-server-2013-using-iis-arr&text=Microsoft Application Request Routing (ARR) is a proxy-based routing module for IIS that forwards HTTP requests to content servers based ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-07-19T07:09:00-05:00" itemprop="datePublished">19 Jul, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/07/exchange-server-and-the-reverse-proxy-part-2">Exchange Server and the Reverse Proxy - Part 2</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>In March this year I wrote a post entitled &ldquo;<a href="http://www.cgoosen.com/2013/03/exchange-server-and-the-reverse-proxy/" target="_blank">Exchange Server and the Reverse Proxy</a>&rdquo;. I had many similar conversations with peers and customers about the topic, and at the time my intention was twofold:</p>
+<ol>
+<li>Question the &lsquo;old school&rsquo; notion that Exchange services published to the internet are only secure if a reverse proxy is used;
+<li>Provide a high-level list of potentially suitable solutions for customers planning new deployments who felt they still needed a reverse proxy.</li>
+</ol>
+<p>I&rsquo;ve received many comments and emails about that post and have been planning to put together this follow-up for some time now so it was a happy coincidence when the ever entertaining (and deceptively brilliant!) Greg Taylor <a href="http://blogs.technet.com/b/exchange/archive/2013/07/17/life-in-a-post-tmg-world-is-it-as-scary-as-you-think.aspx" target="_blank">recently posted about the same topic on the Exchange Team blog</a>. I&rsquo;m sure he won&rsquo;t mind me &lsquo;borrowing&rsquo; some of this content, it is not my intention to take anything out of context so feel free to read <a href="http://blogs.technet.com/b/exchange/archive/2013/07/17/life-in-a-post-tmg-world-is-it-as-scary-as-you-think.aspx" target="_blank">this entire post here</a>. A couple of things that really stand out in his post are:</p>
+<blockquote><p><em>&ldquo;Here are some interesting Exchange-related facts to help further cement the idea I&rsquo;m eventually going to get to.</em></p>
+<ol>
+<li><em>We do not require traffic to be authenticated prior to hitting services in front of Exchange Online.</em>
+<li><em>We do not do any form of pre-authentication of services in front of our corporate, on-premises messaging deployments either.</em>
+<li><em>We have spent an awfully large amount of time as a company working on securing our code, writing secure code, testing our code for security, and understanding the threats that exist to our code. This is why we feel confident enough to do #1 and #2.</em>
+<li><em>We have come to learn that adding layers of security often adds little additional security, but certainly lots of complexity.</em>
+<li><em>We have invested in getting our policies right and monitoring our systems.&rdquo;</em></li>
+</ol>
+</blockquote>
+<blockquote><p><em>&ldquo;Do I think everyone should throw out that TMG box they have today and go firewall commando? No. not at all. I think they should evaluate what it does for them, and, if they need it going forward. If they do that, and decide they still want pre-auth, then find something that can do it, when the time to replace TMG comes. </em>
+<p><em>You could consider it a sliding scale, of choice. Something like this perhaps;&rdquo;</em>
+<p align="center"><a href="http://blogs.technet.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-31-06-metablogapi/2045.TMGScale_5F00_7671E17B.jpg"><img title="TMGScale" border="0" alt="TMGScale" src="http://blogs.technet.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-31-06-metablogapi/8311.TMGScale_5F00_thumb_5F00_464A96B8.jpg" width="811" height="478"></a></p>
+</blockquote>
+<p>The recent release of <a href="http://www.microsoft.com/en-us/server-cloud/windows-server/windows-server-2012-r2.aspx" target="_blank">Windows Server 2012 R2</a> Preview brings with it the new <a href="http://technet.microsoft.com/en-us/library/dn280944.aspx" target="_blank">Web Application Proxy role.</a> Web Application Proxy is a new Remote Access role service in Windows Server 2012 R2 Preview that provides reverse proxy functionality for web applications inside your corporate network to allow users on any device to access them from outside the corporate network. Web Application Proxy pre-authenticates access to web applications using Active Directory Federation Services (AD FS), and also functions as an AD FS proxy. My esteemed colleague <a href="https://twitter.com/MarcTerblanche" target="_blank">Marc Terblanche</a> has put together a couple of great posts on the Kloud Solutions blog about the Web Application Proxy role, check them out here:</p>
+<ul>
+<li><a href="http://blog.kloud.com.au/2013/07/03/windows-2012-r2-preview-web-application-proxy-exchange-2013-publishing-tests/" target="_blank">Windows 2012 R2 Preview Web Application Proxy &ndash; Exchange 2013 Publishing Tests</a></li>
+<li><a href="http://blog.kloud.com.au/2013/07/15/publish-lync-2013-with-2012-r2-preview-web-application-proxy/" target="_blank">Publish Lync 2013 with 2012 R2 Preview Web Application Proxy</a></li>
+</ul>
+<p>I also wanted to post an update on the Apache/mod_proxy solution I mentioned in my previous post. Free time (aka lab time) has become somewhat limited lately so I haven&rsquo;t been able iron out all the issues with the solution yet, but I recently came across an open source project that looks very promising. The guys at <a href="http://www.vultureproject.org/" target="_blank">Vulture</a> seem to have created exactly what I was trying to do in a much more elegant way. They&rsquo;ve put together a web application firewall using open source components like Apache and mod_security and have even added a configuration web gui to it. Vulture does pre-authentication using a number of authentication providers and also provides other features like load balancing. I have not tested it myself (yet!) but if this interests you, check it out here: <a href="http://www.vultureproject.org/">http://www.vultureproject.org/</a> &ndash; The documentation is in French but seems to translate reasonably well..</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange Server and the Reverse Proxy - Part 2&p[summary]=In March this year I wrote a post entitled &ldquo;Exchange Server and the Reverse Proxy&rdquo;. I had many similar conversations with pee...&p[url]=http://172.16.7.177:4000/2013/07/exchange-server-and-the-reverse-proxy-part-2" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/07/exchange-server-and-the-reverse-proxy-part-2&text=In March this year I wrote a post entitled &ldquo;Exchange Server and the Reverse Proxy&rdquo;. I had many similar conversations with pee...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-07-10T06:36:16-05:00" itemprop="datePublished">10 Jul, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/07/exchange-2013-cu2-released">Exchange 2013 CU2 Released!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Ross Smith IV <a href="http://blogs.technet.com/b/exchange/archive/2013/07/09/released-exchange-server-2013-rtm-cumulative-update-2.aspx" target="_blank">announced the release</a> of <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39609" target="_blank">Exchange Server 2013 RTM Cumulative Update 2 (CU2)</a> on the Exchange Team blog earlier today. </p>
+<p>In addition to bug fixes, Exchange 2013 RTM CU2 introduces enhancements in the following areas:</p>
+<ul>
+<li>Per-server database support - increased from 50 to 100 databases </li>
+<li>OWA Redirection - adds single sign-on when FBA is used on source and target</li>
+<li>High Availability - introduces the new "DAG Management Service"</li>
+<li>Improvements to Managed Availability </li>
+<li>Cmdlet Help - introduces Update-ExchangeHelp cmdlet to update local Shell help </li>
+<li>OWA Search Improvements </li>
+<li>Malware Filter Rules - introduces the &ndash;MalwareFilterRule cmdlets</li>
+</ul>
+<p>He also announced that the Exchange Product Group is in the final validation stages to support Windows Azure for Witness Server placement. There has been much talk about leveraging Windows Azure for things like Witness Servers lately, so this is quite an exciting announcement for many organizations.</p>
+<p>Exchange 2013 CU2 does include schema changes so I highly recommend reading the <a href="http://blogs.technet.com/b/exchange/archive/2013/07/09/released-exchange-server-2013-rtm-cumulative-update-2.aspx" target="_blank">upgrading/deploying section</a> before attempting to implement it. The download is <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39609" target="_blank">available here.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2013 CU2 Released!&p[summary]=Ross Smith IV announced the release of Exchange Server 2013 RTM Cumulative Update 2 (CU2) on the Exchange Team blog earlier today. 
+In ad...&p[url]=http://172.16.7.177:4000/2013/07/exchange-2013-cu2-released" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/07/exchange-2013-cu2-released&text=Ross Smith IV announced the release of Exchange Server 2013 RTM Cumulative Update 2 (CU2) on the Exchange Team blog earlier today. 
+In ad...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-06-30T12:04:00-05:00" itemprop="datePublished">30 Jun, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/06/remote-connectivity-analyzermessage-analyzer">Remote Connectivity Analyzer&ndash;Message Analyzer</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>If you often use the Remote Connectivity Analyzer tool (<a title="https://www.testexchangeconnectivity.com/" href="https://www.testexchangeconnectivity.com/">https://www.testexchangeconnectivity.com/</a>) you may have noticed the &ldquo;Message Analyzer&rdquo; tab that was added recently. I noticed it a while back but never gave it much thought until I have troubleshooting&nbsp; a mail flow problem for a customer today so I thought I would write up this quick post about it.</p>
+<p>SMTP message headers contain a lot of valuable information about origins of a message and how it eventually made it to the intended destination. The Message Analyzer displays SMTP message header information in a easy to read format.</p>
+<p>To use the Message Analyzer, simply copy the SMTP message header from a message and paste it into the tool:</p>
+<p>&nbsp;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/07/11.png"><img title="1" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="1" src="http://www.cgoosen.com/wp-content/uploads/2013/07/1_thumb1.png" width="713" height="471"></a></p>
+<p align="left">Once you click &ldquo;Analyze headers&rdquo; the header information will be displayed in a table</p>
+<p align="center">&nbsp;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/07/21.png"><img title="2" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="2" src="http://www.cgoosen.com/wp-content/uploads/2013/07/2_thumb1.png" width="925" height="603"></a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Remote Connectivity Analyzer&ndash;Message Analyzer&p[summary]=If you often use the Remote Connectivity Analyzer tool (https://www.testexchangeconnectivity.com/) you may have noticed the &ldquo;Messag...&p[url]=http://172.16.7.177:4000/2013/06/remote-connectivity-analyzermessage-analyzer" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/06/remote-connectivity-analyzermessage-analyzer&text=If you often use the Remote Connectivity Analyzer tool (https://www.testexchangeconnectivity.com/) you may have noticed the &ldquo;Messag...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-05-14T04:35:36-05:00" itemprop="datePublished">14 May, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/05/sizing-exchange-2013-deployments">Sizing Exchange 2013 Deployments</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>The Exchange Team <a href="http://blogs.technet.com/b/exchange/archive/2013/05/06/ask-the-perf-guy-sizing-exchange-2013-deployments.aspx" target="_blank">recently released</a> some great guidance on how to size Exchange 2013 deployments. I think this is a really comprehensive post and as expected, the guidance is in favour of multi-role deployments. There is no &ldquo;calculator&rdquo; spread sheet out yet, however we should see one released soon. Read the <a href="http://blogs.technet.com/b/exchange/archive/2013/05/06/ask-the-perf-guy-sizing-exchange-2013-deployments.aspx" target="_blank">full post here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Sizing Exchange 2013 Deployments&p[summary]=The Exchange Team recently released some great guidance on how to size Exchange 2013 deployments. I think this is a really comprehensive ...&p[url]=http://172.16.7.177:4000/2013/05/sizing-exchange-2013-deployments" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/05/sizing-exchange-2013-deployments&text=The Exchange Team recently released some great guidance on how to size Exchange 2013 deployments. I think this is a really comprehensive ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-04-04T05:05:55-05:00" itemprop="datePublished">4 Apr, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/04/exchange-2013-cu1-released-2">Exchange 2013 CU1 Released!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Following the <a href="http://www.cgoosen.com/2013/02/exchange-2010-sp3-released/" target="_blank">release of Exchange 2010 SP3</a> in February, the Exchange Team have <a href="http://blogs.technet.com/b/exchange/archive/2013/04/02/released-exchange-server-2013-rtm-cumulative-update-1.aspx" target="_blank">announced the release of Exchange Server 2013 Cumulative Update 1 (CU1)</a>. CU1 does include some new features, including *some* access Public Folder content through Outlook Web App but I think it is fair to say that legacy coexistence is the reason everyone has been waiting for CU1. CU1 is the minimum version of Exchange 2013 required for on-premises coexistence with supported legacy Exchange Server versions, but, before you steam ahead and install it I think it is important to understand all the caveats of coexistence so be sure to <a href="http://technet.microsoft.com/en-us/library/aa998636(v=exchg.150).aspx" target="_blank">check out the Planning and Deployment documentation</a>. Scott Schnoll put together a great <a href="http://blogs.technet.com/b/scottschnoll/archive/2013/04/02/high-availability-changes-in-exchange-server-2013-cumulative-update-1.aspx" target="_blank">post about the high availability changes in Exchange 2013 CU1</a> which is also worth reading.</p>
+<p>The Exchange 2013 CU1 release notes are <a href="http://technet.microsoft.com/en-us/library/jj150489(v=exchg.150).aspx" target="_blank">available here</a> and you can <a href="http://www.microsoft.com/en-us/download/details.aspx?id=38176" target="_blank">download it here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2013 CU1 Released!&p[summary]=Following the release of Exchange 2010 SP3 in February, the Exchange Team have announced the release of Exchange Server 2013 Cumulative U...&p[url]=http://172.16.7.177:4000/2013/04/exchange-2013-cu1-released-2" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/04/exchange-2013-cu1-released-2&text=Following the release of Exchange 2010 SP3 in February, the Exchange Team have announced the release of Exchange Server 2013 Cumulative U...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-03-27T09:52:32-05:00" itemprop="datePublished">27 Mar, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/03/exchange-server-and-the-reverse-proxy">Exchange Server and the Reverse Proxy</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Ever since <a href="http://blogs.technet.com/b/server-cloud/archive/2012/09/12/important-changes-to-forefront-product-roadmaps.aspx" target="_blank">Microsoft announced</a> that Forefront Threat Management Gateway (TMG) 2010 will be discontinued, I have had many customers ask me &ldquo;What should we use as a reverse proxy for Exchange?&rdquo;. This question has sparked many heated debates among colleagues and customers alike. To be fair, this announcement may have come as a huge shock to many people, but I think deep down many of us expected it to happen sooner or later.. TMG was a great product and really became the de facto standard for reverse proxying Exchange (and Lync, etc) and thinking back to all the Exchange deployments I have been involved with over the years, it is fair to say that most of them made use of ISA/TMG as a reverse proxy in some way. It worked well, but sadly all good things come to an end.</p>
+<p>So, lets get back to the question.. &ldquo;What should we use as a reverse proxy for Exchange?&rdquo; I&rsquo;ve been thinking about this for a while and I don&rsquo;t believe there is a magical silver bullet solution that will work for everyone and I urge my customers to think it through and make an informed decision. Do you even need a reverse proxy for Exchange? This is where things get heated.. but hear me out.. there are those who have been talking about the death of the DMZ for some time now. I remember attending a Tech-Ed session back in 2008 where <a href="http://channel9.msdn.com/Events/TechEd/Europe/2008/SEC309" target="_blank">Steve Riley talked about this</a> and Deb Shinder has also <a href="http://www.windowsecurity.com/articles-tutorials/misc_network_security/Has-Day-Death-DMZ-Finally-Arrived.html" target="_blank">blogged about this topic in the past.</a> I&rsquo;m not saying get rid of your firewall, but what I am saying is that perhaps you no longer need to use a reverse proxy to secure connections to your Exchange servers and this is something that should be thought about. My first response to the &ldquo;What should we use as a reverse proxy for Exchange?&rdquo; question is &ldquo;Do you still need a reverse proxy?&rdquo; and 99% of the time the answer I get back is &ldquo;Yes, because it is insecure not to&rdquo;. Perhaps it used to be, but is that statement still true? Every environment is different and every organisation has different needs and requirements. My intention with this post is to help you ask the right questions and make an informed decision.</p>
+<p>One of the great things about being a consultant is that I get to work with many different types of customers and see many different types of environments and typically the decision to implement a reverse proxy is driven by one or both of the following factors:</p>
+<ol>
+<li><strong>Application Hardening</strong> - The concept of application hardening has been around for some time now and there is a lot of information floating around about it. The question we need to ask is: does Exchange (the CAS role in particular) need to be hardened? The reality is that times have changed and both Windows Server and Exchange have matured and are hardened by default. Exchange CAS was designed to be internet facing so there really is no need for a reverse proxy in order to secure it anymore. Sure, using a reverse proxy is useful if you wish to implement third party two factor authentication or have other very specific requirements, but will your Exchange implementation be less secure without one? probably not.
+<li><strong>Security Policy - </strong>Security policy is much more complex and as you would expect, these policies come in many flavours! One thing most of them have in common is that they restrict traffic from passing through an entire zone or prevent services on the internal network from being accessed directly from the internet, i.e traffic cannot pass directly through the DMZ to the internal network, and must first terminate in the DMZ. In the past, the solution was to implement ISA/TMG as a reverse proxy in the DMZ. We already know that Exchange does not need any further hardening, so technically there is no need for this, but while technology matures relatively quickly security policies rarely keep up so it is fairly common to have this type of out-dated policy that dictates the use of a reverse proxy. Sometimes the remnants of this type of security policy are still visible long after the policy has evolved &ndash; I did some work with a customer recently who had a policy like this in the past and over time as their network grew they made decisions based on this policy that have resulted in a few technical constraints that are now causing some headaches. Typically, these security policies are similar to the diagram below:</li>
+</ol>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/03/Blog-Diagrams.png"><img title="Blog Diagrams" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="Blog Diagrams" src="http://www.cgoosen.com/wp-content/uploads/2013/03/Blog-Diagrams_thumb.png" width="742" height="346"></a></p>
+<p>There is something else to consider and that is performance. Often due to the mission critical nature of DMZ infrastructure and its various dependencies, this infrastructure is not upgraded or refreshed as regularly as other infrastructure so you end up building on infrastructure that was never intended to deal with the load that is now being placed on it. A classic example of this is an environment I saw a while back &ndash; this particular organisation was in the process of refreshing their messaging platform and had just made a significant investment in a highly available Exchange environment only to go and use the ageing 32-bit only ISA 2006 infrastructure in their DMZ as a reverse proxy because connections to Exchange needed to be &ldquo;secured&rdquo;.</p>
+<p>So what&rsquo;s answer then? Well.. I think it is important to first understand what your requirements are. Are you currently using TMG? why change? Mainstream support for TMG will <a href="http://support.microsoft.com/lifecycle/search/default.aspx?sort=PN&amp;alpha=Forefront+Threat+Management+Gateway+2010&amp;Filter=FilterNO" target="_blank">continue into 2015 with extended support through 2020</a>. Are you looking to implement a reverse proxy because you think it will make Exchange more secure? If so, perhaps you need to rethink your approach. Are you looking for a TMG replacement because your security policy dictates the use of a proxy server and you really have no choice in the matter? Here are three options:</p>
+<ol>
+<li><strong>F5 BIG-IP Access Policy Manager (APM)</strong>&nbsp; - Many organisations have already invested in BIG-IP LTM devices to load balance Exchange. It makes sense to leverage this infrastructure, you&rsquo;ll have the added benefit of infrastructure consolidation if you move the reverse proxy functionality to your BIG-IP devices. <a href="http://www.f5.com/products/big-ip/big-ip-access-policy-manager/overview/" target="_blank">More info here</a>
+<li><strong>KEMP LoadMaster Edge Security Pack (ESP) - </strong>I have always been a big fan of the KEMP LoadMaster devices and KEMP is currently working on their Edge Security Pack which will help provide some TMG functionality and compliment their already excellent offering. These devices already provide excellent value for money and my understanding is that the ESP will be a free upgrade for most customers. ESP is not publically available yet but I think it is worth looking at. <a href="http://www.kemptechnologies.com/en/tmg-edge-security-authentication.html" target="_blank">More info here</a>
+<li><strong>Apache HTTP Server with mod_proxy - </strong>No, your eyes are not deceiving you, it is possible to use apache as a reverse proxy. I am not making any claims about the supportability of the solution or saying that it is an enterprise ready option, and just because it is possible to do it does not mean you should. I have seen many attempts at this solution in the past so I am currently working on a post that will provide a guide on how to go about setting it all up as well as explain the limitations and pitfalls of the solution. I hope to post more about it soon.</li>
+</ol>
+<p>I&rsquo;m sure there are many other equally suitable solutions, but my intention was to mention some of the ones I have worked with or tested. Each of these also have different pricing and scalability options so they will appeal to a wide range of different organisations.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange Server and the Reverse Proxy&p[summary]=Ever since Microsoft announced that Forefront Threat Management Gateway (TMG) 2010 will be discontinued, I have had many customers ask me...&p[url]=http://172.16.7.177:4000/2013/03/exchange-server-and-the-reverse-proxy" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/03/exchange-server-and-the-reverse-proxy&text=Ever since Microsoft announced that Forefront Threat Management Gateway (TMG) 2010 will be discontinued, I have had many customers ask me...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-02-20T03:45:18-06:00" itemprop="datePublished">20 Feb, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/02/ios-6-1-2-software-update-fixes-exchange-calendar-bug">iOS 6.1.2 Software Update - Fixes Exchange calendar bug</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Looks like <a href="http://support.apple.com/kb/DL1639" target="_blank">Apple finally released</a> an update to fit the <a href="http://www.cgoosen.com/2013/02/apple-ios-6-1-devices-causing-increased-resource-consumption-in-exchange-server-2010/" target="_blank">exchange calendar bug</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/02/photo.png"><img title="photo" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="photo" src="http://www.cgoosen.com/wp-content/uploads/2013/02/photo_thumb.png" width="453" height="677"></a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=iOS 6.1.2 Software Update - Fixes Exchange calendar bug&p[summary]=Looks like Apple finally released an update to fit the exchange calendar bug
+&nbsp;
+
+&p[url]=http://172.16.7.177:4000/2013/02/ios-6-1-2-software-update-fixes-exchange-calendar-bug" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/02/ios-6-1-2-software-update-fixes-exchange-calendar-bug&text=Looks like Apple finally released an update to fit the exchange calendar bug
+&nbsp;
+
+&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-02-14T03:54:21-06:00" itemprop="datePublished">14 Feb, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/02/apple-ios-6-1-devices-causing-increased-resource-consumption-in-exchange-server-2010">Apple iOS 6.1 devices causing increased resource consumption in Exchange Server 2010</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p><span style="color: #ff0000;">Update:</span> <a title="iOS 6.1.2 Software Update &ndash; Fixes Exchange calendar bug" href="http://www.cgoosen.com/2013/02/ios-6-1-2-software-update-fixes-exchange-calendar-bug/">iOS 6.1.2 resolves this problem</a></p>
+<p>I have see a lot of reports lately about the Apple iOS 6.1 bug effecting organisations using Exchange 2010. The problem appears to occur when a user using a Apple device (iPad, iPhone, etc) with iOS 6.1 responds to or edits a single instance of a recurring calendar event, this causes excessive log growth and a significant increase in memory and CPU resource consumption in turn causing server performance to be affected. Both <a href="http://support.microsoft.com/kb/2814847" target="_blank">Microsoft</a> and <a href="http://support.apple.com/kb/TS4532" target="_blank">Apple</a> have released support articles for this bug, but at the time of writing it has not been fixed.</p>
+<p>If you do currently have a large iOS device fleet, I would suggest advising your users against upgrading their devices until this is resolved. If you are already experiencing resource problems on your Exchange servers, I strongly suggest using either a custom throttling policy for iOS 6.1 users or blocking iOS 6.1 users completely. For more information on these workarounds, see the <a href="http://support.microsoft.com/kb/2814847" target="_blank">following Microsoft support article.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Apple iOS 6.1 devices causing increased resource consumption in Exchange Server 2010&p[summary]=Update: iOS 6.1.2 resolves this problem
+I have see a lot of reports lately about the Apple iOS 6.1 bug effecting organisations using Exch...&p[url]=http://172.16.7.177:4000/2013/02/apple-ios-6-1-devices-causing-increased-resource-consumption-in-exchange-server-2010" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/02/apple-ios-6-1-devices-causing-increased-resource-consumption-in-exchange-server-2010&text=Update: iOS 6.1.2 resolves this problem
+I have see a lot of reports lately about the Apple iOS 6.1 bug effecting organisations using Exch...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+
+
+
+<div class="pagination" role="navigation" aria-label="pagination">
+    
+        <a href="/page8/" class="previous">&larr; Previous</a>
+    
+
+    <span class="page_number">Page 9 of 24</span>
+
+    
+        <a href="/page10/" class="next">Next &rarr;</a>
+    
+</div>
+
+            </main>
+        </div>
+
+        <script src="http://172.16.7.177:4000/assets/js/jquery-1.12.2.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/backtotop.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr-feed.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/jquery.fitvids.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/svg4everybody.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/scripts.js"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXXXX-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+        <style>
+.lightbox {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.85); z-index: 9999999; line-height: 0; cursor: pointer;}
+.lightbox .img {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 100%;
+	max-height: 100%;
+}
+.lightbox .img img {opacity: 0; pointer-events: none; width: auto;}
+@media screen and (min-width: 1200px) {
+    .lightbox .img {
+		max-width: 1200px;
+    }
+}
+@media screen and (min-height: 1200px) {
+    .lightbox img {
+		max-height: 1200px;
+	}
+}
+.lightbox span {display: block; position: fixed; bottom: 13px; height: 1.5em; line-height: 1.4em; width: 100%; text-align: center; color: white; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+
+
+
+
+.lightbox .videoWrapperContainer {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 900px;
+	max-height: 100%;
+}
+.lightbox .videoWrapperContainer .videoWrapper {
+	height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-bottom: 56.333%; /* custom */
+	background: black;
+} 
+.lightbox .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}   
+.lightbox #prev, .lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
+.lightbox.gallery #prev, .lightbox.gallery #next {display: block;}
+.lightbox #prev {left: 0;}
+.lightbox #next {right: 0;}
+.lightbox #close {height: 50px; width: 50px; position: fixed; cursor: pointer; text-decoration: none; z-index: 99; right: 0; top: 0;}
+.lightbox #close:after, .lightbox #close:before {position: absolute; margin-top: 22px; margin-left: 14px; content: ""; height: 3px; background: white; width: 23px;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+/* Safari */
+-webkit-transform: rotate(-45deg);
+/* Firefox */
+-moz-transform: rotate(-45deg);
+/* IE */
+-ms-transform: rotate(-45deg);
+/* Opera */
+-o-transform: rotate(-45deg);
+}
+.lightbox #close:after {
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+/* Opera */
+-o-transform: rotate(45deg);
+}
+.lightbox, .lightbox * {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+</style>
+		
+<script>
+function is_youtubelink(url) {
+  var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  return (url.match(p)) ? RegExp.$1 : false;
+}
+function is_imagelink(url) {
+	var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
+	return (url.match(p)) ? true : false;
+}
+function is_vimeolink(url,el) {
+	var id = false;
+	$.ajax({
+	  url: 'https://vimeo.com/api/oembed.json?url='+url,
+	  async: true,
+	  success: function(response) {
+		if(response.video_id) {
+		  id = response.video_id;
+		  $(el).addClass('lightbox-vimeo').attr('data-id',id);
+		}
+	  }
+	});
+}
+
+$(document).ready(function() {
+	//add classes to links to be able to initiate lightboxes
+	$("a").each(function(){
+		var url = $(this).attr('href');
+		if(url) {
+			if(url.indexOf('vimeo') !== -1 && !$(this).hasClass('no-lightbox')) is_vimeolink(url,$(this));
+			if(is_youtubelink(url) && !$(this).hasClass('no-lightbox')) $(this).addClass('lightbox-youtube').attr('data-id',is_youtubelink(url));
+			if(is_imagelink(url) && !$(this).hasClass('no-lightbox')) {
+				$(this).addClass('lightbox-image');
+				var href = $(this).attr('href');
+				var filename = href.split('/').pop();
+				var split = filename.split(".");
+				var name = split[0];
+				$(this).attr('title',name);
+			}
+		}
+	});
+	//remove the clicked lightbox
+	$("body").on("click", ".lightbox", function(event){
+		if($(this).hasClass('gallery')) {
+			$(this).remove();
+			if($(event.target).attr('id')=='next') {
+				//next item
+				if($("a.gallery.current").nextAll("a.gallery:first").length) $("a.gallery.current").nextAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").first().click();
+			}
+			else if ($(event.target).attr('id')=='prev') {
+				//prev item
+				if($("a.gallery.current").prevAll("a.gallery:first").length) $("a.gallery.current").prevAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").last().click();
+			}
+			else {
+				$("a.gallery").removeClass('gallery');
+			}
+		}
+		else $(this).remove();
+	});
+	//prevent image from being draggable (for swipe)
+	$("body").on('dragstart', ".lightbox img", function(event) { event.preventDefault(); });
+	//add the youtube lightbox on click
+	$("a.lightbox-youtube").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&showinfo=0&rel=0"></iframe></div></div></div>').appendTo('body');
+	});
+	//add the image lightbox on click
+	$("a.lightbox-image").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" style="background: url('+$(this).attr('href')+') center center / contain no-repeat;" title="'+$(this).attr('title')+'" ><img src="'+$(this).attr('href')+'" alt="'+$(this).attr('title')+'" /></div><span>'+$(this).attr('title')+'</span></div>').appendTo('body');
+	});
+	//add the vimeo lightbox on click
+	$("body").on("click", "a.lightbox-vimeo", function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+$(this).attr('data-id')+'/?autoplay=1&byline=0&title=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div></div>').appendTo('body');
+	});
+
+	$("body").on("click", "a[class*='lightbox-']", function(){
+		var link_elements = $(this).parent().find("a[class*='lightbox-']");
+		$(link_elements).removeClass('current');
+		for (var i=0; i<link_elements.length; i++) {
+			if($(this).attr('href') == $(link_elements[i]).attr('href')) {
+				$(link_elements[i]).addClass('current');
+			}
+		}
+		if(link_elements.length>1) {
+			$('.lightbox').addClass('gallery');
+			$(link_elements).addClass('gallery');
+		}
+	});
+
+	
+});
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $("#prev").click();
+        break;
+        case 39: // right
+        $("#next").click();
+        break;
+	case 27: // esc
+        $("#close").click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+  /*===========================
+  Swipe-it v1.4.1
+  An event listener for swiping gestures with vanilla js.
+  https://github.com/tri613/swipe-it#readme
+ 
+  @Create 2016/09/22
+  @Update 2017/08/11
+  @Author Trina Lu
+  ===========================*/
+  "use strict";var _slicedToArray=function(){function n(n,t){var e=[],i=!0,o=!1,r=void 0;try{for(var u,c=n[Symbol.iterator]();!(i=(u=c.next()).done)&&(e.push(u.value),!t||e.length!==t);i=!0);}catch(n){o=!0,r=n}finally{try{!i&&c.return&&c.return()}finally{if(o)throw r}}return e}return function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return n(t,e);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();!function(n,t,e){function i(n){function e(){o("touchstart",m,w),o("touchmove",d,w),o("touchend",p,w),E.mouseEvent&&o("mousedown",s,w)}function i(){y=!1,D=!1,A=!1,b=!1,a=!1}function s(n){a=this,y=n.clientX,D=n.clientY,o("mousemove",l,v),o("mouseup",h,v)}function l(n){n.preventDefault(),y&&D&&(A=n.clientX,b=n.clientY)}function h(n){r("mousemove",l,v),r("mouseup",h,v),p(n)}function m(n){a=this,y=n.touches[0].clientX,D=n.touches[0].clientY}function d(n){A=n.touches[0].clientX,b=n.touches[0].clientY}function p(n){if(y&&D&&A&&b){var t=y-A,e=D-b,o=[t,e].map(Math.abs),r=_slicedToArray(o,2),c=r[0],s=r[1],v=E.minDistance;if(c>v){var f=y<A?"swipeRight":"swipeLeft";u(f,a,{distance:t,start:y,end:A})}if(s>v){var l=D>b?"swipeUp":"swipeDown";u(l,a,{distance:e,start:D,end:b})}(c>v||s>v)&&u("swipe",a)}i()}var E=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},w=c(t.querySelectorAll(n)),y=void 0,D=void 0,A=void 0,b=void 0;E.mouseEvent=void 0===E.mouseEvent?f.mouseEvent:E.mouseEvent,E.minDistance=void 0===E.minDistance?f.minDistance:E.minDistance,i(),e(),this.on=function(n,t){return o(n,t,w),this}}function o(n,t,e){s(e).forEach(function(e){return e.addEventListener(n,t)})}function r(n,t,e){s(e).forEach(function(e){return e.removeEventListener(n,t)})}function u(n,e){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},o=t.createEvent("Event");o.initEvent(n,!0,!0),o.swipe=i,s(e).forEach(function(n){return n.dispatchEvent(o)})}function c(n){for(var t=[],e=0;e<n.length;e++)t.push(n[e]);return t}function s(n){return Array.isArray(n)?n:[n]}var a=!1,v=[n],f={mouseEvent:!0,minDistance:30};n[e]=i}(window,document,"SwipeIt");
+
+var mySwipeIt = new SwipeIt('body');
+mySwipeIt.on('swipeLeft',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#next").click();
+	}
+}).on('swipeRight',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#prev").click();
+	}
+});
+</script>
+
+    </body>
+</html>

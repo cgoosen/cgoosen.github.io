@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: ISA 2006 Disable Lockdown on log failure
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 193
+wordpress_url: http://www.cgoosen.com/2009/07/isa-2006-disable-lockdown-on-log-failure/
+date: '2009-07-30 09:53:49 +0000'
+date_gmt: '2009-07-29 22:53:49 +0000'
+categories:
+- ISA Server
+tags: []
+comments:
+- id: 9
+  author: Rob
+  author_email: rtorcellini@walchem.com
+  author_url: ''
+  date: '2009-08-22 00:45:19 +0000'
+  date_gmt: '2009-08-21 13:45:19 +0000'
+  content: Thank's for the info.  I can't believe that Microsoft just doesn't make
+    this user option.  In fact, they should have the server queue up the logs if the
+    remote SQL server is off-line!
+- id: 27
+  author: Rob Irwin
+  author_email: spammesenseless@sway.co.uk
+  author_url: ''
+  date: '2010-03-04 20:21:07 +0000'
+  date_gmt: '2010-03-04 09:21:07 +0000'
+  content: "Many thanks - good to know it works on 2006. Our ISA dies every time it
+    is being backed up by DPM.\r\n\r\nHopefully will fix."
+---
+<p>In Microsoft ISA Server, alerts can be configured to shut down the Microsoft Firewall service when situations that raise specific events occur. Whenever the Firewall service shuts down, ISA Server goes into lockdown mode, in which only specific types of traffic are allowed. ISA Server can leave lockdown mode only when the Firewall service is restarted. By default, the built-in Log failure alert shuts down the Firewall service. This alert is triggered by the Log failure event, which is raised when a logging failure occurs. You can prevent logging failures from causing ISA Server to go into lockdown by disabling the action of the Log failure alert that shuts down the Firewall service.</p>
+<p>Microsoft have documented this on <a href="http://technet.microsoft.com/en-au/library/cc302466.aspx" target="_blank">Microsoft Technet</a>, although this solution is documented for ISA 2004, it seems to work just fine for ISA 2006. The only problem I encountered is that the script on Technet seems to have be &ldquo;text wrapped&rdquo; so it comes up with syntax errors.</p>
+<p>&#160;</p>
+<p align="center"><font color="#ff0000">***WARNING*** </font></p>
+<p><font color="#ff0000">I am not in any way suggesting that this script should be run on your ISA servers. Lockdown mode is not a bug and was included in the product by design, there are many reasons why it is a good thing so my advice is that you consider all options very carefully before running this script. ALWAYS backup your configuration first!!</font></p>
+<p>&#160;</p>
+<p>I have corrected the syntax errors, DisableLockdownOnLogFailure.vbs can be <a href="http://www.cgoosen.com/downloads/DisableLockdownOnLogFailure.zip" target="_blank">downloaded here</a></p>

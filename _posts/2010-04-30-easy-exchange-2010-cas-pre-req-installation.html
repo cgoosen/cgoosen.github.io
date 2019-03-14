@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Easy Exchange 2010 CAS pre-req installation
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 244
+wordpress_url: http://www.cgoosen.com/2010/04/easy-exchange-2010-cas-pre-req-installation/
+date: '2010-04-30 13:10:28 +0000'
+date_gmt: '2010-04-30 02:10:28 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 150
+  author: nolan
+  author_email: nolansmith77@gmail.com
+  author_url: ''
+  date: '2010-09-22 05:57:17 +0000'
+  date_gmt: '2010-09-21 18:57:17 +0000'
+  content: This made my life easier - thank you!
+---
+<p>Just a short post, hope this will help someone by making Exchange 2010 even easier to deploy. Open Powershell with elevated rights and run the following 3 cmdlets:</p>
+<ul>
+<li>Import-Module ServerManager</li>
+<li>Add-WindowsFeature NET-Framework,RSAT-ADDS,Web-Server,Web-Basic-Auth,Web-Windows-Auth,Web-Metabase,Web-Net-Ext,Web-Lgcy-Mgmt-Console,WAS-Process-Model,RSAT-Web-Server,Web-ISAPI-Ext,Web-Digest-Auth,Web-Dyn-Compression,NET-HTTP-Activation,RPC-Over-HTTP-Proxy &ndash;Restart</li>
+<li>Set-Service NetTcpPortSharing -StartupType Automatic</li>
+</ul>

@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2010 &ldquo;You must close all dialog boxes before you can close Exchange
+  Management Console&rdquo;
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 686
+wordpress_url: http://www.cgoosen.com/2011/08/exchange-2010-you-must-close-all-dialog-boxes-before-you-can-close-exchange-management-console/
+date: '2011-08-25 14:51:17 +0000'
+date_gmt: '2011-08-25 03:51:17 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 229
+  author: Steven Butler
+  author_email: sbutler@stmargaretshigh.com
+  author_url: ''
+  date: '2011-09-20 05:28:18 +0000'
+  date_gmt: '2011-09-19 18:28:18 +0000'
+  content: Thanks for that little nugget. This had been infuriating me, as every time
+    I wanted to close would always the Exchange snapin, I would always get this error.
+    I was certain that it must have a dialogue box open somewhere. At least I know
+    I'm not mad now.
+- id: 249
+  author: Mike Roeser
+  author_email: Mike-Roeser@utc.edu
+  author_url: http://www.utc.edu
+  date: '2011-11-28 06:16:16 +0000'
+  date_gmt: '2011-11-27 19:16:16 +0000'
+  content: The patch fixed it initially but after a few days the same thing is happening
+    again. So Microsoft needs to try again.
+---
+<p>I&rsquo;ve seen this error around a few times over the last while but have never really paid too much attention to it:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2011/08/image2.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2011/08/image_thumb2.png" width="350" height="131" /></a></p>
+<p>It seems it only occurs in the management console if you have IE9 installed on your Exchange 2010 SP1 server. Previously the recommendation was to uninstall IE9 or just live with it. I recently installed <a href="http://www.cgoosen.com/2011/08/update-rollup-5-for-exchange-server-2010-service-pack-1/" target="_blank">Update Rollup 5 for Exchange 2010 SP1</a> in my lab environment and it seems to have fixed this error. </p>
+<p>Obviously I would recommend thorough testing before deploying any updates in production, but I thought it would be worth mentioning that it does seem to fix this error as well.</p>

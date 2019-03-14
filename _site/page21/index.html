@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! </title>
+    <meta property="og:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+    <meta name="twitter:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+
+    <meta name="description" content="">
+    <meta name="description" property="og:description" content="" />
+    <meta name="twitter:description" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:site" content="@chrisgoosen" />
+    
+    <meta property="og:url" content="http://172.16.7.177:4000/page21/" />
+
+    <meta property="og:image" content="" />
+    <meta name="twitter:image" content="" />
+
+    <meta name="author" content="Chris's Blog" />
+
+    <meta name="copyright" content="Copyright by Chris's Blog. All Rights Reserved." />
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v15/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(https://fonts.gstatic.com/s/roboto/v15/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="http://172.16.7.177:4000/assets/css/main.css">
+
+    <link rel="canonical" href="http://172.16.7.177:4000/page21/">
+
+    <link rel="alternate" type="application/rss+xml" title="" href="http://172.16.7.177:4000/feed.xml">
+</head>
+
+    <body>
+        <div class="wrapper">
+            <aside class="user-profile fixed" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
+    </div>
+
+    <div class="compact-header">
+        <a class="avatar" href="http://172.16.7.177:4000"><img alt="Avatar" src="/assets/img/headshot.jpg" /></a>
+        <div class="my-info">
+            <strong class="my-name">Chris's Blog</strong>
+            <span class="my-job-title">It's called thinking...  go with it!</span>
+        </div>
+    </div>
+
+    
+        
+        <div class="mainmenu">
+            <a href="http://172.16.7.177:4000" >Home</a>
+            
+                
+            
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/contact/" >Contact</a>
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/about/" >About</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+    
+    
+    <div>
+    	<img src="/assets/img/mvp.png" style="width:181px;height:74px;">
+    </div>
+
+    <p class="about-me"> </p>
+    
+    <ul class="socials">
+        <li><a href="https://twitter.com/chrisgoosen" target="_blank"><svg title="twitter" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li><li><a href="https://www.linkedin.com/in/ctgoosen/" target="_blank"><svg title="linkedin" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#linkedin-icon"></use></svg></a></li><li><a href="https://github.com/cgoosen" target="_blank"><svg title="github" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#github-icon"></use></svg></a></li>
+
+        
+            <li><a href="/contact" target="_blank"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        
+
+        
+         <li><a href="http://feeds.cgoosen.com/cgoosen"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        
+    </ul>
+</aside>
+
+
+            <main class="the-content" role="main">
+                <div class="search" role="search">
+    <div>
+        <div class="show-results-count">0 Results</div>
+        <div class="search-holder">
+            <input type="text" id="search-input" placeholder="search for..." />
+        </div>
+    </div>
+    <ul id="results-container" class="results-container"></ul>
+</div>
+
+
+                
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-04-03T10:49:00-05:00" itemprop="datePublished">3 Apr, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/04/exchange-2007-post-deployment-testing-part-2">Exchange 2007 Post Deployment Testing: Part 2</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p><a href="http://www.cgoosen.com/2009/03/exchange-2007-post-deployment-testing-part-1/" target="_blank">In part 1</a> of this series, I wrote about how to go about testing your new deployment by making use of several <em>&ldquo;Test-&ldquo; </em>cmdlets in EMS. The Exchange Server Remote Connectivity Analyzer is a great way to test external access. The Exchange Server Remote Connectivity Analyzer (<a title="https://www.testexchangeconnectivity.com/" href="https://www.testexchangeconnectivity.com/">https://www.testexchangeconnectivity.com/</a>) allows administrators to perform the following remote tests:</p>
+<ul>
+<li>Microsoft Exchange ActiveSync Test </li>
+<li>Microsoft Exchange ActiveSync AutoDiscover Test </li>
+<li>Microsoft Office Outlook 2007 Autodiscover Connectivity Test </li>
+<li>Microsoft Office Outlook 2003 RPC/HTTP Connectivity Test </li>
+<li>Inbound SMTP Email Test </li>
+</ul>
+<p>&#160;</p>
+<p>In the below example, we&rsquo;ll perform an Inbound SMTP Email Test:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/04/image.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/04/image-thumb.png" width="409" height="301" /></a> </p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/04/image1.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/04/image-thumb1.png" width="506" height="314" /></a> </p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/04/image2.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/04/image-thumb2.png" width="371" height="306" /></a> </p>
+<p>The above process generates a test email that looks similar to this:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/04/image3.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/04/image-thumb3.png" width="406" height="240" /></a> </p>
+<p>In summary, the Exchange Server Remote Connectivity Analyzer is a great tool for testing remote functionality of your Exchange environment. For more information on this tool, including a short introduction video, <a href="http://msexchangeteam.com/archive/2009/03/25/450908.aspx" target="_blank">click here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2007 Post Deployment Testing: Part 2&p[summary]=In part 1 of this series, I wrote about how to go about testing your new deployment by making use of several &ldquo;Test-&ldquo; cmdlets ...&p[url]=http://172.16.7.177:4000/2009/04/exchange-2007-post-deployment-testing-part-2" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/04/exchange-2007-post-deployment-testing-part-2&text=In part 1 of this series, I wrote about how to go about testing your new deployment by making use of several &ldquo;Test-&ldquo; cmdlets ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-23T09:18:34-05:00" itemprop="datePublished">23 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/how-to-find-and-export-mailboxes-by-size-in-exchange-2007">How to find and export mailboxes by size in Exchange 2007</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>My friend Nicolas recently wrote a great post on how to find and export mailboxes by size from the Exchange Management Shell (EMS). I&rsquo;m sure many administrators will find this pretty handy. </p>
+<p><a href="http://blankmanblog.blogspot.com/2009/03/how-to-find-mailboxes-by-size.html" target="_blank">Read his post here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=How to find and export mailboxes by size in Exchange 2007&p[summary]=My friend Nicolas recently wrote a great post on how to find and export mailboxes by size from the Exchange Management Shell (EMS). I&rsq...&p[url]=http://172.16.7.177:4000/2009/03/how-to-find-and-export-mailboxes-by-size-in-exchange-2007" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/how-to-find-and-export-mailboxes-by-size-in-exchange-2007&text=My friend Nicolas recently wrote a great post on how to find and export mailboxes by size from the Exchange Management Shell (EMS). I&rsq...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-20T09:38:40-05:00" itemprop="datePublished">20 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/burn-iso-to-disk-natively-with-windows-7">Burn .ISO to disk natively with Windows 7</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I found a really neat little feature today, Windows 7 allows you to burn .ISO files to disk natively without any third party software. </p>
+<p>Simply double-click the .iso image:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image10.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb10.png" width="260" height="101" /></a></p>
+<p>Select the appropriate drive and click &ldquo;Burn&rdquo;</p>
+<p align="left"><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image11.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb11.png" width="344" height="323" /></a></p>
+<p align="left">And there you go..</p>
+<p> It seems my friend Craig blogged about this a little while ago as well, <a href="http://www.pringle.net.nz/blog/PermaLink,guid,1f06a273-1497-4b83-9629-e22a68480b24.aspx" target="_blank">click here to read his post</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Burn .ISO to disk natively with Windows 7&p[summary]=I found a really neat little feature today, Windows 7 allows you to burn .ISO files to disk natively without any third party software. 
+S...&p[url]=http://172.16.7.177:4000/2009/03/burn-iso-to-disk-natively-with-windows-7" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/burn-iso-to-disk-natively-with-windows-7&text=I found a really neat little feature today, Windows 7 allows you to burn .ISO files to disk natively without any third party software. 
+S...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-20T05:59:31-05:00" itemprop="datePublished">20 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/exchange-2007-post-deployment-testing-part-1">Exchange 2007 Post Deployment Testing: Part 1</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>After your planning and deployment phases have been completed, its very important to ensure proper testing of your new environment before moving user accounts and putting the servers into production. Exchange 2007 provides several powershell cmdlets that make it really easy.</p>
+<p>a list of all test cmdlets can be obtained by issuing the <em>Get-Command Test*</em> cmd in EMS.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image7.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb7.png" width="548" height="273" /></a>&#160;</p>
+<p align="left">For the purposes of this post, lets look at a couple of these:</p>
+<p align="left"><em>Test-Mailfow</em></p>
+<p align="left">The <em>Test-Mailflow</em> cmdlet is used to check whether mail can be successfully sent from and delivered to the System Mailbox mailbox on a computer that has the Mailbox server role installed.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image8.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb8.png" width="546" height="146" /></a> <em></em></p>
+<p align="left"><em>Test-ServiceHealth</em></p>
+<p align="left">Use the <em>Test-ServiceHealth</em> cmdlet to test whether all the required services that are configured to start automatically on a server have started. The Test-ServiceHealth cmdlet returns an error for any service that is required by a configured role and is set to start automatically but is not currently running. The output will vary depending on the role of the server you issue the cmd on.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image9.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb9.png" width="546" height="264" /></a> </p>
+<p> <em><font size="2"></font></em></p>
+<p>For a full list of cmdlets, see <a href="http://technet.microsoft.com/en-us/library/bb123703.aspx">Microsoft Technet</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2007 Post Deployment Testing: Part 1&p[summary]=After your planning and deployment phases have been completed, its very important to ensure proper testing of your new environment before...&p[url]=http://172.16.7.177:4000/2009/03/exchange-2007-post-deployment-testing-part-1" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/exchange-2007-post-deployment-testing-part-1&text=After your planning and deployment phases have been completed, its very important to ensure proper testing of your new environment before...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-19T04:46:22-05:00" itemprop="datePublished">19 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/exchange-2007-update-rollup-7-released">Exchange 2007 Update Rollup 7 Released</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>A mere 5 weeks after Update Rollup 6, Microsoft have released Update Rollup 7 for Exchange 2007 Sp1. The update fixes around 50 issues.</p>
+<p>For more info on the update and to download it, see <a href="http://support.microsoft.com/kb/953469">KB953469</a>&#160;</p>
+<p>I would like to highlight the following:</p>
+<p>&ldquo;Note Certain Exchange Server 2007 managed code services may not start after you install this update rollup. This is true if the services cannot access the following Microsoft Web site:   <br /><a href="http://crl.microsoft.com/pki/crl/products/CodeSigPCA.crl">http://crl.microsoft.com/pki/crl/products/CodeSigPCA.crl</a> </p>
+<p>For more information about how to resolve or to work around this issue, click the following article number to view the article in the Microsoft Knowledge Base:    <br /><a href="http://support.microsoft.com/kb/944752">944752</a> Exchange 2007 managed code services do not start after you install an update rollup for Exchange 2007&rdquo;</p>
+<p>I also strongly recommend reading the &ldquo;Known Issues&rdquo; section before applying this update.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2007 Update Rollup 7 Released&p[summary]=A mere 5 weeks after Update Rollup 6, Microsoft have released Update Rollup 7 for Exchange 2007 Sp1. The update fixes around 50 issues.
+F...&p[url]=http://172.16.7.177:4000/2009/03/exchange-2007-update-rollup-7-released" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/exchange-2007-update-rollup-7-released&text=A mere 5 weeks after Update Rollup 6, Microsoft have released Update Rollup 7 for Exchange 2007 Sp1. The update fixes around 50 issues.
+F...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-18T11:08:49-05:00" itemprop="datePublished">18 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/quest-softwares-uc-solutions">Quest Software&rsquo;s UC Solutions</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Quest have some really cool products to add value to UC implementations (like you need it, right?)</p>
+<p>Some of the key products are:</p>
+<p><strong>Spotlight on Messaging:     <br /></strong>Spotlight&reg; on Messaging helps administrators get more out of their messaging environments by diagnosing and resolving problems across multiple platforms. A comprehensive view into an organization&rsquo;s messaging infrastructure, Spotlight on Messaging:</p>
+<ul>
+<li>Reduces cost and improves productivity by identifying issues and performance bottlenecks before they affect end users</li>
+<li>Accelerates problem resolution by significantly reducing the time-to-resolution during outages     <br />Improves system performance by maximizing the availability and responsiveness of messaging servers</li>
+</ul>
+<p>&#160;</p>
+<p><strong>MessageStats:</strong>    <br />MessageStats is the most complete and comprehensive messaging reporting and analysis solution in the industry. Used on more than 15 million Exchange mailboxes around the world everyday, MessageStats helps reduce and quantify your Exchange investment. An essential tool to keeping tabs on the cost of your infrastructure, MessageStats gathers, analyzes, and reports on Exchange and other messaging components to: </p>
+<ul>
+<li>Better understand usage and trends</li>
+<li>Find unused and excess capacity</li>
+<li>Justify expenses</li>
+<li>Optimize operational efficiencies </li>
+</ul>
+<p>Providing a complete view of all messaging components from one interface, MessageStats delivers platform-specific business- and technical-focused reports for:</p>
+<ul>
+<li>BlackBerry</li>
+<li>Windows Mobile</li>
+<li>Microsoft Office Communications Server </li>
+<li>Microsoft Exchange</li>
+<li>Outlook Web Access</li>
+<li>And more..</li>
+</ul>
+<p>&#160;</p>
+<p>For more info on these and other value add products from Quest Software, visit their <a href="http://www.quest.com">site here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Quest Software&rsquo;s UC Solutions&p[summary]=Quest have some really cool products to add value to UC implementations (like you need it, right?)
+Some of the key products are:
+Spotligh...&p[url]=http://172.16.7.177:4000/2009/03/quest-softwares-uc-solutions" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/quest-softwares-uc-solutions&text=Quest have some really cool products to add value to UC implementations (like you need it, right?)
+Some of the key products are:
+Spotligh...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-11T11:27:56-05:00" itemprop="datePublished">11 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/lenovo-t61-biometric-device-on-windows-7">Lenovo T61 Biometric Device on Windows 7</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>After rebuilding my trusty T61 with Windows 7 about a week ago, the only device that was not functioning correctly was the &ldquo;biometric coprocessor&rdquo;. I tried installing the software using ThinkVantage Productivity Center, but this did not work. After asking google, I found that the device was manufactured by UPEK and that they have released a Windows 7 driver on their site. <a href="http://www.upek.com/support/downloads/windows7/w7x86.asp">Download it here.</a></p>
+<p>The process of enrolling a fingerprint is fairly simple in Windows 7. Open Control Panel, select &ldquo;Biometric Devices&rdquo;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image2.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb2.png" width="244" height="53" /></a> </p>
+<p>Select &ldquo;Use your fingerprint to log on to Windows&rdquo;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image3.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb3.png" width="585" height="147" /></a> </p>
+<p>When prompted, enter your password</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image4.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb4.png" width="379" height="210" /></a> </p>
+<p>Select the appropriate finger (its probably a good idea to select more than one!)</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image5.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb5.png" width="498" height="374" /></a> </p>
+<p>Follow the instructions:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image6.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb6.png" width="420" height="283" /></a> </p>
+<p>All done!, next time you log on, just use your finger!</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Lenovo T61 Biometric Device on Windows 7&p[summary]=After rebuilding my trusty T61 with Windows 7 about a week ago, the only device that was not functioning correctly was the &ldquo;biometr...&p[url]=http://172.16.7.177:4000/2009/03/lenovo-t61-biometric-device-on-windows-7" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/lenovo-t61-biometric-device-on-windows-7&text=After rebuilding my trusty T61 with Windows 7 about a week ago, the only device that was not functioning correctly was the &ldquo;biometr...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-06T04:27:59-06:00" itemprop="datePublished">6 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/ibm-lotusphere-comes-to-you-2009">IBM Lotusphere Comes to You 2009</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Yesterday I attended the IBM Lotusphere Comes to You event here in Sydney. I was excited to see what the IBM Unified Communications strategy would be and ended getting a lot more than I had bargained for.</p>
+<p>The event covered a large part of their portfolio from Messaging and Collaboration, UC and Web Portals to Cloud Computing. As a consultant, I have always taken an interest in what &ldquo;the other guys&rdquo; are doing, but, being honest, the last time I saw Domino was back in version 6. </p>
+<p>I was most impressed with how slick the Notes 8.5 client looks and the fact that they have integrated everything into a single client whether it be IM, voice &amp; video, document libraries, opening and editing MS Office docs with Symphony, even SAP integration, it can all be done via the Notes 8.5 client.</p>
+<p>One of the themes that became immediately obvious was value.. ROI is important, especially in today&rsquo;s economic climate and IBM seem to be on top of that, a great example is <a href="http://symphony.lotus.com/software/lotus/symphony/home.nsf/home">Lotus Symphony</a> which is a free, MS Office compatible suite that includes a word processor, spreadsheet editor and presentation editor. I was also impressed by the fact that IBM have realised that (as predicted by Gartner) Apple&rsquo;s market share in the desktop space is growing and that Windows may not always be the desktop OS of choice, and I think they have catered for this really well by making their software platform independent so it will run on Windows, OSX, and Linux.</p>
+<p>In the Cloud Computing space, <a href="https://www.lotuslive.com/">LotusLive</a> is their solution to online collaboration and it is available now, offering online meetings, hosted email and more.</p>
+<p>So, what about UC and more specifically, voice stuff? does &ldquo;the pbx killer&rdquo; a.k.a OCS R2 have some competition? IBM are calling it UC&sup2; and, well.. I liked what I saw, they certainly have some innovative little features, very easy to use and will certainly make collaboration &ldquo;child&rsquo;s play&rdquo;. They are certainly working with an impressive list of business partners as well. I would say though, that with the maturity of OCS R2 and the fact that it is available now I think IBM may just have missed the boat a little. UC&sup2; will be available &ldquo;later this year&rdquo; and given the momentum OCS already has, it&rsquo;s going to be interesting..</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image1.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb1.png" width="442" height="505" /></a> </p>
+<p align="center">Gartner Magic Quadrant for Unified Communications</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=IBM Lotusphere Comes to You 2009&p[summary]=Yesterday I attended the IBM Lotusphere Comes to You event here in Sydney. I was excited to see what the IBM Unified Communications strat...&p[url]=http://172.16.7.177:4000/2009/03/ibm-lotusphere-comes-to-you-2009" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/ibm-lotusphere-comes-to-you-2009&text=Yesterday I attended the IBM Lotusphere Comes to You event here in Sydney. I was excited to see what the IBM Unified Communications strat...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-02T09:56:36-06:00" itemprop="datePublished">2 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/windows-7-and-cisco-vpn-client">Windows 7 and Cisco VPN Client</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>So, managed to get everything installed and working great yesterday, really fought with the Cisco VPN client, but I eventually managed to get it working (or so I thought!) installed all windows updates before shutting down last night .. arrived at the office a little earlier this morning, turn my laptop on, BLUE SCREEN OF DEATH!, happened a few times yesterday while I was fiddling with the Cisco VPN client so I figured I&rsquo;d just repair it and try again, only, this time I was not so lucky..</p>
+<p>To cut a long and frustrating story short: Windows 7 rebuilt and looking good again..</p>
+<p>For the Cisco VPN client, I tried many things, this is how I managed to get it to work:</p>
+<ul>
+<li>Install Citrix <a href="ftp://files.citrix.com/dneupdate.msi">DNEupdate</a></li>
+<li>Reboot</li>
+<li>Take ownership and delete ndis.sys (in c:\windows\system32\drivers).</li>
+<li>Take ownership and delete ndis.sys.mui (in c:\windows\system32\drivers\en-us).</li>
+<li>Install Cisco VPN Client 5.0.04.0300.</li>
+<li>Reboot</li>
+<li>Windows 7 will repair itself (should take a few seconds) and automatically reboot.</li>
+<li>Cisco VPN Client should work without any other tweaks.</li>
+</ul>
+<p>Many thanks to <a href="http://blog.tiensivu.com/aaron/">Aaron Tiensivu</a> for posting this on his blog, <a href="http://blog.tiensivu.com/aaron/archives/1817-How-to-prevent-Cisco-VPN-client-version-5.0.4.0300-installation-from-bluescreening-Windows-7-x32-Build-7000.html">read it here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Windows 7 and Cisco VPN Client&p[summary]=So, managed to get everything installed and working great yesterday, really fought with the Cisco VPN client, but I eventually managed to...&p[url]=http://172.16.7.177:4000/2009/03/windows-7-and-cisco-vpn-client" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/windows-7-and-cisco-vpn-client&text=So, managed to get everything installed and working great yesterday, really fought with the Cisco VPN client, but I eventually managed to...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-03-01T11:23:28-06:00" itemprop="datePublished">1 Mar, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/03/windows-7-my-initial-thoughts">Windows 7: My initial thoughts..</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>While some of my &ldquo;bleeding edge&rdquo;&rdquo; colleagues have been running and blogging about Windows 7 for a while now, its taken me a little longer to get my hands dirty. I decided to rebuild my Lenovo T61 yesterday and see what all the fuss was about.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/03/image.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/03/image-thumb.png" width="400" height="237" /></a>The installation was seamless and quick, as you would expect. It found drivers for all my devices. I did have some trouble getting my Novatel Wireless 3G HSDPA card to work, the installation would not run at all, not even using Windows Vista compatibility mode. I downloaded the drivers off the Novatel website and managed to get the card installed that way. Works perfectly after I created a new connection through &ldquo;Network and Sharing Center&rdquo;</p>
+<p>At the moment, I am very much of the opinion that it is Windows Vista with some cosmetic changes, but that&rsquo;s probably unfair of me to say since I have only been using it for a few hours. I&rsquo;ll be sure to report any cool new features.</p>
+<p>Now I have to make it productive so I can get some work done when I get into the office tomorrow!</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Windows 7: My initial thoughts..&p[summary]=While some of my &ldquo;bleeding edge&rdquo;&rdquo; colleagues have been running and blogging about Windows 7 for a while now, its taken ...&p[url]=http://172.16.7.177:4000/2009/03/windows-7-my-initial-thoughts" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/03/windows-7-my-initial-thoughts&text=While some of my &ldquo;bleeding edge&rdquo;&rdquo; colleagues have been running and blogging about Windows 7 for a while now, its taken ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+
+
+
+<div class="pagination" role="navigation" aria-label="pagination">
+    
+        <a href="/page20/" class="previous">&larr; Previous</a>
+    
+
+    <span class="page_number">Page 21 of 24</span>
+
+    
+        <a href="/page22/" class="next">Next &rarr;</a>
+    
+</div>
+
+            </main>
+        </div>
+
+        <script src="http://172.16.7.177:4000/assets/js/jquery-1.12.2.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/backtotop.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr-feed.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/jquery.fitvids.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/svg4everybody.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/scripts.js"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXXXX-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+        <style>
+.lightbox {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.85); z-index: 9999999; line-height: 0; cursor: pointer;}
+.lightbox .img {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 100%;
+	max-height: 100%;
+}
+.lightbox .img img {opacity: 0; pointer-events: none; width: auto;}
+@media screen and (min-width: 1200px) {
+    .lightbox .img {
+		max-width: 1200px;
+    }
+}
+@media screen and (min-height: 1200px) {
+    .lightbox img {
+		max-height: 1200px;
+	}
+}
+.lightbox span {display: block; position: fixed; bottom: 13px; height: 1.5em; line-height: 1.4em; width: 100%; text-align: center; color: white; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+
+
+
+
+.lightbox .videoWrapperContainer {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 900px;
+	max-height: 100%;
+}
+.lightbox .videoWrapperContainer .videoWrapper {
+	height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-bottom: 56.333%; /* custom */
+	background: black;
+} 
+.lightbox .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}   
+.lightbox #prev, .lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
+.lightbox.gallery #prev, .lightbox.gallery #next {display: block;}
+.lightbox #prev {left: 0;}
+.lightbox #next {right: 0;}
+.lightbox #close {height: 50px; width: 50px; position: fixed; cursor: pointer; text-decoration: none; z-index: 99; right: 0; top: 0;}
+.lightbox #close:after, .lightbox #close:before {position: absolute; margin-top: 22px; margin-left: 14px; content: ""; height: 3px; background: white; width: 23px;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+/* Safari */
+-webkit-transform: rotate(-45deg);
+/* Firefox */
+-moz-transform: rotate(-45deg);
+/* IE */
+-ms-transform: rotate(-45deg);
+/* Opera */
+-o-transform: rotate(-45deg);
+}
+.lightbox #close:after {
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+/* Opera */
+-o-transform: rotate(45deg);
+}
+.lightbox, .lightbox * {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+</style>
+		
+<script>
+function is_youtubelink(url) {
+  var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  return (url.match(p)) ? RegExp.$1 : false;
+}
+function is_imagelink(url) {
+	var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
+	return (url.match(p)) ? true : false;
+}
+function is_vimeolink(url,el) {
+	var id = false;
+	$.ajax({
+	  url: 'https://vimeo.com/api/oembed.json?url='+url,
+	  async: true,
+	  success: function(response) {
+		if(response.video_id) {
+		  id = response.video_id;
+		  $(el).addClass('lightbox-vimeo').attr('data-id',id);
+		}
+	  }
+	});
+}
+
+$(document).ready(function() {
+	//add classes to links to be able to initiate lightboxes
+	$("a").each(function(){
+		var url = $(this).attr('href');
+		if(url) {
+			if(url.indexOf('vimeo') !== -1 && !$(this).hasClass('no-lightbox')) is_vimeolink(url,$(this));
+			if(is_youtubelink(url) && !$(this).hasClass('no-lightbox')) $(this).addClass('lightbox-youtube').attr('data-id',is_youtubelink(url));
+			if(is_imagelink(url) && !$(this).hasClass('no-lightbox')) {
+				$(this).addClass('lightbox-image');
+				var href = $(this).attr('href');
+				var filename = href.split('/').pop();
+				var split = filename.split(".");
+				var name = split[0];
+				$(this).attr('title',name);
+			}
+		}
+	});
+	//remove the clicked lightbox
+	$("body").on("click", ".lightbox", function(event){
+		if($(this).hasClass('gallery')) {
+			$(this).remove();
+			if($(event.target).attr('id')=='next') {
+				//next item
+				if($("a.gallery.current").nextAll("a.gallery:first").length) $("a.gallery.current").nextAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").first().click();
+			}
+			else if ($(event.target).attr('id')=='prev') {
+				//prev item
+				if($("a.gallery.current").prevAll("a.gallery:first").length) $("a.gallery.current").prevAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").last().click();
+			}
+			else {
+				$("a.gallery").removeClass('gallery');
+			}
+		}
+		else $(this).remove();
+	});
+	//prevent image from being draggable (for swipe)
+	$("body").on('dragstart', ".lightbox img", function(event) { event.preventDefault(); });
+	//add the youtube lightbox on click
+	$("a.lightbox-youtube").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&showinfo=0&rel=0"></iframe></div></div></div>').appendTo('body');
+	});
+	//add the image lightbox on click
+	$("a.lightbox-image").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" style="background: url('+$(this).attr('href')+') center center / contain no-repeat;" title="'+$(this).attr('title')+'" ><img src="'+$(this).attr('href')+'" alt="'+$(this).attr('title')+'" /></div><span>'+$(this).attr('title')+'</span></div>').appendTo('body');
+	});
+	//add the vimeo lightbox on click
+	$("body").on("click", "a.lightbox-vimeo", function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+$(this).attr('data-id')+'/?autoplay=1&byline=0&title=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div></div>').appendTo('body');
+	});
+
+	$("body").on("click", "a[class*='lightbox-']", function(){
+		var link_elements = $(this).parent().find("a[class*='lightbox-']");
+		$(link_elements).removeClass('current');
+		for (var i=0; i<link_elements.length; i++) {
+			if($(this).attr('href') == $(link_elements[i]).attr('href')) {
+				$(link_elements[i]).addClass('current');
+			}
+		}
+		if(link_elements.length>1) {
+			$('.lightbox').addClass('gallery');
+			$(link_elements).addClass('gallery');
+		}
+	});
+
+	
+});
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $("#prev").click();
+        break;
+        case 39: // right
+        $("#next").click();
+        break;
+	case 27: // esc
+        $("#close").click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+  /*===========================
+  Swipe-it v1.4.1
+  An event listener for swiping gestures with vanilla js.
+  https://github.com/tri613/swipe-it#readme
+ 
+  @Create 2016/09/22
+  @Update 2017/08/11
+  @Author Trina Lu
+  ===========================*/
+  "use strict";var _slicedToArray=function(){function n(n,t){var e=[],i=!0,o=!1,r=void 0;try{for(var u,c=n[Symbol.iterator]();!(i=(u=c.next()).done)&&(e.push(u.value),!t||e.length!==t);i=!0);}catch(n){o=!0,r=n}finally{try{!i&&c.return&&c.return()}finally{if(o)throw r}}return e}return function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return n(t,e);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();!function(n,t,e){function i(n){function e(){o("touchstart",m,w),o("touchmove",d,w),o("touchend",p,w),E.mouseEvent&&o("mousedown",s,w)}function i(){y=!1,D=!1,A=!1,b=!1,a=!1}function s(n){a=this,y=n.clientX,D=n.clientY,o("mousemove",l,v),o("mouseup",h,v)}function l(n){n.preventDefault(),y&&D&&(A=n.clientX,b=n.clientY)}function h(n){r("mousemove",l,v),r("mouseup",h,v),p(n)}function m(n){a=this,y=n.touches[0].clientX,D=n.touches[0].clientY}function d(n){A=n.touches[0].clientX,b=n.touches[0].clientY}function p(n){if(y&&D&&A&&b){var t=y-A,e=D-b,o=[t,e].map(Math.abs),r=_slicedToArray(o,2),c=r[0],s=r[1],v=E.minDistance;if(c>v){var f=y<A?"swipeRight":"swipeLeft";u(f,a,{distance:t,start:y,end:A})}if(s>v){var l=D>b?"swipeUp":"swipeDown";u(l,a,{distance:e,start:D,end:b})}(c>v||s>v)&&u("swipe",a)}i()}var E=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},w=c(t.querySelectorAll(n)),y=void 0,D=void 0,A=void 0,b=void 0;E.mouseEvent=void 0===E.mouseEvent?f.mouseEvent:E.mouseEvent,E.minDistance=void 0===E.minDistance?f.minDistance:E.minDistance,i(),e(),this.on=function(n,t){return o(n,t,w),this}}function o(n,t,e){s(e).forEach(function(e){return e.addEventListener(n,t)})}function r(n,t,e){s(e).forEach(function(e){return e.removeEventListener(n,t)})}function u(n,e){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},o=t.createEvent("Event");o.initEvent(n,!0,!0),o.swipe=i,s(e).forEach(function(n){return n.dispatchEvent(o)})}function c(n){for(var t=[],e=0;e<n.length;e++)t.push(n[e]);return t}function s(n){return Array.isArray(n)?n:[n]}var a=!1,v=[n],f={mouseEvent:!0,minDistance:30};n[e]=i}(window,document,"SwipeIt");
+
+var mySwipeIt = new SwipeIt('body');
+mySwipeIt.on('swipeLeft',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#next").click();
+	}
+}).on('swipeRight',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#prev").click();
+	}
+});
+</script>
+
+    </body>
+</html>

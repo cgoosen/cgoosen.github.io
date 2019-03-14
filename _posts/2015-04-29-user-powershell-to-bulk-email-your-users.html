@@ -1,0 +1,529 @@
+---
+layout: post
+status: publish
+published: true
+title: Using PowerShell to bulk email your users
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1361
+wordpress_url: http://www.cgoosen.com/?p=1361
+date: '2015-04-29 10:50:10 +0000'
+date_gmt: '2015-04-29 16:50:10 +0000'
+categories:
+- Office 365
+- PowerShell
+tags: []
+comments:
+- id: 269891
+  author: Pump multiple recipients in send-mailmessage -to from a file - How to Code
+    .NET
+  author_email: ''
+  author_url: http://howtocode.net/2017/01/pump-multiple-recipients-in-send-mailmessage-to-from-a-file/
+  date: '2017-01-13 15:01:01 +0000'
+  date_gmt: '2017-01-13 21:01:01 +0000'
+  content: "[&#8230;] http://www.cgoosen.com/2015/04/user-powershell-to-bulk-email-your-users/
+    [&#8230;]"
+- id: 270633
+  author: Jethro
+  author_email: jethro@cementpond.com
+  author_url: ''
+  date: '2017-03-14 10:25:10 +0000'
+  date_gmt: '2017-03-14 16:25:10 +0000'
+  content: Nice script! Thank you...
+- id: 270635
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-03-14 12:32:12 +0000'
+  date_gmt: '2017-03-14 18:32:12 +0000'
+  content: Thanks!
+- id: 271598
+  author: Thomas
+  author_email: thomas@klijnman.nl
+  author_url: ''
+  date: '2017-07-04 08:41:47 +0000'
+  date_gmt: '2017-07-04 14:41:47 +0000'
+  content: I have a problem getting error 5.7.1. How do i implement credentials into
+    my script? please help
+- id: 271610
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-07-05 13:42:44 +0000'
+  date_gmt: '2017-07-05 19:42:44 +0000'
+  content: "Hi Thomas,\n\nYou could try adding the following:\n$Smtp.Credentials =
+    New-Object System.Net.NetworkCredential(\"username_here\",\"password_here\")\n\nI'd
+    also suggest checking out this post on credential encryption: https://www.cgoosen.com/2016/05/using-a-certificate-to-encrypt-credentials-in-automated-powershell-scripts-an-update/
+    \n\nCheers,\n\nChris"
+- id: 272507
+  author: gvk
+  author_email: vijganji99@gmail.com
+  author_url: ''
+  date: '2017-09-26 06:49:36 +0000'
+  date_gmt: '2017-09-26 12:49:36 +0000'
+  content: "Hi Chris , Thanks for the great work . \r\n\r\nCan you please help me
+    on how can I restrict below : \r\n\r\nOnce a user who is part of this list ( (
+    like excel file above which you used is the output file which is generated each
+    time a job runs ) ) receives email once a condition is met , in the next run if
+    the same user exists how can I stop this auto generated email task to send him
+    email again if the same condition is applied ?  Kindly help . Thanks ."
+- id: 272509
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-09-26 07:25:42 +0000'
+  date_gmt: '2017-09-26 13:25:42 +0000'
+  content: |-
+    Hello,
+
+    The script above is really for single use and wasn't specifically written to be scheduled but it could be easily adapted for that. Could you provide a little more detail about your use case or what you are trying to accomplish?
+
+    Cheers,
+
+    Chris
+- id: 272511
+  author: gvk
+  author_email: vijganji99@gmail.com
+  author_url: ''
+  date: '2017-09-26 08:06:46 +0000'
+  date_gmt: '2017-09-26 14:06:46 +0000'
+  content: "Hi Chris ,\r\n\r\nBelow is my code :\r\n\r\n$Query = \"SQL Code Here\"\r\n$cr
+    = Invoke-Sqlcmd -ServerInstance . -Database abc -Query $Query\r\n\r\nforeach ($i
+    in $cr){\r\nif ($i.a -eq \"1\" -and $1.b -eq \"Yes\"){\r\n\r\n$user = $i.user\r\n$a
+    = $i.a\r\n$b = $i.b\r\n}\r\n\r\nSend-MailMessage -To \"$user\" -Cc \"User1\"  -From
+    \"Fromuser\" -Body \"\r\n\r\nMy Email Body\r\n\r\n\"\r\n\r\nIn this case , \r\n\r\nfor
+    ex :\r\n$user = Mike , Chris , John\r\n\r\nif $user  has $i.a -eq \"1\" -and $1.b
+    -eq \"Yes\"   has met the condition \r\n\r\nnow the mail is triggered to them
+    since the condition is met by those users .\r\n\r\nAs this is a scheduled code
+    to run every 1 hour ,  in the next hour how can I stop the task to generate the
+    email to Chris, John , Mike as email is already sent to them if at all their records
+    are still in $user ."
+- id: 272558
+  author: Sridhar
+  author_email: aksr-in@flsmidth.com
+  author_url: ''
+  date: '2017-10-05 03:03:04 +0000'
+  date_gmt: '2017-10-05 09:03:04 +0000'
+  content: "Hi -\r\nhow to include attachment into the email message"
+- id: 272562
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-10-05 12:16:05 +0000'
+  date_gmt: '2017-10-05 18:16:05 +0000'
+  content: |-
+    Hi Sridhar,
+
+    Try this:
+    $File = 'C:\temp\file.txt'
+    $Msg.Attachments.Add($File)
+
+    Cheers,
+
+    Chris
+- id: 272637
+  author: Tisoy
+  author_email: noemail@noemail.com
+  author_url: ''
+  date: '2017-10-16 17:27:08 +0000'
+  date_gmt: '2017-10-16 23:27:08 +0000'
+  content: Thank you.
+- id: 273006
+  author: Nishant
+  author_email: nishaant099@gmail.com
+  author_url: ''
+  date: '2018-01-01 06:06:45 +0000'
+  date_gmt: '2018-01-01 12:06:45 +0000'
+  content: "Hi Chris,\r\n\r\nHow can I add a Bcc to my recipients, I tried using $Msg.Bcc.Add($BccAddress)
+    in the main function SendNotification{}\r\nand in the Foreach {} body I am declaring
+    the Bcc email addres, now for each To email address it is sending 3 Bcc copy to
+    the Bcc address, kindly help me with this."
+- id: 273027
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-01-05 10:35:29 +0000'
+  date_gmt: '2018-01-05 16:35:29 +0000'
+  content: |-
+    Hi Nishant,
+
+    What happens when you add it only to the function?
+
+    Cheers,
+
+    Chris
+- id: 273058
+  author: Nishant
+  author_email: nishaant099@gmail.com
+  author_url: ''
+  date: '2018-01-12 10:13:05 +0000'
+  date_gmt: '2018-01-12 16:13:05 +0000'
+  content: "Hi Chris,\r\n\r\nI figured it out by hard coding the Bcc address in the
+    for loop and worked \r\nForeach ($User in $Users) \r\n {\r\n $ToAddress = $User.E_ADD\r\n
+    $BccAddress = \"M_Testing@xyz.com\";\r\n\r\n\r\nNow I have a different challenge.\r\nI
+    am using similar code as yours, for mass mailing the only difference is, instead
+    of sending one to one email, I am putting all the recipients in To field at once
+    and sending only one mail. My condition is to send the email only if the imported
+    CSV file contains the email addresses otherwise do not send the email.\r\n\r\nWhat
+    is happening is.. if there is no email address to import in To field then it is
+    sending the email to CC address, I want to avoid this\r\n \r\nbelow is my code:\r\n\r\nfunction
+    SendNotification\r\n{\r\n $Msg = New-Object Net.Mail.MailMessage\r\n $Smtp = New-Object
+    Net.Mail.SmtpClient($smtpServer)\r\n $Msg.From = $FromAddress\r\n\r\n If ($To_Addresses
+    -ne ' ')\r\n {\r\n # Send notification to each user in the list\r\nForeach ($Recipient
+    in $Recipients) \r\n{\r\n If($receiver.Length -eq 0)\r\n {\r\n $Msg.to.add($Recipient.CREATER_EMAIL_ADDRESS)
+    \r\n }\r\n Else\r\n {\r\n  $Msg.to.add($Recipient.CREATER_EMAIL_ADDRESS) \r\n\r\n
+    }\r\n}\r\n\r\n #$Msg.To.Add($ToAddress)\r\n $a = Get-Date\r\n\"Date: \" + $a.ToShortDateString()\r\n
+    $Msg.CC.Add($CC1)\r\n $Msg.Subject = \"TEST report on \"+ $a.ToShortDateString()
+    ;\r\n $file = \"F:\\***.htm\"\r\n $att = new-object Net.Mail.Attachment($file)\r\n
+    $Msg.Attachments.Add($att)\r\n $Msg.Body = $EmailBody\r\n $Msg.IsBodyHTML = $true\r\n
+    $Smtp.Send($Msg)\r\n}\r\nelse\r\n{exit}\r\n}\r\n \r\n# Define local Exchange server
+    info for message relay.\r\n$smtpServer = \"*********\";\r\n$FromAddress = \"dhdhnjsk@fnfj.com\";\r\n$receiver
+    = \"\";\r\n \r\n# Import user list and information from .CSV file\r\n$Recipients
+    = Import-Csv \"F:\\Userlist.csv\";\r\n$To_Addresses = $Recipients.CREATER_EMAIL_ADDRESS;\r\n$CC1
+    = \"bsmddm@fhf.com\";\r\n \r\n\r\n$EmailBody = @\"\r\n \r\n \r\n \r\n \r\n ***TEST***\r\n
+    \r\n Hi User,\r\n\r\nTEST\r\n \r\n \r\n\"@\r\n Write-Host \"Email Sent Successful\"
+    -ForegroundColor Yellow\r\n SendNotification"
+- id: 273079
+  author: Nishant
+  author_email: nishaant099@gmail.com
+  author_url: ''
+  date: '2018-01-15 09:02:28 +0000'
+  date_gmt: '2018-01-15 15:02:28 +0000'
+  content: "Hi Chris,\r\n\r\nI found the solution :)\r\n\r\nbelow is my solution code:\r\n\r\n#
+    Define local Exchange server info for message relay.\r\n$smtpServer = \"********\";\r\n$FromAddress
+    = \"******\";\r\n$receiver = \"\";\r\n$receiver2 = \"*******\";\r\n\r\n# Import
+    user list and information from .CSV file\r\n$Recipients = Import-Csv \"F:\\list.csv\";\r\n$To_Addresses
+    = $Recipients.CREATER_EMAIL_ADDRESS\r\n\r\nIf ($To_Addresses)\r\n{\r\n $Msg =
+    New-Object Net.Mail.MailMessage\r\n $Smtp = New-Object Net.Mail.SmtpClient($smtpServer)\r\n
+    $Msg.From = $FromAddress\r\n $Cc1 = \"********\";\r\n\r\n # Send notification
+    to each user in the list\r\nForeach ($Recipient in $Recipients) \r\n{\r\n If($receiver.Length
+    -eq 0)\r\n {\r\n $Msg.to.add($Recipient.CREATER_EMAIL_ADDRESS) \r\n }\r\n Else\r\n
+    {\r\n  $Msg.to.add($Recipient.CREATER_EMAIL_ADDRESS) \r\n }\r\n\r\n}\r\n\r\n $a
+    = Get-Date\r\n\"Date: \" + $a.ToShortDateString()\r\n $Msg.Subject = \"report\"
+    ;\r\n $file = \"F:\\list.csv\"\r\n $att = new-object Net.Mail.Attachment($file)\r\n
+    $Msg.Attachments.Add($att)\r\n $Msg.Body = $EmailBody\r\n $Msg.IsBodyHTML = $true\r\n
+    $Smtp.Send($Msg)\r\n}\r\n\r\nElse \r\n {\r\n  $a = Get-Date\r\n\"Date: \" + $a.ToShortDateString()\r\n
+    $Msg = New-Object Net.Mail.MailMessage\r\n $Smtp = New-Object Net.Mail.SmtpClient($smtpServer)\r\n
+    $Msg.From = $FromAddress\r\n $Msg.To.Add($receiver2)\r\n $Msg.Subject = \"report\";\r\n
+    $Msg.Body = $EmailBody_2\r\n $Msg.IsBodyHTML = $true\r\n $Smtp.Send($Msg)\r\n
+    \ }\r\n \r\n\r\n$EmailBody = \"\r\n \r\n \r\n \r\n \r\n  &amp;#9888 AUTOMATED
+    REPORT\r\n\t\t\r\n\t\t\t\r\n\t\t\t\tHi Team, . Thank you.\r\n\t\t\t\r\n\t\t\r\n\t\r\n\t\t
+    \r\n\t\t\r\n             \r\n\r\n\t\t\t\r\n\t\t\r\n\tRegards,\r\n\r\n \r\n \r\n
+    \";\r\n\r\n $EmailBody_2 = \"\r\n \r\n \r\n \r\n \r\n \r\n\t\t\r\n\t\t\t\r\n\t\t\t\tHi
+    Team, *****\r\n\t\t\t\r\n\t\t\r\n\t\r\n\t\t \r\n\t\t\r\n              \r\n\r\n\t\t\t\r\n\t\t\r\n\tRegards,\r\n\r\n
+    \r\n \r\n \";\r\n Write-Host \"Email Sent Successful\" -ForegroundColor Yellow\r\n**********************************************************************************************************\r\nRegards,\r\nNishant"
+- id: 273082
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-01-16 08:46:06 +0000'
+  date_gmt: '2018-01-16 14:46:06 +0000'
+  content: Thanks for the info Nishant, glad you got it done!
+- id: 273135
+  author: Kannan
+  author_email: skannansaec@gmail.com
+  author_url: ''
+  date: '2018-02-08 00:13:11 +0000'
+  date_gmt: '2018-02-08 06:13:11 +0000'
+  content: This is Very Nice Script and Simplified my workload.Could you please let
+    me know how to add the multiple Email address in the To and CC address location.
+    Thanks!
+- id: 273141
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-02-08 09:04:39 +0000'
+  date_gmt: '2018-02-08 15:04:39 +0000'
+  content: |-
+    Thank you Kannan. To add additional addresses, just add them to the "SendNotification" function, e.g
+
+    function SendNotification{
+     $Msg = New-Object Net.Mail.MailMessage
+     $Smtp = New-Object Net.Mail.SmtpClient($ExchangeServer)
+     $Msg.From = $FromAddress
+     $Msg.To.Add($ToAddress)
+     $Msg.To.Add($ToAddress2)
+     $Msg.To.Add($ToAddress3)
+     $Msg.To.Add(ToAddress4@domain.com)
+     $Msg.CC.Add(ccaddress@domain.com)
+     $Msg.CC.Add($ccaddressvariable)
+     $Msg.BCC.Add(bccaddress@domain.com)
+     $Msg.BCC.Add($bccaddressvariable)
+     $Msg.Subject = "Your Subject"
+     $Msg.Body = $EmailBody
+     $Msg.IsBodyHTML = $true
+     $Smtp.Send($Msg)
+    }
+- id: 273142
+  author: Kannan
+  author_email: skannansaec@gmail.com
+  author_url: ''
+  date: '2018-02-08 20:16:47 +0000'
+  date_gmt: '2018-02-09 02:16:47 +0000'
+  content: "Thank You so much for your help!! \r\n\r\n:-)"
+- id: 273156
+  author: Kannan
+  author_email: skannansaec@gmail.com
+  author_url: ''
+  date: '2018-02-12 14:09:07 +0000'
+  date_gmt: '2018-02-12 20:09:07 +0000'
+  content: "I need your help. I want the Mail body content table format output details
+    \r\n\r\nFor your example:\r\n\r\nServerName\t Description\r\n    SAP\t           File
+    server\r\n    Unix\t           DC server\r\n   Windows\t    File server\r\n\r\nI
+    have prepared the html format code but this code output servers name in the column
+    servers details showing the single line instead of one by one details.\r\n\r\n$HTML'\r\n
+    \     #Header{font-family:\"Trebuchet MS\", Arial, Helvetica, sans-serif;width:100%;border-collapse:collapse;}\r\n
+    \     #Header td, #Header th {font-size:14px;border:1px solid #98bf21;padding:2px
+    6px 1px 6px;}\r\n      #Header th {font-size:14px;text-align:center;padding-top:5px;padding-bottom:4px;background-color:#EDC9AF;color:#0000A0;}\r\n
+    \     #Header tr.alt td {color:#000;background-color:#EAF2D3;}\r\n      '\r\n
+    \r\n\r\n    $HTML <B> Servers Details</B>\r\n    \r\n     \r\n            <B>Server
+    Name</B>\r\n            <B>Description</B>\r\n            \r\n    \r\n            $($user.ServerName)\r\n
+    \           $($user.Decription)\r\n                                                                       \r\n
+    \   \r\n    \r\n    \r\n  $HTMl  "
+- id: 273157
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-02-12 15:25:15 +0000'
+  date_gmt: '2018-02-12 21:25:15 +0000'
+  content: "Try this:\r\n\r\n[html]\r\n<table>\r\n<thead><tr>\r\n<th>Server Name</th>\r\n<th>Description</th>\r\n</tr></thead>\r\n<tbody>\r\n<tr>\r\n<td>$user.ServerName</td>\r\n<td>$user.Decription</td>\r\n</tr></tbody>\r\n</table>\r\n[/html]"
+- id: 273158
+  author: Kannan
+  author_email: skannansaec@gmail.com
+  author_url: ''
+  date: '2018-02-12 16:55:09 +0000'
+  date_gmt: '2018-02-12 22:55:09 +0000'
+  content: "Sorry Chris. I have already tried this method but not working.\r\n\r\nIn
+    the email body server names details  showing the single line. I need server name
+    will show one by one in the mail body ."
+- id: 273161
+  author: Nishant
+  author_email: nishaant099@gmail.com
+  author_url: ''
+  date: '2018-02-13 09:05:47 +0000'
+  date_gmt: '2018-02-13 15:05:47 +0000'
+  content: "Hi Chris,\r\n\r\nI have another request for you\r\nI am trying to embed
+    image in the email body but when I receive the email the image shows up with a
+    small box with cross mark in it, and image do not appear  in the mail body, I
+    have tried using the .png format image instead of .jpg but did not work.\r\n\r\nthe
+    code is pretty same as previous one now I am trying to embed inline image but
+    it's not happening, please help me with this :) \r\n\r\n\r\n\r\n# Defining CSV
+    file to be displayed in the email body with table style\r\n\r\n$style = \"\"\r\n$style
+    = $style + \"BODY{background-color:#FFFFFF;font-family:Verdana;}\"\r\n$style =
+    $style + \"TABLE{border-width: 1px;border-style: solid;border-color: black;border-collapse:
+    collapse;font-size:12px;}\"\r\n$style = $style + \"TH{border-width: 1px;text-align:
+    center;padding: 2px;border-style: solid;border-color: black;background-color:#D3D3D3
+    }\"\r\n$style = $style + \"TD{border-width: 1px;text-align: center;padding: 2px;border-style:
+    solid;border-color: black;background-color:#FFFFFF }\"\r\n$style = $style + \"\"\r\n\r\n$Report
+    = Import-Csv F:\\hfjdl.csv | ConvertTo-Html -Head $style\r\n\r\n# Define Image
+    source\r\n\r\n$Image = \"F:\\test\\folder\\IMAGES\\One.jpg\"\r\n$att1 = new-object
+    Net.Mail.Attachment($Image)\r\n$att1.ContentType.MediaType = \"image/jpg\"\r\n$att1.ContentId
+    = \"Attachment\"\r\n$att1.ContentDisposition.Inline = $true\r\n$att1.ContentDisposition.DispositionType
+    = \"Inline\"\r\n\r\n# Define local Exchange server info for message relay.\r\n\r\n[string]
+    $smtpServer  = \"*******.COM\"; \r\n[string] $sender      = \"******.com\";\r\n[string]
+    $receiver    = \"********.com\";\r\n[string] $subject     = \"REPORT:\";\r\n[string]
+    $Else_subject= \"REPORT\";\r\n[string] $body        = \"\r\n \r\n \r\n \r\n \r\n
+    \r\n\t\t&amp;#9888 REPORT:\r\n\t\t\r\n\t\t\t<b>Date:\"+ (Get-Date).ToString('dd/MM/yyyy
+    hh:mm:ss') + \" GMT\r\n\t\t\r\n\t\t\r\n\t\t\t\r\n\t\t\t\tDear Team, This is an
+    automated report to acknowledge you that.......\r\n\t\t\t\r\n\t\t\r\n\t\r\n\t\t
+    \r\n\t\t\r\n                Please find below screenshot for your reference\r\n
+    \              \r\n              \r\n              \r\n              \r\n\r\n\t\t\t\r\n\t\t\r\n\tRegards,XYZ\r\n\r\n
+    \r\n \r\n\";\r\n\r\n[string] $Else_Body = \"\r\n \r\n \r\n \r\n \r\n \r\n\t\tREPORT\r\n\t\t\r\n\t\t\t<b>Date:\"+
+    (Get-Date).ToString('dd/MM/yyyy hh:mm:ss') + \" GMT\r\n\t\t\r\n\t\t\r\n\t\t\t\r\n\t\t\t\tDear
+    Team, This is to let you know that as.......\r\n\t\t\t\r\n\t\t\r\n\t\r\n\tRegards,XYZ\r\n\r\n
+    \r\n \r\n\";\r\n\r\n# Attachment definition\r\n\r\n$file = \"F:\\test\\folder\\REPORT.csv\";\r\n\r\n#
+    Defining condition when to send email to the recipient\r\n\r\n$data = Import-Csv
+    \"F:\\test\\folder\\REPORT.csv\"\r\n$NAME = $data.NAME\r\n\r\n\r\nif ($NAME -ne'')\r\n{
+    $smtpClient = New-Object Net.Mail.SmtpClient($smtpServer); \r\n$emailFrom  = New-Object
+    Net.Mail.MailAddress $sender, $sender; \r\n$emailTo    = New-Object Net.Mail.MailAddress
+    $receiver, $receiver;\r\n$att\t    = new-object Net.Mail.Attachment($file);\r\n$mailMsg
+    \   = New-Object Net.Mail.MailMessage($emailFrom, $emailTo, $subject, $body);
+    \r\n$mailMsg.Attachments.Add($att)\r\n$mailMsg.IsBodyHtml = $true;\r\n$smtpClient.Send($mailMsg)\r\n$att1.dispose()\r\n\r\nWrite-Host
+    \"Mail sent successfully\";\r\nWrite-Host \"Finished\"; }\r\nelse \r\n{$smtpClient
+    = New-Object Net.Mail.SmtpClient($smtpServer); \r\n$emailFrom  = New-Object Net.Mail.MailAddress
+    $sender, $sender; \r\n$emailTo    = New-Object Net.Mail.MailAddress $receiver,
+    $receiver;\r\n$Else_mailMsg    = New-Object Net.Mail.MailMessage($emailFrom, $emailTo,
+    $Else_subject, $Else_Body); \r\n$Else_mailMsg.IsBodyHtml = $true;\r\n$smtpClient.Send($Else_mailMsg)\r\nWrite-Host
+    \"Mail sent successfully\";\r\nWrite-Host \"Finished\";}"
+- id: 273162
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-02-13 09:33:18 +0000'
+  date_gmt: '2018-02-13 15:33:18 +0000'
+  content: |-
+    Hi Kennan,
+
+    Could you post your full HTML code? Using tables in the HTML works for me, I used it all the time so I'd like to see the rest of yours.
+
+    Thanks,
+
+    CG
+- id: 273163
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-02-13 09:38:36 +0000'
+  date_gmt: '2018-02-13 15:38:36 +0000'
+  content: |-
+    Hi Nishant,
+
+    You cannot link to a local path for the image. You need to put the image somewhere that is accessible to everyone receiving your email. If you have recipients external to your organization it should be a public url but something to consider is that Outlook is very good at blocking external images in emails.
+
+    You could try this:
+    [html]
+    <img src="http://path to your web server/One.jpg" alt="Image" height="20" width="200">
+    [/html]
+
+    You could also try to convert the image to base64 and include that. I haven't personally had much success with that method.
+
+    Cheers,
+
+    CG
+- id: 273171
+  author: Kannan
+  author_email: skannansaec@gmail.com
+  author_url: ''
+  date: '2018-02-14 18:44:03 +0000'
+  date_gmt: '2018-02-15 00:44:03 +0000'
+  content: Thanks Chris. After reduced the Table width size from 100% to 10 % now
+    all the servers is showing in the mail body table one by one.
+- id: 273174
+  author: Paul
+  author_email: paul.okane@c-21.co.uk
+  author_url: ''
+  date: '2018-02-16 09:21:47 +0000'
+  date_gmt: '2018-02-16 15:21:47 +0000'
+  content: "Hi Chris,\r\n\r\nDo you know of any solutions out there that could work
+    for email marketing, for external contacts?\r\n\r\nDifferent users will receive
+    different content for each email etc.\r\n\r\nThanks for your time,\r\nPaul"
+- id: 273175
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-02-16 13:10:05 +0000'
+  date_gmt: '2018-02-16 19:10:05 +0000'
+  content: |-
+    Hey Paul,
+
+    I've never personally used any of these types of solutions, but I've come across a few in my time.
+    <ul>
+    https://www.marketo.com
+    https://www.constantcontact.com
+    </ul>
+
+    Hope this helps!
+- id: 273253
+  author: Nishant
+  author_email: nishaant099@gmail.com
+  author_url: ''
+  date: '2018-03-01 05:46:18 +0000'
+  date_gmt: '2018-03-01 11:46:18 +0000'
+  content: "Hi Chris,\r\n\r\nCould you help me, How I can send email from PS1 using
+    the alias name and not the email addresses.\r\nif you could demonstrate this in
+    the sample code which I posted here on January 15, 2018 at 9:02 am\r\nIt would
+    good for me :)\r\n\r\nRegards,\r\nNishant"
+- id: 273266
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-03-05 12:54:10 +0000'
+  date_gmt: '2018-03-05 18:54:10 +0000'
+  content: I don't know of a way to do that. It might be possible using the outlook
+    com object method, but that would require outlook on the machine sending the email
+    which makes the script a lot less useful and isn't something I've tested.
+- id: 273516
+  author: Ilari
+  author_email: ilari.harteela@hotmail.com
+  author_url: ''
+  date: '2018-04-20 00:58:19 +0000'
+  date_gmt: '2018-04-20 06:58:19 +0000'
+  content: How about taking data from csv1 and the email address list from csv2 ?
+- id: 273558
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-04-23 07:47:28 +0000'
+  date_gmt: '2018-04-23 13:47:28 +0000'
+  content: "It really depends on what your CSV columns are named, but it would be
+    something like this:\r\n\r\n$CSV1 = Import-Csv csv1.csv\r\n$CSV2 = Import-Csv
+    csv2.csv\r\n\r\nForeach ($User in $CSV1) {\r\n $ToAddress = $CSV2.Email\r\n $Name
+    = $CSV1.FirstName\r\n $Level = $CSV1.Level\r\n $DeskNum = $CSV1.DeskNumber\r\n
+    $PhoneNum = $CSV1.PhoneNumber\r\n......"
+- id: 278847
+  author: Greg R
+  author_email: grojas0806@gmail.com
+  author_url: ''
+  date: '2019-03-06 11:02:12 +0000'
+  date_gmt: '2019-03-06 17:02:12 +0000'
+  content: "BEST\r\n\r\nSCRIPT\r\n\r\nEVER!!!\r\n\r\nThanks so much.  Just streamlined
+    a HUGE project for us!  This is totally awesome!!"
+- id: 278850
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2019-03-06 11:06:46 +0000'
+  date_gmt: '2019-03-06 17:06:46 +0000'
+  content: Thanks for the feedback Greg, glad it helped you out.
+---
+<p>I was recently working on a migration project with a customer and volunteered to help find a solution to a challenge the Organizational Change Management (OCM) team were facing. The OCM team had been communicating with the business to keep them informed about the upcoming changes and what impact these changes would have on their day to day operations. This communication had all taken place via email and they now needed to send out a new notification to several thousand users that contained specific information that would be different for each recipient. Since this was a single-use scenario and all recipients were internal users, they were not terribly interested in investing in a third-party application or service to do this so we decided to explore other options.</p>
+<p><a href="http://www.ehloworld.com/175" target="_blank">Inspired by Pat Richard&rsquo;s &ldquo;New-WelcomeEmail.ps1&rdquo; script</a>, I figured it would be pretty easy to achieve this using a PowerShell script and .CSV input file, it works great! To illustrate this, I&rsquo;ll use the fictitious example of gooseLabs, Inc who are relocating to a new office building and would like to send a notification email to all their users that contains their new desk location and phone number. The first and most important step is to ensure that you have an accurate input file. For this particular scenario, the input file looks something like this:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/04/1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="1" src="http://www.cgoosen.com/wp-content/uploads/2015/04/1_thumb.png" alt="1" width="453" height="364" border="0" /></a></p>
+<p align="left">Once we have our input file created, we can use the magic of PowerShell to generate our notifications using this data. The following script imports the .CSV file and generates a simple email notification that is then sent to everyone in the list:</p>
+<p>[powershell]<br />
+# Function to create report email<br />
+function SendNotification{<br />
+ $Msg = New-Object Net.Mail.MailMessage<br />
+ $Smtp = New-Object Net.Mail.SmtpClient($ExchangeServer)<br />
+ $Msg.From = $FromAddress<br />
+ $Msg.To.Add($ToAddress)<br />
+ $Msg.Subject = "Announcement: Important information about your office relocation."<br />
+ $Msg.Body = $EmailBody<br />
+ $Msg.IsBodyHTML = $true<br />
+ $Smtp.Send($Msg)<br />
+}</p>
+<p># Define local Exchange server info for message relay. Ensure that any servers running this script have permission to relay.<br />
+$ExchangeServer = "yourexchange.domain.com"<br />
+$FromAddress = "Office Relocation Team <relocation@domain.com>"</p>
+<p># Import user list and information from .CSV file<br />
+$Users = Import-Csv UserList.csv</p>
+<p># Send notification to each user in the list<br />
+Foreach ($User in $Users) {<br />
+ $ToAddress = $User.Email<br />
+ $Name = $User.FirstName<br />
+ $Level = $User.Level<br />
+ $DeskNum = $User.DeskNumber<br />
+ $PhoneNum = $User.PhoneNumber<br />
+ $EmailBody = @"<br />
+ <html><br />
+ <head><br />
+ </head><br />
+ <body></p>
+<p>Dear $Name,</p>
+<p>As you know we will be relocating to our new offices at 742 Evergreen Terrace, Springfield on July 1, 2015. This email contains important information to help you get settled as quickly as possible.</p>
+<p>Your existing access card will grant you access to the new building and your desk location is as follows:</p>
+<p><strong>Level:</strong> $Level<br />
+ <strong>Desk Number:</strong> $DeskNum<br />
+ <strong>Phone Number:</strong> $PhoneNum</p>
+<p>Your new phone will be connected and ready for use when you arrive.</p>
+<p>If you require any assistance during the move please contact the relocation helpdesk at relocation@gooselabs.net or by calling 555-555-1234</p>
+<p>Regards,</p>
+<p>Office Relocation Team</p>
+<p> </body><br />
+ </html><br />
+"@<br />
+ Write-Host "Sending notification to $Name ($ToAddress)" -ForegroundColor Yellow<br />
+ SendNotification<br />
+}<br />
+[/powershell]</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/04/2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="2" src="http://www.cgoosen.com/wp-content/uploads/2015/04/2_thumb.png" alt="2" width="500" height="369" border="0" /></a></p>
+<p align="left">The resulting notification looks like this:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/04/3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="3" src="http://www.cgoosen.com/wp-content/uploads/2015/04/3_thumb.png" alt="3" width="600" height="238" border="0" /></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/04/4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="4" src="http://www.cgoosen.com/wp-content/uploads/2015/04/4_thumb.png" alt="4" width="600" height="238" border="0" /></a></p>
+<p align="left">This method could also be used to distribute other information, like temporary passwords prior to a <a href="https://technet.microsoft.com/en-us/library/jj898490%28v=exchg.150%29.aspx" target="_blank">Cutover Exchange Migration.</a></p>

@@ -1,0 +1,38 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2007 SP1 CCR Passive node installation failure
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 59
+wordpress_url: http://www.cgoosen.com/2009/02/exchange-2007-sp1-ccr-passive-node-installation-failure/
+date: '2009-02-20 16:34:39 +0000'
+date_gmt: '2009-02-20 05:34:39 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 6
+  author: Derrick
+  author_email: dsmith@denveria.com
+  author_url: ''
+  date: '2009-04-17 04:59:07 +0000'
+  date_gmt: '2009-04-16 17:59:07 +0000'
+  content: "Thx, this helped.\r\n\r\nHow about they provide software that produces
+    error codes that make sense?"
+---
+<p>When installing a Exchange 2007 SP1 in Cluster Continuous Replication (CCR) cluster, the passive node installation fails with the following error: </p>
+<p>&#8220;This is not a passive node. A clustered mailbox server represented by the cluster resource group [name of cluster] was found on this node.&#8221;</p>
+<p>&#160;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/02/image.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="510" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/02/image-thumb.png" width="583" border="0" /></a></p>
+<p align="left">After a bit of head scratching, I realised that this occurs because after the installation of the passive node, Exchange setup asks you to restart your server thus causing the cluster to fail over. </p>
+<p align="left">The solution: well.. simply restart the passive node and run Exchange setup again.</p>
+<p align="left">&#160;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/02/image1.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="513" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/02/image-thumb1.png" width="584" border="0" /></a></p>

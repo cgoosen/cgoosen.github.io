@@ -1,0 +1,51 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Remote Move Request: Exception has been thrown by the target of invocation'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 756
+wordpress_url: http://www.cgoosen.com/?p=756
+date: '2012-05-04 13:03:32 +0000'
+date_gmt: '2012-05-04 02:03:32 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 288
+  author: 'msdigest.net &raquo; Office 365: Remote Move Request: Exception has been
+    thrown by the target of invocation'
+  author_email: ''
+  author_url: http://www.msdigest.net/2012/08/office-365-remote-move-request-exception-has-been-thrown-by-the-target-of-invocation/
+  date: '2012-08-06 20:05:34 +0000'
+  date_gmt: '2012-08-06 09:05:34 +0000'
+  content: "[...] http://www.cgoosen.com/2012/05/remote-move-request-exception-has-been-thrown-by-the-target-of-invoca...
+    [...]"
+---
+<p>If you have a Exchange Hybrid deployment configured and attempt to create a new remote move request you may receive an &rdquo;Exception has been thrown by the target of invocation&rdquo; error similar to the one below.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2012/05/cap.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto; padding-top: 0px" title="cap" border="0" alt="cap" src="http://www.cgoosen.com/wp-content/uploads/2012/05/cap_thumb.png" width="498" height="434" /></a></p>
+<p>Here are a few things you can check in order to help troubleshoot this error:</p>
+<ul>
+<li>Have you enabled MRSProxy? </li>
+<li>Have you correctly set the EWS &ldquo;External URL&rdquo; (WebServicesVirtualDirectory)? </li>
+<li>Do you have a certificate installed that contains the DNS name used in the&#160; EWS &ldquo;External URL&rdquo;? </li>
+<li>Are you entering the correct FQDN in the MRSProxy field of the new remote move request wizard? </li>
+<li>Are you using TMG/ISA to publish EWS? If so, ensure that you are not using authentication delegation on the following paths:
+<ul>
+<li>/ews/mrsproxy.svc </li>
+<li>/ews/exchange.asmx/wssecurity </li>
+<li>/autodiscover/autodiscover.svc/wssecurity </li>
+<li>/autodiscover/autodiscover.svc </li>
+</ul>
+</li>
+<li>Are you seeing &ldquo;405&rdquo; errors in the IIS log on the Exchange Hybrid server? If so, <a href="http://support.microsoft.com/kb/2626696" target="_blank">see KB2626696</a> </li>
+</ul>

@@ -1,0 +1,40 @@
+---
+layout: post
+status: publish
+published: true
+title: Configure Mailbox Regional Settings
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1014
+wordpress_url: http://www.cgoosen.com/?p=1014
+date: '2013-12-24 11:01:39 +0000'
+date_gmt: '2013-12-24 00:01:39 +0000'
+categories:
+- Exchange Server
+- MigrationWiz
+tags: []
+comments: []
+---
+<p>I recently completed a small migration for a customer using the <a href="https://www.migrationwiz.com/" target="_blank">MigrationWiz</a> online migration tools. This wasn&rsquo;t the first time I&rsquo;ve used these tools, but it was the first time I&rsquo;ve actually provisioned new destination mailboxes myself. I used PowerShell with a .csv file as input to automate the process of creating each mailbox, granting the correct level of access to the migration account as well as performing a few other tasks that were relevant to the particular migration.</p>
+<p>Once I started the migration I was confused for a second when I received the following error message: &ldquo;Connection did not succeed. Try again later.&rdquo; The associated MigrationWiz <a href="https://migrationwiz.zendesk.com/entries/20442656" target="_blank">knowledgebase article</a> contained a few suggestions, but none of them applied to my particular situation. When trying to log into one of the test mailboxes, I noticed that it asked me to set my preferred language and time zone.. which is expected:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/12/image3.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border-width: 0px;" title="image" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2013/12/image_thumb3.png" width="517" height="378" border="0" /></a></p>
+<p>Once I had set these, I was able to connect and migrate data to that mailbox as expected. Obviously, I didn&rsquo;t want to manually configure these settings for each mailbox and was able to use PowerShell and the <a href="http://technet.microsoft.com/en-us/library/dd351103(v=exchg.150).aspx" target="_blank">Set-MailboxRegionalConfiguration</a> cmdlet to do this for all the relevant mailboxes. Here is a very simple script that will use a .csv as input and set the regional settings for all aliases. It can easily be modified to use some other input too:</p>
+<p>[powershell]#The users.csv should contain a Alias colum, eg<br />
+#Name,Alias,Email,Whatever<br />
+$Users = Import-Csv .\users.csv<br />
+Foreach ($User in $Users){<br />
+   $Alias = $User.Alias<br />
+   $Language = "en-NZ"<br />
+   $DateFormat = "d/MM/yyyy"<br />
+   $TimeFormat = "h:mm tt"<br />
+   $TimeZone = "New Zealand Standard Time"<br />
+   Set-MailboxRegionalConfiguration -Identity $Alias -Language $Language -DateFormat $DateFormat -TimeFormat $TimeFormat -TimeZone $TimeZone<br />
+}[/powershell]</p>
+<p>The easiest way to find your desired settings it to look at a correctly set mailbox using the <a href="http://technet.microsoft.com/en-us/library/dd335163(v=exchg.150).aspx" target="_blank">Get-MailboxRegionalConfiguration</a> cmdlet:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/12/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2013/12/image_thumb2.png" width="672" height="232" border="0" /></a></p>

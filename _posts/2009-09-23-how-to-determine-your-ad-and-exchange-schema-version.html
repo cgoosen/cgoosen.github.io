@@ -1,0 +1,195 @@
+---
+layout: post
+status: publish
+published: true
+title: How to determine your AD and Exchange Schema version
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 214
+wordpress_url: http://www.cgoosen.com/2009/09/how-to-determine-your-ad-and-exchange-schema-version/
+date: '2009-09-23 14:34:52 +0000'
+date_gmt: '2009-09-23 03:34:52 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 37
+  author: schema reference
+  author_email: ''
+  author_url: http://starttags.com/tags/schema-reference
+  date: '2010-04-05 13:41:05 +0000'
+  date_gmt: '2010-04-05 02:41:05 +0000'
+  content: "[...] is a specific setting called auto-update=none|link|object in the
+    Apache OJB schema element. ...How to determine your AD and Exchange Schema versionI
+    was looking for a good reference of AD and Exchange schema version numbers yesterday
+    and thought [...]"
+- id: 113
+  author: Lee Andrews
+  author_email: landrews@maninvestments.com
+  author_url: http://non
+  date: '2010-07-14 00:32:51 +0000'
+  date_gmt: '2010-07-13 13:32:51 +0000'
+  content: Hi you can add the Exchange 2007 SP3 rangeupper value of 14625
+- id: 307
+  author: PeteLong
+  author_email: info@petenetlive.com
+  author_url: http://www.petenetlive.com
+  date: '2012-09-14 01:45:56 +0000'
+  date_gmt: '2012-09-13 14:45:56 +0000'
+  content: "That no longer works with 2012, Here's some more information that might
+    be helpful\r\n\r\n<a href=\"http://www.petenetlive.com/KB/Article/0000025.htm\"
+    rel=\"nofollow\">Find out your Domain Schema Version\"</a>\r\n\r\nPete\r\n<a href=\"http://www.petenetlive.com\"
+    rel=\"nofollow\">PeteNetLive</a>"
+- id: 419
+  author: Marc L
+  author_email: lognoulm@hotmail.com
+  author_url: http://www.marc-lognoul.me/
+  date: '2012-12-28 20:07:38 +0000'
+  date_gmt: '2012-12-28 09:07:38 +0000'
+  content: "@Peter: your statement surprises me. All the 2012 I implemented (fresh
+    or upgrade) still report the objectVersion like previous versions did... And MSDN
+    says the same: http://msdn.microsoft.com/en-us/library/cc223174.aspx\r\n\r\nAre
+    you sure the promotion/upgrade ran completely?\r\n\r\nKR,\r\nMarc"
+---
+<p>I was looking for a good reference of AD and Exchange schema version numbers yesterday and thought it would be handy to combine all the bits of information I came across into a single post. </p>
+<p>There are a couple of ways to find the schema version number, I prefer using &ldquo;DSQuery&rdquo; to &ldquo;ADSIEdit&rdquo; so I&rsquo;ll be making use of &ldquo;DSQuery&rdquo; in the following examples.</p>
+<p>To determine the version of your AD schema, we use &ldquo;DSQuery&rdquo; to find the value of the &ldquo;objectVersion&rdquo; attribute:</p>
+<blockquote><p>dsquery * cn=schema,cn=configuration,dc=yourdomain,dc=local -scope base &ndash;attr objectVersion</p>
+</blockquote>
+<p>Here is a mapping between the &ldquo;objectVersion&rdquo; attribute value and the AD schema version:</p>
+<p>&#160;</p>
+<div align="center">
+<table border="0" cellspacing="0" cellpadding="2" width="551" align="center">
+<tbody>
+<tr>
+<td valign="top" width="273">
+<h5><strong><em>Value</em></strong></h5>
+</td>
+<td valign="top" width="276">
+<h5><strong><em>Schema Version</em></strong></h5>
+</td>
+</tr>
+<tr>
+<td valign="top" width="273">&#160;</td>
+<td valign="top" width="276">&#160;</td>
+</tr>
+<tr>
+<td valign="top" width="273">
+<h6 align="left">13</h6>
+</td>
+<td valign="top" width="276">
+<h6 align="left">Windows 2000 Server </h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="273">
+<h6 align="left">30</h6>
+</td>
+<td valign="top" width="276">
+<h6 align="left">Windows Server 2003 RTM/SP1/SP2</h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="273">
+<h6 align="left">31</h6>
+</td>
+<td valign="top" width="276">
+<h6 align="left">Windows Server 2003 R2</h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="273">
+<h6 align="left">44</h6>
+</td>
+<td valign="top" width="276">
+<h6 align="left">Windows Server 2008 RTM</h6>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>To determine the version of your Exchange schema, we use &ldquo;DSQuery&rdquo; to find the value of the &ldquo;rangeUpper&rdquo; attribute:</p>
+<blockquote><p>dsquery * CN=ms-Exch-Schema-Version-Pt,cn=schema,cn=configuration,dc=yourdomain,dc=local -scope base &ndash;attr rangeUpper</p>
+</blockquote>
+<p>Here is a mapping between the &ldquo;rangeUpper&rdquo; attribute value and the Exchange schema version:</p>
+<p>&#160;</p>
+<div align="center">
+<table border="0" cellspacing="0" cellpadding="2" width="551" align="center">
+<tbody>
+<tr>
+<td valign="top" width="274">
+<h5><strong><em>Value</em></strong></h5>
+</td>
+<td valign="top" width="275">
+<h5><strong><em>Schema Version</em></strong></h5>
+</td>
+</tr>
+<tr>
+<td valign="top" width="274">&#160;</td>
+<td valign="top" width="275">&#160;</td>
+</tr>
+<tr>
+<td valign="top" width="274">
+<h6 align="left">4397</h6>
+</td>
+<td valign="top" width="275">
+<h6 align="left">Exchange Server 2000 RTM</h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="274">
+<h6 align="left">4406</h6>
+</td>
+<td valign="top" width="275">
+<h6 align="left">Exchange Server 2000 SP3</h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="274">
+<h6 align="left">6870</h6>
+</td>
+<td valign="top" width="275">
+<h6 align="left">Exchange Server 2003 RTM</h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="274">
+<h6 align="left">6936</h6>
+</td>
+<td valign="top" width="275">
+<h6 align="left">Exchange Server 2003 SP3</h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="274">
+<h6 align="left">10628</h6>
+</td>
+<td valign="top" width="275">
+<h6 align="left">Exchange Server 2007 RTM</h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="274">
+<h6 align="left">11116</h6>
+</td>
+<td valign="top" width="275">
+<h6 align="left">Exchange Server 2007 SP1</h6>
+</td>
+</tr>
+<tr>
+<td valign="top" width="274">
+<h6 align="left">14622</h6>
+</td>
+<td valign="top" width="275">
+<h6 align="left">Exchange Server 2007 SP2</h6>
+</td>
+</tr>
+</tbody>
+</table></div>
+<div align="left">&#160;</div>
+<p>NOTE: in both examples, it is assumed that your domain name is &ldquo;youdomain.local&rdquo;</p>

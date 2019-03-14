@@ -1,0 +1,145 @@
+---
+layout: post
+status: publish
+published: true
+title: Fun with Azure Automation and Table Service REST API
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 3301
+wordpress_url: http://www.cgoosen.com/?p=3301
+date: '2018-02-27 20:00:12 +0000'
+date_gmt: '2018-02-28 02:00:12 +0000'
+categories:
+- Cloud
+- Office 365
+- PowerShell
+- Azure
+- API
+tags: []
+comments:
+- id: 273923
+  author: Alex &Oslash;. T. Hansen
+  author_email: ath@tofte-it.dk
+  author_url: http://blog.tofte-it.dk
+  date: '2018-05-18 00:32:57 +0000'
+  date_gmt: '2018-05-18 06:32:57 +0000'
+  content: "Thanks, easy code to review.\r\nCan you provide examples with updating
+    and deleting?"
+- id: 273946
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-05-20 11:31:24 +0000'
+  date_gmt: '2018-05-20 17:31:24 +0000'
+  content: |-
+    Hi Alex,
+    I don't have any examples, but you should just be able to use the 'delete' and 'merge' methods for that, here is some documentation:
+    https://docs.microsoft.com/en-us/rest/api/storageservices/delete-entity1
+    https://docs.microsoft.com/en-us/rest/api/storageservices/merge-entity
+    Let me know if you figure it out - I'll do some testing and update this too when I have some time.
+
+    Cheers
+---
+<p>I love PowerShell and I really love to automate things! I recently started looking into leveraging Azure services for some automation tasks&nbsp;and discovered how powerful it could be. I also had a lot of fun doing it and wanted to share some of what I learned.</p>
+<p>Azure&nbsp;Automation is for scheduling tasks or scripts that run on some sort of schedule and is especially useful for any automation you might be doing with Office 365. Your code is stored in a Runbook (PowerShell or Python) and executed according to a schedule. Interacting with modules is a little different to working with your local PowerShell installation, however the <a href="https://docs.microsoft.com/en-us/azure/automation/automation-runbook-gallery" target="_blank" rel="noopener noreferrer">module gallery makes it pretty simple</a>. Getting started is simple, let's assume in this example we will be automating a report in Exchange Online. First you create an Automation Account:</p>
+<p><a href="/assets/img/2018/02/auto1.png"><img src="/assets/img/2018/02/auto1.png" style="width:145px;height:300px;" /></a></p>
+<p><a href="/assets/img/2018/02/auto2.png"><img src="/assets/img/2018/02/auto2.png" style="width:300px;height:222px;" /></a></p>
+<p>Create a credential set for your Exchange Online credentials - remember what you call it.&nbsp;"TenantCreds" in my case.</p>
+<p><a href="/assets/img/2018/02/auto4.png"><img src="/assets/img/2018/02/auto4.png" style="width:300px;height:176px;" /></a></p>
+<p>Then create a new Runbook:</p>
+<p><a href="/assets/img/2018/02/auto3.png"><img src="/assets/img/2018/02/auto3.png" style="width:300px;height:185px;" /></a></p>
+<p>Next it's time to add some PowerShell to the Runbook. Since we will be working in Exchange Online, we need to create and import that session. This is similar to working with Exchange Online sessions on your local machine, but you will notice that we don't need to include the credentials in the code and simply reference the credential set we created earlier:</p>
+<p>{% highlight ruby linenos %}<br />
+$UserCredential = Get-AutomationPSCredential -Name "TenantCreds"<br />
+$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection<br />
+$Commands = @("Get-MigrationBatch","Get-MigrationUser","Get-MigrationUserStatistics","Get-MoveRequestStatistics","Get-MoveRequest")<br />
+Import-PSSession -Session $Session -Prefix "EXO" -DisableNameChecking:$true -AllowClobber:$true -CommandName $Commands | Out-Null<br />
+{% endhighlight %}</p>
+<p>I had some errors when trying to import all Exchange Online cmdlets, so I limit it&nbsp;to only the cmdlets I intend to use in the script. I also add a prefix of "EXO" to these, so these cmdlets are used as follows:</p>
+<p>{% highlight ruby linenos %}<br />
+$MigBatch = Get-EXOMigrationBatch | Where-Object {$_.Identity -like '*MyMigration*'} | foreach {$_.BatchGuid}<br />
+{% endhighlight %}</p>
+<p>Lastly, we need to create a schedule for the automation job:</p>
+<p><a href="/assets/img/2018/02/schedule1.png"><img src="/assets/img/2018/02/schedule1.png" style="width:300px;height:146px;" /></a></p>
+<p>Once the schedule has been created, you can link it to the Runbook:</p>
+<p><a href="/assets/img/2018/02/schedule2.png"><img src="/assets/img/2018/02/schedule2.png" style="width:300px;height:142px;" /></a></p>
+<p>This is great if you need to perform tasks that don't generate any output. What happens when something (e.g .CSV file) is generated? There are a couple of ways to deal with that. You could just use the temp folder to store your data and <a href="http://www.cgoosen.com/2015/04/user-powershell-to-bulk-email-your-users/" target="_blank" rel="noopener noreferrer">then email it to yourself</a> - remember, data stored in the temp folder will not persist:</p>
+<p>{% highlight ruby linenos %}<br />
+$TmpPath = $env:TEMP<br />
+{% endhighlight %}</p>
+<p>Another way to deal with this data is to write it to Azure Storage. There is a <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-powershell-guide-full" target="_blank" rel="noopener noreferrer">PowerShell module available</a> for Azure Storage that can be used with Azure Automation, but you can also use the APIs. Since&nbsp;I figured out how to use the API, it has become my go to method because it is actually much faster. I have also been able to use it in environments where it isn't possible to install modules.</p>
+<p>The first thing we need to do is create a Storage Account in Azure:</p>
+<p><a href="/assets/img/2018/02/storage1.png"><img src="/assets/img/2018/02/storage1.png" style="width:138px;height:300px;" /></a></p>
+<p>We then create a Shared Access Signature (SAS) for that Storage Account:</p>
+<p><a href="/assets/img/2018/02/storage2.png"><img src="/assets/img/2018/02/storage1.png" style="width:300px;height:218px;" /></a></p>
+<p>The result should look similar to this:</p>
+<p><a href="/assets/img/2018/02/storage3.png"><img src="/assets/img/2018/02/storage1.png" style="width:300px;height:142px;" /></a></p>
+<p>In this example, we are going to store our script output in the Table Service, so we'll be using the&nbsp;Table Service REST API. When working with the Table Service it is <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-the-table-service-data-model" target="_blank" rel="noopener noreferrer">important to understand tables, entities, system properties and other limitations</a>, but for the&nbsp;purposes of this post I'm going to simplify things a little.&nbsp;Tables store data as collections of entities - entities are similar to rows&nbsp;and have&nbsp;a primary key and a set of properties. A property is similar to a column.</p>
+<p>Each entity always has the following system properties:</p>
+<ul>
+<li>PartitionKey</li>
+<li>RowKey</li>
+<li>Timestamp</li>
+</ul>
+<p>Timestamp is managed automatically and isn't something you can change. The&nbsp;PartitionKey and RowKey are always required and are used for scalability and indexing of the content so it is important to consider these when designing your table. <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage" target="_blank" rel="noopener noreferrer">Here is some really good information to read up on.</a>&nbsp;In this&nbsp;example, I'll looking up migration status of a mailbox in Exchange Online and will be inserting this data into a table. I'm going to use the "BatchID" as the&nbsp;PartitionKey and the "Status" as the&nbsp;RowKey. The table name in the example will use the "Alias" of the mailbox.</p>
+<p>First, lets define the data we are going to insert. This could easily be used in a script or automation Runbook as a Foreach() loop, but to keep it simple I'm just going to manually define them in the example</p>
+<p>{% highlight ruby linenos %}<br />
+$UserTable = "ZacTurner"<br />
+$PartitionKey = "Batch02"<br />
+$RowKey = "Synced"<br />
+$PrimaryEmailAddress = "ZacTurner@o365testlab.com"<br />
+$MbxGuid = "e31949b2-ebc6-4f57-b9ae-0aa8ae73bb2c"<br />
+$Batch = "Batch02"<br />
+$Status = "Synced"<br />
+$Skipped = "4"<br />
+$LastCheck = "2/27/2018 8:28:01 PM"<br />
+{% endhighlight %}</p>
+<p>Next we will import this information, during the import, we'll first check to see if a unique table already exists (using the Alias). If one does exist, we'll insert the data, if one doesn't exist we will create it.</p>
+<p>{% highlight ruby linenos %}<br />
+$AzureEndpoint = 'https://cgblogpostdemo.table.core.windows.net/'<br />
+$AzureSAS = "?sv=2017-07-29&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacup&amp;se=2018-04-05T02:31:38Z&amp;st=2018-02-27T19:31:38Z&amp;spr=https&amp;sig=<removed>"<br />
+$AzureRequestHeaders = @{<br />
+		"x-ms-date"=(Get-Date -Format r);<br />
+		"x-ms-version"="2016-05-31";<br />
+		"Accept-Charset"="UTF-8";<br />
+		"DataServiceVersion"="3.0;NetFx";<br />
+		"MaxDataServiceVersion"="3.0;NetFx";<br />
+		"Accept"="application/json;odata=nometadata"}</p>
+<p>$UserURI = $AzureEndpoint + $UserTable + "/" + $AzureSAS</p>
+<p>#Check if table already exists<br />
+$UserTableExists = Invoke-WebRequest -Method GET -Uri $UserURI -Headers $AzureRequestHeaders<br />
+$UserTableExists = $UserTableExists.StatusCode</p>
+<p>If ($UserTableExists -ne "200"){<br />
+		 $TableRequestBody = ConvertTo-Json -InputObject @{<br />
+							"TableName"=$UserTable}<br />
+		 $EncodedTableRequestBody = [System.Text.Encoding]::UTF8.GetBytes($TableRequestBody)<br />
+		 $TableURI = $AzureEndpoint + 'Tables/' + $AzureSAS<br />
+		Invoke-WebRequest -Method POST -Uri $TableURI -Headers $AzureRequestHeaders -Body $EncodedTableRequestBody -ContentType "application/json"<br />
+			}</p>
+<p>#Insert data<br />
+$AzureRequestBody = ConvertTo-Json -InputObject @{<br />
+		"PartitionKey"= "$PartitionKey";<br />
+		"RowKey"= "$RowKey";<br />
+		"PrimaryEmailAddress"= "$PrimaryEmailAddress";<br />
+		"MbxGuid"= "$MbxGuid";<br />
+		"BatchName"= "$Batch";<br />
+		"Status"= "$Status";<br />
+		"ItemsSkipped"= "$Skipped";<br />
+		"LastCheck"= "$LastCheck"}<br />
+$EncodedAzureRequestBody = [System.Text.Encoding]::UTF8.GetBytes($AzureRequestBody)<br />
+Invoke-WebRequest -Method POST -Uri $UserURI -Headers $AzureRequestHeaders -Body $EncodedAzureRequestBody -ContentType "application/json"<br />
+{% endhighlight %}</p>
+<p>You could also use <a href="https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod?view=powershell-5.1" target="_blank" rel="noopener noreferrer">Invoke-RestMethod</a> instead of Invoke-WebRequest. The resulting tables should look like this:</p>
+<p><a href="/assets/img/2018/02/storage4-1.png"><img src="/assets/img/2018/02/storage4-1.png" style="width:300px;height:144px;" /></a></p>
+<p style="text-align: left;">Credit to&nbsp;a couple of Stack Overflow posts that were really helpful&nbsp;when I was trying to figure this out:</p>
+<ul>
+<li style="text-align: left;"><a href="https://stackoverflow.com/questions/42792430/adding-azure-table-entity-with-powershell-with-rest-api" target="_blank" rel="noopener noreferrer">Here</a></li>
+<li style="text-align: left;"><a href="https://stackoverflow.com/questions/47214227/powershell-invoke-restmethod-error-415-unsupported-media-type" target="_blank" rel="noopener noreferrer">Here</a></li>
+</ul>
+

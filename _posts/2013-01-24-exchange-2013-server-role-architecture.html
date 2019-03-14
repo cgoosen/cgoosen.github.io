@@ -1,0 +1,32 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2013 Server Role Architecture
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 899
+wordpress_url: http://www.cgoosen.com/?p=899
+date: '2013-01-24 10:42:56 +0000'
+date_gmt: '2013-01-23 23:42:56 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 560
+  author: Architect Singapore
+  author_email: saarchi.wdg@gmail.com
+  author_url: http://www.saaarchitects.com.sg/home/
+  date: '2013-01-24 20:50:45 +0000'
+  date_gmt: '2013-01-24 09:50:45 +0000'
+  content: Great Post thanks for sharing...
+---
+<p>In case you missed it, the evolution of hardware has caused an architectural change in Exchange 2013.. gone are the 5 Exchange server roles that we have all come to know and love since Exchange 2007. In Exchange 2013 things are a lot more simple with only two server roles, namely, the Client Access server role and the Mailbox server role. Don&rsquo;t let the familiar names fool you though, there is nothing familiar about these roles. In Exchange Server 2013 there are two basic building blocks &ndash; the Client Access array and the Database Availability Group (DAG). Each provides a unit of high availability and fault tolerance that are decoupled from one another. Client Access servers make up the CAS array, while Mailbox servers comprise the DAG.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/01/1300.2013_6E0D4D921.png"><img title="1300.2013_6E0D4D92" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="1300.2013_6E0D4D92" src="http://www.cgoosen.com/wp-content/uploads/2013/01/1300.2013_6E0D4D92_thumb1.png" width="783" height="379"></a></p>
+<p>Ross Smith did a great job (obviously!) of introducing the new Exchange 2013 role architecture during the technical keynote at MEC 2012 last year.. if you have not already seen it, I highly <a href="http://www.iammec.com/video" target="_blank">recommend you watch it here</a>. He also recently publish the following post of the Exchange team <a href="http://blogs.technet.com/b/exchange/archive/2013/01/23/exchange-2013-server-role-architecture.aspx" target="_blank">blog that covers the same topic.</a></p>

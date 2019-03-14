@@ -1,0 +1,57 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange Server Virtualization
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 235
+wordpress_url: http://www.cgoosen.com/2010/02/exchange-server-virtualization/
+date: '2010-02-25 10:52:16 +0000'
+date_gmt: '2010-02-24 23:52:16 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 26
+  author: Exchange Server Virtualization | VirtualizationDir - Top Virtualization
+    Providers, News and Resources
+  author_email: ''
+  author_url: http://www.virtualizationdir.com/2010/02/exchange-server-virtualization/
+  date: '2010-02-26 01:00:01 +0000'
+  date_gmt: '2010-02-25 14:00:01 +0000'
+  content: "[...] the rest here: Exchange Server Virtualization        Plurk This
+    Post   Delicious  Digg This Post   MySpace  Ping This Post  Reddit This Post  [...]"
+- id: 28
+  author: hardware virtualization support | HARDWARE
+  author_email: ''
+  author_url: http://hardware.techsome.info/?p=92
+  date: '2010-03-05 21:46:39 +0000'
+  date_gmt: '2010-03-05 10:46:39 +0000'
+  content: "[...] Exchange Server Virtualization [...]"
+---
+<p>I am often asked about virtualization when talking to my customers about Exchange. Virtualization has been a big thing in the industry for a while now, so it makes sense that many customers are looking to take advantage of the many benefits, including server consolidation. What does Microsoft support? Virtualization support has not changed much since Exchange Server 2007 SP1.</p>
+<p>Microsoft supports Exchange Server in production on hardware virtualization software only when all the following conditions are true:</p>
+<ol>
+<li>The hardware virtualization software is running:      <br />Windows Server 2008 with Hyper-V technology       <br />Windows Server 2008 R2 with Hyper-V technology       <br />Microsoft Hyper-V Server 2008       <br />Microsoft Hyper-V Server 2008 R2       <br />Any third-party hypervisor that has been validated under the <a href="http://go.microsoft.com/fwlink/?LinkId=125375" target="_blank">Windows Server Virtualization Validation Program (SVVP).</a></li>
+<li>The Exchange guest virtual machine:      <br />Is running Microsoft Exchange 2007 SP1 or Exchange 2010.       <br />Is deployed on the Windows Server 2008 and above       <br />Doesn't have the Unified Messaging server role installed. All Exchange server roles, except for the Unified Messaging server role, are supported in a virtualization environment. </li>
+<li>The storage used by the Exchange guest machine can be virtual storage of a fixed size, SCSI pass-through storage, or iSCSI storage. In a Hyper-V environment, each fixed VHD must be less than 2,040 GB.Virtual disks that dynamically expand or use differencing or delta mechanisms aren't supported by Exchange.</li>
+<li>Only management software can be deployed on the physical root machine. The root machine should be dedicated to running guest virtual machines. </li>
+<li>Microsoft doesn't support combining Exchange high availability solutions (SCC, CCR, DAGs) with hypervisor-based clustering, high availability, or migration solutions. DAGs are supported in hardware virtualization environments provided that the virtualization environment doesn't employ clustered root servers.</li>
+<li>Virtual machine snapshots of an Exchange guest virtual machine is not supported. </li>
+<li>Exchange supports a virtual processor-to-logical processor ratio no greater than 2:1. For example, a dual processor system using quad core processors contains a total of 8 logical processors in the host system. On a system with this configuration, do not allocate more than a total of 16 virtual processors to all guest virtual machines combined. </li>
+<li>The operating system for an Exchange guest machine must use a fixed sized disk that has a minimum size equal to 15 GB plus the size of the virtual memory that's allocated to the guest machine. This requirement is necessary to account for the operating system and paging file disk requirements.</li>
+</ol>
+<p>&#160;</p>
+<p>For more detailed information on Exchange Server Virtualization see the following Technet documentation:</p>
+<ul>
+<li><a href="http://technet.microsoft.com/en-us/library/cc794548%28EXCHG.80%29.aspx" target="_blank">Microsoft Support Policies and Recommendations for Exchange Servers in Hardware Virtualization Environments</a> </li>
+<li><a href="http://technet.microsoft.com/en-us/library/aa996719.aspx" target="_blank">Exchange 2010 System Requirements</a> </li>
+<li><a href="http://support.microsoft.com/kb/957006" target="_blank">Microsoft server software and supported virtualization environments</a></li>
+</ul>

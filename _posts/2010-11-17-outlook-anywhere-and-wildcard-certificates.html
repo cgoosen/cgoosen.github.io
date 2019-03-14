@@ -1,0 +1,185 @@
+---
+layout: post
+status: publish
+published: true
+title: Outlook Anywhere and Wildcard Certificates
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 636
+wordpress_url: http://www.cgoosen.com/2010/11/outlook-anywhere-and-wildcard-certificates/
+date: '2010-11-17 14:49:09 +0000'
+date_gmt: '2010-11-17 03:49:09 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 214
+  author: Charles Naccio
+  author_email: cnaccio@thehelpdesk.com
+  author_url: http://www.thehelpdesk.com
+  date: '2011-05-02 05:34:24 +0000'
+  date_gmt: '2011-05-01 18:34:24 +0000'
+  content: This worked! In order to get this working on the exchange test I had to
+    change the Principal Name to msstd:*.domain.com on the exchange test website.
+    Will I have to do this for outlook clients as well?
+- id: 216
+  author: Mathiau
+  author_email: www@mathiau.com
+  author_url: ''
+  date: '2011-06-02 13:57:20 +0000'
+  date_gmt: '2011-06-02 02:57:20 +0000'
+  content: Thank you, this fixed my last yellow exclamation i had on a new OA install!
+- id: 335
+  author: Sven
+  author_email: sven@sitehosting.be
+  author_url: ''
+  date: '2012-10-10 06:51:35 +0000'
+  date_gmt: '2012-10-09 19:51:35 +0000'
+  content: Thanks, worked like a charm!!!
+- id: 342
+  author: Derk Jan
+  author_email: derkjan@setrange.nl
+  author_url: ''
+  date: '2012-10-24 20:52:15 +0000'
+  date_gmt: '2012-10-24 09:52:15 +0000'
+  content: Thanks, this helped me a lot
+- id: 404
+  author: CM
+  author_email: bob@aol.com
+  author_url: ''
+  date: '2012-12-12 04:46:15 +0000'
+  date_gmt: '2012-12-11 17:46:15 +0000'
+  content: "If this doesn't work - how do I revert it back...can I just put $Null
+    to get it back to blank as above?\r\n\r\nThanks"
+- id: 405
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2012-12-15 16:33:51 +0000'
+  date_gmt: '2012-12-15 05:33:51 +0000'
+  content: If it previously had no value the setting it to $null will remove it.
+- id: 1071
+  author: Michal
+  author_email: prefer@anonymous.net
+  author_url: ''
+  date: '2013-03-04 22:02:47 +0000'
+  date_gmt: '2013-03-04 11:02:47 +0000'
+  content: Worked great - I am preparing Office 365 migration and this fixed the problem
+    of RPC connection test.
+- id: 1278
+  author: Daniel
+  author_email: rios.daniel@gmail.com
+  author_url: ''
+  date: '2013-04-20 07:18:07 +0000'
+  date_gmt: '2013-04-19 20:18:07 +0000'
+  content: I too am working on a office 365 migration; however, the exchange server
+    I'm moving over is a 2003. Where can I get this command in 2003 since Shell doesn't
+    exist for '03. Is there a similar was to do this? Any help would be wonderful.
+- id: 1279
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-04-20 09:18:51 +0000'
+  date_gmt: '2013-04-19 22:18:51 +0000'
+  content: "Hi Daniel. \n\nAre you using the built-in Exchange online migration tool
+    or have you configured a Hybrid deployment?"
+- id: 1280
+  author: Daniel
+  author_email: rios.daniel@gmail.com
+  author_url: ''
+  date: '2013-04-20 09:30:27 +0000'
+  date_gmt: '2013-04-19 22:30:27 +0000'
+  content: No. Does Outlook Anywhere count? We have that installed and Active Directory
+    Sync since it's going to be a staged-migration. Where I can control mail boxes
+    on my end with Active Directory. I am stuck in the error you have posted here
+    but for 2003.
+- id: 1306
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-04-25 13:06:47 +0000'
+  date_gmt: '2013-04-25 02:06:47 +0000'
+  content: |-
+    Hi Daniel,
+
+    I'll contact you directly about this to see if I can help. Cheers, Chris
+- id: 1398
+  author: Eric
+  author_email: eric@liquidmfg.com
+  author_url: ''
+  date: '2013-09-11 06:57:40 +0000'
+  date_gmt: '2013-09-10 19:57:40 +0000'
+  content: "I'm also hung up on this in regards to a Office365 migration.  My old
+    exahcnge server (2007) passing all tests with exception of the SSL mutual authentication.
+    \ I should also note that I have already set up and starting using Office365 for
+    email.\r\n\r\nI've made the changes via Exchange Shell with no change in the end
+    result of the ExRCA.  Can this have something to do with the Autodiscover DNS
+    entries that were created / modified in my zone file when O365 was set up?"
+- id: 1399
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-09-11 21:17:29 +0000'
+  date_gmt: '2013-09-11 10:17:29 +0000'
+  content: |-
+    Hi Eric,
+    I'm not sure I understand your environment. Are you using Exchange Hybrid? Does your autodiscover record resolve to your on-premises environment or to Exchange Online?
+
+    Cheers,
+
+    Chris
+- id: 1457
+  author: Exchange certificate problems&hellip; | JohanPersson.nu
+  author_email: ''
+  author_url: http://blog.johanpersson.nu/?p=1033
+  date: '2014-01-08 06:26:34 +0000'
+  date_gmt: '2014-01-07 19:26:34 +0000'
+  content: "[&#8230;] http://pickettsproblems.wordpress.com/2013/04/08/windows-xp-users-not-connecting-to-exchange-2013-server/http://www.cgoosen.com/2010/11/outlook-anywhere-and-wildcard-certificates/
+    [&#8230;]"
+- id: 236103
+  author: kjstech
+  author_email: keith.j.sauer@gmail.com
+  author_url: ''
+  date: '2014-10-23 13:21:17 +0000'
+  date_gmt: '2014-10-23 19:21:17 +0000'
+  content: I'm curious if this also has to be set for EXCH and WEB.  I DO have it
+    set for EXPR but experiencing persistant outlook prompts in an Exchange 2013 and
+    2007 co-existence scenereo when the user's mailbox is on the new 2013 server.
+- id: 236675
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2014-10-24 06:01:12 +0000'
+  date_gmt: '2014-10-24 12:01:12 +0000'
+  content: |-
+    Hello,
+
+    This post was written specifically for Exchange 2010. EXCH and WEB are the different client connectivity methods so this is unlikely to be causing your issues. What version of Windows and Outlook are your clients using? Are you using public folders and if so are they still on exchange 2007? Just confirming, the prompts happen for all users once their mailbox is moved to exchange 2013?
+
+    Cheers,
+
+    Chris
+- id: 273320
+  author: Ruslan
+  author_email: ruslans@bakusteel.com
+  author_url: ''
+  date: '2018-03-15 14:45:56 +0000'
+  date_gmt: '2018-03-15 20:45:56 +0000'
+  content: thanks Chris
+---
+<p>Exchange 2007 brought about a change in the way Exchange uses certificates and introduced us to the concept of a Unified Communications Certificate which makes use of Subject Alternative Names (SAN). While this is the recommended way to secure Exchange services, every now and then I come across a customer that already owns a wildcard certificate for their entire domain (eg. *.cgoosen.com) and would like to use this certificate instead.</p>
+<p>One of the problems with wildcard certificates is that they don&rsquo;t always play nicely with Outlook Anywhere. If the principle name on the certificate is not the same as the mail server FQDN Outlook may not authenticate correctly. When testing Outlook Anywhere connectivity with <a href="https://www.testexchangeconnectivity.com/" target="_blank">Exchange Server Remote Connectivity Analyzer (ExRCA)</a> you may see something like this:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/11/d1.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="d1" border="0" alt="d1" src="http://www.cgoosen.com/wp-content/uploads/2010/11/d1_thumb.png" width="368" height="84" /></a> </p>
+<p align="left">Additional Details would be similar to this:</p>
+<p align="center"><em>The certificate common name *.domain.com doesn't validate against the mutual authentication string that was provided: msstd:mail.domain.com</em></p>
+<p align="left">The easiest way to correct this problem is to use Autodiscover to send the correct principle name to your Outlook clients. Use the Exchange Management Shell to configure Autodiscover settings by using the <em>Set-OutlookProvider</em> cmdlet</p>
+<p align="left">You can check the existing configuration by issuing the <em>Get-OutlookProvider</em> cmdlet</p>
+<p align="left">The command should look something like this:</p>
+<p align="left"><font face="Courier">Set-OutlookProvider -Identity EXPR -CertPrincipalName msstd:*.domain.com</font></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/11/d2.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="d2" border="0" alt="d2" src="http://www.cgoosen.com/wp-content/uploads/2010/11/d2_thumb.png" width="568" height="222" /></a></p>

@@ -1,0 +1,50 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2007 SP1 Moving Mail Queue/Transport Dumpster
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 66
+wordpress_url: http://www.cgoosen.com/2009/02/exchange-2007-sp1-moving-mail-queuetransport-dumpster/
+date: '2009-02-25 16:02:11 +0000'
+date_gmt: '2009-02-25 05:02:11 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 145
+  author: Exchange 2010 Moving Mail Queue
+  author_email: ''
+  author_url: http://www.cgoosen.com/2010/09/exchange-2010-moving-mail-queue/
+  date: '2010-09-07 18:09:44 +0000'
+  date_gmt: '2010-09-07 07:09:44 +0000'
+  content: "[...] early 2009 I wrote an post entitled &ldquo;Exchange 2007 SP1 Moving
+    Mail Queue/Transport Dumpster&rdquo;. This post is still one of the most frequently
+    viewed posts on my blog so I thought it was time [...]"
+---
+<p><span style="color: #ff0000;">UPDATE:</span> For information on how to move the Exchange 2010 Mail Queue, see "<a href="http://www.cgoosen.com/2010/09/exchange-2010-moving-mail-queue/" target="_blank">Exchange 2010 Moving Mail Queue</a>"</p>
+<p>One problem that Exchange Administrators run into after successfully transitioning to Exchange 2007 is back pressure. Back pressure is a system resource monitoring feature of the Microsoft Exchange Transport service that exists on computers that are running Microsoft Exchange Server 2007 that have the Hub Transport server role or Edge Transport server role installed. Important system resources, such as available hard disk drive space and available memory, are monitored. If utilization of a system resource exceeds the specified limit, the Exchange server stops accepting new connections and messages. This prevents the system resources from being completely overwhelmed and enables the Exchange server to deliver the existing messages. When utilization of the system resource returns to a normal level, the Exchange server accepts new connections and messages.</p>
+<p>The following system resources are monitored as part of the back pressure feature:</p>
+<ul>
+<li>Free space on the hard disk drive that stores the message queue database.</li>
+<li>Free space on the hard disk drive that stores the message queue database transaction logs.</li>
+<li>The number of uncommitted message queue database transactions that exist in memory.</li>
+<li>The memory that is used by the EdgeTransport.exe process.<br />
+The memory that is used by all processes.</li>
+</ul>
+<p>One solution is to ensure that you have sufficient disk space for your queue database and logs. An important thing to note is that if you are making use of CCR, Exchange holds the data for the transport dumpster in the transport queue file.</p>
+<p>Moving the queue database and logs is a fairly simple operation and can be done via the Exchange Management Shell with the <em>Move-TransportDatabase</em> cmdlet.</p>
+<p>The following command will move the database and logs to D:\Queue from the default location of C:\Program Files\Microsoft\Exchange Server\TransportRoles\data\Queue:</p>
+<p><em>Move-TransportDatabase -QueueDatabasePath: D:\Queue -QueueDatabaseLoggingPath: D:\Queue</em></p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/02/image3.png"><img style="border-width: 0px;" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/02/image-thumb3.png" width="598" height="428" border="0" /></a></p>
+<p>For more information on Back Pressure, <a href="http://technet.microsoft.com/en-us/library/bb201658.aspx" target="_blank">visit Microsoft Technet</a></p>
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 0px; width: 1px; height: 1px; overflow: hidden;">
+<h2 class="post-title entry-title"><a title="Exchange 2010 Moving Mail Queue" href="../2010/09/exchange-2010-moving-mail-queue/" rel="bookmark">Exchange 2010 Moving Mail Queue</a></h2>
+</div>

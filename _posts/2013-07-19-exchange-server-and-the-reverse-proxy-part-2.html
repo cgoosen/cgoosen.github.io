@@ -1,0 +1,48 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange Server and the Reverse Proxy - Part 2
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 939
+wordpress_url: http://www.cgoosen.com/?p=939
+date: '2013-07-19 12:09:00 +0000'
+date_gmt: '2013-07-19 01:09:00 +0000'
+categories:
+- Exchange Server
+- Forefront TMG
+tags: []
+comments: []
+---
+<p>In March this year I wrote a post entitled &ldquo;<a href="http://www.cgoosen.com/2013/03/exchange-server-and-the-reverse-proxy/" target="_blank">Exchange Server and the Reverse Proxy</a>&rdquo;. I had many similar conversations with peers and customers about the topic, and at the time my intention was twofold:</p>
+<ol>
+<li>Question the &lsquo;old school&rsquo; notion that Exchange services published to the internet are only secure if a reverse proxy is used;
+<li>Provide a high-level list of potentially suitable solutions for customers planning new deployments who felt they still needed a reverse proxy.</li>
+</ol>
+<p>I&rsquo;ve received many comments and emails about that post and have been planning to put together this follow-up for some time now so it was a happy coincidence when the ever entertaining (and deceptively brilliant!) Greg Taylor <a href="http://blogs.technet.com/b/exchange/archive/2013/07/17/life-in-a-post-tmg-world-is-it-as-scary-as-you-think.aspx" target="_blank">recently posted about the same topic on the Exchange Team blog</a>. I&rsquo;m sure he won&rsquo;t mind me &lsquo;borrowing&rsquo; some of this content, it is not my intention to take anything out of context so feel free to read <a href="http://blogs.technet.com/b/exchange/archive/2013/07/17/life-in-a-post-tmg-world-is-it-as-scary-as-you-think.aspx" target="_blank">this entire post here</a>. A couple of things that really stand out in his post are:</p>
+<blockquote><p><em>&ldquo;Here are some interesting Exchange-related facts to help further cement the idea I&rsquo;m eventually going to get to.</em></p>
+<ol>
+<li><em>We do not require traffic to be authenticated prior to hitting services in front of Exchange Online.</em>
+<li><em>We do not do any form of pre-authentication of services in front of our corporate, on-premises messaging deployments either.</em>
+<li><em>We have spent an awfully large amount of time as a company working on securing our code, writing secure code, testing our code for security, and understanding the threats that exist to our code. This is why we feel confident enough to do #1 and #2.</em>
+<li><em>We have come to learn that adding layers of security often adds little additional security, but certainly lots of complexity.</em>
+<li><em>We have invested in getting our policies right and monitoring our systems.&rdquo;</em></li>
+</ol>
+</blockquote>
+<blockquote><p><em>&ldquo;Do I think everyone should throw out that TMG box they have today and go firewall commando? No. not at all. I think they should evaluate what it does for them, and, if they need it going forward. If they do that, and decide they still want pre-auth, then find something that can do it, when the time to replace TMG comes. </em>
+<p><em>You could consider it a sliding scale, of choice. Something like this perhaps;&rdquo;</em>
+<p align="center"><a href="http://blogs.technet.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-31-06-metablogapi/2045.TMGScale_5F00_7671E17B.jpg"><img title="TMGScale" border="0" alt="TMGScale" src="http://blogs.technet.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-31-06-metablogapi/8311.TMGScale_5F00_thumb_5F00_464A96B8.jpg" width="811" height="478"></a></p>
+</blockquote>
+<p>The recent release of <a href="http://www.microsoft.com/en-us/server-cloud/windows-server/windows-server-2012-r2.aspx" target="_blank">Windows Server 2012 R2</a> Preview brings with it the new <a href="http://technet.microsoft.com/en-us/library/dn280944.aspx" target="_blank">Web Application Proxy role.</a> Web Application Proxy is a new Remote Access role service in Windows Server 2012 R2 Preview that provides reverse proxy functionality for web applications inside your corporate network to allow users on any device to access them from outside the corporate network. Web Application Proxy pre-authenticates access to web applications using Active Directory Federation Services (AD FS), and also functions as an AD FS proxy. My esteemed colleague <a href="https://twitter.com/MarcTerblanche" target="_blank">Marc Terblanche</a> has put together a couple of great posts on the Kloud Solutions blog about the Web Application Proxy role, check them out here:</p>
+<ul>
+<li><a href="http://blog.kloud.com.au/2013/07/03/windows-2012-r2-preview-web-application-proxy-exchange-2013-publishing-tests/" target="_blank">Windows 2012 R2 Preview Web Application Proxy &ndash; Exchange 2013 Publishing Tests</a></li>
+<li><a href="http://blog.kloud.com.au/2013/07/15/publish-lync-2013-with-2012-r2-preview-web-application-proxy/" target="_blank">Publish Lync 2013 with 2012 R2 Preview Web Application Proxy</a></li>
+</ul>
+<p>I also wanted to post an update on the Apache/mod_proxy solution I mentioned in my previous post. Free time (aka lab time) has become somewhat limited lately so I haven&rsquo;t been able iron out all the issues with the solution yet, but I recently came across an open source project that looks very promising. The guys at <a href="http://www.vultureproject.org/" target="_blank">Vulture</a> seem to have created exactly what I was trying to do in a much more elegant way. They&rsquo;ve put together a web application firewall using open source components like Apache and mod_security and have even added a configuration web gui to it. Vulture does pre-authentication using a number of authentication providers and also provides other features like load balancing. I have not tested it myself (yet!) but if this interests you, check it out here: <a href="http://www.vultureproject.org/">http://www.vultureproject.org/</a> &ndash; The documentation is in French but seems to translate reasonably well..</p>

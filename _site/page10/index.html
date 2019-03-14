@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! </title>
+    <meta property="og:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+    <meta name="twitter:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+
+    <meta name="description" content="">
+    <meta name="description" property="og:description" content="" />
+    <meta name="twitter:description" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:site" content="@chrisgoosen" />
+    
+    <meta property="og:url" content="http://172.16.7.177:4000/page10/" />
+
+    <meta property="og:image" content="" />
+    <meta name="twitter:image" content="" />
+
+    <meta name="author" content="Chris's Blog" />
+
+    <meta name="copyright" content="Copyright by Chris's Blog. All Rights Reserved." />
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v15/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(https://fonts.gstatic.com/s/roboto/v15/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="http://172.16.7.177:4000/assets/css/main.css">
+
+    <link rel="canonical" href="http://172.16.7.177:4000/page10/">
+
+    <link rel="alternate" type="application/rss+xml" title="" href="http://172.16.7.177:4000/feed.xml">
+</head>
+
+    <body>
+        <div class="wrapper">
+            <aside class="user-profile fixed" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
+    </div>
+
+    <div class="compact-header">
+        <a class="avatar" href="http://172.16.7.177:4000"><img alt="Avatar" src="/assets/img/headshot.jpg" /></a>
+        <div class="my-info">
+            <strong class="my-name">Chris's Blog</strong>
+            <span class="my-job-title">It's called thinking...  go with it!</span>
+        </div>
+    </div>
+
+    
+        
+        <div class="mainmenu">
+            <a href="http://172.16.7.177:4000" >Home</a>
+            
+                
+            
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/contact/" >Contact</a>
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/about/" >About</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+    
+    
+    <div>
+    	<img src="/assets/img/mvp.png" style="width:181px;height:74px;">
+    </div>
+
+    <p class="about-me"> </p>
+    
+    <ul class="socials">
+        <li><a href="https://twitter.com/chrisgoosen" target="_blank"><svg title="twitter" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li><li><a href="https://www.linkedin.com/in/ctgoosen/" target="_blank"><svg title="linkedin" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#linkedin-icon"></use></svg></a></li><li><a href="https://github.com/cgoosen" target="_blank"><svg title="github" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#github-icon"></use></svg></a></li>
+
+        
+            <li><a href="/contact" target="_blank"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        
+
+        
+         <li><a href="http://feeds.cgoosen.com/cgoosen"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        
+    </ul>
+</aside>
+
+
+            <main class="the-content" role="main">
+                <div class="search" role="search">
+    <div>
+        <div class="show-results-count">0 Results</div>
+        <div class="search-holder">
+            <input type="text" id="search-input" placeholder="search for..." />
+        </div>
+    </div>
+    <ul id="results-container" class="results-container"></ul>
+</div>
+
+
+                
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-02-13T03:48:22-06:00" itemprop="datePublished">13 Feb, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/02/exchange-2010-sp3-released">Exchange 2010 SP3 Released!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>A few moments ago the <a href="http://blogs.technet.com/b/exchange/archive/2013/02/12/released-exchange-server-2010-sp3.aspx" target="_blank">Microsoft Exchange Team</a> announced the availability of Exchange 2010 SP3. I can&rsquo;t remember any other service pack that has been as eagerly anticipated as this one, mostly because SP3 will allow coexistence with Exchange 2013 which was <a href="http://www.cgoosen.com/2012/10/exchange-2013-is-rtm/" target="_blank">released late last year</a>. Unfortunately, it appears that customers wanting to introduce Exchange Server 2013 into their existing Exchange 2010 environment will have to wait just a little longer for the release of Exchange 2013 CU1, or at least that is how I interpret the following release note on the Exchange Team Blog:</p>
+<blockquote><p><strong>NOTE</strong>: Exchange 2010 SP3 allows Exchange 2010 servers to coexist with Exchange 2013 CU1, which is also scheduled to be released in Q1 2013. Customers can test and validate this update in a representative lab environment prior to rolling out in their production environments as an important coexistence preparatory step before introducing Exchange Server 2013 CU1.</p>
+</blockquote>
+<p>This service pack also resolves numerous issues, a list of these <a href="http://blogs.technet.com/b/exchange/archive/2013/02/12/released-exchange-server-2010-sp3.aspx" target="_blank">can be found here</a>.</p>
+<p>To download Exchange 2010 SP3, <a href="http://www.microsoft.com/en-us/download/details.aspx?id=36768" target="_blank">click here.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2010 SP3 Released!&p[summary]=A few moments ago the Microsoft Exchange Team announced the availability of Exchange 2010 SP3. I can&rsquo;t remember any other service p...&p[url]=http://172.16.7.177:4000/2013/02/exchange-2010-sp3-released" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/02/exchange-2010-sp3-released&text=A few moments ago the Microsoft Exchange Team announced the availability of Exchange 2010 SP3. I can&rsquo;t remember any other service p...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-01-24T04:42:56-06:00" itemprop="datePublished">24 Jan, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/01/exchange-2013-server-role-architecture">Exchange 2013 Server Role Architecture</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>In case you missed it, the evolution of hardware has caused an architectural change in Exchange 2013.. gone are the 5 Exchange server roles that we have all come to know and love since Exchange 2007. In Exchange 2013 things are a lot more simple with only two server roles, namely, the Client Access server role and the Mailbox server role. Don&rsquo;t let the familiar names fool you though, there is nothing familiar about these roles. In Exchange Server 2013 there are two basic building blocks &ndash; the Client Access array and the Database Availability Group (DAG). Each provides a unit of high availability and fault tolerance that are decoupled from one another. Client Access servers make up the CAS array, while Mailbox servers comprise the DAG.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/01/1300.2013_6E0D4D921.png"><img title="1300.2013_6E0D4D92" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="1300.2013_6E0D4D92" src="http://www.cgoosen.com/wp-content/uploads/2013/01/1300.2013_6E0D4D92_thumb1.png" width="783" height="379"></a></p>
+<p>Ross Smith did a great job (obviously!) of introducing the new Exchange 2013 role architecture during the technical keynote at MEC 2012 last year.. if you have not already seen it, I highly <a href="http://www.iammec.com/video" target="_blank">recommend you watch it here</a>. He also recently publish the following post of the Exchange team <a href="http://blogs.technet.com/b/exchange/archive/2013/01/23/exchange-2013-server-role-architecture.aspx" target="_blank">blog that covers the same topic.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2013 Server Role Architecture&p[summary]=In case you missed it, the evolution of hardware has caused an architectural change in Exchange 2013.. gone are the 5 Exchange server rol...&p[url]=http://172.16.7.177:4000/2013/01/exchange-2013-server-role-architecture" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/01/exchange-2013-server-role-architecture&text=In case you missed it, the evolution of hardware has caused an architectural change in Exchange 2013.. gone are the 5 Exchange server rol...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-01-22T03:43:36-06:00" itemprop="datePublished">22 Jan, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/01/lync-online-2013-remote-powershell">Lync Online 2013 Remote PowerShell</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>As we are all aware, the <a href="http://www.microsoft.com/office/preview/en/office-365-enterprise" target="_blank">next wave of Office 365 is currently in preview</a> and will be available soon. One of the expected (and long awaited) new features is the ability to administer Lync Online via PowerShell, this is something that is lacking in the current release. I was recently working with a customer who are preparing for to transition several thousand users to Lync Online and this got me curious about remote PowerShell and Lync Online 2013. Since there is no documentation available yet for the upcoming release, I thought I would share my initial findings.</p>
+<p>Before I go any further I should mention that at the time of writing this I am testing with a Office 365 Preview tenant and as with all things still in development, it is possible (likely even) the the final release will behave differently. I also want the mention that remote PowerShell does not work with Lync Online on an Office 365 Preview tenant (see details below) so I am sharing this information purely for those who might be interested in how it may or could work in future &ndash; I will of course update this post once the next wave of Office 365 has been released.</p>
+<p>My discovery came after I installed the Lync 2013 administrative tools on my laptop, I was browsing around the modules folder when I noticed it had installed a module called &ldquo;LyncOnlineConnector&rdquo; which is not imported by default.</p>
+<p>&nbsp;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_00_06-Modules.png"><img title="2013-01-21 17_00_06-Modules" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="2013-01-21 17_00_06-Modules" src="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_00_06-Modules_thumb.png" width="1025" height="251"></a></p>
+<p>&nbsp;</p>
+<p>So as any curious geek would, I thought I would play around a little.. I imported the module and took a look at the cmdlets available.</p>
+<p>&nbsp;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_02_46-Modules.png"><img title="2013-01-21 17_02_46-Modules" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="2013-01-21 17_02_46-Modules" src="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_02_46-Modules_thumb.png" width="1098" height="378"></a></p>
+<p>&nbsp;</p>
+<p>Once imported, the &ldquo;LyncOnlineConnector&rdquo; module contains a &ldquo;New-CsOnlineSession&rdquo; cmdlet which according to the help file is used to set up a remote session to Lync Online.</p>
+<p>&nbsp;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_03_55-Windows-PowerShell.png"><img title="2013-01-21 17_03_55-Windows PowerShell" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="2013-01-21 17_03_55-Windows PowerShell" src="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_03_55-Windows-PowerShell_thumb.png" width="1097" height="405"></a></p>
+<p align="center">&nbsp;</p>
+<p align="left">If you attempt to run the cmdlet, you receive the following error: "Remote Windows PowerShell session creation is restricted by tenant Windows PowerShell policy". This leads me to believe that remote PowerShell is currently restricted on Office 365 Preview tenants. </p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Lync Online 2013 Remote PowerShell&p[summary]=As we are all aware, the next wave of Office 365 is currently in preview and will be available soon. One of the expected (and long awaite...&p[url]=http://172.16.7.177:4000/2013/01/lync-online-2013-remote-powershell" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/01/lync-online-2013-remote-powershell&text=As we are all aware, the next wave of Office 365 is currently in preview and will be available soon. One of the expected (and long awaite...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2013-01-15T03:26:53-06:00" itemprop="datePublished">15 Jan, 2013</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2013/01/how-to-check-your-office-365-tenant-version">How to check your Office 365 tenant version?</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Ever wondered what version of Exchange your tenant is provisioned on? <a href="http://michaelvh.wordpress.com/" target="_blank">Michael Van Horenbeeck</a> has written quick post on how to determine this. I think this will be really handy in the near future so I wanted to share it. </p>
+<p>You can check the version by issuing the following cmd via powershell:</p>
+<blockquote><p>Get-OrganizationConfig | ft AdminDisplayVersion,IsUpgradingOrganization</p>
+</blockquote>
+<p>Michael has some great information in his post that <a href="http://michaelvh.wordpress.com/2013/01/13/how-to-check-what-the-version-of-your-tenant-is-in-the-cloud-office-365/" target="_blank">can be found here</a> so be sure to check it out.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=How to check your Office 365 tenant version?&p[summary]=Ever wondered what version of Exchange your tenant is provisioned on? Michael Van Horenbeeck has written quick post on how to determine t...&p[url]=http://172.16.7.177:4000/2013/01/how-to-check-your-office-365-tenant-version" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2013/01/how-to-check-your-office-365-tenant-version&text=Ever wondered what version of Exchange your tenant is provisioned on? Michael Van Horenbeeck has written quick post on how to determine t...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2012-12-15T10:48:08-06:00" itemprop="datePublished">15 Dec, 2012</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2012/12/exchange-2007-2010-problems-after-installing-kb2506146-or-kb2506143">Exchange 2007 & 2010 problems after installing KB2506146 or KB2506143</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Microsoft recently released&nbsp;<a href="http://support.microsoft.com/kb/2506146" target="_blank">KB2506146</a>&nbsp;and&nbsp;<a href="http://support.microsoft.com/kb/2506143" target="_blank">KB2506143</a>&nbsp;as optional updates depending on your which server version you are running (2008 SP2 or 2008 R2 SP1)</p>
+<p>The update includes&nbsp;Windows Management Framework 3.0 and more specifically PowerShell 3.0 which is not supported on either Exchange 2007 or Exchange 2010. There have <a href="http://blogs.technet.com/b/exchange/archive/2012/12/14/windows-management-framework-3-0-on-exchange-2007-and-exchange-2010.aspx" target="_blank">been reports</a> of it causing issues with the installation of rollups&nbsp;resulting in an error code of &ldquo;1603&rdquo; appearing in the event log.</p>
+<p>It is recommended that&nbsp;Windows Management Framework 3.0 should not be installed on servers running either Exchange 2007 or Exchange 2010. Uninstalling&nbsp;Windows Management Framework 3.0 reportedly fixes the issues.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2007 & 2010 problems after installing KB2506146 or KB2506143&p[summary]=Microsoft recently released&nbsp;KB2506146&nbsp;and&nbsp;KB2506143&nbsp;as optional updates depending on your which server version you ar...&p[url]=http://172.16.7.177:4000/2012/12/exchange-2007-2010-problems-after-installing-kb2506146-or-kb2506143" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2012/12/exchange-2007-2010-problems-after-installing-kb2506146-or-kb2506143&text=Microsoft recently released&nbsp;KB2506146&nbsp;and&nbsp;KB2506143&nbsp;as optional updates depending on your which server version you ar...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2012-11-06T10:34:10-06:00" itemprop="datePublished">6 Nov, 2012</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2012/11/controlling-activesync-device-access-on-exchange-2013">Controlling ActiveSync device access on Exchange 2013</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I previously blogged about <a href="http://www.cgoosen.com/2012/10/controlling-activesync-device-access-on-exchange-2010-and-exchange-online/" target="_blank">controlling ActiveSync device access on Exchange 2010 and Exchange Online</a> and thought I would follow-up with quick post on how to accomplish the same results on Exchange 2013. For this post, I will create the same policy as before..&nbsp; a device policy to quarantine any iPad devices. The use case for this scenario is that an organisation may for example allow users to choose whatever mobile phone they would like to use but block the use of iPads because these are not devices issued by the company. By quarantining a device, we can easily see who is attempting to use such a device, how many are out there and even decide to create a new policy specific to these devices.</p>
+<p>To create a device policy, we need to access the &ldquo;Mobile Device Access&rdquo; option under the &ldquo;Mobile&rdquo; menu item in EAC. It should look something like this:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog1.png"><img title="blog1" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="blog1" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog1_thumb.png" width="588" height="259"></a></p>
+<p>Clicking the &ldquo;Edit&rdquo; button will allow you to edit various settings. As you can see, I have decided to be permissive and allow all devices unless they are managed by a rule. You can select a distribution group or administrative account that will receive quarantine notification emails. You also have the option to add any custom or organisation specific text that will be included in the email notification sent to users when their device is blocked or quarantined.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog2.png"><img title="blog2" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog2" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog2_thumb.png" width="446" height="482"></a></p>
+<p>We then click &ldquo;+&rdquo; under &ldquo;Device Access Rules&rdquo; at the bottom of the page to define our new rule. Here we can browse a list of all the devices and device families that have recently connected to our Exchange environment. Device family is a grouping of similar devices, in our case for example if we choose a Device family of &ldquo;iPad&rdquo; we can then decide to only apply this rule to iPad2 models or &ldquo;All models&rdquo; by selecting the appropriate device type. Lastly, we select our ABQ action:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog3.png"><img title="blog3" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog3" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog3_thumb.png" width="357" height="410"></a></p>
+<p>Once we have clicked &ldquo;Save&rdquo; we should see the new device access rule listed under &ldquo;Device Access Rules&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog4.png"><img title="blog4" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog4" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog4_thumb.png" width="764" height="118"></a></p>
+<p>Once we have created the access rule, if any users attempt to connect using an iPad, they will be listed under &ldquo;Quarantines Devices&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/blog5.png"><img title="blog5" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog5" src="http://www.cgoosen.com/wp-content/uploads/2012/11/blog5_thumb.png" width="655" height="107"></a></p>
+<p>Users will receive a notification email similar to the following if they try to connect using an iPad:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/11/photo.png"><img title="photo" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="photo" src="http://www.cgoosen.com/wp-content/uploads/2012/11/photo_thumb.png" width="482" height="456"></a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Controlling ActiveSync device access on Exchange 2013&p[summary]=I previously blogged about controlling ActiveSync device access on Exchange 2010 and Exchange Online and thought I would follow-up with q...&p[url]=http://172.16.7.177:4000/2012/11/controlling-activesync-device-access-on-exchange-2013" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2012/11/controlling-activesync-device-access-on-exchange-2013&text=I previously blogged about controlling ActiveSync device access on Exchange 2010 and Exchange Online and thought I would follow-up with q...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2012-11-05T12:49:59-06:00" itemprop="datePublished">5 Nov, 2012</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2012/11/microsoft-lync-basic-2013">Microsoft Lync Basic 2013</a></h2>
+    </header>
+
+    <div class="post-content">
+        <h6><font size="3">Microsoft recently released Lync Basic 2013, a slimmer version of the Lync client that provides all the basic functionality available in the full version of Lync 2013. Some of the notable missing features in the basic client are advanced call features such as team ring, call forwarding, simultaneous ring, voice mail, call park, call delegation, response groups, and remote call control.</font></h6>
+<p>As usual for all things Lync related, my friend Greig Sheridan has a <a href="https://greiginsydney.com/a-free-basic-client-for-lync-2013/" target="_blank">full write-up on his blog</a>.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Microsoft Lync Basic 2013&p[summary]=Microsoft recently released Lync Basic 2013, a slimmer version of the Lync client that provides all the basic functionality available in ...&p[url]=http://172.16.7.177:4000/2012/11/microsoft-lync-basic-2013" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2012/11/microsoft-lync-basic-2013&text=Microsoft recently released Lync Basic 2013, a slimmer version of the Lync client that provides all the basic functionality available in ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2012-10-16T06:15:02-05:00" itemprop="datePublished">16 Oct, 2012</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2012/10/controlling-activesync-device-access-on-exchange-2010-and-exchange-online">Controlling ActiveSync device access on Exchange 2010 and Exchange Online</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I am often surprised by how few customers know about or use ActiveSync device access rules (or ABQ for short) in Exchange 2010 when everyone seems to have the requirement to some degree or another. I see a growing trend to use third party products to do what Exchange can and has been able to do natively for a while now so I thought I would put together this post to go through some of the functionality offered by ABQ.</p>
+<p>Before I continue, I would like to highlight the following two things:</p>
+<ol>
+<li>Device access rules (ABQ) should not be confused with or is not intended to replace ActiveSync policies which are used to enforce things like device passwords, device encryption, etc. (click <a href="http://technet.microsoft.com/en-us/library/bb123484.aspx" target="_blank">here for more on ActiveSync policies</a>)</li>
+<li>Everything described in this post also applies to Exchange Online</li>
+</ol>
+<p>Depending on your requirements, you may decide to take a restrictive approach where you only allow a small set of tested and supported devices or be more permissive and only block/quarantine problematic devices. For this post, I will create a device policy to quarantine any iPad devices. The use case for this scenario is that an organisation may for example allow users to choose whatever mobile phone they would like to use but block the use of iPads because these are not devices issued by the company. By quarantining a device, we can easily see who is attempting to use such a device, how many are out there and even decide to create a new policy specific to these devices.</p>
+<p>During the connection process, Exchange will follow a logical set of rules to determine the access state of each device and will either allow, block or quarantine the device based on the outcome. The sequence of challenges includes the following steps:</p>
+<ol>
+<li>Is the device authenticated? If not, challenge for the correct credentials. Otherwise, go on to the next step.</li>
+<li>Is Exchange ActiveSync enabled for the current user? If not, return an "access restricted" error to the device. Otherwise, go on to the next step.</li>
+<li>Are the policy enforcement criteria met by the current mobile device? If not, block access. Otherwise, go on to the next step.</li>
+<li>Is this device blocked by a personal exemption for the user? If so, block access. Otherwise, go on to the next step.</li>
+<li>Is this device allowed by a personal exemption for the user? If so, grant full access. Otherwise, go on to the next step.</li>
+<li>Is this device blocked by a device access rule? If so, block access. Otherwise, go on to the next step.</li>
+<li>Is this device quarantined by a device access rule? If so, quarantine the device. Otherwise, go on to the next step.</li>
+<li>Is this device allowed by a device access rule? If so, grant full access. Otherwise, go on to the next step.</li>
+<li>Apply the default access state per the Exchange ActiveSync organisational settings.</li>
+</ol>
+<p>The device policy that I am going to create will be applied at Step 7. To create a device policy, we need to access the &ldquo;ActiveSync Access&rdquo; options under &ldquo;Phone &amp; Voice&rdquo; settings in the ECP. It should look something like this:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog2.png"><img title="blog2" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="blog2" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog2_thumb.png" width="606" height="247"></a></p>
+<p>Clicking the &ldquo;Edit&rdquo; button will allow you to edit various settings. As you can see, I have decided to be permissive and allow all devices unless they are managed by a rule. You can select a distribution group or administrative account that will receive quarantine notification emails. You also have the option to add any custom or organisation specific text that will be included in the email notification sent to users when their device is blocked or quarantined. </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog1.png"><img title="blog1" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog1" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog1_thumb.png" width="458" height="487"></a></p>
+<p>We then click &ldquo;New&rdquo; under &ldquo;Device Access Rules&rdquo; at the bottom of the page to define our new rule. Here we can browse a list of all the devices and device families that have recently connected to our Exchange environment. Device family is a grouping of similar devices, in our case for example if we choose a Device family of &ldquo;iPad&rdquo; we can then decide to only apply this rule to iPad2 models or &ldquo;All models&rdquo; by selecting the appropriate device type. Lastly, we select our ABQ action.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog3.png"><img title="blog3" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog3" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog3_thumb.png" width="464" height="520"></a></p>
+<p align="left">Once we have clicked &ldquo;Save&rdquo; we should see the new device access rule listed under &ldquo;Device Access Rules&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog4.png"><img title="blog4" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog4" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog4_thumb.png" width="874" height="121"></a></p>
+<p>Once we have created the access rule, if any users attempt to connect using an iPad, they will be listed under &ldquo;Quarantines Devices&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog5.png"><img title="blog5" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog5" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog5_thumb.png" width="690" height="119"></a></p>
+<p>Users will receive a notification email similar to the following if they try to connect using an iPad. Note the custom text entered previously (red box)</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog6.png"><img title="blog6" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog6" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog6_thumb.png" width="517" height="492"></a></p>
+<p align="left">One last thing to mention is that you do have the ability to make a personal exception for a specific user if needed, so for example if you have an executive who is adamant about wanting to use his/her iPad of if you decide after some time to test iPads this can be done without affecting anyone else. As always, full documentation can be found on <a href="http://technet.microsoft.com/en-us/library/ff959225.aspx" target="_blank">TechNet</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Controlling ActiveSync device access on Exchange 2010 and Exchange Online&p[summary]=I am often surprised by how few customers know about or use ActiveSync device access rules (or ABQ for short) in Exchange 2010 when every...&p[url]=http://172.16.7.177:4000/2012/10/controlling-activesync-device-access-on-exchange-2010-and-exchange-online" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2012/10/controlling-activesync-device-access-on-exchange-2010-and-exchange-online&text=I am often surprised by how few customers know about or use ActiveSync device access rules (or ABQ for short) in Exchange 2010 when every...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2012-10-12T04:56:41-05:00" itemprop="datePublished">12 Oct, 2012</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2012/10/exchange-2013-is-rtm">Exchange 2013 is RTM!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Earlier today Exchange 2013 reached RTM status. This is a very exciting announcement and means that coding and testing is now complete. General availability is planned for the first quarter of 2013. In addition to Exchange, the new Office, SharePoint, and Lync have also reached <acronym>RTM</acronym>. For more information on the announcement, <a href="http://blogs.office.com/b/office-news/" target="_blank">click here.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2013 is RTM!&p[summary]=Earlier today Exchange 2013 reached RTM status. This is a very exciting announcement and means that coding and testing is now complete. G...&p[url]=http://172.16.7.177:4000/2012/10/exchange-2013-is-rtm" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2012/10/exchange-2013-is-rtm&text=Earlier today Exchange 2013 reached RTM status. This is a very exciting announcement and means that coding and testing is now complete. G...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2012-09-11T17:01:17-05:00" itemprop="datePublished">11 Sep, 2012</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2012/09/exchange-2013-introducing-the-exchange-administration-center">Exchange 2013 - Introducing The Exchange Administration Center</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>If you&rsquo;ve decided to get you hands dirty with the Exchange 2013 Preview, the first thing you probably noticed when clicking on the start menu after installation is this:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2012/09/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2012/09/image_thumb.png" width="189" height="76"></a>&nbsp; </p>
+<p>Your eyes are not deceiving you, there is no shortcut to for the Exchange Management Console (EMC)&hellip; the reason for this is simple, it&rsquo;s not there! Exchange 2013 bids farewell to the EMC that we have come to love since Exchange 2007 and introduces a new management interface called the Exchange Administration Center (EAC). EAC is the new web-based management console in Microsoft Exchange Server 2013 and it allows administrators to manage on-premises, online, or hybrid Exchange deployments. As one would expect, EAC makes use of roles based access control to ensure that specialist or support users are able to perform only the specific tasks which are assigned to them.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2012/09/image1.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; border-top-width: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2012/09/image_thumb1.png" width="680" height="379"></a></p>
+<p>oh, before I forget, I should mention that all names in the screenshot are randomly generated fakes!</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2013 - Introducing The Exchange Administration Center&p[summary]=If you&rsquo;ve decided to get you hands dirty with the Exchange 2013 Preview, the first thing you probably noticed when clicking on the ...&p[url]=http://172.16.7.177:4000/2012/09/exchange-2013-introducing-the-exchange-administration-center" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2012/09/exchange-2013-introducing-the-exchange-administration-center&text=If you&rsquo;ve decided to get you hands dirty with the Exchange 2013 Preview, the first thing you probably noticed when clicking on the ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+
+
+
+<div class="pagination" role="navigation" aria-label="pagination">
+    
+        <a href="/page9/" class="previous">&larr; Previous</a>
+    
+
+    <span class="page_number">Page 10 of 24</span>
+
+    
+        <a href="/page11/" class="next">Next &rarr;</a>
+    
+</div>
+
+            </main>
+        </div>
+
+        <script src="http://172.16.7.177:4000/assets/js/jquery-1.12.2.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/backtotop.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr-feed.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/jquery.fitvids.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/svg4everybody.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/scripts.js"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXXXX-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+        <style>
+.lightbox {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.85); z-index: 9999999; line-height: 0; cursor: pointer;}
+.lightbox .img {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 100%;
+	max-height: 100%;
+}
+.lightbox .img img {opacity: 0; pointer-events: none; width: auto;}
+@media screen and (min-width: 1200px) {
+    .lightbox .img {
+		max-width: 1200px;
+    }
+}
+@media screen and (min-height: 1200px) {
+    .lightbox img {
+		max-height: 1200px;
+	}
+}
+.lightbox span {display: block; position: fixed; bottom: 13px; height: 1.5em; line-height: 1.4em; width: 100%; text-align: center; color: white; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+
+
+
+
+.lightbox .videoWrapperContainer {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 900px;
+	max-height: 100%;
+}
+.lightbox .videoWrapperContainer .videoWrapper {
+	height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-bottom: 56.333%; /* custom */
+	background: black;
+} 
+.lightbox .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}   
+.lightbox #prev, .lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
+.lightbox.gallery #prev, .lightbox.gallery #next {display: block;}
+.lightbox #prev {left: 0;}
+.lightbox #next {right: 0;}
+.lightbox #close {height: 50px; width: 50px; position: fixed; cursor: pointer; text-decoration: none; z-index: 99; right: 0; top: 0;}
+.lightbox #close:after, .lightbox #close:before {position: absolute; margin-top: 22px; margin-left: 14px; content: ""; height: 3px; background: white; width: 23px;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+/* Safari */
+-webkit-transform: rotate(-45deg);
+/* Firefox */
+-moz-transform: rotate(-45deg);
+/* IE */
+-ms-transform: rotate(-45deg);
+/* Opera */
+-o-transform: rotate(-45deg);
+}
+.lightbox #close:after {
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+/* Opera */
+-o-transform: rotate(45deg);
+}
+.lightbox, .lightbox * {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+</style>
+		
+<script>
+function is_youtubelink(url) {
+  var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  return (url.match(p)) ? RegExp.$1 : false;
+}
+function is_imagelink(url) {
+	var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
+	return (url.match(p)) ? true : false;
+}
+function is_vimeolink(url,el) {
+	var id = false;
+	$.ajax({
+	  url: 'https://vimeo.com/api/oembed.json?url='+url,
+	  async: true,
+	  success: function(response) {
+		if(response.video_id) {
+		  id = response.video_id;
+		  $(el).addClass('lightbox-vimeo').attr('data-id',id);
+		}
+	  }
+	});
+}
+
+$(document).ready(function() {
+	//add classes to links to be able to initiate lightboxes
+	$("a").each(function(){
+		var url = $(this).attr('href');
+		if(url) {
+			if(url.indexOf('vimeo') !== -1 && !$(this).hasClass('no-lightbox')) is_vimeolink(url,$(this));
+			if(is_youtubelink(url) && !$(this).hasClass('no-lightbox')) $(this).addClass('lightbox-youtube').attr('data-id',is_youtubelink(url));
+			if(is_imagelink(url) && !$(this).hasClass('no-lightbox')) {
+				$(this).addClass('lightbox-image');
+				var href = $(this).attr('href');
+				var filename = href.split('/').pop();
+				var split = filename.split(".");
+				var name = split[0];
+				$(this).attr('title',name);
+			}
+		}
+	});
+	//remove the clicked lightbox
+	$("body").on("click", ".lightbox", function(event){
+		if($(this).hasClass('gallery')) {
+			$(this).remove();
+			if($(event.target).attr('id')=='next') {
+				//next item
+				if($("a.gallery.current").nextAll("a.gallery:first").length) $("a.gallery.current").nextAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").first().click();
+			}
+			else if ($(event.target).attr('id')=='prev') {
+				//prev item
+				if($("a.gallery.current").prevAll("a.gallery:first").length) $("a.gallery.current").prevAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").last().click();
+			}
+			else {
+				$("a.gallery").removeClass('gallery');
+			}
+		}
+		else $(this).remove();
+	});
+	//prevent image from being draggable (for swipe)
+	$("body").on('dragstart', ".lightbox img", function(event) { event.preventDefault(); });
+	//add the youtube lightbox on click
+	$("a.lightbox-youtube").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&showinfo=0&rel=0"></iframe></div></div></div>').appendTo('body');
+	});
+	//add the image lightbox on click
+	$("a.lightbox-image").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" style="background: url('+$(this).attr('href')+') center center / contain no-repeat;" title="'+$(this).attr('title')+'" ><img src="'+$(this).attr('href')+'" alt="'+$(this).attr('title')+'" /></div><span>'+$(this).attr('title')+'</span></div>').appendTo('body');
+	});
+	//add the vimeo lightbox on click
+	$("body").on("click", "a.lightbox-vimeo", function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+$(this).attr('data-id')+'/?autoplay=1&byline=0&title=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div></div>').appendTo('body');
+	});
+
+	$("body").on("click", "a[class*='lightbox-']", function(){
+		var link_elements = $(this).parent().find("a[class*='lightbox-']");
+		$(link_elements).removeClass('current');
+		for (var i=0; i<link_elements.length; i++) {
+			if($(this).attr('href') == $(link_elements[i]).attr('href')) {
+				$(link_elements[i]).addClass('current');
+			}
+		}
+		if(link_elements.length>1) {
+			$('.lightbox').addClass('gallery');
+			$(link_elements).addClass('gallery');
+		}
+	});
+
+	
+});
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $("#prev").click();
+        break;
+        case 39: // right
+        $("#next").click();
+        break;
+	case 27: // esc
+        $("#close").click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+  /*===========================
+  Swipe-it v1.4.1
+  An event listener for swiping gestures with vanilla js.
+  https://github.com/tri613/swipe-it#readme
+ 
+  @Create 2016/09/22
+  @Update 2017/08/11
+  @Author Trina Lu
+  ===========================*/
+  "use strict";var _slicedToArray=function(){function n(n,t){var e=[],i=!0,o=!1,r=void 0;try{for(var u,c=n[Symbol.iterator]();!(i=(u=c.next()).done)&&(e.push(u.value),!t||e.length!==t);i=!0);}catch(n){o=!0,r=n}finally{try{!i&&c.return&&c.return()}finally{if(o)throw r}}return e}return function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return n(t,e);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();!function(n,t,e){function i(n){function e(){o("touchstart",m,w),o("touchmove",d,w),o("touchend",p,w),E.mouseEvent&&o("mousedown",s,w)}function i(){y=!1,D=!1,A=!1,b=!1,a=!1}function s(n){a=this,y=n.clientX,D=n.clientY,o("mousemove",l,v),o("mouseup",h,v)}function l(n){n.preventDefault(),y&&D&&(A=n.clientX,b=n.clientY)}function h(n){r("mousemove",l,v),r("mouseup",h,v),p(n)}function m(n){a=this,y=n.touches[0].clientX,D=n.touches[0].clientY}function d(n){A=n.touches[0].clientX,b=n.touches[0].clientY}function p(n){if(y&&D&&A&&b){var t=y-A,e=D-b,o=[t,e].map(Math.abs),r=_slicedToArray(o,2),c=r[0],s=r[1],v=E.minDistance;if(c>v){var f=y<A?"swipeRight":"swipeLeft";u(f,a,{distance:t,start:y,end:A})}if(s>v){var l=D>b?"swipeUp":"swipeDown";u(l,a,{distance:e,start:D,end:b})}(c>v||s>v)&&u("swipe",a)}i()}var E=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},w=c(t.querySelectorAll(n)),y=void 0,D=void 0,A=void 0,b=void 0;E.mouseEvent=void 0===E.mouseEvent?f.mouseEvent:E.mouseEvent,E.minDistance=void 0===E.minDistance?f.minDistance:E.minDistance,i(),e(),this.on=function(n,t){return o(n,t,w),this}}function o(n,t,e){s(e).forEach(function(e){return e.addEventListener(n,t)})}function r(n,t,e){s(e).forEach(function(e){return e.removeEventListener(n,t)})}function u(n,e){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},o=t.createEvent("Event");o.initEvent(n,!0,!0),o.swipe=i,s(e).forEach(function(n){return n.dispatchEvent(o)})}function c(n){for(var t=[],e=0;e<n.length;e++)t.push(n[e]);return t}function s(n){return Array.isArray(n)?n:[n]}var a=!1,v=[n],f={mouseEvent:!0,minDistance:30};n[e]=i}(window,document,"SwipeIt");
+
+var mySwipeIt = new SwipeIt('body');
+mySwipeIt.on('swipeLeft',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#next").click();
+	}
+}).on('swipeRight',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#prev").click();
+	}
+});
+</script>
+
+    </body>
+</html>

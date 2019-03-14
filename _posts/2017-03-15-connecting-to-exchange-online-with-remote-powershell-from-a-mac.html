@@ -1,0 +1,586 @@
+---
+layout: post
+status: publish
+published: true
+title: Connecting to Exchange Online with remote PowerShell from a Mac
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 2649
+wordpress_url: http://www.cgoosen.com/?p=2649
+date: '2017-03-15 15:49:32 +0000'
+date_gmt: '2017-03-15 21:49:32 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+- PowerShell
+tags: []
+comments:
+- id: 271250
+  author: Martin
+  author_email: martin@uanet.se
+  author_url: ''
+  date: '2017-05-19 05:12:29 +0000'
+  date_gmt: '2017-05-19 11:12:29 +0000'
+  content: Thank you very much! At last i can leave MS totally :) Works perfectly!!
+- id: 271402
+  author: Sascha
+  author_email: sascha.sammer@outlook.com
+  author_url: ''
+  date: '2017-06-07 21:46:20 +0000'
+  date_gmt: '2017-06-08 03:46:20 +0000'
+  content: "Thanks for this post!\r\n\r\nFirst, I would like to inform you, that your
+    command for creating the session contains an \"a href\"-tag, which produces an
+    error.\r\n\r\nBut even if I use the right command:\r\n\r\n$Session = New-PSSession
+    -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/
+    -Credential $UserCredential -Authentication Basic -AllowRedirection\r\n\r\nI get
+    an error:\r\n\r\nUnhandled Exception: System.NullReferenceException: Object reference
+    not set to an instance of an object.\r\nat System.Management.Automation.Remoting.PrioritySendDataCollection.Clear()\r\nat
+    System.Management.Automation.Remoting.Client.BaseClientTransportManager.CloseAsync()\r\nat
+    System.Management.Automation.Remoting.Client.WSManClientSessionTransportManager.CloseAsync()\r\nat
+    System.Management.Automation.Remoting.Client.BaseClientTransportManager.Finalize()\r\nAbort
+    trap: 6\r\n\r\nDo you know the reason for that? Thanks."
+- id: 271403
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-06-08 07:46:04 +0000'
+  date_gmt: '2017-06-08 13:46:04 +0000'
+  content: |-
+    Hi Sascha,
+
+    Thanks for the info. I have corrected the code so you should be good to go, I just tested it and it works. I'm not entirely sure why you are receiving the error. Can you confirm the version of PowerShell you are running?
+
+    Thanks,
+
+    Chris
+- id: 271499
+  author: Edward Glasheen
+  author_email: edward.glasheen@mac.com
+  author_url: ''
+  date: '2017-06-20 14:53:32 +0000'
+  date_gmt: '2017-06-20 20:53:32 +0000'
+  content: "Any word on when PS (Mac) will be available for O365/SharePoint?\r\n\r\nThanks,\r\n\r\nEd"
+- id: 271505
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-06-21 08:46:00 +0000'
+  date_gmt: '2017-06-21 14:46:00 +0000'
+  content: |-
+    Hi Edward,
+
+    Thanks for the comment. Unfortunately, I don't know what the current roadmap is for that, but I would venture to guess that we will see something in time. I'll be sure to add any updated info here when it becomes available.
+
+    Thanks,
+
+    Chris
+- id: 271513
+  author: Amanda Debler
+  author_email: mandie@mandie.net
+  author_url: https://mandie.net
+  date: '2017-06-22 10:58:50 +0000'
+  date_gmt: '2017-06-22 16:58:50 +0000'
+  content: "Hi!\r\n\r\nI've updated to 6.0.0-beta.2, but still get this error when
+    I run the New-PSSession command:\r\n\r\n<code>New-PSSession : [outlook.office365.com]
+    Connecting to remote server outlook.office365.com failed with the following error\r\nmessage
+    : Client did not get proper response from server. For more information, see the
+    about_Remote_Troubleshooting Help topic.\r\nAt line:1 char:20\r\n+ ... geSession
+    = New-PSSession -ConfigurationName Microsoft.Exchange -Conn ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n
+    \   + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace)
+    [New-PSSession], PSRemotingTranspor\r\n   tException\r\n    + FullyQualifiedErrorId
+    : 1,PSSessionOpenFailed\r\n</code>"
+- id: 271521
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-06-23 09:49:18 +0000'
+  date_gmt: '2017-06-23 15:49:18 +0000'
+  content: |-
+    Hi Amanda,
+
+    Thats an interesting error, are you able to resolve outlook.office365.com correctly? I haven't been able to replicate the issue, but it does look like version v6.0.0-beta.3 is out so perhaps upgrading to that will help? It seems to work great for me.
+
+    I'll keep trying to replicate it and report back if I find anything.
+
+    All the best,
+
+    Chris
+- id: 271583
+  author: Steven
+  author_email: steven@jikade.com
+  author_url: ''
+  date: '2017-07-01 13:27:03 +0000'
+  date_gmt: '2017-07-01 19:27:03 +0000'
+  content: "Hi Chris,\r\n\r\nThanks for the post. I seem to be doing fine however,
+    once the cmdlets are loaded (or better yet, the module) I get no results from
+    a cmdlet lie Get-Mailbox. Just a blank line and nothing happens. No output or
+    any way for me to break out of that (ctrl-c). Any tips or suggestions on what
+    could be wrong?\r\n\r\nUsing PS: v6.0.0-alpha.18"
+- id: 271609
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-07-05 13:36:33 +0000'
+  date_gmt: '2017-07-05 19:36:33 +0000'
+  content: |-
+    Hey Steven,
+
+    I've never seen that before. Have you tried installing the latest build? It's currently v6.0.0-beta.3, I wonder if that would help resolve your problem.
+
+    Cheers,
+
+    Chris
+- id: 271632
+  author: Holraven
+  author_email: holraven@yahoo.com
+  author_url: ''
+  date: '2017-07-09 20:49:29 +0000'
+  date_gmt: '2017-07-10 02:49:29 +0000'
+  content: "Hi Chris! I get the exact same error as Sascha, running MacOS 10.12.5
+    and PowerShell beta v6.0.0-beta.3 when trying to create the Session, leading to
+    PowerShell crashing:\r\n\r\nUnhandled Exception: System.NullReferenceException:
+    Object reference not set to an instance of an object.\r\n   at System.Management.Automation.Remoting.PrioritySendDataCollection.Clear()\r\n
+    \  at System.Management.Automation.Remoting.Client.BaseClientTransportManager.CloseAsync()\r\n
+    \  at System.Management.Automation.Remoting.Client.WSManClientSessionTransportManager.CloseAsync()\r\n
+    \  at System.Management.Automation.Remoting.Client.BaseClientTransportManager.Finalize()\r\nAbort
+    trap: 6\r\n\r\nAny more ideas?"
+- id: 271696
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-07-13 06:42:24 +0000'
+  date_gmt: '2017-07-13 12:42:24 +0000'
+  content: |-
+    Hey Holraven,
+
+    I've tried to replicate it on a few different machines without success. Could you describe how you are creating the session and after which commands you receive the error?
+
+    Thanks,
+
+    Chris
+- id: 271739
+  author: Tarigand
+  author_email: tpatel@magento.com
+  author_url: ''
+  date: '2017-07-18 16:12:33 +0000'
+  date_gmt: '2017-07-18 22:12:33 +0000'
+  content: "I am getting the following error when running this command:\r\n\r\n$Session
+    = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid
+    -Credential $UserCredential -Authentication Basic -AllowRedirection \r\n                                                                                        \r\nNew-PSSession
+    : Unable to load DLL 'libpsrpclient': The specified module could not be found.\r\n
+    (Exception from HRESULT: 0x8007007E)\r\nAt line:1 char:12\r\n+ $Session = New-PSSession
+    -ConfigurationName Microsoft.Exchange -Conne ...\r\n+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n
+    \   + CategoryInfo          : NotSpecified: (:) [New-PSSession], DllNotFoundException\r\n
+    \   + FullyQualifiedErrorId : System.DllNotFoundException,Microsoft.PowerShell.Commands.NewPSSessionCommand"
+- id: 271766
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-07-21 10:46:50 +0000'
+  date_gmt: '2017-07-21 16:46:50 +0000'
+  content: "Hi Tarigand, \n\nI haven't seen that before. What version of MacOS and
+    PowerShell are you using and do other cmds work? eg. $PSVersionTable or Get-Process
+    ?\n\nCheers,\n\nChris"
+- id: 271823
+  author: Tony
+  author_email: blythers@comcast.net
+  author_url: ''
+  date: '2017-07-25 12:05:06 +0000'
+  date_gmt: '2017-07-25 18:05:06 +0000'
+  content: "Hi.\r\n\r\nHow does one get the Set-MsolUserPassword cmdlet?\r\n\r\nThanks!"
+- id: 271830
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-07-25 19:09:54 +0000'
+  date_gmt: '2017-07-26 01:09:54 +0000'
+  content: |-
+    Hi Tony,
+
+    That cmdlet is part of the Azure AD PowerShell module which is not available for macOS or Linux yet. I expect (and hope!) that a macOS version will be available soon.
+
+    Cheers,
+
+    Chris
+- id: 271899
+  author: Andreas
+  author_email: anmu@itcfyn.dk
+  author_url: ''
+  date: '2017-08-03 06:15:13 +0000'
+  date_gmt: '2017-08-03 12:15:13 +0000'
+  content: "Hej\r\n\r\nI can connect to ExchangeOnline and load all commandos but
+    when i Get-Mailbox or any \"get\" commandos execute i dont receive result or feedback
+    from ExchangeOnline. \r\n\r\nIs there someone who knows the problem and has a
+    solution for it"
+- id: 271900
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-08-03 08:57:29 +0000'
+  date_gmt: '2017-08-03 14:57:29 +0000'
+  content: |-
+    Hi Andreas,
+
+    What version of MacOS and PowerShell are you using and do other cmds work? eg. $PSVersionTable
+
+    Could you send me a PowerShell transcript of what you are doing? i.e run 'Start-Transcript' when you start PowerShell, then connect to Exchange Online and once connected run 'Stop-Transcript'. Remember to remove any sensitive info before sending or posting it.
+
+    Thanks,
+
+    Chris
+- id: 271903
+  author: Andreas
+  author_email: anmu@itcfyn.dk
+  author_url: ''
+  date: '2017-08-04 02:19:55 +0000'
+  date_gmt: '2017-08-04 08:19:55 +0000'
+  content: "Hej Chris\r\n\r\nMacOS: 10.12.6\r\nPowershellVersion : powershell v6.0.0-beta.4\r\n\r\nand
+    here my Transcript log. I have changed my username with \"somuser\" , removed
+    Username and Runas User.\r\n\r\n**********************\r\nWindows PowerShell transcript
+    start\r\nStart time: 20170804095017\r\nUsername: \r\nRunAs User: \r\nConfiguration
+    Name: \r\nMachine:  (Unix 16.7.0.0)\r\nHost Application: /usr/local/microsoft/powershell/6.0.0-beta.4/powershell.dll\r\nProcess
+    ID: 2086\r\nPSVersion: 6.0.0-beta\r\nPSEdition: Core\r\nGitCommitId: v6.0.0-beta.4\r\nOS:
+    Darwin 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64\r\nPlatform:
+    Unix\r\nPSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.0\r\nPSRemotingProtocolVersion:
+    2.3\r\nSerializationVersion: 1.1.0.1\r\nWSManStackVersion: 3.0\r\n**********************\r\nTranscript
+    started, output file is /Users/somuser/PowerShell_transcript.itce-mac-and02.iwOMJhjU.20170804095017.txt\r\nPS
+    /Users/somuser> $UserCredential = Get-Credential\r\nPS /Users/somuser> $Session
+    = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid
+    -Credential $UserCredential -Authentication Basic -AllowRedirection\r\nPS /Users/somuser>
+    Import-PSSession $Session\r\nWARNING: The names of some imported commands from
+    the module 'tmp_ttigrmsk.c3n' include unapproved verbs that might make them less
+    discoverable. To find the commands with unapproved verbs, run the Import-Module
+    command again with the Verbose parameter. For a list of approved verbs, type Get-Verb.\r\n\r\nModuleType
+    Version    Name                                ExportedCommands\r\n----------
+    -------    ----                                ----------------\r\nScript     1.0
+    \       tmp_ttigrmsk.c3n                    {Add-AvailabilityA...\r\n\r\n\r\nPS
+    /Users/somuser> get-mailbox -Identity somuser@somdomain.dk\r\n\r\n/Andreas"
+- id: 271952
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-08-08 09:19:25 +0000'
+  date_gmt: '2017-08-08 15:19:25 +0000'
+  content: |-
+    Hey Andreas,
+
+    I'm definitely seeing some interesting things with MacOS 10.12.6/ PowerShell v6.0.0-beta.4 as well. Just doing some more testing to see what I can come up with and will post back.
+
+    Cheers,
+
+    Chris
+- id: 272114
+  author: Andreas
+  author_email: anmu@itcfyn.dk
+  author_url: ''
+  date: '2017-08-16 00:58:33 +0000'
+  date_gmt: '2017-08-16 06:58:33 +0000'
+  content: "Hej Chris\r\n\r\nThank you for help.\r\n\r\nI can ascertain at the problem
+    was already in beta 3 and beta 2 and before.\r\n\r\nCheers,\r\nAndreas"
+- id: 272116
+  author: John
+  author_email: rusky_26@hotmail.com
+  author_url: ''
+  date: '2017-08-16 02:15:18 +0000'
+  date_gmt: '2017-08-16 08:15:18 +0000'
+  content: "Hey Chris,\r\n\r\nUsing macOS 10.12.6 with 6.0.0.-beta.5 and getting the
+    following error on the New-Session:\r\n\r\nPS /Users/john> $Session = New-PSSession
+    -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid
+    -Credential $UserCredential -Authentication Basic -AllowRedirection\r\n                                                                                       \r\nNew-PSSession
+    : This parameter set requires WSMan, and no supported WSMan client library was
+    found. WSMan is either not installed or unavailable for this system.\r\nAt line:1
+    char:12\r\n+ $Session = New-PSSession -ConfigurationName Microsoft.Exchange -Conne
+    ...\r\n+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n
+    \   + CategoryInfo          : ResourceUnavailable: (:) [New-PSSession], PSRemotingTransportException\r\n
+    \   + FullyQualifiedErrorId : System.Management.Automation.Remoting.PSRemotingDataStructureException,Microsoft.PowerShell.Commands.NewPSSessionCommand"
+- id: 272158
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-08-21 10:39:31 +0000'
+  date_gmt: '2017-08-21 16:39:31 +0000'
+  content: "Hey John. \n\nJust tested it using the same builds and not seeing that
+    issue. I wonder if this could be related to some missing pre-req. Have you installed
+    OpenSSL, etc as instructed here: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#macos-1012"
+- id: 272503
+  author: Dana
+  author_email: dstrumbeck@bricata.com
+  author_url: ''
+  date: '2017-09-25 13:22:38 +0000'
+  date_gmt: '2017-09-25 19:22:38 +0000'
+  content: "Hi Chris,\r\n\r\nI get the following error:$Session = New-PSSession -ConfigurationName
+    Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid
+    -Credential $UserCredential -Authentication Basic -AllowRedirection                      \r\nNew-PSSession
+    : [outlook.office365.com] Connecting to remote server \r\noutlook.office365.com
+    failed with the following error message : \r\nMI_RESULT_FAILED For more information,
+    see the about_Remote_Troubleshooting \r\nHelp topic.\r\nAt line:1 char:12\r\n+
+    $Session = New-PSSession -ConfigurationName Microsoft.Exchange -Conne ...\r\n+
+    \           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    +
+    CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:Re \r\n
+    \  moteRunspace) [New-PSSession], PSRemotingTransportException\r\n    + FullyQualifiedErrorId
+    : 1,PSSessionOpenFailed\r\n\r\nVery basic knowledge, so I'm sure it is user error,
+    using MacOS 10.12.6, Powershell v6.0.0-beta.7.\r\n\r\nAppreciate your help, this
+    has been the best instruction I've been able to find.\r\n\r\nBest,\r\nDana"
+- id: 272510
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-09-26 07:30:28 +0000'
+  date_gmt: '2017-09-26 13:30:28 +0000'
+  content: |-
+    Hi Dana,
+
+    Are you able to ping/resolve outlook.office365.com? What happens if you open terminal and type "ping outlook.office365.com" ?
+
+    Thanks,
+
+    Chris
+- id: 272532
+  author: Andreas
+  author_email: anmu@itcfyn.dk
+  author_url: ''
+  date: '2017-10-02 02:01:55 +0000'
+  date_gmt: '2017-10-02 08:01:55 +0000'
+  content: "Hej Chris and Dana\r\n\r\nI get the same error as Dana, since I have installed
+    Powershell for Mac OS beta 7. I can easily ping outlook.office365.com. S&aring;
+    I think, that Is an bug.\r\n\r\nRegards Andreas"
+- id: 272561
+  author: Anil
+  author_email: anil@e-motionstudios.com
+  author_url: http://e-motionstudios.com
+  date: '2017-10-05 09:31:24 +0000'
+  date_gmt: '2017-10-05 15:31:24 +0000'
+  content: "Hi \r\nI am getting the same error...How to resolve this?\r\n\r\nNew-PSSession
+    : [outlook.office.com] Connecting to remote server \r\noutlook.office.com failed
+    with the following error message : MI_RESULT_FAILED \r\nFor more information,
+    see the about_Remote_Troubleshooting Help topic.\r\nAt line:1 char:12\r\n+ $Session
+    = New-PSSession -ConfigurationName Microsoft.Exchange -Conne ...\r\n+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n
+    \   + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:Re
+    \r\n   moteRunspace) [New-PSSession], PSRemotingTransportException\r\n    + FullyQualifiedErrorId
+    : 1,PSSessionOpenFailed\r\n\r\n\r\n\r\nThanks"
+- id: 272563
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-10-05 12:19:55 +0000'
+  date_gmt: '2017-10-05 18:19:55 +0000'
+  content: "Hey Anil,\n\nWhat Uri are you connecting to? From the error it looks like
+    outlook.office.com. Could you try outlook.office365.com? \ni.e \"-ConnectionUri
+    https://outlook.office365.com/powershell-liveid\"\n\nThanks,\n\nChris"
+- id: 272564
+  author: Anil
+  author_email: anil@e-motionstudios.com
+  author_url: http://e-motionstudios.com
+  date: '2017-10-05 12:38:51 +0000'
+  date_gmt: '2017-10-05 18:38:51 +0000'
+  content: "Hi Chris, \r\n\r\nI was trying using outlook.office.com to test. I just
+    tried again - see the error below. \r\n\r\n$Session = New-PSSession -ConfigurationName
+    Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid
+    -Credential $UserCredential -Authentication Basic -AllowRedirection                            \r\nNew-PSSession
+    : [outlook.office365.com] Connecting to remote server \r\noutlook.office365.com
+    failed with the following error message : \r\nMI_RESULT_FAILED For more information,
+    see the about_Remote_Troubleshooting \r\nHelp topic.\r\nAt line:1 char:12\r\n+
+    $Session = New-PSSession -ConfigurationName Microsoft.Exchange -Conne ...\r\n+
+    \           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    +
+    CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:Re \r\n
+    \  moteRunspace) [New-PSSession], PSRemotingTransportException\r\n    + FullyQualifiedErrorId
+    : 1,PSSessionOpenFailed\r\n\r\n\r\nI am on macOS Sierra 10.12.6\r\n\r\nInstalled
+    Power Shell using brew.  \r\n\r\nThanks\r\nAnil"
+- id: 272607
+  author: Erick
+  author_email: tealnet@gmail.com
+  author_url: ''
+  date: '2017-10-12 17:22:58 +0000'
+  date_gmt: '2017-10-12 23:22:58 +0000'
+  content: "I'm getting the same error\r\n\r\n$Session = New-PSSession -ConfigurationName
+    Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid
+    -Credential $UserCredential -Authentication Basic -AllowRedirection\r\nNew-PSSession
+    : [outlook.office365.com] Connecting to remote server outlook.office365.com failed
+    with the following error message : \r\nMI_RESULT_FAILED For more information,
+    see the about_Remote_Troubleshooting Help topic.\r\nAt line:1 char:12\r\n+ $Session
+    = New-PSSession -ConfigurationName Microsoft.Exchange -Conne ...\r\n+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n
+    \   + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace)
+    [New-PSSession], PSRemotingTransportException\r\n    + FullyQualifiedErrorId :
+    1,PSSessionOpenFailed\r\n\r\nI'm on Xubuntu 17.04 running Powershell version 6.0.0-beta.8"
+- id: 272609
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-10-12 18:32:01 +0000'
+  date_gmt: '2017-10-13 00:32:01 +0000'
+  content: Thanks for the info Erick - seems this is happening on Linux systems as
+    well. I have not been able to replicate it myself, but I did notice yesterday
+    that connecting to Exchange Online was so slow it was unusable.
+- id: 272681
+  author: Gary
+  author_email: gary@jacksonjuncture.com
+  author_url: ''
+  date: '2017-10-25 05:06:58 +0000'
+  date_gmt: '2017-10-25 11:06:58 +0000'
+  content: "+1 to the error for the MI_Result.  I'm on Exchange 2016 on-prem so my
+    path is /powershell.  \r\n\r\nPS /Users/gjackson> $Session = New-PSSession -ConfigurationName
+    Microsoft.Exchange -ConnectionUri https://servername/powershell -Credential $UserCredential
+    -Authentication Basic -AllowRedirection                                  \r\nNew-PSSession
+    : [servername] Connecting to remote server \r\nmail.proassurance.com failed with
+    the following error message : \r\nMI_RESULT_FAILED For more information, see the
+    about_Remote_Troubleshooting \r\nHelp topic.\r\nAt line:1 char:12\r\n+ $Session
+    = New-PSSession -ConfigurationName Microsoft.Exchange -Conne ...\r\n+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n
+    \   + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:Re
+    \r\n   moteRunspace) [New-PSSession], PSRemotingTransportException\r\n    + FullyQualifiedErrorId
+    : 1,PSSessionOpenFailed"
+- id: 272760
+  author: Kai Howells
+  author_email: kai@automatica.com.au
+  author_url: http://automatica.com.au
+  date: '2017-11-09 15:16:54 +0000'
+  date_gmt: '2017-11-09 21:16:54 +0000'
+  content: "Hello,\r\nI'm trying this on 10.12 and 10.13 and am getting an Unhandled
+    Exception when trying to create the new PS Session with Office 365\r\n\r\n<code>\r\n[kai@blackmac
+    ~]$ /usr/local/microsoft/powershell/6.0.0-beta.9/pwsh\r\nPowerShell v6.0.0-beta.9\r\nCopyright
+    (C) Microsoft Corporation. All rights reserved.\r\n\r\nPS /Users/kai> $PSVersionTable
+    \                                                 \r\n\r\nName                           Value
+    \                                          \r\n----                           -----
+    \                                          \r\nPSVersion                      6.0.0-beta.9
+    \                                   \r\nPSEdition                      Core                                            \r\nGitCommitId
+    \                   v6.0.0-beta.9                                   \r\nOS                             Darwin
+    16.7.0 Darwin Kernel Version 16.7.0: T...\r\nPlatform                       Unix
+    \                                           \r\nPSCompatibleVersions           {1.0,
+    2.0, 3.0, 4.0...}                         \r\nPSRemotingProtocolVersion      2.3
+    \                                            \r\nSerializationVersion           1.1.0.1
+    \                                        \r\nWSManStackVersion              3.0
+    \                                            \r\n\r\n\r\nPS /Users/kai> $UserCredential
+    = Get-Credential                                 \r\n\r\nPowerShell credential
+    request\r\nEnter your credentials.\r\nUser: admin@example.onmicrosoft.com\r\nPassword
+    for user admin@example.onmicrosoft.com: ********\r\n\r\nPS /Users/kai> $Session
+    = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid
+    -Credential $UserCredential -Authentication Basic -AllowRedirection                                \r\n\r\nAn
+    error has occurred that was not properly handled. Additional information is shown
+    below. The PowerShell process will exit.\r\n\r\nUnhandled Exception: System.NullReferenceException:
+    Object reference not set to an instance of an object.\r\n   at System.Management.Automation.Remoting.PrioritySendDataCollection.Clear()\r\n
+    \  at System.Management.Automation.Remoting.Client.BaseClientTransportManager.CloseAsync()\r\n
+    \  at System.Management.Automation.Remoting.Client.WSManClientSessionTransportManager.CloseAsync()\r\n
+    \  at System.Management.Automation.Remoting.Client.BaseClientTransportManager.Finalize()\r\nAbort
+    trap: 6\r\n</code>"
+- id: 272800
+  author: KCSEC
+  author_email: IVW@kcsec.tech
+  author_url: https://www.ivoidwarranties.tech/
+  date: '2017-11-20 03:29:48 +0000'
+  date_gmt: '2017-11-20 09:29:48 +0000'
+  content: I've seen a lot of the errors people are getting are resolved by using
+    the brew install not with the pkg.
+- id: 272823
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-11-21 14:20:26 +0000'
+  date_gmt: '2017-11-21 20:20:26 +0000'
+  content: Very interesting - thanks for the info. I always use the brew install which
+    explains why I'm unable to reproduce these issues.
+- id: 273144
+  author: Subdriven
+  author_email: subdriven@gmail.com
+  author_url: ''
+  date: '2018-02-09 14:13:53 +0000'
+  date_gmt: '2018-02-09 20:13:53 +0000'
+  content: "For those with the \"Client did not get proper response\" errors, are
+    you using MFA/2FA? I'm guessing that is the reason. I've run into similar issues
+    with the Windows version. Unfortunately I have yet to find the same modules for
+    Mac which allow you to get around this. \r\nHere is the info on doing so for Windows:
+    https://technet.microsoft.com/en-us/library/mt775114(v=exchg.160).aspx"
+- id: 273223
+  author: Dorian
+  author_email: nairod@posteo.de
+  author_url: ''
+  date: '2018-02-22 04:41:16 +0000'
+  date_gmt: '2018-02-22 10:41:16 +0000'
+  content: "@Subdriven: Your totally right, you just forgot the tiny last step! It
+    worked for me using a token for devices without MFA. Just try it."
+- id: 273330
+  author: Jon Thompson
+  author_email: jthompson@dmevolve.com
+  author_url: ''
+  date: '2018-03-19 07:11:29 +0000'
+  date_gmt: '2018-03-19 13:11:29 +0000'
+  content: "I got this error..\r\n\r\n<code>Import-PSSession : Running the Get-Command
+    command in a remote session reported the following error: Processing data for
+    a remote command failed with the following error message: ERROR_WSMAN_INVALID_SELECTORS:
+    The WS-Management service cannot process the request because the request contained
+    invalid selectors for the resource.  For more information, see the about_Remote_Troubleshooting
+    Help topic..                                                                               \r\nAt
+    line:1 char:1                                                                +
+    Import-PSSession $Session                                                     +
+    ~~~~~~~~~~~~~~~~~~~~~~~~~                                                     +
+    CategoryInfo          : InvalidResult: (:) [Import-PSSession], RuntimeException
+    \                                                                              +
+    FullyQualifiedErrorId : ErrorFromRemoteCommand,Microsoft.PowerShell.Commands.ImportPSSessionCommand
+    \   </code>"
+- id: 274607
+  author: PowerShell Core &#8211; Connecting to O365 Exchange Online | audministrator
+  author_email: ''
+  author_url: https://audministrator.wordpress.com/2018/07/03/powershell-core-connecting-to-o365-exchange-online/
+  date: '2018-07-03 13:04:00 +0000'
+  date_gmt: '2018-07-03 19:04:00 +0000'
+  content: "[&#8230;] https://www.cgoosen.com/2017/03/connecting-to-exchange-online-with-remote-powershell-from-a-mac/
+    [&#8230;]"
+- id: 275040
+  author: Stephen Scicluna
+  author_email: sjscicluna@gmail.com
+  author_url: ''
+  date: '2018-08-27 06:04:11 +0000'
+  date_gmt: '2018-08-27 12:04:11 +0000'
+  content: "See\r\nhttps://github.com/PowerShell/PowerShell/issues/5130\r\n\r\n\"\r\nInstalling
+    PowerShell v6.0.4 on OSX 10.13.3 fixed the problem for me.\r\n\r\nInstall Link:\r\nhttps://github.com/PowerShell/PowerShell/releases/download/v6.0.4/powershell-6.0.4-osx.10.12-x64.pkg\r\n\r\n\""
+- id: 275042
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-08-27 07:38:15 +0000'
+  date_gmt: '2018-08-27 13:38:15 +0000'
+  content: Thanks for the info Stephen
+- id: 275146
+  author: Klint
+  author_email: sprocktech@gmail.com
+  author_url: ''
+  date: '2018-09-11 10:16:12 +0000'
+  date_gmt: '2018-09-11 16:16:12 +0000'
+  content: PowerShell v6.0.4 for Mac works with MFA using an app password.
+- id: 275206
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-09-17 08:22:18 +0000'
+  date_gmt: '2018-09-17 14:22:18 +0000'
+  content: Thanks for the update Klint
+---
+<p>Yes! it is finally possible to connect to Exchange Online from PowerShell installed on MacOS. I noticed some tweets <a href="https://mattmcnabb.github.io/O365-PowerShell-On-Linux" target="_blank" rel="noopener noreferrer">about this being possible on Linux</a> earlier in the week so I thought I&rsquo;d re-visit testing it on MacOS. PowerShell remoting has been available in the MacOs version since powershell-6.0.0-alpha.15, but it didn&rsquo;t include the ability to specify a &ldquo;ConnectionUri&rsquo; as the endpoint &ndash; it only worked with server names and IP addresses. powershell-6.0.0-alpha.17 which was recently released now includes this functionality.</p>
+<p>The first thing you need to do it <a href="https://github.com/PowerShell/PowerShell" target="_blank" rel="noopener noreferrer">download and install the latest release from here</a>, you&rsquo;ll want to download at least powershell-6.0.0-alpha.17</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-3.47.08-PM.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screen Shot 2017-03-15 at 3.47.08 PM" src="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-3.47.08-PM_thumb.png" alt="Screen Shot 2017-03-15 at 3.47.08 PM" width="410" height="290" border="0" /></a></p>
+<p align="left">Next launch PowerShell and confirm the version:</p>
+<p>[powershell]<br />
+$PSVersionTable<br />
+[/powershell]</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.31.53-PM.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screen Shot 2017-03-15 at 4.31.53 PM" src="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.31.53-PM_thumb.png" alt="Screen Shot 2017-03-15 at 4.31.53 PM" width="410" height="263" border="0" /></a></p>
+<p align="left">We are now ready to run establish our remote session. First let&rsquo;s define our credentials:</p>
+<p>[powershell]<br />
+$UserCredential = Get-Credential<br />
+[/powershell]</p>
+<p align="left">Then create the session:</p>
+<p>[powershell]<br />
+$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid -Credential $UserCredential -Authentication Basic -AllowRedirection<br />
+[/powershell]</p>
+<p align="left">And finally, import that session:</p>
+<p>[powershell]<br />
+Import-PSSession $Session<br />
+[/powershell]</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.41.16-PM.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screen Shot 2017-03-15 at 4.41.16 PM" src="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.41.16-PM_thumb.png" alt="Screen Shot 2017-03-15 at 4.41.16 PM" width="410" height="263" border="0" /></a></p>
+<p align="left">Once connected you have all the Exchange Online cmdlets available to you:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.46.02-PM.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screen Shot 2017-03-15 at 4.46.02 PM" src="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.46.02-PM_thumb.png" alt="Screen Shot 2017-03-15 at 4.46.02 PM" width="410" height="263" border="0" /></a></p>
+<p align="left">I haven&rsquo;t thoroughly tested it yet, but I look forward to spending some time using it soon!</p>

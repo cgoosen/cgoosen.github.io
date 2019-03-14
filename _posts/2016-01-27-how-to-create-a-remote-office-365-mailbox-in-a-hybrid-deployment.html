@@ -1,0 +1,407 @@
+---
+layout: post
+status: publish
+published: true
+title: How to create a remote &ldquo;Office 365&rdquo; mailbox  in a hybrid deployment
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1468
+wordpress_url: http://www.cgoosen.com/?p=1468
+date: '2016-01-27 15:20:39 +0000'
+date_gmt: '2016-01-27 21:20:39 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 268229
+  author: O365 Hybrid - creating new mailboxes
+  author_email: ''
+  author_url: http://www.edugeek.net/forums/cloud-services/173635-o365-hybrid-creating-new-mailboxes.html#post1489379
+  date: '2016-08-16 08:16:38 +0000'
+  date_gmt: '2016-08-16 14:16:38 +0000'
+  content: "[&#8230;] directed by microsoft to run the enable-remotemailbox powershell
+    command on our local exchange.  How to create a remote &ldquo;Office 365&rdquo;
+    mailbox in a hybrid deployment | Chris&#039;s Blog  This creates the mailbox remotely
+    in the cloud and then syncronises the correct attributes back [&#8230;]"
+- id: 270481
+  author: Ryan
+  author_email: nope@mailinator.com
+  author_url: ''
+  date: '2017-03-03 13:37:31 +0000'
+  date_gmt: '2017-03-03 19:37:31 +0000'
+  content: "Great stuff, saved me a lot of grief going down the wrong road.\r\n\r\nThank
+    you."
+- id: 271698
+  author: Sameer
+  author_email: skbackup89@gmail.com
+  author_url: ''
+  date: '2017-07-13 07:44:17 +0000'
+  date_gmt: '2017-07-13 13:44:17 +0000'
+  content: If i create the mailbox on cloud using the above method, can we move the
+    mailbox back to on premise
+- id: 271699
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-07-13 08:23:26 +0000'
+  date_gmt: '2017-07-13 14:23:26 +0000'
+  content: |-
+    Hi Sameer,
+
+    Yes you can move a mailbox back on-premises.
+
+    Cheers,
+
+    Chris
+- id: 271814
+  author: Steve Dubrava
+  author_email: steve.dubrava@armusa.net
+  author_url: ''
+  date: '2017-07-24 18:51:15 +0000'
+  date_gmt: '2017-07-25 00:51:15 +0000'
+  content: Don't do it Sameer--- Chris the problem with creating a user only in cloud
+    is there is not an AD entry for the user. Set-MsolUser and SetMsolUserMailbox
+    does great if you don't want them on your AD as a user. Works to create a cloud
+    account, add licenses, even sync to the onPrem Exchange in hybrid, but no AD account...
+- id: 271815
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-07-24 20:21:21 +0000'
+  date_gmt: '2017-07-25 02:21:21 +0000'
+  content: "Hi Steve, \n\nYes, you are correct that creating a user directly in Azure
+    AD doesn't create a corresponding user in the on-premises AD, however, the instructions
+    in this post is not for that. What we are doing here is  creating a mailbox in
+    Exchange Online for a user that has already been created in AD (on-premises).
+    \n\nSameer's question was about moving a user back on-premises that had been created
+    using the method in the post and the answer to that is yes, it can be done. There
+    are screenshots above showing the properties of the AD account.\n\nCheers,\n\nChris"
+- id: 272544
+  author: Duncan
+  author_email: mtnnomad@gmail.com
+  author_url: ''
+  date: '2017-10-02 12:27:46 +0000'
+  date_gmt: '2017-10-02 18:27:46 +0000'
+  content: "Hi Chris,\r\nWe have the exact issue described above. If the mailbox was
+    not created using the on-prem EAC but created when the Office365 license was applied,
+    would using Enable-RemoteMailbox allow it to appear in the on-prem EAC?  User
+    syncing is ok and mail flow is good with manually set AD attributes (mailNickname,
+    ProxyAddress, TargetAddress)."
+- id: 272551
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-10-03 09:55:20 +0000'
+  date_gmt: '2017-10-03 15:55:20 +0000'
+  content: |-
+    Hi Duncan,
+
+    I believe that will do it - I'll look through some notes/test it and let you know what I find.
+
+    Cheers,
+
+    Chris
+- id: 272685
+  author: Niels
+  author_email: nt@mdata.dk
+  author_url: ''
+  date: '2017-10-26 06:27:08 +0000'
+  date_gmt: '2017-10-26 12:27:08 +0000'
+  content: "Hi Chris and Duncan,\r\n\r\nSame situation as Duncan.\r\nI already have
+    a couple of users that got a cloud mailbox thru adding a license, and now AD and
+    EAC is lacking info.\r\n\r\nHow to convert a cloud mailbox to a remote mailbox?\r\n\r\nRegards\r\nNiels"
+- id: 272701
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-10-30 14:39:44 +0000'
+  date_gmt: '2017-10-30 20:39:44 +0000'
+  content: |-
+    Hi Niels,
+
+    This should do it for you (run on your on-premises EMS): Enable-RemoteMailbox "John Smith" -RemoteRoutingAddress "john.smith@tenant.mail.onmicrosoft.com" - obviously be sure to lookup the remote routing address already being used by the user.
+
+    Cheers,
+
+    Chris
+- id: 273314
+  author: swati
+  author_email: swatikd06@gmail.com
+  author_url: ''
+  date: '2018-03-14 05:00:12 +0000'
+  date_gmt: '2018-03-14 11:00:12 +0000'
+  content: "Hi,\r\n\r\nIn my setup Enable command gives following error,it never works,though
+    the user i m running this command has all the required privileges. Please suggest
+    a way out.\r\n\r\nEnable-RemoteMailbox : The term 'Enable-RemoteMailbox' is not
+    recognized as the name of a cmdlet, function, script\r\nfile, or operable program.
+    Check the spelling of the name, or if a path was included, verify that the path
+    is correct\r\nand try again."
+- id: 273315
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-03-14 09:22:27 +0000'
+  date_gmt: '2018-03-14 15:22:27 +0000'
+  content: "Hello. \n\nWhat version of Exchange Server are you running? Also, are
+    you sure you are running this in the EMS and not regular PowerShell?\n\nChris"
+- id: 273854
+  author: MichaelT
+  author_email: mtomko@nexustek.com
+  author_url: ''
+  date: '2018-05-11 14:24:41 +0000'
+  date_gmt: '2018-05-11 20:24:41 +0000'
+  content: "I ran this but I am getting an error stating the following:\r\n\r\nExchangeGuid
+    is mandatory on UserMailbox.\r\n\r\n\r\nDatabase is mandatory on UserMailbox.\r\n\r\n\r\nExchangeGuid
+    is mandatory on UserMailbox.\r\n\r\n\r\nDatabase is mandatory on UserMailbox."
+- id: 273873
+  author: Marco
+  author_email: badsentinel@gmail.com
+  author_url: ''
+  date: '2018-05-12 18:51:58 +0000'
+  date_gmt: '2018-05-13 00:51:58 +0000'
+  content: Great Post Chris.  Between this post and <a href="https://thesysadminchannel.com/how-to-create-o365-mailboxes-hybrid-exchange/"
+    rel="nofollow"> Script to create O365 mailboxes </a> it helped me out a lot.
+- id: 273888
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-05-14 11:09:41 +0000'
+  date_gmt: '2018-05-14 17:09:41 +0000'
+  content: "Hi Michael,\n\nCould you provide some more detail? What was the exact
+    cmd you ran?, where are you running it? \n\nThanks"
+- id: 273964
+  author: Joe
+  author_email: psshutdown@gmail.com
+  author_url: ''
+  date: '2018-05-21 04:46:13 +0000'
+  date_gmt: '2018-05-21 10:46:13 +0000'
+  content: "Does ExchangeOnline contain these attributes, if so is it not possible
+    to writeback these to the users OnPrem Account?\r\n\r\nDoes this apply to Shared
+    Mailboxes, if created in Exchange Online these will no appear onPrem?"
+- id: 273979
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-05-21 17:09:24 +0000'
+  date_gmt: '2018-05-21 23:09:24 +0000'
+  content: |-
+    Hi Joe,
+    Nope, these attributes are not currently written back. There are very few attributes written back to AD from AAD, for a list of these see: https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-attributes-synchronized#exchange-hybrid-writeback
+
+    You are correct about shared mailboxes - the recommended approach at the moment is to create it on-premises and then move it to exchange online.
+
+    Cheers,
+
+    Chris
+- id: 274026
+  author: Nav
+  author_email: v_2nas@hotmail.com
+  author_url: ''
+  date: '2018-05-24 06:00:53 +0000'
+  date_gmt: '2018-05-24 12:00:53 +0000'
+  content: "Hi Chirs,\r\n\r\nIf i have hybrid setup without ADFS servers, would enable-remotemailbox
+    command work. ADFS servers are optional though recommended. I have been tried
+    enable-remotemailbox command but it fails with an error that it couldn't find
+    the object on local dc."
+- id: 274027
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-05-24 08:44:53 +0000'
+  date_gmt: '2018-05-24 14:44:53 +0000'
+  content: |-
+    Hi Nav,
+
+    Yes, that will work fine. AD FS isn't even really a recommendation - it really depends on your authentication requirements.
+
+    Are you able to send me a screenshot of the error you are receiving?
+
+    Cheers,
+
+    Chris
+- id: 274450
+  author: Naveen Kumar
+  author_email: naveenveerasamy@gmail.com
+  author_url: ''
+  date: '2018-06-19 07:34:25 +0000'
+  date_gmt: '2018-06-19 13:34:25 +0000'
+  content: "http://www.mistercloudtech.com/2017/02/06/fixing-the-exchangeguid-is-mandatory-on-usermailbox-issue/\r\n\r\nhi
+    all, above URL have the fix for the problems reported."
+- id: 274724
+  author: Wayne
+  author_email: wplumridge@rotherham.ac.uk
+  author_url: ''
+  date: '2018-07-16 03:04:29 +0000'
+  date_gmt: '2018-07-16 09:04:29 +0000'
+  content: "Hi\r\nive run your command but when I try  to off board the users is cant
+    find the user exchange GUID on the exchange server it says it cant find the user
+    but he shows up in the exchange admin now"
+- id: 274725
+  author: Wayne
+  author_email: wplumridge@rotherham.ac.uk
+  author_url: ''
+  date: '2018-07-16 03:07:50 +0000'
+  date_gmt: '2018-07-16 09:07:50 +0000'
+  content: "Hi \r\nP.S\r\nI have a large amount of users that are on prem accounts
+    synced to 365 with 365 email never touching the on prem server but know need to
+    migrate them back"
+- id: 274776
+  author: Gregory Damon
+  author_email: greg.damon@summit7systems.com
+  author_url: http://summit7systems.com/
+  date: '2018-07-23 11:05:26 +0000'
+  date_gmt: '2018-07-23 17:05:26 +0000'
+  content: Great article.  I use this link to hand out to customers after migrations.  Good
+    to see someone I know posting good stuff.  Thanks Chris!
+- id: 274915
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-08-14 07:36:58 +0000'
+  date_gmt: '2018-08-14 13:36:58 +0000'
+  content: Thanks Greg!
+- id: 274916
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-08-14 07:39:31 +0000'
+  date_gmt: '2018-08-14 13:39:31 +0000'
+  content: |-
+    Hi Wayne,
+
+    Did you get this figured out or are you still having the problem?
+
+    Cheers,
+
+    Chris
+- id: 274996
+  author: Lukas
+  author_email: jesus@hotmail.com
+  author_url: ''
+  date: '2018-08-22 03:42:45 +0000'
+  date_gmt: '2018-08-22 09:42:45 +0000'
+  content: "Thank you very much - The command saved my life.\r\n\r\nI did however
+    had to change the msExchRemoteRecipient value to 4 in my case in AD Attributes
+    (4=migrated [not on DB on premise anymore]) --> I was aware of this from another
+    case I had earlier this year. Because of that I saw that the attribute msExchRemoteRecipient
+    was not even there before entering the shell command.\r\n\r\n- I hope this helps
+    someone else as well - Maybe it's something Wayne and"
+- id: 275041
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-08-27 07:37:51 +0000'
+  date_gmt: '2018-08-27 13:37:51 +0000'
+  content: Awesome, thank you Lukas.
+- id: 275117
+  author: Khalil
+  author_email: khalil@gju.edu.jo
+  author_url: ''
+  date: '2018-09-06 06:44:07 +0000'
+  date_gmt: '2018-09-06 12:44:07 +0000'
+  content: The Command successfully enables the user mailbox, but with the Exchange
+    GUID empty. I can't figure it out.
+- id: 275154
+  author: Hari Prasad
+  author_email: haric@virtusa.com
+  author_url: ''
+  date: '2018-09-12 12:37:51 +0000'
+  date_gmt: '2018-09-12 18:37:51 +0000'
+  content: "Hi Chris,\r\n\r\nThank you for sharing the article. I'm at the same situation
+    after migration to cloud the RecipientType has changed to MailUser and RecipientTypeDetails
+    =RemoteUserMailbox.\r\n\r\nThe problem is that the user is unable to access the
+    On-prem 2013 ECP and is being rejected upon supplying the creds. Why is this and
+    what is the solution for users to update their DG's per se if they wanted to update
+    as the sync is happening from On-prem. Please advise.\r\n\r\nThanks,\r\nHari"
+- id: 275207
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-09-17 08:26:08 +0000'
+  date_gmt: '2018-09-17 14:26:08 +0000'
+  content: |-
+    Hi Hari,
+
+    What you are describing is expected behavior, once a user has been migrated to Office 365 they will no longer be able to access the on-premises ECP. The solution to allow users to continue DG management is to move those DGs to Exchange Online but be aware that users who are on-premises will no longer be able to modify them. There are third-party solutions that help with this as well.
+
+    Cheers,
+
+    Chris
+- id: 275215
+  author: Rob
+  author_email: rwilderman@gmail.com
+  author_url: ''
+  date: '2018-09-18 12:28:39 +0000'
+  date_gmt: '2018-09-18 18:28:39 +0000'
+  content: "Wayne,\r\nChris is wrong.  I used his method myself to get around other
+    issues and it creates a mixmatched GUID between the Remote Mailbox object on premise
+    and the mailbox online.  Luckily there is a way to fix it manually.  Follow the
+    instructions below. \r\n\r\n-----------------------------------------------------------------------------------------------\r\nFix
+    for GUID Mismatch error upon attempted remote mailbox migration:\r\n-----------------------------------------------------------------------------------------------\r\nFrom
+    Exchange Management Console:\r\n===================================\r\nget-remotemailbox
+    &ndash;identity &ldquo;affected user&rsquo;s email id&rdquo; |fl\r\n\r\n\r\nFrom
+    Powershell:\r\n===================\r\n$UserCredential = Get-Credential\r\n\r\n$Session
+    = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/
+    -Credential $UserCredential -Authentication Basic -AllowRedirection\r\n\r\nImport-PSSession
+    $Session\r\n\r\nget-mailbox &ndash;identity &ldquo;affected user&rsquo;s email
+    id&rdquo; |fl\r\n\r\n\r\n\r\nFrom Exchange Management shell:\r\n===============================\r\n\r\nSet-remotemailbox
+    &ndash;identity &ldquo;affected user&rsquo;s email id&rdquo; &ndash;exchangeguid
+    &ldquo;affected user&rsquo;s actual mailbox GUID&rdquo;"
+- id: 275340
+  author: Jaime
+  author_email: jaime@wildhorserd.com
+  author_url: ''
+  date: '2018-10-03 08:45:02 +0000'
+  date_gmt: '2018-10-03 14:45:02 +0000'
+  content: "Thanks Chris and Lukas! I had both the msExchRemoteRecipientType and the
+    msExchHomeServerName attributes for my users set incorrectly. \r\n\r\nI had to
+    clear msExchHomeServerName as described in the linked article that Naveen Kumar
+    posted. \r\n\r\nAdditionally, I set msExchRemoteRecipientType to 4 as Lukas posted,
+    and then I was able to correctly create the remote enabled mailbox.\r\n\r\nThanks
+    everyone!"
+- id: 275642
+  author: Gregory Damon
+  author_email: greg.damon@summit7systems.com
+  author_url: http://summit7systems.com/
+  date: '2018-10-16 09:59:38 +0000'
+  date_gmt: '2018-10-16 15:59:38 +0000'
+  content: Thanks again, Chris.  One more of your blogs that I point to using a hyperlink
+    in my customer documents.
+- id: 278211
+  author: Jeff
+  author_email: jcpalzer@gmail.com
+  author_url: ''
+  date: '2019-01-16 10:58:35 +0000'
+  date_gmt: '2019-01-16 16:58:35 +0000'
+  content: "Thank you so much!  This helped a ton.  We manually created some accounts
+    (accounts not managed by FIM, so not created on prem in Exchange and migrated
+    with the creation of their AD account), that weren't showing up in Exchange Management
+    Console.\r\n\r\nThe PowerShell command did the trick!\r\n\r\nEventually we will
+    change up our process to create in the cloud right away by licensing, but first
+    we need to move to group based licensing.  Then, maybe have a scheduled task to
+    run on everyone with one or all of these attributes blank?  Curious how others
+    handle that.\r\n\r\nJeff"
+---
+<p>I&rsquo;ve recently seen the same issue pop up in a few different environments so I thought I would put together a short post that explains how to create a &ldquo;Office 365&rdquo; mailbox when using a hybrid deployment of Exchange. One of the questions I&rsquo;ve had had answer a few times recently is &ldquo;Why do newly created Exchange Online mailboxes not appear in the on-premises Exchange Admin Center as &ldquo;Office 365&rdquo; mailboxes like migrated mailboxes do?&rdquo;</p>
+<p>There appears to be some confusion around provisioning of new user mailboxes once a hybrid deployment has been configured as this issue is caused when the mailbox has not be correctly provisioned in the on-premises environment.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap3" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap3_thumb.png" alt="cap3" width="725" height="314" border="0" /></a></p>
+<p>While it is technically possible to create a new user account in Active Directory, wait for AAD Connect to provision that account to AAD and then assign an Exchange Online license to that user to create their mailbox, but the problem with that process is that it does not set the msExchRecipientType (and other) Exchange related attributes for that user object and that is why it will never appear in the on-premises Exchange Admin Center:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap2" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap2_thumb.png" alt="cap2" width="344" height="456" border="0" /></a></p>
+<p align="left">In order to correctly popular these attributes, you either need to create the new user and mailbox via the Exchange Admin Center by clicking on the &ldquo;+&rdquo; icon and selecting &ldquo;Office 365 Mailbox&rdquo; or you need to enable a remote mailbox for a previously created user using the <em>Enable-RemoteMailbox </em>cmdlet</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap4" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap4_thumb.png" alt="cap4" width="345" height="131" border="0" /></a></p>
+<p align="left">Many organizations already have automated provisioning processes in place so adjusting the mailbox enablement workflow may be the preferred method, an example of the cmdlet is shown below:</p>
+<p>[powershell]<br />
+#Syntax is: Enable-RemoteMailbox <user> &ndash;RemoteRoutingAddress <user@tenant.mail.onmicrosoft.com><br />
+Enable-RemoteMailbox homer -RemoteRoutingAddress homer@gooselabs.mail.onmicrosoft.com<br />
+[/powershell]</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap1" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap1_thumb.png" alt="cap1" width="694" height="240" border="0" /></a></p>
+<p align="left">The <em>Enable-RemoteMailbox </em>cmdlet can be run immediately after creating the user account in Active Directory so there is no need to wait for the next AAD Connect synchronization cycle to complete before enabling the mailbox. Once the user account has been provisioned to AAD, the mailbox will automatically created and the appropriate license should then be assigned to the user.</p>
+<p align="left">More information on the <em>Enable-RemoteMailbox</em> cmdlet can be <a href="https://technet.microsoft.com/en-us/library/ff607313%28v=exchg.160%29.aspx" target="_blank">found on TechNet here</a></p>

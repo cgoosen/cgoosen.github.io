@@ -1,0 +1,137 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2010 &ldquo;Anonymous Relay&rdquo; Receive Connector
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 732
+wordpress_url: http://www.cgoosen.com/?p=732
+date: '2012-01-04 14:42:53 +0000'
+date_gmt: '2012-01-04 03:42:53 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 278
+  author: Eugene
+  author_email: eugeneg@tfx.com.au
+  author_url: ''
+  date: '2012-05-22 17:01:08 +0000'
+  date_gmt: '2012-05-22 06:01:08 +0000'
+  content: |-
+    HELP
+
+    I have an internal postfix server and an Exchange server handling external mail I cannot get this configuration to work, the Exchange server keeps denying relay with "550 5.7.1 Unable to relay (in reply to RCPT TO command))"
+- id: 279
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2012-05-22 17:12:45 +0000'
+  date_gmt: '2012-05-22 06:12:45 +0000'
+  content: |-
+    Hello Eugene,
+
+    When you telnet from your postfix server to your exchange server on port 25 do you see &ldquo;220 Anonymous Relay Connector&rdquo; as the welcome banner?
+- id: 597
+  author: Guillem
+  author_email: goliva@awstruepower.com
+  author_url: ''
+  date: '2013-02-13 18:46:50 +0000'
+  date_gmt: '2013-02-13 07:46:50 +0000'
+  content: "Hello Chris,\r\n\r\nI have same issue Eugene had, but when I telnet with
+    port 25 to my exchange server it prompts the \"220 Anonymous Relay Connector\"
+    banner. By the way, maybe it is obvious but the 10.0.0.21:25 ip:port in your cmdlet
+    is the IP of your exchange server right?\r\n\r\nAny ideas about what my problem
+    could be are welcome! Thanks!"
+- id: 598
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-02-13 19:52:03 +0000'
+  date_gmt: '2013-02-13 08:52:03 +0000'
+  content: |-
+    Hi Guillem,
+
+    You are correct, 10.0.0.20:25 shows that it is bound to the exchange IP 10.0.0.20 on port 25. This would need to be replaced with the IP of your Exchange server. Step me through your problem, if you telnet the server you see the banner? What happens if you try to send a message?
+
+    Cheers,
+
+    Chris
+- id: 600
+  author: Guillem
+  author_email: goliva@awstruepower.com
+  author_url: ''
+  date: '2013-02-14 00:30:23 +0000'
+  date_gmt: '2013-02-13 13:30:23 +0000'
+  content: "Hello Chris,\r\n\r\nthanks for your answer. I have solved the problem.\r\n\r\nTelnet
+    always worked so the problem was not on the connector. All the emails I sent using
+    TELNET were correctly sent. So the problem was with the \"sendmail\" smtp service
+    I was using on the linux host. I just needed this for a WEB PHP form we are developing
+    for a new web site. So, instead of using linux \"sendmail\" to send emails from
+    it to Exchange, I just changed some settings on php.ini to use a module that lets
+    send emails through a remote connector using PHP and it worked like a charm.\r\n\r\nTo
+    realize about the issue I should have been focusing on TELNET from the beginning,
+    which is something I forgot to do until I found your first answer to Eugene. It
+    helped me to discard the issue was on the connector.\r\n\r\nThanks!"
+- id: 1313
+  author: TAG
+  author_email: theresedanielle@hotmail.com
+  author_url: ''
+  date: '2013-05-15 14:39:08 +0000'
+  date_gmt: '2013-05-15 03:39:08 +0000'
+  content: "Bindings - help me out!  \r\n\r\n4 CAS/HT servers, 2 physical (with WNLB
+    VIP), 2 virtuals.  I have an internal relay connector (on each), set up with anonymous
+    and the IP's of the servers that I want to allow to use the relay.  \r\n\r\nInternally,
+    mail sends fine - but, if they (the allowed IP's in the external relay) try to
+    send EXTERNALLY using any of the IP's other than the VIP, get \"Cannot Relay\".
+    \ \r\n\r\nI have a sneaky suspicion it's to do with the binding only being set
+    to the WNLB VIP - can I add additional bindings so that any of the IP's (those
+    of the virtuals or physicals) can be used to relay anonymous SMTP?  \r\n\r\nI
+    need to decomm the physicals(and as such, the WNLB VIP) but cannot do so until
+    I can relay external mail through the virtuals"
+- id: 1320
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-06-04 15:27:17 +0000'
+  date_gmt: '2013-06-04 04:27:17 +0000'
+  content: Did you manage to resolve your problem?
+- id: 272517
+  author: Zain
+  author_email: zainmuhammad@live.com
+  author_url: ''
+  date: '2017-09-27 00:14:09 +0000'
+  date_gmt: '2017-09-27 06:14:09 +0000'
+  content: "Hi Chris,\r\n\r\nI am getting issue, when i tried to telnet my domain
+    from client on port 25, banner only displays 220 ********************************
+    \r\nand then it gives me error  502 5.5.2 Error: command not recognized on every
+    command. Any idea where is the issue?"
+- id: 272550
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-10-03 09:52:31 +0000'
+  date_gmt: '2017-10-03 15:52:31 +0000'
+  content: |-
+    Hi Zain,
+
+    Do you have any network devices or firewalls between your client and your server?
+---
+<p>In almost every environment I have ever seen there are usually some devices and/or systems that need to send email and typically these will require some SMTP server to relay these messages. More often than not these also do not have the ability to authenticate to the relaying host.</p>
+<p>How do we deal with these in Exchange? I have seen some pretty silly solutions and the default answer seems to be &ldquo;Just allow anonymous users on the default connector&rdquo;. This is not true and is actually quite a dangerous thing to do, so my advice is DON&rsquo;T. In fact, I would go so far as to say, don&rsquo;t ever touch the default connector. The correct way is to create a new receive connector and allow relay from only the devices that are required to use this connector.</p>
+<p>Allowing anonymous relay is serious and requires thought and planning. If could be exploited by spammers and IMHO should not be configured on internet-facing servers.</p>
+<p>So lets say that we have three devices that need to relay anonymously, their IPs are 10.0.0.30, 10.0.0.31 and 10.0.0.32. First we need to create a new receive connector:</p>
+<blockquote><p><span style="font-family: 'Courier New';">New-ReceiveConnector -Name "Anonymous Relay Connector" -Usage Custom -PermissionGroups AnonymousUsers -Bindings 10.0.0.20:25 -RemoteIpRanges 10.0.0.30-10.0.0.32 &ndash;Banner "220 Anonymous Relay Connector"</span></p></blockquote>
+<p>Next we need to to grant relay permission to anonymous connections on the new Receive connector:</p>
+<blockquote><p><span style="font-family: 'Courier New';">Get-ReceiveConnector -Identity "Anonymous Relay Connector" | Add-ADPermission -User "NT AUTHORITY\ANONYMOUS LOGON" -ExtendedRights "Ms-Exch-SMTP-Accept-Any-Recipient"</span></p></blockquote>
+<p>What happens if you have multiple servers and would like to duplicate your receive connector settings. Say for example you have two Exchange servers and you have a receive connector on a server called EXHUB01 that allows 100 devices to relay. You would now like to create the same connector on EXHUB02. Instead of manually adding each address, you could do this:</p>
+<blockquote><p><span style="font-family: 'Courier New';">New-ReceiveConnector "Anonymous Relay Connector" -Server EXHUB02 -Usage Custom -PermissionGroups AnonymousUsers -Bindings 10.0.0.21:25 -RemoteIPRanges ( Get-ReceiveConnector "EXHUB01\Anonymous Relay Connector" ).RemoteIPRanges -Banner "220 Anonymous Relay Connector"</span></p></blockquote>
+<p>Don&rsquo;t forget to grant relay permission to anonymous connections on the new Receive connector:</p>
+<blockquote><p><span style="font-family: 'Courier New';">Get-ReceiveConnector -Identity "EXHUB02\Anonymous Relay Connector" | Add-ADPermission -User "NT AUTHORITY\ANONYMOUS LOGON" -ExtendedRights "Ms-Exch-SMTP-Accept-Any-Recipient"</span></p></blockquote>

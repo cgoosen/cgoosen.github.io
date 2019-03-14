@@ -1,0 +1,57 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Jetstress Error: The MSExchange Database or MSExchange Database ==> Instrances
+  performance counter category isn''t registered'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 726
+wordpress_url: http://www.cgoosen.com/2011/10/jetstress-error-the-msexchange-database-or-msexchange-database-instrances-performance-counter-category-isnt-registered/
+date: '2011-10-28 16:06:23 +0000'
+date_gmt: '2011-10-28 05:06:23 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 44736
+  author: Chaitu
+  author_email: chaitu.nani@gmail.com
+  author_url: ''
+  date: '2014-05-15 15:19:58 +0000'
+  date_gmt: '2014-05-15 04:19:58 +0000'
+  content: If this doesn't fix it, close JetStress window and from an elevated command
+    prompt window run lodctr /R and once finished open up JetStress. This error should
+    have disappeared now.
+- id: 256922
+  author: Jono Cono
+  author_email: raksabi@yahoo.ca
+  author_url: http://jonocono.ca/ramblings
+  date: '2015-01-28 20:25:07 +0000'
+  date_gmt: '2015-01-29 02:25:07 +0000'
+  content: Hi there, thanks for the post.  I'm running Exchange 2013 on Server 2012
+    R2 Standard and when using Jetstress 2013 I ran into the same error.  Right-clicking
+    and running as Administrator resolved the error.
+- id: 273154
+  author: Roy
+  author_email: jsqzh23@163.com
+  author_url: ''
+  date: '2018-02-11 21:40:55 +0000'
+  date_gmt: '2018-02-12 03:40:55 +0000'
+  content: it works after  run lodctr /R, thanks a lot.
+---
+<p>I recently came across this error while using Jetstress to test and validate the performance of their Exchange storage. I was running the tool on Windows Server 2008 R2 and I don&rsquo;t recall ever seeing this before. After finding what is actually an easy fix, I thought I would&#160; write up this post just in case this has anyone else baffled. The entire error was:</p>
+<blockquote><p>Ensure that you&rsquo;re running the application as a member of built-in Administrators security group.</p>
+<p>The MSExchange Database or MSExchange Database ==> Instrances performance counter category isn't registered.</p>
+</blockquote>
+<p><font style="background-color: #eef8ff"><a href="http://www.cgoosen.com/wp-content/uploads/2011/10/jetstress1.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px; padding-top: 0px" title="jetstress1" border="0" alt="jetstress1" src="http://www.cgoosen.com/wp-content/uploads/2011/10/jetstress1_thumb.png" width="596" height="345" /></a></font></p>
+<p>The admin account I was using is a member of the domain admins security group so I assumed I had the correct permissions but went away and checked just to be sure. I also checked to make sure that the domain admins group was a member of the local built-in Administrators security group, which it was. After spending a few minutes thinking about it, I thought I would try running Jetstress &ldquo;as an administrator&rdquo; (right-click the shortcut and select &ldquo;Run as administrator&rdquo;</p>
+<p>That solved the problem.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2011/10/jetstress2.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px; padding-top: 0px" title="jetstress2" border="0" alt="jetstress2" src="http://www.cgoosen.com/wp-content/uploads/2011/10/jetstress2_thumb.png" width="603" height="329" /></a></p>
+<p>I have since checked the Jetstress installation in my Exchange 2010 Lab which also runs on Windows Server 2008 R2 and this step is not required there, it works fine by just clicking the Jetstress shortcut (no right-click required). Not really worth spending time investigating the cause as it may just be a once-off occurrence, but at least it is now documented.</p>

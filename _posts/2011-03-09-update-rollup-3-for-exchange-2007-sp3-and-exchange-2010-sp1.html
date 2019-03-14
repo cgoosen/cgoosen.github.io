@@ -1,0 +1,44 @@
+---
+layout: post
+status: publish
+published: true
+title: Update Rollup 3 for Exchange 2007 SP3 and Exchange 2010 SP1
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 659
+wordpress_url: http://www.cgoosen.com/2011/03/update-rollup-3-for-exchange-2007-sp3-and-exchange-2010-sp1/
+date: '2011-03-09 11:34:19 +0000'
+date_gmt: '2011-03-09 00:34:19 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 204
+  author: Potential for database corruption after installing Exchange 2007 SP3 RU3
+  author_email: ''
+  author_url: http://www.cgoosen.com/2011/03/potential-for-database-corruption-after-installing-exchange-2007-sp3-ru3/
+  date: '2011-03-30 11:24:33 +0000'
+  date_gmt: '2011-03-30 00:24:33 +0000'
+  content: "[...] recently posted about the availability of Update Rollup 3 for Exchange
+    2007 SP3 and Exchange 2010 SP1 and then [...]"
+---
+<p>The Exchange CXP team <a href="http://msexchangeteam.com/archive/2011/03/08/458566.aspx" target="_blank">recently released</a> Update Rollup 3 for Exchange Server 2007 SP3 and Exchange Server 2010 SP1 to the Download Center. Release via Microsoft Update will occur on March 22nd 2011.</p>
+<p>These updates contain a number of customer reported and internally found issues since the release of RU2. Both updates resolve a number of issues, in particular for Exchange 2010 it resolves more than 40 issues.</p>
+<p>For a detailed list of these issues, visit the following links:</p>
+<ul>
+<li><a href="http://support.microsoft.com/?kbid=2492691" target="_blank">Update Rollup 3 for Exchange 2007 SP3</a></li>
+<li><a href="http://support.microsoft.com/?kbid=2492690" target="_blank">Update Rollup 3 for Exchange 2010 SP1</a></li>
+</ul>
+<p>Update Rollup 4 for Exchange Server 2007 SP3 and Exchange Server 2010 SP1&#160; is currently scheduled to release in May 2011.</p>
+<p>As always, those of you running Forefront, be sure you perform these important steps from the command line in the Forefront directory before and after this rollup's installation process. Without these steps, Exchange services for Information Store and Transport will not start back up. You will need to disable ForeFront via <em><strong>"fscutility /disable"</strong></em> before installing the patch and then re-enable after the patch by running <em><strong>"fscutility /enable"</strong></em> to start it up again post installation.</p>
+<p>To download these updates, visit the following links:</p>
+<ul>
+<li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=17615f50-8a56-428c-bc1a-629795692da1" target="_blank">Update Rollup 3 for Exchange 2007 SP3</a></li>
+<li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=413b8979-76b8-4be4-a18b-015d025eb368" target="_blank">Update Rollup 3 for Exchange 2010 SP1</a></li>
+</ul>

@@ -1,0 +1,64 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Script: Fix-ProxyAddress.ps1'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1213
+wordpress_url: http://www.cgoosen.com/?p=1213
+date: '2014-11-21 12:36:14 +0000'
+date_gmt: '2014-11-21 18:36:14 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+- Scripts
+tags: []
+comments:
+- id: 273974
+  author: Patricia McLelland
+  author_email: pmclelland@mzb-usa.com
+  author_url: ''
+  date: '2018-05-21 13:06:06 +0000'
+  date_gmt: '2018-05-21 19:06:06 +0000'
+  content: "This is awesome! Thank you.  I am getting an error though (it's red),
+    can you help me?\r\n\r\nSet-Mailbox : Cannot bind parameter 'EmailAddresses'.
+    Cannot convert the \"Syste\r\nm.Collections.Hashtable\" value of type \"System.Collections.Hashtable\"
+    to type \"\r\nMicrosoft.Exchange.Data.ProxyAddress\".\r\nAt C:\\users\\bigpmclelland\\desktop\\Fix-ProxyAddress.ps1:541
+    char:49\r\n+             Set-Mailbox $Mailbox -EmailAddresses <<<<  @{add=\"$Alias@$Routing\r\nDomain\"}\r\n
+    \   + CategoryInfo          : InvalidArgument: (:) [Set-Mailbox], ParentContai\r\n
+    \  nsErrorRecordException\r\n    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.Exchang\r\n
+    \  e.Management.RecipientTasks.SetMailbox"
+- id: 273980
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-05-21 17:14:00 +0000'
+  date_gmt: '2018-05-21 23:14:00 +0000'
+  content: |-
+    Hi Patricia,
+
+    Could you tell me a little about your environment? OS/Exch version, etc? Feel free to email me directly if you'd rather not share than info publicly.
+
+    Thanks,
+
+    Chris
+---
+<p><a href="http://www.cgoosen.com/2014/11/migrationpermanentexception-the-target-mailbox-doesnt-have-an-smtp-proxy-matching-company-mail-onmicrosoft-com/" target="_blank">I recently blogged about</a> the "<span style="color: #ff0000;"><em>MigrationPermanentException: The target mailbox doesn't have an SMTP proxy matching 'company.mail.onmicrosoft.com'.</em></span><span style="color: #000000;">" error message that occurs when attempting to perform a remote mailbox move for a user that doesn&rsquo;t have the correct SMTP proxy address. I put together a script to help simplify the process of adding the relevant SMTP proxy address to effected users.</span></p>
+<p>Once launched, the script will prompt for your tenant routing domain in the format 'company.mail.onmicrosoft.com' and will search for all mailboxes in the organization that do not have an email address policy applied. A new SMTP proxy address will be added to all mailboxes without an email address policy. The proxy address will be based on the alias of the primary SMTP address and the routing domain entered, e.g if the primary SMTP address is john.smith@company.com and the routing domain entered is company.mail.onmicrosoft.com the resulting proxy address will be john.smith@company.mail.onmicrosoft.com.</p>
+<p><strong>Requirements: </strong>This script has been tested and is known to work with Exchange 2010 and Exchange 2013.</p>
+<p><strong>Usage:</strong> There are no parameters or switches, simply execute the script:</p>
+<p>[shell].\Fix-ProxyAddress.ps1[/shell]</p>
+<p><strong>Execution Policy: </strong>The script has been digitally signed and will run just fine under a "RemoteSigned" execution policy.</p>
+<p><strong>Screenshots:</strong></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/11/script1.png"><img style="display: inline; border-width: 0px;" title="script1" src="http://www.cgoosen.com/wp-content/uploads/2014/11/script1_thumb.png" alt="script1" width="240" height="220" border="0" /></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/11/script2.png"><img style="display: inline; border-width: 0px;" title="script2" src="http://www.cgoosen.com/wp-content/uploads/2014/11/script2_thumb.png" alt="script2" width="476" height="167" border="0" /></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/11/script3.png"><img style="display: inline; border-width: 0px;" title="script3" src="http://www.cgoosen.com/wp-content/uploads/2014/11/script3_thumb.png" alt="script3" width="476" height="163" border="0" /></a></p>
+<p><strong>Download: </strong>I have published it to the TechNet Gallery, <a href="http://cgoo.se/1xXvNCZ" target="_blank">it can be downloaded by clicking here...</a></p>

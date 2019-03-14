@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <description></description>
+    <link>http://172.16.7.177:4000/</link>
+    <atom:link href="http://172.16.7.177:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 14 Mar 2019 16:42:55 -0500</pubDate>
+    <lastBuildDate>Thu, 14 Mar 2019 16:42:55 -0500</lastBuildDate>
+    <generator>Jekyll v3.8.4</generator>
+    
+      <item>
+        <title>Sample Data</title>
+        <description>&lt;p&gt;Markdown (or Textile), Liquid, HTML &amp;amp; CSS go in. Static sites come out ready for deployment.&lt;/p&gt;
+
+&lt;h4 id=&quot;headings&quot;&gt;Headings&lt;/h4&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+
+&lt;h4 id=&quot;blockquote&quot;&gt;Blockquote&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;No more databases, comment moderation, or pesky updates to install—just your content.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;unordered-list&quot;&gt;Unordered List&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Jekyll
+    &lt;ul&gt;
+      &lt;li&gt;Nested Jekyll&lt;/li&gt;
+      &lt;li&gt;Nested Ruby&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ruby&lt;/li&gt;
+  &lt;li&gt;Markdown&lt;/li&gt;
+  &lt;li&gt;Liquid&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;ordered-list&quot;&gt;Ordered List&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Jekyll
+    &lt;ol&gt;
+      &lt;li&gt;Nested Jekyll&lt;/li&gt;
+      &lt;li&gt;Nested Ruby&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ruby&lt;/li&gt;
+  &lt;li&gt;Markdown&lt;/li&gt;
+  &lt;li&gt;Liquid&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;link&quot;&gt;Link&lt;/h4&gt;
+
+&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot; title=&quot;Title&quot;&gt;an example&lt;/a&gt; inline link.&lt;/p&gt;
+
+&lt;h4 id=&quot;paragraph-w-strong-em-etc&quot;&gt;Paragraph w/ strong, em, etc.&lt;/h4&gt;
+
+&lt;p&gt;These are just a few of the &lt;em&gt;available&lt;/em&gt; &lt;strong&gt;configuration&lt;/strong&gt; options. Many configuration options can &lt;strike&gt;either&lt;/strike&gt; be specified as flags on the &lt;abbr title=&quot;Command Line Tool&quot;&gt;command line&lt;/abbr&gt;, or alternatively (and more commonly) they can be specified in a _config.yml file at the root of the source directory. Jekyll will &lt;a href=&quot;http://joro.me/&quot; target=&quot;_blank&quot;&gt;automatically use&lt;/a&gt; the options from this file when run. For example, if you place the following lines in your _config.yml file.&lt;/p&gt;
+
+&lt;h4 id=&quot;image&quot;&gt;Image&lt;/h4&gt;
+&lt;figure class=&quot;aligncenter&quot;&gt;
+	&lt;img src=&quot;https://images.unsplash.com/photo-1449452198679-05c7fd30f416?ixlib=rb-0.3.5&amp;amp;q=80&amp;amp;fm=jpg&amp;amp;crop=entropy&amp;amp;s=73181f1c6d56b933b30de2bfe21fdf3b&quot; /&gt;
+	&lt;figcaption&gt;Photo by &lt;a href=&quot;https://unsplash.com/rmaedavis&quot; target=&quot;_blank&quot;&gt;Rachel Davis&lt;/a&gt;.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;video&quot;&gt;Video&lt;/h4&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/iWowJBRMtpc&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&quot;default-code-block&quot;&gt;Default Code Block&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;This is code blog.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;styled-code-block&quot;&gt;Styled Code Block&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Command&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Module&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmp_dmwhjqj3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;m1c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dkim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;New&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DkimSigningConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DomainName&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Enabled&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$True&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;definition-lists&quot;&gt;Definition Lists&lt;/h4&gt;
+
+&lt;dl&gt;
+    &lt;dt&gt;Definition Title&lt;/dt&gt;
+    &lt;dd&gt;Definition Description&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h4 id=&quot;paragraphs-w-aligned-images&quot;&gt;Paragraphs w/ Aligned Images&lt;/h4&gt;
+
+&lt;p&gt;The Jekyll gem makes a jekyll executable available to you in your Terminal window. You can use this command in a number of ways.&lt;/p&gt;
+
+&lt;figure class=&quot;alignleft&quot;&gt;
+	&lt;img width=&quot;250&quot; src=&quot;https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-0.3.5&amp;amp;q=80&amp;amp;fm=jpg&amp;amp;crop=entropy&amp;amp;s=3f9c78df0edb464244bbabb04d1797d8&quot; /&gt;
+	&lt;figcaption&gt;Photo by &lt;a href=&quot;https://unsplash.com/dustinlee&quot; target=&quot;_blank&quot;&gt;Dustin Lee&lt;/a&gt;.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such as getting your site up and running, creating and managing your content, customizing the way your site works and looks, deploying to various environments, and give you some advice on participating in the future development of Jekyll itself.&lt;/p&gt;
+
+&lt;p&gt;Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like Markdown) and our Liquid renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.&lt;/p&gt;
+
+&lt;figure class=&quot;alignright&quot;&gt;
+	&lt;img width=&quot;250&quot; src=&quot;https://images.unsplash.com/photo-1442037025225-e1cffaa2dc23?ixlib=rb-0.3.5&amp;amp;q=80&amp;amp;fm=jpg&amp;amp;crop=entropy&amp;amp;s=7fe04b68b0cb123bf568c6951c14b177&quot; /&gt;
+	&lt;figcaption&gt;Photo by &lt;a href=&quot;https://unsplash.com/lobostudiohamburg&quot; target=&quot;_blank&quot;&gt;LoboStudio Hamburg&lt;/a&gt;.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Throughout this guide there are a number of small-but-handy pieces of information that can make using Jekyll easier, more interesting, and less hazardous. Here’s what to look out for.&lt;/p&gt;
+
+&lt;p&gt;If you come across anything along the way that we haven’t covered, or if you know of a tip you think others would find handy, please file an issue and we’ll see about including it in this guide.&lt;/p&gt;
+
+&lt;p&gt;The front matter is where Jekyll starts to get really cool. Any file that contains a YAML front matter block will be processed by Jekyll as a special file. The front matter must be the first thing in the file and must take the form of valid YAML set between triple-dashed lines.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 11 Mar 2019 23:56:00 -0500</pubDate>
+        <link>http://172.16.7.177:4000/2019/03/sample-data</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2019/03/sample-data</guid>
+        
+        
+        <category>docs</category>
+        
+      </item>
+    
+      <item>
+        <title>Connect-365 Script Updates</title>
+        <description>&lt;p&gt;I'm excited to publish a new version of my Connect-365.ps1 script. The new version includes a bunch of usability improvements, the addition of Teams and Azure modules and now supports MFA.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/img/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png&quot;&gt;&lt;img src=&quot;/assets/img/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png&quot; style=&quot;width:539px;height:415;&quot;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;I have published a code-signed version to the TechNet Gallery, &lt;a href=&quot;http://cgoo.se/1srvTiS&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;it can be downloaded by clicking here&amp;hellip;&lt;/a&gt;&amp;nbsp;or you can&lt;a href=&quot;https://github.com/cgoosen/Connect-365&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt; grab the code from Github here.&amp;nbsp;&lt;/a&gt;&lt;a href=&quot;https://www.cgoosen.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png&quot;&gt;&lt;br /&gt;
+&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 27 Feb 2019 08:38:26 -0600</pubDate>
+        <link>http://172.16.7.177:4000/2019/02/connect-365-script-updates</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2019/02/connect-365-script-updates</guid>
+        
+        
+        <category>Office 365</category>
+        
+        <category>PowerShell</category>
+        
+      </item>
+    
+      <item>
+        <title>TCA Podcast Episode 22: Governance With Antonio Maio</title>
+        <description>&lt;p&gt;Governance is a big word and is a concept that is often thrown around. It seems to confuse a lot of organizations, even those who have successfully navigated the cultural and technology changes often brought on by cloud adoption. The &amp;lsquo;on by default&amp;rsquo; nature of many cloud services has made it even more important for organizations to plan their governance strategy before adopting these services, so we sat down with Antonio Maio to talk about the need for governance and why it isn&amp;rsquo;t something that should be overlooked.&lt;/p&gt;
+&lt;p&gt;&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/571229175&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;For more information on The Cloud Architects podcast, check us out on &lt;a href=&quot;https://soundcloud.com/thecloudarchitects/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;SoundCloud&lt;/a&gt;. We are also available on your favorite podcast app:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/podcast/the-cloud-architects-podcast/id1264479296?mt=2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;iTunes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.stitcher.com/podcast/the-cloud-architects/the-cloud-achitects&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Stitcher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tunein.com/radio/The-Cloud-Architects-Podcast-p1026315/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Tunein&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.acast.com/thecloudarchitectspodcast&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Acast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 11 Feb 2019 06:08:21 -0600</pubDate>
+        <link>http://172.16.7.177:4000/2019/02/tca-podcast-episode-22-governance-with-antonio-maio</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2019/02/tca-podcast-episode-22-governance-with-antonio-maio</guid>
+        
+        
+        <category>Cloud</category>
+        
+        <category>Office 365</category>
+        
+        <category>Ignite</category>
+        
+        <category>Podcast</category>
+        
+      </item>
+    
+      <item>
+        <title>Exchange Online - No DKIM keys saved for this domain</title>
+        <description>&lt;p&gt;I recently came across an interesting issue when attempting to enable DKIM for a domain in Exchange Online. When accessing the DKIM options via the Exchange Admin Center, I didn’t have the option to enable DKIM, instead saw the “No DKIM keys saved for this domain” message shown in the screenshot below:
+&lt;a href=&quot;/assets/img/2019/01/2.png&quot;&gt;&lt;img src=&quot;/assets/img/2019/01/2.png&quot; style=&quot;width:300px;height:129px;&quot; /&gt;&lt;/a&gt;
+Fortunately, we are able to manage DKIM configuration via PowerShell. Once connected to Exchange Online, you can list the DKIM cmdlets using Get-Command:
+&lt;a href=&quot;/assets/img/2019/01/3.png&quot;&gt;&lt;img src=&quot;/assets/img/2019/01/3.png&quot; style=&quot;width:300px;height:155px;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Command&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Module&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmp_dmwhjqj3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;m1c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dkim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We can use New-DkimSigningConfig cmdlet to enable DKIM for a particular domain:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;New&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DkimSigningConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DomainName&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Enabled&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$True&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Once run, you’ll notice that the Exchange Admin Center will now show DKIM as enabled for the domain. If you haven’t already, you’ll also need to create the relevant DNS records to ensure that DKIM functions correctly. The following records will be required:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;selector1._domainkey.domain.com = CNAME: selector1-domain-com._domainkey.tenant.onmicrosoft.com&lt;/li&gt;
+  &lt;li&gt;selector2._domainkey.domain.com = CNAME: selector2-domain-com._domainkey.tenant.onmicrosoft.com&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Fellow MVP &lt;a href=&quot;https://twitter.com/jaapwess&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jaap Wesselius&lt;/a&gt; has a great post on &lt;a href=&quot;https://jaapwesselius.com/2018/10/31/spf-dkim-and-dmarc-in-exchange-online-protection/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SPF, DKIM and DMARC.&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 Jan 2019 05:31:34 -0600</pubDate>
+        <link>http://172.16.7.177:4000/2019/01/exchange-online-no-dkim-keys-saved-for-this-domain</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2019/01/exchange-online-no-dkim-keys-saved-for-this-domain</guid>
+        
+        
+        <category>Exchange Server</category>
+        
+        <category>Cloud</category>
+        
+        <category>Office 365</category>
+        
+      </item>
+    
+      <item>
+        <title>TCA Podcast Episode 21: Get-IoTEpisode -GuestName &amp;ldquo;Anthony Bartolo&amp;rdquo;</title>
+        <description>&lt;p&gt;The Internet of things (IoT) seems to be everywhere these days. Anything from connected light bulbs and door bells to sensors that monitor and report the drying and curing of concrete in real time, there seems to be an IoT solution for every problem but IoT is so much more than just a sensor connected to a Raspberry PI. Microsoft&amp;rsquo;s&amp;nbsp;Anthony Bartolo sat down with us at Ignite to explain what IoT is, why IT Pros should pay attention and how to get started.&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/544434648&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;For more information on The Cloud Architects podcast, check us out on &lt;a href=&quot;https://soundcloud.com/thecloudarchitects/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;SoundCloud&lt;/a&gt;. We are also available on your favorite podcast app:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/podcast/the-cloud-architects-podcast/id1264479296?mt=2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;iTunes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.stitcher.com/podcast/the-cloud-architects/the-cloud-achitects&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Stitcher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tunein.com/radio/The-Cloud-Architects-Podcast-p1026315/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Tunein&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.acast.com/thecloudarchitectspodcast&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Acast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 14 Dec 2018 06:30:52 -0600</pubDate>
+        <link>http://172.16.7.177:4000/2018/12/tca-podcast-episode-21-get-iotepisode-guestname-anthony-bartolo</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2018/12/tca-podcast-episode-21-get-iotepisode-guestname-anthony-bartolo</guid>
+        
+        
+        <category>IoT</category>
+        
+        <category>Azure</category>
+        
+        <category>Ignite</category>
+        
+        <category>Podcast</category>
+        
+      </item>
+    
+      <item>
+        <title>TCA Podcast Episode 20: Azure Active Directory and B2B</title>
+        <description>&lt;p&gt;In this episode we talk with Program Manager&amp;nbsp;Elisabeth Olson&amp;nbsp;and Principle Program Manager Rob Lowe. They both work with the Azure Active Directory teams at Microsoft and they give us some amazing insight into how Azure AD works.&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/537644832&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;For more information on The Cloud Architects podcast, check us out on &lt;a href=&quot;https://soundcloud.com/thecloudarchitects/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;SoundCloud&lt;/a&gt;. We are also available on your favorite podcast app:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/podcast/the-cloud-architects-podcast/id1264479296?mt=2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;iTunes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.stitcher.com/podcast/the-cloud-architects/the-cloud-achitects&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Stitcher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tunein.com/radio/The-Cloud-Architects-Podcast-p1026315/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Tunein&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.acast.com/thecloudarchitectspodcast&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Acast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 30 Nov 2018 07:05:31 -0600</pubDate>
+        <link>http://172.16.7.177:4000/2018/11/tca-podcast-episode-20-azure-active-directory-and-b2b</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2018/11/tca-podcast-episode-20-azure-active-directory-and-b2b</guid>
+        
+        
+        <category>Cloud</category>
+        
+        <category>Office 365</category>
+        
+        <category>Azure AD</category>
+        
+        <category>Podcast</category>
+        
+      </item>
+    
+      <item>
+        <title>TCA Podcast Episode 19: Unsung Heroes</title>
+        <description>&lt;p&gt;Documentation is something we all rely on, especially in today&amp;rsquo;s rapidly changing cloud world where the only constant seems to be change. Perhaps I&amp;rsquo;m a little obsessive, but I constantly use Microsoft&amp;rsquo;s documentation to confirm things, even when I already know the answer. Like many people though, I never really considered what goes into making sure I have something to refer to and keeping it up to date with all the change going on. Nicolas and I had the pleasure of sitting down with Brenda Carter and Joe Davies from the Microsoft Documentation Team at Ignite recently to talk about how they do what they do, how you can help and what it takes to be a technical writer.&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/523708998&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;For more information on The Cloud Architects podcast, check us out on &lt;a href=&quot;https://soundcloud.com/thecloudarchitects/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;SoundCloud&lt;/a&gt;. We are also available on your favorite podcast app:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/podcast/the-cloud-architects-podcast/id1264479296?mt=2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;iTunes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.stitcher.com/podcast/the-cloud-architects/the-cloud-achitects&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Stitcher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tunein.com/radio/The-Cloud-Architects-Podcast-p1026315/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Tunein&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.acast.com/thecloudarchitectspodcast&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Acast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 02 Nov 2018 05:22:36 -0500</pubDate>
+        <link>http://172.16.7.177:4000/2018/11/tca-podcast-episode-19-unsung-heroes</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2018/11/tca-podcast-episode-19-unsung-heroes</guid>
+        
+        
+        <category>Ignite</category>
+        
+        <category>Podcast</category>
+        
+      </item>
+    
+      <item>
+        <title>TCA Podcast Episode 18: The One with Exchange Goddess</title>
+        <description>&lt;p&gt;Diversity and inclusion in tech was one of the powerful themes at Microsoft Ignite this year and I&amp;rsquo;m &lt;a href=&quot;https://www.microsoft.com/en-us/ignite/diversityandtech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;excited to see if get bigger every year&lt;/a&gt;. Nicolas had the distinct&amp;nbsp;privilege of being able to sit down with&amp;nbsp;Phoummala Schmitt, a.k.a&amp;nbsp;Exchange Goddess to talk about diversity in tech, community and her new role at Microsoft. The episode was also sketched by the wonderfully &lt;a href=&quot;https://twitter.com/LuiseFreese&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;talented&amp;nbsp;Luise Freese.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/img/2019/01/IMG_0094-768x1024.jpg&quot;&gt;&lt;img src=&quot;/assets/img/2019/01/IMG_0094-768x1024.jpg&quot; style=&quot;width:225px;height:300;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/515750034&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;For more information on The Cloud Architects podcast, check us out on &lt;a href=&quot;https://soundcloud.com/thecloudarchitects/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;SoundCloud&lt;/a&gt;. We are also available on your favorite podcast app:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/podcast/the-cloud-architects-podcast/id1264479296?mt=2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;iTunes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.stitcher.com/podcast/the-cloud-architects/the-cloud-achitects&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Stitcher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tunein.com/radio/The-Cloud-Architects-Podcast-p1026315/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Tunein&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.acast.com/thecloudarchitectspodcast&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Acast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 18 Oct 2018 04:11:45 -0500</pubDate>
+        <link>http://172.16.7.177:4000/2018/10/tca-podcast-episode-18-the-one-with-exchange-goddess</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2018/10/tca-podcast-episode-18-the-one-with-exchange-goddess</guid>
+        
+        
+        <category>Ignite</category>
+        
+        <category>Podcast</category>
+        
+      </item>
+    
+      <item>
+        <title>TCA Podcast Episode 17: The Community Khaleesi</title>
+        <description>&lt;p&gt;The Microsoft Tech Community was l&lt;span class=&quot;lt-line-clamp__line&quot;&gt;aunched in 2016 and&amp;nbsp;&lt;/span&gt;is an evolution of the Office 365 Network, extended to support the Azure; Windows Server, and SQL Server communities. Microsoft Tech Community brings together multiple communities in one central location to support&amp;nbsp;discussions and best practice sharing across a variety of Microsoft products and services. We had a lot of fun catching up with Anna Chu at Microsoft Ignite last week to talk about her role at Microsoft, the value of community and what it takes to put on an event like Ignite.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/img/2018/10/DoPFrXGVYAAJo7Z.jpg&quot;&gt;&lt;img src=&quot;/assets/img/2018/10/DoPFrXGVYAAJo7Z.jpg&quot; style=&quot;width:300px;height:225;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/509428989&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;For more information on The Cloud Architects podcast, check us out on &lt;a href=&quot;https://soundcloud.com/thecloudarchitects/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;SoundCloud&lt;/a&gt;. We are also available on your favorite podcast app:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/podcast/the-cloud-architects-podcast/id1264479296?mt=2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;iTunes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.stitcher.com/podcast/the-cloud-architects/the-cloud-achitects&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Stitcher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tunein.com/radio/The-Cloud-Architects-Podcast-p1026315/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Tunein&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.acast.com/thecloudarchitectspodcast&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Acast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 04 Oct 2018 03:34:29 -0500</pubDate>
+        <link>http://172.16.7.177:4000/2018/10/tca-podcast-episode-17-the-community-khaleesi</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2018/10/tca-podcast-episode-17-the-community-khaleesi</guid>
+        
+        
+        <category>Cloud</category>
+        
+        <category>Ignite</category>
+        
+        <category>Conferences</category>
+        
+        <category>Podcast</category>
+        
+      </item>
+    
+      <item>
+        <title>TCA Podcast Episode 16: Jeff Mealiffe and the Awesomeness of Exchange(Ahem, Office 365)</title>
+        <description>&lt;p&gt;In this episode, Nic and Warren have a chat to the Perf Guy himself, Principal Lead Program Manager at Microsoft,&amp;nbsp;Jeff Mealiffe. They&amp;nbsp;talk about the evolution of Exchange and get Jeff to spill on which version he liked best! They also talk about Office 365 connectivity and the great things Microsoft are doing internally to make your Office 365 experience better.&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/474243786&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;For more information on The Cloud Architects podcast, check us out on &lt;a href=&quot;https://soundcloud.com/thecloudarchitects/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;SoundCloud&lt;/a&gt;. We are also available on your favorite podcast app:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/podcast/the-cloud-architects-podcast/id1264479296?mt=2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;iTunes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.stitcher.com/podcast/the-cloud-architects/the-cloud-achitects&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Stitcher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tunein.com/radio/The-Cloud-Architects-Podcast-p1026315/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Tunein&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.acast.com/thecloudarchitectspodcast&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Acast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 08 Sep 2018 03:00:47 -0500</pubDate>
+        <link>http://172.16.7.177:4000/2018/09/tca-podcast-episode-16-jeff-mealiffe-and-the-awesomeness-of-exchangeahem-office-365</link>
+        <guid isPermaLink="true">http://172.16.7.177:4000/2018/09/tca-podcast-episode-16-jeff-mealiffe-and-the-awesomeness-of-exchangeahem-office-365</guid>
+        
+        
+        <category>Exchange Server</category>
+        
+        <category>Cloud</category>
+        
+        <category>Office 365</category>
+        
+        <category>Podcast</category>
+        
+      </item>
+    
+  </channel>
+</rss>

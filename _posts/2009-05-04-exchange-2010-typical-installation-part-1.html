@@ -1,0 +1,72 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Exchange 2010 &ldquo;Typical Installation&rdquo;: Part 1'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 123
+wordpress_url: http://www.cgoosen.com/2009/05/exchange-2010-typical-installation-part-1/
+date: '2009-05-04 17:25:52 +0000'
+date_gmt: '2009-05-04 06:25:52 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 7
+  author: 'Exchange 2010 &ldquo;Typical Installation&rdquo;: Part 2'
+  author_email: ''
+  author_url: http://www.cgoosen.com/2009/05/exchange-2010-typical-installation-part-2/
+  date: '2009-05-06 12:40:00 +0000'
+  date_gmt: '2009-05-06 01:40:00 +0000'
+  content: "[...] 2010 &ldquo;Typical Installation&rdquo;: Part 2 Filed in Exchange
+    Server on May.06, 2009 In Part 1 we looked at preparing our server for the installation
+    of Exchange 2010. What about preparing [...]"
+- id: 8
+  author: Dejan Foro
+  author_email: dejan.foro@exchangemaster.net
+  author_url: http://www.exchangemaster.net
+  date: '2009-06-22 04:53:14 +0000'
+  date_gmt: '2009-06-21 17:53:14 +0000'
+  content: There is a nice script available for automating installation of Exchange
+    2010 beta 1 prerequisites (both hotfixes and server components) available at http://www.exchangemaster.net/index.php?option=com_content&amp;task=view&amp;id=98&amp;Itemid=57
+---
+<p>Since the release of Exchange 2010 Beta last month, I have been itching to deploy it in my test environment and really get my hands dirty. I have split this post into 2 parts because I want to use screen shots (hey, I&rsquo;m a techie, we like pictures!) to really show off the product.</p>
+<p>In part 1 of this 2 part post, we&rsquo;ll look at how to prepare your server for a &ldquo;Typical Installation&rdquo; of Exchange. Notice how &ldquo;Typical Installation&rdquo; appears in quotation marks, this is because we refer to a &ldquo;Typical Installation&rdquo; when the Hub Transport, Client Access and Mailbox server roles are installed on a single server. Regardless of the installation options you use, installing Exchange does require a certain degree of planning and preparation.</p>
+<p>To give you a brief overview of my test environment: I have a single Active Directory domain and all my servers are running Windows Server 2008, 64bit SP1. IPv6 is disabled on all my servers.</p>
+<p>Exchange 2010 requires the following to be installed prior to installation (I completed my installation in the following order as well):</p>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkID=137039" target="_blank">Microsoft .NET Framework 3.5.</a></li>
+<li>ServerManagerCmd -i RSAT-ADDS </li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb.png" width="575" height="287" /></a> </p>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=135126" target="_blank">Windows Remote Management ( WinRM ) 2.0 Community Technology Preview 3 (CTP3).</a> </li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=135123" target="_blank">Windows PowerShell V2 CTP3.</a> </li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=3052&amp;kbid=951725" target="_blank">Update for the Microsoft Management Console (MMC) in Windows Server 2008. See KB951725.</a></li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=137040" target="_blank">Extensions for ASP.NET AJAX 1.0.</a> </li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=137042" target="_blank">2007 Office System Converter: Microsoft Filter Pack.</a> </li>
+<li>ServerManagerCmd -i Web-Server</li>
+<li>ServerManagerCmd -i Web-ISAPI-Ext</li>
+<li>ServerManagerCmd -i Web-Metabase</li>
+<li>ServerManagerCmd -i Web-Lgcy-Mgmt-Console</li>
+<li>ServerManagerCmd -i Web-Basic-Auth</li>
+<li>ServerManagerCmd -i Web-Digest-Auth</li>
+<li>ServerManagerCmd -i Web-Windows-Auth</li>
+<li>ServerManagerCmd -i Web-Dyn-Compression</li>
+<li>ServerManagerCmd -i NET-HTTP-Activation</li>
+<li>ServerManagerCmd -I RPC-over-HTTP-proxy</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image1.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb1.png" width="578" height="290" /></a>&#160;</p>
+<ul>
+<li><a href="http://support.microsoft.com/?kbid=950888" target="_blank">Msdrm.dll Update. See KB950888</a></li>
+<li><a href="http://support.microsoft.com/?kbid=958178" target="_blank">Load Balancing Update. See KB958178</a></li>
+</ul>
+<p>&#160;</p>
+<p>In Part 2, its&#160; we&rsquo;ll look at the exciting stuff, the actual installation.</p>

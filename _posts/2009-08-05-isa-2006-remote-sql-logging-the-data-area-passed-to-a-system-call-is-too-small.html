@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: ISA 2006 Remote SQL Logging &ldquo;the data area passed to a system call is
+  too small..&rdquo;
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 196
+wordpress_url: http://www.cgoosen.com/2009/08/isa-2006-remote-sql-logging-the-data-area-passed-to-a-system-call-is-too-small/
+date: '2009-08-05 13:26:04 +0000'
+date_gmt: '2009-08-05 02:26:04 +0000'
+categories:
+- ISA Server
+tags: []
+comments: []
+---
+<p>I recently came across a very interesting problem while configuring ISA 2006 logging to a remote SQL server. If you have ever done this, you&rsquo;ll no doubt know that its not a very complicated thing to do &ndash;in fact, Richard Hicks has a great guide on <a href="http://tmgblog.richardhicks.com/2009/05/29/remote-sql-logging-with-microsoft-isa-server-2006/" target="_blank">his blog, here</a>. It really surprised me when I was not able to get it working, I&rsquo;ve done it many times before and I have never had any problems.</p>
+<p>I checked connectivity to my SQL server using telnet and the "Test&rdquo; button when performing the configuration, everything seemed fine, but no data was appearing in the database</p>
+<p align="left"><a href="http://www.cgoosen.com/wp-content/uploads/2009/08/image.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/08/image-thumb.png" width="330" height="109" /></a> </p>
+<p align="left">On the SQL server, a temp table was being created, no rows inserted and the stored proc to copy the rows from the temp table to the permanent one never got called. The session appeared to wait with "async_network_io"</p>
+<p align="left">After speaking to Microsoft and performing a ISA trace, it appeared that there is some buffer issue (insufficient buffer) when ISA is trying to insert the log record to the SQL server. It looked like the problem happened before writing to SQL. This also explained why there was no row inserted into the temp table, and the SP to move the record from temp table to permanent one had never been called.</p>
+<p align="left">It turns out that the string format call which generates an EXEC SP statement to insert log records only has a buffer of 100 characters and the combination of my server name and table name exceeded this. Shortening the table name fixed the problem.</p>

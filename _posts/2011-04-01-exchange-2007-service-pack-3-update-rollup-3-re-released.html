@@ -1,0 +1,30 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2007 Service Pack 3 Update Rollup 3 re-released!
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 663
+wordpress_url: http://www.cgoosen.com/2011/04/exchange-2007-service-pack-3-update-rollup-3-re-released/
+date: '2011-04-01 01:00:00 +0000'
+date_gmt: '2011-03-31 14:00:00 +0000'
+categories:
+- Exchange Server
+tags: []
+comments: []
+---
+<p>I <a href="http://www.cgoosen.com/2011/03/potential-for-database-corruption-after-installing-exchange-2007-sp3-ru3/" target="_blank">recently posted</a> about an issue with Exchange 2007 SP3 RU3 that could result in database corruption. The Exchange Servicing team has fixed the reported issue with RU3 and is making new version of RU3 available to customers, version 08.03.159.002, (<a href="http://support.microsoft.com/kb/2530488">KB2530488</a>). They strongly advise that all customers install this newly released version of <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=17615f50-8a56-428c-bc1a-629795692da1&amp;displaylang=en">Microsoft Exchange Server 2007 SP3 Update Rollup 3</a> and to discard any prior version of RU3 (<a href="http://support.microsoft.com/kb/2492691">KB2492691</a>) which they may have.</p>
+<p><em>Update Rollup 3 Installation Guidance:</em></p>
+<p><b>Customers with RU3 already installed within your Exchange environment</b></p>
+<p>It is not necessary for you to uninstall the existing RU3 within your environment. The new RU3 package can be installed over the top of the existing package installed on your servers.</p>
+<p><b>Customers with previous SP3 RU&rsquo;s installed within your Exchange environment</b></p>
+<p>You can simply install the new version of the RU3 package.</p>
+<p><em>General RU Installation Guidance:</em></p>
+<p><b>Note for deployments that leverage Forefront Security for Exchange:</b> For those of you running Forefront Security for Exchange perform these important steps from the command line in the Forefront directory before and after this rollup's installation. Without these steps, Exchange services for Information Store and Transport will not start back up. You will need to disable Forefront via "fscutility /disable" before installing the patch and then re-enable after the patch by running "fscutility /enable" to start it up again post installation.</p>

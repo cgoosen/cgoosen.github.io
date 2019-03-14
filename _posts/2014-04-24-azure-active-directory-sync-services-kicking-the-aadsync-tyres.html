@@ -1,0 +1,85 @@
+---
+layout: post
+status: publish
+published: true
+title: Azure Active Directory Sync Services - Kicking the &ldquo;AADSync&rdquo; tyres
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1086
+wordpress_url: http://www.cgoosen.com/?p=1086
+date: '2014-04-24 21:29:55 +0000'
+date_gmt: '2014-04-24 10:29:55 +0000'
+categories:
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 1473
+  author: How to perform a manual synchronisation with AADSync
+  author_email: ''
+  author_url: http://www.cgoosen.com/2014/05/how-to-perform-a-manual-synchronisation-with-aadsync/
+  date: '2014-05-02 09:50:50 +0000'
+  date_gmt: '2014-05-01 22:50:50 +0000'
+  content: "[&#8230;] recently posted about the preview (CTP) of Azure Active Directory
+    Sync Services (AADSync). There are a number of differences between AAADSync and
+    DirSync, one of these being that the [&#8230;]"
+---
+<p>Windows Azure Active Directory Sync (DirSync) has become synonymous with Office 365 in recent years and while DirSync isn&rsquo;t a requirement, I haven&rsquo;t seen any organisations consuming Office 365 services without it. In simple terms, DirSync can be used to synchronise local Active Directory objects to a Windows Azure Active Directory instance which is in turn leveraged by Office 365. After an initial synchronisation, DirSync runs on a schedule (typically, every three hours) to synchronise changes from the on-premises directory to the cloud instance.</p>
+<p>The recent addition of password synchronisation to DirSync has made it even more useful and has been one of the many improvements to the tool (initially 32bit only!) which was released a few years ago. Unfortunately, DirSync still has some limitations especially when it comes to multi-forest scenarios. To help address the complexities associated with multi-forest&nbsp; environments, Microsoft recently announced Azure Active Directory Sync Services (AADSync) which is currently in preview. AADSync is intended to significantly simplify the configuration required to synchronise multi-forest&nbsp; environments.</p>
+<p>I thought I&rsquo;d take AADSync for a test drive and see what it is all about. At this point I should also mention that it is currently a preview (CTP) release and is not supported in production environments. There preview also has a few limitations:</p>
+<ul>
+<li>AADSync preview can only use SQL Express LocalDB.</li>
+<li>PasswordSync and password write-back are not currently supported.</li>
+<li>Hybrid Exchange configuration is not currently supported.</li>
+</ul>
+<p>The pre-requisites are really simple, you will need the following installed on Windows Server 2008, 2008 R2, 2012 or 2012 R2:</p>
+<ul>
+<li>.NET 3.5 and .NET 4.5.
+<li>PowerShell 3.0.</li>
+</ul>
+<p>The installer will automatically install the Microsoft Online Services Sign-In Assistant (msoidcli_64) which is really convenient as you can now be confident you will have the correct version installed.</p>
+<p>As previously mentioned, this is a preview release and therefore the installation wizard is not yet strongly signed. It is therefore important that strong name signing is turned off on the server. The AADSync tool will NOT run if you do not perform this step, instead you will receive the following &ldquo;DirectorySyncTool has stopped working&rdquo; error with &ldquo;Problem Event Name: APPCRASH&rdquo;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image3.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb3.png" width="514" height="421"></a></p>
+<p>To turn off strong name signing, simply use the included &ldquo;sn.exe&rdquo; utility and issue the following command:</p>
+<p>[shell]sn -Vr *[/shell]</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image4.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb4.png" width="729" height="373"></a></p>
+<p>For more information about strong name signing and the sn.exe utility, see the following links:</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/wd40t7ad(v=vs.110).aspx" target="_blank">Strong-Named Assemblies</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/k5b5tt23(v=vs.110).aspx" target="_blank">Sn.exe (Strong Name Tool)</a></li>
+</ul>
+<p>The installation process is pretty simple as one would expect, before starting the process it is helpful to have the following information to hand:</p>
+<ul>
+<li>Service account in AD (default read permissions will be sufficient)</li>
+<li>An Azure Active Directory tenant (Office 365 for example)</li>
+<li>Service account in your Azure AD (Global Administrator role required)</li>
+</ul>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image5.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb5.png" width="679" height="473"></a></p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image6.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb6.png" width="679" height="474"></a></p>
+<p>You will notice the option to add multiple forests. For more information about the multi-forest scenarios supported, see <a href="http://social.technet.microsoft.com/wiki/contents/articles/24061.aadsync-scenario-overview.aspx" target="_blank">AADSync Scenario Overview</a>. If you configure AADSync to join multiple forests, the default configuration will assume the following:</p>
+<ul>
+<li>A user will have only one enabled user account and login information is taken from this forest.</li>
+<li>A user will have only one Exchange mailbox.</li>
+<li>The data quality for a user is best in the forest where Exchange is located.</li>
+<li>If an Exchange mailbox is found, common user attributes are taken from this forest.</li>
+</ul>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image7.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb7.png" width="679" height="474"></a></p>
+<p>You can configure join rules which map to the supported scenarios mentioned above. In a single forest scenario, the default selection will create all users as individual objects in Azure AD and objects will not join in the metaverse. You also have the option to select the immutable attribute. It is important to note that the attribute selected must not change during the lifetime of the object, even if the object is moved between domains in a forest or between forests. If you are unsure, you are probably better off not changing the default selection.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image8.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb8.png" width="679" height="474"></a></p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image9.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb9.png" width="679" height="474"></a></p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image10.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb10.png" width="679" height="474"></a></p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image11.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb11.png" width="679" height="474"></a></p>
+<p>Once completed, it successfully synchronised the 3000 accounts in my lab AD in about 25mins. The &ldquo;DirSyncConfigShell.psc1&rdquo; shell is not longer available and seems to have been replaced by &ldquo;DirectorySyncClientCmd.exe&rdquo;. I noticed a new PowerShell module which is great. </p>
+<p>[powershell]Get-Command -Module PowerShellConfig[/powershell]</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image12.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb12.png" width="729" height="705"></a></p>
+<p>[powershell]Get-SynchronizationRule | Select Name, Direction[/powershell]</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image13.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb13.png" width="729" height="258"></a></p>
+<p>I also noticed a new &ldquo;Synchronization Rules Editor&rdquo;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image14.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb14.png" width="754" height="442"></a></p>
+<p>Many of these configuration options are probably best left at their defaults unless you have a specific requirement or scenario. I expect to see more documentation become available closer to or at release, but in the meantime you can find the <a href="http://social.technet.microsoft.com/wiki/contents/articles/tags/AADSync/default.aspx" target="_blank">current official documentation here.</a></p>

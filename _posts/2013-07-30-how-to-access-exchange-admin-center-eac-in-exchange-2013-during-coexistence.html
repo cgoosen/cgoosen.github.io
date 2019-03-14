@@ -1,0 +1,38 @@
+---
+layout: post
+status: publish
+published: true
+title: How to access Exchange Admin Center (EAC) in Exchange 2013 during coexistence
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 958
+wordpress_url: http://www.cgoosen.com/?p=958
+date: '2013-07-30 11:52:16 +0000'
+date_gmt: '2013-07-30 00:52:16 +0000'
+categories:
+- Exchange Server
+tags: []
+comments: []
+---
+<p>Perhaps you are planning your on-premises upgrade to Exchange 2013 or you&rsquo;ve just introduced the first Exchange 2013 server into your existing Exchange 2010 environment. Welcome to coexistence! Hopefully by now you already know that the Exchange Admin Center (EAC) is the web-based management console in Microsoft Exchange Server 2013 and it replaces the Exchange Management Console (EMC) and the Exchange Control Panel (ECP), which were the two interfaces used to manage Exchange Server 2010.</p>
+<p>So how do you access the EAC? Well.. if you had just installed a fresh new Exchange 2013 org you would simply navigate to <a href="https://<your_exchange_server>/ecp">https://<your_exchange_server>/ecp</a> in your browser. In a coexistence scenario however, doing that would redirect you to Exchange 2010 ECP and you would probably see something like this (once logged in):</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/07/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2013/07/image_thumb.png" width="616" height="182"></a></p>
+<p align="left">The reason for this is that your mailbox is probably still located on an Exchange 2010 server. You now have two options:</p>
+<ol>
+<li>
+<div align="left">Move your mailbox to Exchange 2013 and try again, or</div>
+</li>
+<li>
+<div align="left">Use the following URL: <a href="https://<your_exchange_server>/ecp?ExchClientVer=15">https://<your_exchange_server>/ecp<a href="https://exchange2013servername/ecp?ExchClientVer=15">?ExchClientVer=15</a></a>&nbsp;</div>
+</li>
+</ol>
+<p align="left">You should now see the Exchange 2013 Admin Center which will look something like this:</p>
+<p align="left"><a href="http://www.cgoosen.com/wp-content/uploads/2013/07/image1.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2013/07/image_thumb1.png" width="622" height="228"></a></p>
+<p>You are now able to continue configuring Exchange 2013 via the EAC. </p>
+<p>Read more about the <a href="http://technet.microsoft.com/en-us/library/jj150562(v=exchg.150).aspx" target="_blank">EAC here</a></p>

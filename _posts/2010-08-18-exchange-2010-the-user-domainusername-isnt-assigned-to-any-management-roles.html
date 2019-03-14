@@ -1,0 +1,117 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Exchange 2010: The user "domain\username" isn''t assigned to any management
+  roles.'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 617
+wordpress_url: http://www.cgoosen.com/2010/08/exchange-2010-the-user-domainusername-isnt-assigned-to-any-management-roles/
+date: '2010-08-18 18:10:09 +0000'
+date_gmt: '2010-08-18 07:10:09 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 149
+  author: David Baur
+  author_email: dbaur@suddenlink.net
+  author_url: ''
+  date: '2010-09-21 04:53:50 +0000'
+  date_gmt: '2010-09-20 17:53:50 +0000'
+  content: Great job Chris, This worked for me. In my case the account had actually
+    been deleted and then re-created. This allowed that account back into Exchange
+    2010!
+- id: 219
+  author: William Olson
+  author_email: wolson@e-olsons.com
+  author_url: ''
+  date: '2011-06-11 13:07:53 +0000'
+  date_gmt: '2011-06-11 02:07:53 +0000'
+  content: Thanks many times over dude.  I appreciate it.
+- id: 330
+  author: Shahid Mushtaq
+  author_email: bxperts@gmail.com
+  author_url: ''
+  date: '2012-09-22 07:39:47 +0000'
+  date_gmt: '2012-09-21 20:39:47 +0000'
+  content: "Hi,\r\n\r\nThank you for great article. This helped me to fix my issue.\r\n\r\nBxperts"
+- id: 349
+  author: Tara
+  author_email: tarav804@live.com.au
+  author_url: ''
+  date: '2012-11-06 11:42:10 +0000'
+  date_gmt: '2012-11-06 00:42:10 +0000'
+  content: thankyou so much! helped a bunch and worked perfectly as soon as i added
+    it to the organization management group
+- id: 402
+  author: Name
+  author_email: email@email.com
+  author_url: ''
+  date: '2012-12-07 08:53:45 +0000'
+  date_gmt: '2012-12-06 21:53:45 +0000'
+  content: Thank you VERY MUCH!
+- id: 556
+  author: Nima
+  author_email: Nima@yahoo.com
+  author_url: ''
+  date: '2013-01-22 21:29:23 +0000'
+  date_gmt: '2013-01-22 10:29:23 +0000'
+  content: It works for me too. Thanks alot
+- id: 571
+  author: ravish
+  author_email: ravishkumar4444@yahoo.co.in
+  author_url: ''
+  date: '2013-02-01 20:18:28 +0000'
+  date_gmt: '2013-02-01 09:18:28 +0000'
+  content: i added it to the organization management group now its working fine, Thank
+    you VERY VERY MUCH!
+- id: 718
+  author: DoubleDensity
+  author_email: katsumi@gmail.com
+  author_url: ''
+  date: '2013-02-21 10:15:01 +0000'
+  date_gmt: '2013-02-20 23:15:01 +0000'
+  content: Thanks Chris!! This worked exactly as described.
+- id: 1311
+  author: Ryan Kane
+  author_email: noreply@ryankane.com
+  author_url: ''
+  date: '2013-05-14 10:37:01 +0000'
+  date_gmt: '2013-05-13 23:37:01 +0000'
+  content: Thank you for this.  Made a potential annoying afternoon of digging a 30
+    second issue.
+- id: 1332
+  author: Srinath G
+  author_email: srinathkrishna.2008@gmail.com
+  author_url: ''
+  date: '2013-06-13 20:25:58 +0000'
+  date_gmt: '2013-06-13 09:25:58 +0000'
+  content: Thanks Goosen, This worked for me yesterday. Thank you so much. Please
+    share much more experiences related to AD &amp; Exchange Servers.
+- id: 1333
+  author: Srinath G
+  author_email: srinathkrishna.2008@gmail.com
+  author_url: ''
+  date: '2013-06-13 20:28:06 +0000'
+  date_gmt: '2013-06-13 09:28:06 +0000'
+  content: "Thanks Chris,\r\n\r\nThis worked for me also. I was struggling with new
+    user with all the rights, except it was not added to the Organization Management
+    member. Kindly post more of your experiences related to Active Directory and Exchange
+    servers."
+---
+<p>I was running through the Exchange 2010 installation process earlier today, during the installation process, everything went really smoothly and I only had &ldquo;green ticks&rdquo;!</p>
+<p>Once done, I opened the Exchange Management Console and saw the following error:</p>
+<p><em>&lsquo;The following error occurred when searching for On-Premises Exchange server:[myservername.local] Processing data from remote server failed with the following error message: The user "domain\username" isn't assigned to any management roles. For more.... It was running "Discover-ExchangeServer - USeWIA $true -SupressError $true&rsquo;</em></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/08/error.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="error" border="0" alt="error" src="http://www.cgoosen.com/wp-content/uploads/2010/08/error_thumb.png" width="554" height="126" /></a> </p>
+<p>It was rather confusing at first as I had completed the installation using an admin account that was a member of the Enterprise Admins group. Digging a little deeper, saw the following error in the event log:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/08/error2.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="error2" border="0" alt="error2" src="http://www.cgoosen.com/wp-content/uploads/2010/08/error2_thumb.png" width="484" height="338" /></a> </p>
+<p align="left">After some further digging, I realised what had happened. A colleague of mine did the AD schema preparation using his admin account a few days ago, during that part of the process, the account being used was automatically added to the &ldquo;Organization Management&rdquo; AD security group. When I then resumed the installation process with my account, I was not a member of this group. To rectify the problem, I had to manually add my account to the &ldquo;Organization Management&rdquo; AD security group.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/08/errorfix.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="error -fix" border="0" alt="error -fix" src="http://www.cgoosen.com/wp-content/uploads/2010/08/errorfix_thumb.png" width="404" height="523" /></a></p>

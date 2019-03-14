@@ -1,0 +1,155 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Script: Get-AZCopyGUI.ps1 - AZCopy GUI for PST Import'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1368
+wordpress_url: http://www.cgoosen.com/?p=1368
+date: '2015-05-30 15:30:53 +0000'
+date_gmt: '2015-05-30 21:30:53 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+- Scripts
+tags: []
+comments:
+- id: 262028
+  author: Scott
+  author_email: scott@aceblue.com
+  author_url: ''
+  date: '2015-06-18 01:07:18 +0000'
+  date_gmt: '2015-06-18 07:07:18 +0000'
+  content: "Hello\r\n\r\nThanks for a great tool. I am really not sure why Microsoft
+    makes importing PST files difficult. I should be able to get a simple tool click
+    and upload.\r\n\r\nDo you have something for the next step?\r\nCreate the PST
+    to user mapping file to upload\r\n\r\nThanks\r\nScott"
+- id: 262036
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-06-18 15:16:07 +0000'
+  date_gmt: '2015-06-18 21:16:07 +0000'
+  content: |-
+    Hi Scott,
+
+    Thanks for the feedback. I don't have any way of automating the user mapping file at the moment, perhaps this is something I might work on in future.
+
+    Cheers,
+
+    Chris
+- id: 262164
+  author: Rikin
+  author_email: RikinTrivedi@Hotmail.Com
+  author_url: ''
+  date: '2015-06-22 04:08:16 +0000'
+  date_gmt: '2015-06-22 10:08:16 +0000'
+  content: "Hi Chris,\r\n\r\nI have been working on O365 migration as well PST ingestion
+    projects, wanted to say thanks for the script, I am going to try this out and
+    let you know\r\n\r\nThanks,\r\nRikin"
+- id: 262200
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-06-22 11:48:07 +0000'
+  date_gmt: '2015-06-22 17:48:07 +0000'
+  content: Thanks Rikin, good luck with your migration!
+- id: 272937
+  author: PowerShell Scripts for Office 365
+  author_email: ''
+  author_url: https://practical365.com/blog/powershell-scripts-for-office-365/
+  date: '2017-12-13 02:15:50 +0000'
+  date_gmt: '2017-12-13 08:15:50 +0000'
+  content: "[&#8230;] info: Chris&#039; blog | TechNet [&#8230;]"
+- id: 273225
+  author: Don
+  author_email: nobody@nowhere.com
+  author_url: ''
+  date: '2018-02-22 06:00:45 +0000'
+  date_gmt: '2018-02-22 12:00:45 +0000'
+  content: out dated do you have the updated info
+- id: 273226
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-02-22 09:55:29 +0000'
+  date_gmt: '2018-02-22 15:55:29 +0000'
+  content: "Hi Don, \n\nCould you be a little more specific? Is the script not working
+    for you?\n\nThanks,\n\nChris"
+- id: 274090
+  author: vijay
+  author_email: vijay.sr2@gmail.com
+  author_url: ''
+  date: '2018-05-29 05:51:58 +0000'
+  date_gmt: '2018-05-29 11:51:58 +0000'
+  content: "Hi Chris,\r\n\r\nI could get only SAS Url for PST Import, no storage key.
+    GUI shows Destination url and storage keys. Can this be modified. Also script
+    to create the mapping file which help me.\r\n\r\nThanks\r\nVijay SR"
+- id: 274091
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-05-29 07:46:53 +0000'
+  date_gmt: '2018-05-29 13:46:53 +0000'
+  content: |-
+    Hi Vijay.
+
+    Thanks for the feedback. It appears this has changed to use the new SAS Url format. I'll work on updating the GUI to reflect that change - it may take a week or two but will post/tweet about it when it is done. As far as a mapping file generator is concerned, I have definitely thought about it, but it isn't something I'm actively working on at the moment.
+
+    Cheers,
+
+    Chris
+- id: 274885
+  author: mandy
+  author_email: n_manohar15@hotmail.com
+  author_url: ''
+  date: '2018-08-10 12:01:26 +0000'
+  date_gmt: '2018-08-10 18:01:26 +0000'
+  content: Is their  an updated script? supporting new SAS url format?
+- id: 274917
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-08-14 07:40:09 +0000'
+  date_gmt: '2018-08-14 13:40:09 +0000'
+  content: |-
+    Hi Mandy,
+
+    I am currently working on an update for that script. It should be available soon.
+
+    Cheers,
+
+    Chris
+---
+<p>Microsoft <a href="http://blogs.office.com/2015/05/07/making-email-archive-migration-easier-with-the-office-365-import-service/" target="_blank">recently announced the new Office 365 Import Service</a> which is currently in preview. The new service allows organizations to import legacy PST data using one of two methods:</p>
+<ul>
+<li>Drive shipping &ndash; you send Microsoft a hard drive with your data.</li>
+<li>Network Upload &ndash; you make use of Azure storage to upload your data to Office 365.</li>
+</ul>
+<p>The network upload option makes use of the Microsoft Azure AZCopy tool which uploads your data to an Azure storage blob. <a href="http://www.c7solutions.com/2015/05/using-office-365-pst-ingestion-service" target="_blank">Brian Reid has a great post on his blog about using the service.</a></p>
+<p>Get-AZCopyGUI.ps1 is a GUI wrapper for the Microsoft Azure AZCopy tool (AZCopy.exe) to simplify the process of importing .PSTs into Exchange Online. To use the script, you need to locate your storage account key and upload URL. You can do this by accessing the &ldquo;Import&rdquo; menu item in the Office 365 Admin Center. To access this option, you need to be assigned the Mailbox Import Export role in Exchange Online.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/06/post1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="post1" src="http://www.cgoosen.com/wp-content/uploads/2015/06/post1_thumb.png" alt="post1" width="533" height="453" border="0" /></a></p>
+<p align="left">For more information on the Office 365 Import Service, <a href="https://technet.microsoft.com/en-us/library/dn948519%28v=exchg.150%29.aspx" target="_blank">see the following TechNet documentation.</a></p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>The script will work natively in PowerShell 2.0+</li>
+<li>The script requires the Microsoft Azure AZCopy Tool with default installation path - <a href="http://aka.ms/downloadazcopy">get it here</a></li>
+</ul>
+<p><strong>Usage:</strong><br />
+There are no parameters or switches, simply execute the script:</p>
+<p>[shell].\Get-AZCopyGUI.ps1[/shell]</p>
+<p>When using the Verbose option, a log file is named AzCopyVerbose.log will be created in %LocalAppData%\Microsoft\Azure\AzCopy if no "Log Location" is specified.</p>
+<p><strong>Execution Policy:<br />
+</strong>The script has been digitally signed and will run just fine under a "RemoteSigned" execution policy.</p>
+<p><strong>Screenshots:</strong></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/05/Capture.png"><img class="aligncenter  wp-image-1395" src="http://www.cgoosen.com/wp-content/uploads/2015/05/Capture-300x221.png" alt="Get-AzcopyGUI" width="526" height="387" /></a></p>
+<p><strong>Download:<br />
+</strong>I have published it to the TechNet Gallery, <a href="http://cgoo.se/1Qnxtfg" target="_blank">it can be downloaded by clicking here...</a></p>

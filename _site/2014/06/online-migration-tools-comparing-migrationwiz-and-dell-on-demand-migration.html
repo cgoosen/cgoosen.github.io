@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Online Migration Tools - Comparing MigrationWiz and Dell On Demand Migration | Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! </title>
+    <meta property="og:title" content="Online Migration Tools - Comparing MigrationWiz and Dell On Demand Migration | Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+    <meta name="twitter:title" content="Online Migration Tools - Comparing MigrationWiz and Dell On Demand Migration | Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+
+    <meta name="description" content="">
+    <meta name="description" property="og:description" content="" />
+    <meta name="twitter:description" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:site" content="@chrisgoosen" />
+    
+    <meta property="og:url" content="http://172.16.7.177:4000/2014/06/online-migration-tools-comparing-migrationwiz-and-dell-on-demand-migration" />
+
+    <meta property="og:image" content="" />
+    <meta name="twitter:image" content="" />
+
+    <meta name="author" content="Chris's Blog" />
+
+    <meta name="copyright" content="Copyright by Chris's Blog. All Rights Reserved." />
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v15/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(https://fonts.gstatic.com/s/roboto/v15/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="http://172.16.7.177:4000/assets/css/main.css">
+
+    <link rel="canonical" href="http://172.16.7.177:4000/2014/06/online-migration-tools-comparing-migrationwiz-and-dell-on-demand-migration">
+
+    <link rel="alternate" type="application/rss+xml" title="" href="http://172.16.7.177:4000/feed.xml">
+</head>
+
+    <body>
+        <div class="wrapper">
+            <aside class="user-profile fixed" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
+    </div>
+
+    <div class="compact-header">
+        <a class="avatar" href="http://172.16.7.177:4000"><img alt="Avatar" src="/assets/img/headshot.jpg" /></a>
+        <div class="my-info">
+            <strong class="my-name">Chris's Blog</strong>
+            <span class="my-job-title">It's called thinking...  go with it!</span>
+        </div>
+    </div>
+
+    
+        
+        <div class="mainmenu">
+            <a href="http://172.16.7.177:4000" >Home</a>
+            
+                
+            
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/contact/" >Contact</a>
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/about/" >About</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+    
+    
+    <div>
+    	<img src="/assets/img/mvp.png" style="width:181px;height:74px;">
+    </div>
+
+    <p class="about-me"> </p>
+    
+    <ul class="socials">
+        <li><a href="https://twitter.com/chrisgoosen" target="_blank"><svg title="twitter" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li><li><a href="https://www.linkedin.com/in/ctgoosen/" target="_blank"><svg title="linkedin" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#linkedin-icon"></use></svg></a></li><li><a href="https://github.com/cgoosen" target="_blank"><svg title="github" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#github-icon"></use></svg></a></li>
+
+        
+            <li><a href="/contact" target="_blank"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        
+
+        
+         <li><a href="http://feeds.cgoosen.com/cgoosen"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        
+    </ul>
+</aside>
+
+
+            <main class="the-content" role="main">
+                <div class="search" role="search">
+    <div>
+        <div class="show-results-count">0 Results</div>
+        <div class="search-holder">
+            <input type="text" id="search-input" placeholder="search for..." />
+        </div>
+    </div>
+    <ul id="results-container" class="results-container"></ul>
+</div>
+
+
+                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2014-06-04T19:41:06-05:00" itemprop="datePublished">4 Jun, 2014</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline">Online Migration Tools - Comparing MigrationWiz and Dell On Demand Migration</h2>
+    </header>
+
+    <div class="post-content">
+        <p>I recently needed to migrate my own personal Office 365 tenant to another Office 365 tenant and even though I only have a few fairly small mailboxes, I decided to use online migration tools to ease the migration and I thought it would be a good idea to put together a little comparison between two of the leading solutions, MigrationWiz and Dell (formerly Quest) On Demand Migration.</p>
+<p>The truth is, migration tools aren&rsquo;t new and many of today&rsquo;s players in this market have been around for a some time. Cloud adoption however has driven innovation in the market and migration toolsets have changed in recent years. Online migration tools allow organizations to migrate their data between email platforms without having to install or maintain any migration software on-premises. From an IT professional perspective, the configuration is far simpler and because you are typically using a web browser to initiate and manage the migration you are now free to do it from wherever you want (the train in my case!) using whatever device you have available. At a high level, it is a fairly simple process which typically involves the configuration of source and destination connectors (with all the required permissions of course) and the solution will extract, convert and ingest your data for you. If either your source or target mail infrastructure is located on-premises, you would need to ensure that remote connectivity is correctly configured as well.</p>
+<p>For this comparison, I used exactly the same source mailbox and migrated the content to two new target mailboxes (one for each tool) in a new Office 365 tenant. Both tenants (source and destination) were located in North America and the migrations did not run simultaneously. The source mailbox contained the following:</p>
+<ul>
+<li>Number of folders = 38</li>
+<li>Number of items = 26255</li>
+<li>Total mailbox size = ~1.94 GB</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb.png" alt="image" width="750" height="116" border="0" /></a></p>
+<p><u>Introduction and features:</u></p>
+<p>MigrationWiz has been around for a few years now and was the first online migration tool I used. I have successfully used MigrationWiz several times and migrated users from Domino/Lotus Notes and Exchange to Exchange or Office 365/Exchange Online. One of the great things about MigrationWiz is the amount of supported source and target platforms.</p>
+<div align="center">
+<table border="0" width="674" cellspacing="0" cellpadding="2" align="center">
+<tbody>
+<tr>
+<td valign="top" width="323">
+<p align="center"><strong>Supported sources</strong></p>
+</td>
+<td valign="top" width="349">
+<p align="center"><strong>Supported targets</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="323">
+<p align="left">Amazon S3<br />
+Google Apps/Gmail<br />
+IMAP<br />
+Microsoft Exchange (2003+)<br />
+Microsoft Office 365<br />
+Microsoft Office 365 China<br />
+Novell GroupWise<br />
+POP<br />
+VMware Zimbra Server<br />
+IBM Lotus Notes</p>
+</td>
+<td valign="top" width="349">
+<p align="left">Amazon S3<br />
+Google Apps/Gmail<br />
+IMAP​<br />
+Microsoft Exchange (2007+)<br />
+Microsoft Office 365<br />
+Microsoft Office 365 China</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div align="left"><span style="background-color: #ffffff;">For more detailed information about the platforms currently <a href="https://community.bittitan.com/kb/Pages/What%20systems%20do%20you%20currently%20support.aspx" target="_blank">supported by MigrationWiz, click here.</a></span></div>
+<div align="left"></div>
+<div align="left">I should also mention that migrations from Domino/Lotus Notes require a small <a href="https://migrationwiz.zendesk.com/entries/21309916-How-do-I-configure-a-migration-from-Lotus-Notes-" target="_blank">&ldquo;Lotus Extractor&rdquo;</a> to be installed on-premises. The extractor should be installed on a workstation and not your Domino servers themselves. MigrationWiz are also in the process of launching a new migration portal which is currently in beta and will support a couple of new migrations, namely:</div>
+<ul>
+<li>Public Folder migrations</li>
+<li>Storage migrations</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb1.png" alt="image" width="750" height="425" border="0" /></a></p>
+<p>These options look really promising, however I haven&rsquo;t personally tested them (yet!). A list of items not migrated by <a href="https://community.bittitan.com/kb/Pages/What%20items%20are%20not%20migrated.aspx" target="_blank">MigrationWiz can be found here.</a></p>
+<p>Dell On Demand Migration for Email is a relative newcomer to the online migration tools market, however I&rsquo;m sure we can all agree that they (Quest Software) really set the standard for migration tools in general for a long time. I haven&rsquo;t personally used Dell On Demand for any production migrations but have been meaning to try it out for some time now. Dell On Demand supports the following platforms:</p>
+<table border="0" width="674" cellspacing="0" cellpadding="2" align="center">
+<tbody>
+<tr>
+<td valign="top" width="323">
+<p align="center"><strong>Supported sources</strong></p>
+</td>
+<td valign="top" width="349">
+<p align="center"><strong>Supported targets</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="323">Google Apps<br />
+IMAP​<br />
+Lotus Notes<br />
+Microsoft Exchange (2000+)<br />
+Microsoft Office 365<br />
+Novell GroupWise<br />
+POP<br />
+SunONE/iPlanet<br />
+Windows Live Hotmail<br />
+Zimbra</td>
+<td valign="top" width="349">Microsoft Exchange (2010, 2013)<br />
+Microsoft Office 365</td>
+</tr>
+</tbody>
+</table>
+<p><span style="background-color: #ffffff;">Dell has published a list of <a href="http://documents.software.dell.com/DOC190779" target="_blank">known issues</a> and <a href="http://documents.software.dell.com/DOC190769" target="_blank">limitations.</a></span></p>
+<p><span style="background-color: #ffffff;"><u>Licensing and cost:</u></span></p>
+<p>One of the great things about both these tools is that they are licensed on a consumption basis and there is no minimum purchase required. MigrationWiz offers a couple of different license options, with the difference being that a &ldquo;Premium&rdquo; license will allow you to perform multiple migration passes. I usually suggest purchasing the &ldquo;Premium&rdquo; license because this works really well with the &ldquo;seed and cutover&rdquo; type migrations I usually perform with these tools. With MigrationWiz, you purchase you license up front and each successfully migrated mailbox consumes one of those licenses. Their licensing is based on volume so the more licenses you purchase, the more you save. A basic license will cost you $9.99 (USD) while a premium license costs $11.99 (USD).</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb2.png" alt="image" width="750" height="581" border="0" /></a></p>
+<p>The Dell On Demand licensing model is somewhat simpler in the sense that they only have one license type. The difference is that you add your credit card details to the portal and they will bill you monthly for the amount of licenses you consume with each successfully migrated mailbox consuming one license and getting billed accordingly. Dell also appear to add an &ldquo;Australia Tax&rdquo; as the same license costs about 20% more when you pay in AUD, I always think this is a little cheeky, $1 or $2 could really add up if you are buying thousands of licenses. One license will cost you $11.00 (USD).</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image6_thumb.png" alt="image" width="750" height="249" border="0" /></a></p>
+<p align="left"><u>Configuration:</u></p>
+<p align="left">To configure MigrationWiz, you first create a &ldquo;Mailbox Connector&rdquo; which defines your source and target mailboxes as well as your migration credentials. You have the ability to use administrator credentials or end-user credentials configured per mailbox. If you have neither of these available, MigrationWiz also provides the ability to request credentials from each individual user. This is done via an email with a secure link in which the end-user may provide their credentials directly to the system.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb3.png" alt="image" width="750" height="616" border="0" /></a></p>
+<p align="left">Once you have created your &ldquo;Mailbox Connector&rdquo; you can import your mailbox list. If you have more than one mailbox to migrate, MigrationWiz provides a few methods of doing this.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb4.png" alt="image" width="750" height="494" border="0" /></a></p>
+<p align="left">I typically use .csv import. You can download a sample import file to get started (see sample below). If you are using administrator credentials for your migration, you only need to populate the &ldquo;Source Email&rdquo; and &ldquo;Destination Email&rdquo; fields. More information about <a href="https://migrationwiz.zendesk.com/entries/489970-How-do-I-import-mailboxes-into-the-system-without-entering-them-one-at-a-time-" target="_blank">migration flags can be found here.</a> I once did a migration for a customer using end-user credentials where some of the users had commas &ldquo;,&rdquo; in their passwords and needless to say, this didn&rsquo;t work very well with .csv files so be mindful of that.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb5.png" alt="image" width="500" height="102" border="0" /></a></p>
+<p align="left">Once all your mailboxes have been added, you have the ability to tweak many of the migration settings, like filtering, before beginning the migration process.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb6.png" alt="image" width="750" height="416" border="0" /></a></p>
+<p align="left">You now have the ability to migrate a few or all of the mailboxes you have imported. You will also be able to monitor the migration statistics while the migration is running. The MigrationWiz documentation is really helpful as well, for example if you need more information about <a href="https://community.bittitan.com/kb/Pages/How%20do%20I%20create%20an%20administrator%20account%20for%20login.aspx" target="_blank">migration credentials, see this link</a></p>
+<p>The Dell On Demand configuration process is very similar, you start by creating a &ldquo;Migration Plan&rdquo; which defines your source and target mailboxes as well as your credentials. You have the ability to use administrator credentials or end-user credentials and the tool allows you to increase the number of concurrent mailbox migrations by adding additional administrator credentials. Each administrator can migrate 10 target mailboxes concurrently.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb7.png" alt="image" width="750" height="512" border="0" /></a></p>
+<p align="left">The next step is to import your mailboxes, this can be done via a .tsv file. A sample file is also provided for reference.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb8.png" alt="image" width="500" height="325" border="0" /></a></p>
+<p align="left">The final configuration step allows you to tweak the migration options</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb9.png" alt="image" width="750" height="581" border="0" /></a></p>
+<p align="left">You are now ready to start migrating!</p>
+<p><u>Migration Velocity:</u></p>
+<p>As a consultant, one of the most common questions I get asked is &ldquo;How long will my migration take?&rdquo;. Unfortunately, this is a very difficult question to answer and the reality is, even with thorough testing and analysis, it is difficult to accurately predict how long a migration will take as every environment is different and migration velocity depends on so much more than just your network speeds. About 6 months ago, I helped a customer complete a migration from Exchange 2003 in one region to Exchange 2010 in another. They had a very tight deadline and it was a hard cut-off so there was no pushing the deadline. I did I whole bunch of calculations based on their source data size, connectivity, etc and in my mind there was no way we would be able to get all the data migrated in time so we started to prepare the business for that. We decided to use MigrationWiz for the migration and we ended up completing the entire migration with 4 full days to spare. Because we were prepared for the worst possible case, the entire team looked really good when we were able to pull it off successfully. I&rsquo;m glad it didn&rsquo;t end up going the other way and it just goes to show that there is always a small unknown factor that could change the amount of time taken for a migration to complete successfully.</p>
+<p>It is usually a good idea to perform some test migrations using mailboxes that accurately represent those found in your environment. Using data from those migrations will go a long way to helping you predict your migration velocity. It is really handy to use some pilot user mailboxes for this because you will be able to perform multiple passes later on and not consume any additional licenses. MigrationWiz provides some <a href="https://migrationwiz.zendesk.com/entries/489626-How-do-I-size-my-migration-" target="_blank">guidance and a basic calculator here.</a></p>
+<p>The results of the test migrations performed for this post are as follows:</p>
+<table border="0" width="675" cellspacing="0" cellpadding="2" align="center">
+<tbody>
+<tr>
+<td valign="top" width="192"></td>
+<td valign="top" width="233">
+<p align="center"><strong>MigrationWiz</strong></p>
+</td>
+<td valign="top" width="248">
+<p align="center"><strong>Dell On Demand</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="192"><strong>Duration</strong></td>
+<td valign="top" width="258">16 hrs, 23 min</td>
+<td valign="top" width="295">11 hrs, 0 min</td>
+</tr>
+<tr>
+<td valign="top" width="192"><strong>Items Processed</strong></td>
+<td valign="top" width="258">26118</td>
+<td valign="top" width="295">26286</td>
+</tr>
+<tr>
+<td valign="top" width="192"><strong>Errors</strong></td>
+<td valign="top" width="258">0</td>
+<td valign="top" width="295">13</td>
+</tr>
+</tbody>
+</table>
+<p>The statistics above were taken from each migration tool. There are some discrepancies with the amount of items processed and the Dell tool reported some failures. Looking at the target mailbox used for the Dell On Demand migration, we see:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb10.png" alt="image" width="750" height="106" border="0" /></a></p>
+<p align="left">MigrationWiz provides a whole bunch of information about the migration, including some detailed statistics:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb11.png" alt="image" width="750" height="581" border="0" /></a></p>
+<p align="left">Dell On Demand provides an overview of the migration with some detailed logging:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb12.png" alt="image" width="750" height="303" border="0" /></a></p>
+<p>I am perplexed by the large difference in migration duration. These migrations were run on random days of the week at roughly the same time so I&rsquo;m not sure if it is a coincidence or not. I might re-do the MigrationWiz one sometime and see if it changes the duration.</p>
+<p><u>Reporting:</u></p>
+<p>MigrationWiz provides some nice charts at a mailbox level as well as some .csv reports at connector level for those who like to create their own reports in Excel.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb13.png" alt="image" width="750" height="359" border="0" /></a></p>
+<p align="left">Dell On Demand provides a summary and a migration details report which includes a .csv file containing all the errors that were encountered during the migration. The reports menu is &ldquo;conveniently&rdquo; hidden on the bottom right-hand side of the dashboard.</p>
+<p align="left"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image15.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb14.png" alt="image" width="500" height="281" border="0" /></a></p>
+<p><u>Documentation:</u></p>
+<p>MigrationWiz has heaps of useful documentation, the knowledgebase is located here: <a title="https://migrationwiz.zendesk.com/forums" href="https://migrationwiz.zendesk.com/forums">https://migrationwiz.zendesk.com/forums</a> and it seems they are moving their content to a SharePoint based library located here: <a title="https://community.bittitan.com/kb/SitePages/Knowledge%20Base.aspx?product=MigrationWiz" href="https://community.bittitan.com/kb/SitePages/Knowledge%20Base.aspx?product=MigrationWiz">https://community.bittitan.com/kb/SitePages/Knowledge%20Base.aspx?product=MigrationWiz</a></p>
+<p>Dell On Demand has a user guide which is published here: <a title="http://documents.software.dell.com/On%20Demand%20Migration%20for%20Email/1.6/User%20Guide/" href="http://documents.software.dell.com/On%20Demand%20Migration%20for%20Email/1.6/User%20Guide/">http://documents.software.dell.com/On%20Demand%20Migration%20for%20Email/1.6/User%20Guide/</a></p>
+<p><u>In Summary:</u></p>
+<p>I think both are excellent tools which provide a wide range of options. Dell On Demand is targeted towards those organizations who are migrating to Microsoft Exchange while MigrationWiz supports other target platforms, like the ability to archive to Amazon S3. MigrationWiz has also recently added the ability to perform Public Folder and Storage migrations. Dell On Demand appears to have outperformed MigrationWiz when it comes to migration velocity, however I do find the MigrationWiz documentation to be superior.</p>
+
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Online Migration Tools - Comparing MigrationWiz and Dell On Demand Migration&p[summary]=I recently needed to migrate my own personal Office 365 tenant to another Office 365 tenant and even though I only have a few fairly smal...&p[url]=http://172.16.7.177:4000/2014/06/online-migration-tools-comparing-migrationwiz-and-dell-on-demand-migration" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2014/06/online-migration-tools-comparing-migrationwiz-and-dell-on-demand-migration&text=I recently needed to migrate my own personal Office 365 tenant to another Office 365 tenant and even though I only have a few fairly smal...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+
+<aside class="comments" role="complementary">
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = 'http://172.16.7.177:4000/2014/06/online-migration-tools-comparing-migrationwiz-and-dell-on-demand-migration';
+            this.page.identifier = '6/4/2014';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+
+            s.src = '//cgoosen.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</aside>
+
+            </main>
+        </div>
+
+        <script src="http://172.16.7.177:4000/assets/js/jquery-1.12.2.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/backtotop.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr-feed.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/jquery.fitvids.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/svg4everybody.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/scripts.js"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXXXX-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+        <style>
+.lightbox {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.85); z-index: 9999999; line-height: 0; cursor: pointer;}
+.lightbox .img {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 100%;
+	max-height: 100%;
+}
+.lightbox .img img {opacity: 0; pointer-events: none; width: auto;}
+@media screen and (min-width: 1200px) {
+    .lightbox .img {
+		max-width: 1200px;
+    }
+}
+@media screen and (min-height: 1200px) {
+    .lightbox img {
+		max-height: 1200px;
+	}
+}
+.lightbox span {display: block; position: fixed; bottom: 13px; height: 1.5em; line-height: 1.4em; width: 100%; text-align: center; color: white; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+
+
+
+
+.lightbox .videoWrapperContainer {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 900px;
+	max-height: 100%;
+}
+.lightbox .videoWrapperContainer .videoWrapper {
+	height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-bottom: 56.333%; /* custom */
+	background: black;
+} 
+.lightbox .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}   
+.lightbox #prev, .lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
+.lightbox.gallery #prev, .lightbox.gallery #next {display: block;}
+.lightbox #prev {left: 0;}
+.lightbox #next {right: 0;}
+.lightbox #close {height: 50px; width: 50px; position: fixed; cursor: pointer; text-decoration: none; z-index: 99; right: 0; top: 0;}
+.lightbox #close:after, .lightbox #close:before {position: absolute; margin-top: 22px; margin-left: 14px; content: ""; height: 3px; background: white; width: 23px;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+/* Safari */
+-webkit-transform: rotate(-45deg);
+/* Firefox */
+-moz-transform: rotate(-45deg);
+/* IE */
+-ms-transform: rotate(-45deg);
+/* Opera */
+-o-transform: rotate(-45deg);
+}
+.lightbox #close:after {
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+/* Opera */
+-o-transform: rotate(45deg);
+}
+.lightbox, .lightbox * {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+</style>
+		
+<script>
+function is_youtubelink(url) {
+  var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  return (url.match(p)) ? RegExp.$1 : false;
+}
+function is_imagelink(url) {
+	var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
+	return (url.match(p)) ? true : false;
+}
+function is_vimeolink(url,el) {
+	var id = false;
+	$.ajax({
+	  url: 'https://vimeo.com/api/oembed.json?url='+url,
+	  async: true,
+	  success: function(response) {
+		if(response.video_id) {
+		  id = response.video_id;
+		  $(el).addClass('lightbox-vimeo').attr('data-id',id);
+		}
+	  }
+	});
+}
+
+$(document).ready(function() {
+	//add classes to links to be able to initiate lightboxes
+	$("a").each(function(){
+		var url = $(this).attr('href');
+		if(url) {
+			if(url.indexOf('vimeo') !== -1 && !$(this).hasClass('no-lightbox')) is_vimeolink(url,$(this));
+			if(is_youtubelink(url) && !$(this).hasClass('no-lightbox')) $(this).addClass('lightbox-youtube').attr('data-id',is_youtubelink(url));
+			if(is_imagelink(url) && !$(this).hasClass('no-lightbox')) {
+				$(this).addClass('lightbox-image');
+				var href = $(this).attr('href');
+				var filename = href.split('/').pop();
+				var split = filename.split(".");
+				var name = split[0];
+				$(this).attr('title',name);
+			}
+		}
+	});
+	//remove the clicked lightbox
+	$("body").on("click", ".lightbox", function(event){
+		if($(this).hasClass('gallery')) {
+			$(this).remove();
+			if($(event.target).attr('id')=='next') {
+				//next item
+				if($("a.gallery.current").nextAll("a.gallery:first").length) $("a.gallery.current").nextAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").first().click();
+			}
+			else if ($(event.target).attr('id')=='prev') {
+				//prev item
+				if($("a.gallery.current").prevAll("a.gallery:first").length) $("a.gallery.current").prevAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").last().click();
+			}
+			else {
+				$("a.gallery").removeClass('gallery');
+			}
+		}
+		else $(this).remove();
+	});
+	//prevent image from being draggable (for swipe)
+	$("body").on('dragstart', ".lightbox img", function(event) { event.preventDefault(); });
+	//add the youtube lightbox on click
+	$("a.lightbox-youtube").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&showinfo=0&rel=0"></iframe></div></div></div>').appendTo('body');
+	});
+	//add the image lightbox on click
+	$("a.lightbox-image").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" style="background: url('+$(this).attr('href')+') center center / contain no-repeat;" title="'+$(this).attr('title')+'" ><img src="'+$(this).attr('href')+'" alt="'+$(this).attr('title')+'" /></div><span>'+$(this).attr('title')+'</span></div>').appendTo('body');
+	});
+	//add the vimeo lightbox on click
+	$("body").on("click", "a.lightbox-vimeo", function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+$(this).attr('data-id')+'/?autoplay=1&byline=0&title=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div></div>').appendTo('body');
+	});
+
+	$("body").on("click", "a[class*='lightbox-']", function(){
+		var link_elements = $(this).parent().find("a[class*='lightbox-']");
+		$(link_elements).removeClass('current');
+		for (var i=0; i<link_elements.length; i++) {
+			if($(this).attr('href') == $(link_elements[i]).attr('href')) {
+				$(link_elements[i]).addClass('current');
+			}
+		}
+		if(link_elements.length>1) {
+			$('.lightbox').addClass('gallery');
+			$(link_elements).addClass('gallery');
+		}
+	});
+
+	
+});
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $("#prev").click();
+        break;
+        case 39: // right
+        $("#next").click();
+        break;
+	case 27: // esc
+        $("#close").click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+  /*===========================
+  Swipe-it v1.4.1
+  An event listener for swiping gestures with vanilla js.
+  https://github.com/tri613/swipe-it#readme
+ 
+  @Create 2016/09/22
+  @Update 2017/08/11
+  @Author Trina Lu
+  ===========================*/
+  "use strict";var _slicedToArray=function(){function n(n,t){var e=[],i=!0,o=!1,r=void 0;try{for(var u,c=n[Symbol.iterator]();!(i=(u=c.next()).done)&&(e.push(u.value),!t||e.length!==t);i=!0);}catch(n){o=!0,r=n}finally{try{!i&&c.return&&c.return()}finally{if(o)throw r}}return e}return function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return n(t,e);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();!function(n,t,e){function i(n){function e(){o("touchstart",m,w),o("touchmove",d,w),o("touchend",p,w),E.mouseEvent&&o("mousedown",s,w)}function i(){y=!1,D=!1,A=!1,b=!1,a=!1}function s(n){a=this,y=n.clientX,D=n.clientY,o("mousemove",l,v),o("mouseup",h,v)}function l(n){n.preventDefault(),y&&D&&(A=n.clientX,b=n.clientY)}function h(n){r("mousemove",l,v),r("mouseup",h,v),p(n)}function m(n){a=this,y=n.touches[0].clientX,D=n.touches[0].clientY}function d(n){A=n.touches[0].clientX,b=n.touches[0].clientY}function p(n){if(y&&D&&A&&b){var t=y-A,e=D-b,o=[t,e].map(Math.abs),r=_slicedToArray(o,2),c=r[0],s=r[1],v=E.minDistance;if(c>v){var f=y<A?"swipeRight":"swipeLeft";u(f,a,{distance:t,start:y,end:A})}if(s>v){var l=D>b?"swipeUp":"swipeDown";u(l,a,{distance:e,start:D,end:b})}(c>v||s>v)&&u("swipe",a)}i()}var E=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},w=c(t.querySelectorAll(n)),y=void 0,D=void 0,A=void 0,b=void 0;E.mouseEvent=void 0===E.mouseEvent?f.mouseEvent:E.mouseEvent,E.minDistance=void 0===E.minDistance?f.minDistance:E.minDistance,i(),e(),this.on=function(n,t){return o(n,t,w),this}}function o(n,t,e){s(e).forEach(function(e){return e.addEventListener(n,t)})}function r(n,t,e){s(e).forEach(function(e){return e.removeEventListener(n,t)})}function u(n,e){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},o=t.createEvent("Event");o.initEvent(n,!0,!0),o.swipe=i,s(e).forEach(function(n){return n.dispatchEvent(o)})}function c(n){for(var t=[],e=0;e<n.length;e++)t.push(n[e]);return t}function s(n){return Array.isArray(n)?n:[n]}var a=!1,v=[n],f={mouseEvent:!0,minDistance:30};n[e]=i}(window,document,"SwipeIt");
+
+var mySwipeIt = new SwipeIt('body');
+mySwipeIt.on('swipeLeft',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#next").click();
+	}
+}).on('swipeRight',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#prev").click();
+	}
+});
+</script>
+
+    </body>
+</html>

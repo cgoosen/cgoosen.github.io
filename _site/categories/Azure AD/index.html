@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Category: Azure AD | Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! </title>
+    <meta property="og:title" content="Category: Azure AD | Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+    <meta name="twitter:title" content="Category: Azure AD | Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+
+    <meta name="description" content="Category: Azure AD">
+    <meta name="description" property="og:description" content="Category: Azure AD" />
+    <meta name="twitter:description" content="Category: Azure AD" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:site" content="@chrisgoosen" />
+    
+    <meta property="og:url" content="http://172.16.7.177:4000/categories/Azure%20AD/" />
+
+    <meta property="og:image" content="" />
+    <meta name="twitter:image" content="" />
+
+    <meta name="author" content="Chris's Blog" />
+
+    <meta name="copyright" content="Copyright by Chris's Blog. All Rights Reserved." />
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v15/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(https://fonts.gstatic.com/s/roboto/v15/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="http://172.16.7.177:4000/assets/css/main.css">
+
+    <link rel="canonical" href="http://172.16.7.177:4000/categories/Azure%20AD/">
+
+    <link rel="alternate" type="application/rss+xml" title="" href="http://172.16.7.177:4000/feed.xml">
+</head>
+
+    <body>
+        <div class="wrapper">
+            <aside class="user-profile fixed" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
+    </div>
+
+    <div class="compact-header">
+        <a class="avatar" href="http://172.16.7.177:4000"><img alt="Avatar" src="/assets/img/headshot.jpg" /></a>
+        <div class="my-info">
+            <strong class="my-name">Chris's Blog</strong>
+            <span class="my-job-title">It's called thinking...  go with it!</span>
+        </div>
+    </div>
+
+    
+        
+        <div class="mainmenu">
+            <a href="http://172.16.7.177:4000" >Home</a>
+            
+                
+            
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/contact/" >Contact</a>
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/about/" >About</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+    
+    
+    <div>
+    	<img src="/assets/img/mvp.png" style="width:181px;height:74px;">
+    </div>
+
+    <p class="about-me"> </p>
+    
+    <ul class="socials">
+        <li><a href="https://twitter.com/chrisgoosen" target="_blank"><svg title="twitter" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li><li><a href="https://www.linkedin.com/in/ctgoosen/" target="_blank"><svg title="linkedin" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#linkedin-icon"></use></svg></a></li><li><a href="https://github.com/cgoosen" target="_blank"><svg title="github" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#github-icon"></use></svg></a></li>
+
+        
+            <li><a href="/contact" target="_blank"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        
+
+        
+         <li><a href="http://feeds.cgoosen.com/cgoosen"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        
+    </ul>
+</aside>
+
+
+            <main class="the-content" role="main">
+                <div class="search" role="search">
+    <div>
+        <div class="show-results-count">0 Results</div>
+        <div class="search-holder">
+            <input type="text" id="search-input" placeholder="search for..." />
+        </div>
+    </div>
+    <ul id="results-container" class="results-container"></ul>
+</div>
+
+
+                <h1>Posts From Category: Azure AD</h1>
+
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2018-11-30T07:05:31-06:00" itemprop="datePublished">30 Nov, 2018</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2018/11/tca-podcast-episode-20-azure-active-directory-and-b2b">TCA Podcast Episode 20: Azure Active Directory and B2B</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>In this episode we talk with Program Manager&nbsp;Elisabeth Olson&nbsp;and Principle Program Manager Rob Lowe. They both work with the Azure Active Directory teams at Microsoft and they give us some amazing insight into how Azure AD works.</p>
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/537644832&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+<p>For more information on The Cloud Architects podcast, check us out on <a href="https://soundcloud.com/thecloudarchitects/" target="_blank" rel="noopener noreferrer">SoundCloud</a>. We are also available on your favorite podcast app:</p>
+<ul>
+<li><a href="https://itunes.apple.com/us/podcast/the-cloud-architects-podcast/id1264479296?mt=2" target="_blank" rel="noopener noreferrer">iTunes</a></li>
+<li><a href="https://www.stitcher.com/podcast/the-cloud-architects/the-cloud-achitects" target="_blank" rel="noopener noreferrer">Stitcher</a></li>
+<li><a href="https://tunein.com/radio/The-Cloud-Architects-Podcast-p1026315/" target="_blank" rel="noopener noreferrer">Tunein</a></li>
+<li><a href="https://www.acast.com/thecloudarchitectspodcast" target="_blank" rel="noopener noreferrer">Acast</a></li>
+</ul>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=TCA Podcast Episode 20: Azure Active Directory and B2B&p[summary]=In this episode we talk with Program Manager&nbsp;Elisabeth Olson&nbsp;and Principle Program Manager Rob Lowe. They both work with the Az...&p[url]=http://172.16.7.177:4000/2018/11/tca-podcast-episode-20-azure-active-directory-and-b2b" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2018/11/tca-podcast-episode-20-azure-active-directory-and-b2b&text=In this episode we talk with Program Manager&nbsp;Elisabeth Olson&nbsp;and Principle Program Manager Rob Lowe. They both work with the Az...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2018-08-18T07:56:39-05:00" itemprop="datePublished">18 Aug, 2018</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2018/08/azure-ad-connect-high-cpu-usage-detected">Azure AD Connect High CPU Usage detected</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I recently started receiving a lot of emails from Azure AD Connect Health in one of my lab environments indicating that my AAD Connect server was experiencing high CPU usage:</p>
+<p><a href="/assets/img/2018/08/Screen-Shot-2018-08-18-at-1.34.18-PM.png"><img src="/assets/img/2018/08/Screen-Shot-2018-08-18-at-1.34.18-PM.png" style="width:818px;height:569px;" /></a></p>
+<p>I remembered seeing a tweet from fellow MVP<a href="https://twitter.com/expta" target="_blank" rel="noopener">&nbsp;Jeff Guillet</a> about this - He's been tracking this for a while and as it turns out the issue is caused by a buggy Windows update for .NET framework. You can read all about it in the following posts on his&nbsp;<a href="http://www3.expta.com/blog.html" target="_blank" rel="noopener">The EXPTA {blog}</a>:</p>
+<ul>
+<li><a href="http://www.expta.com/2018/07/fixed-net-framework-updates-still-cause.html" target="_blank" rel="noopener">"Fixed" .NET Framework Updates Still Cause High CPU on AAD Connect Servers</a></li>
+<li><a href="http://www.expta.com/2018/07/azure-ad-connect-version-118800.html" target="_blank" rel="noopener">Azure AD Connect version 1.1.880.0 includes many updates</a></li>
+</ul>
+<p>Upgrading to AAD Connect&nbsp;1.1.880.0 fixed the issue for me.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Azure AD Connect High CPU Usage detected&p[summary]=I recently started receiving a lot of emails from Azure AD Connect Health in one of my lab environments indicating that my AAD Connect se...&p[url]=http://172.16.7.177:4000/2018/08/azure-ad-connect-high-cpu-usage-detected" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2018/08/azure-ad-connect-high-cpu-usage-detected&text=I recently started receiving a lot of emails from Azure AD Connect Health in one of my lab environments indicating that my AAD Connect se...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2017-03-29T01:15:11-05:00" itemprop="datePublished">29 Mar, 2017</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2017/03/script-connect-365-ps-connect-to-office-365-services-using-remote-powershell">Script: Connect-365.ps1 - Connect to Office 365 services using remote PowerShell</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I'm excited to announce the release of Connect-365! Back 2012, I put together a basic script with a GUI to simplify connecting to Exchange Online via remote PowerShell. I had never intended to make the script publicly available and it was just something I used myself. After a couple years I realized that it had been shared with so many colleagues and clients that I decided to clean it up and publish it on the TechNet gallery. Connect-EXO was born! Here's a screenshot of the original first version:</p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/Capture1.png"><img class="aligncenter size-medium wp-image-2684" src="https://www.cgoosen.com/wp-content/uploads/2017/03/Capture1-300x281.png" alt="" width="300" height="281" /></a></p>
+<p style="text-align: left;">Over time the script matured <a href="https://www.cgoosen.com/2014/10/script-connect-exo-ps1-connect-to-exchange-online-using-remote-powershell/" target="_blank" rel="noopener">into what Connect-EXO is today</a>. One of the challenges in the early version was that I used WPF for the GUI, this was problematic for older versions of PowerShell so I made the decision to port it to Windows Forms for backward compatibility. Forms is old and added a lot of bloat and since&nbsp;backwards compatibility is no longer a concern, I decided to move back to WPF. Connect-365 is essentially the next version of Connect-EXO, I renamed it so more accurately reflect it's purpose and this will allow me to continue to maintain Connect-EXO.</p>
+<p style="text-align: left;">Connect-365 features a GUI that will prompt for your tenant credentials and then connect to various Office 365 services using remote PowerShell. The built-in prerequisite checker will check to ensure that the correct modules are installed and provide a download link for those that are not.</p>
+<p>The current version of the script allows connectivity to:</p>
+<ul>
+<li>Exchange Online</li>
+<li>Azure Active Directory (using v2 module)</li>
+<li>Office 365 Security &amp; Compliance Center</li>
+<li>Skype for Business Online</li>
+<li>SharePoint Online</li>
+</ul>
+<p><strong>Requirements:</strong><br />
+This script will work natively in PowerShell 4.0+</p>
+<p><strong>Usage:</strong><br />
+There are no parameters or switches, simply execute the script: <em>.\Connect-365.ps1</em></p>
+<p><strong>Execution Policy:</strong><br />
+This script has been digitally signed and will run just fine under a "RemoteSigned" execution policy</p>
+<p><strong>Screenshots:</strong></p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png"><img class="aligncenter size-full wp-image-3707" src="https://www.cgoosen.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png" alt="" width="539" height="415" /></a></p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2019-02-27-at-2.09.09-PM.png"><img class="aligncenter size-full wp-image-3710" src="https://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2019-02-27-at-2.09.09-PM.png" alt="" width="539" height="415" /></a></p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/c.png"><img class="aligncenter wp-image-2687" src="https://www.cgoosen.com/wp-content/uploads/2017/03/c.png" alt="" width="628" height="125" /></a></p>
+<p><strong>Roadmap:</strong></p>
+<ul>
+<li><del>Support Azure AD v1 and v2</del> - Removed as v1 is depreciated</li>
+<li><del>Support for Exchange Online MFA (via module)</del> - Done!</li>
+<li>Derive SPO Admin URL</li>
+<li>Auto-install prerequisites</li>
+<li>Much more..</li>
+</ul>
+<p><strong>Download:<br />
+</strong>I have published it to the TechNet Gallery, <a href="http://cgoo.se/1srvTiS" target="_blank" rel="noopener">it can be downloaded by clicking here&hellip;</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Script: Connect-365.ps1 - Connect to Office 365 services using remote PowerShell&p[summary]=I'm excited to announce the release of Connect-365! Back 2012, I put together a basic script with a GUI to simplify connecting to Exchang...&p[url]=http://172.16.7.177:4000/2017/03/script-connect-365-ps-connect-to-office-365-services-using-remote-powershell" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2017/03/script-connect-365-ps-connect-to-office-365-services-using-remote-powershell&text=I'm excited to announce the release of Connect-365! Back 2012, I put together a basic script with a GUI to simplify connecting to Exchang...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2017-02-28T12:54:52-06:00" itemprop="datePublished">28 Feb, 2017</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2017/02/single-sign-on-with-azure-ad-connect">Single Sign On with Azure AD Connect</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Ever since the launch of Office 365 (and BPOS before that) there has been a desire to make accessing these services as seamless as possible. Single Sign On (SSO) has long been high on the requirements list for many organizations and while it has been possible for some time now to provide a near seamless login experience, it has historically come at a cost in the form of additional infrastructure - usually deployed on-premises and at the very least carrying some sort of administrative burden. I&rsquo;m not against identity federation, I think it definitely has it&rsquo;s place and most of the customers I work with already have some federation solution deployed so it makes a lot of sense leveraging it for Office 365 as well, but there are always those organizations who don&rsquo;t already have a solution in place or those smaller environments where it doesn&rsquo;t make a whole lot of sense to implement a highly-available AD FS deployment.</p>
+<p>Password Sync has long been the best compromise, offering a &ldquo;Same Sign On&rdquo; experience where users are able to use their existing AD credentials to access Office 365 services. The <a href="https://blogs.technet.microsoft.com/enterprisemobility/2016/12/07/introducing-azuread-pass-through-authentication-and-seamless-single-sign-on/" target="_blank">recent announcement of Pass-Through Authentication and Single Sign-on</a> means that things are about to get a whole lot better!</p>
+<p>I wanted to put together a quick post and run through how easy it is to setup Single Sign On and review the user experience when it is used with Password Sync. Single Sign On can also be enabled with the new Pass-through authentication option, but that&rsquo;s a story for another post!</p>
+<p>Before getting started, it is important to understand the client requirements. The client should:</p>
+<ul>
+<li>be using a domain-joined machine
+<li>be using Windows and a supported browser (Edge is <u>not</u> supported)
+<li>have direct access to a domain controller
+<li>have the Kerberos end-points defined in the browser&rsquo;s Intranet zone (AD Group Policy is the easiest way to do this)
+<ul>
+<li>https://autologon.microsoftazuread-sso.com
+<li>https://aadg.windows.net.nsatc.net</li>
+</ul>
+</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/02/a.png"><img title="a" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="a" src="http://www.cgoosen.com/wp-content/uploads/2017/02/a_thumb.png" width="344" height="308"></a></p>
+<p align="left">Once the client requirements have been taken care of, we need to update AAD Connect. At the time of writing, version 1.1.380.0 is the latest version. It looks like these new features were introduced in version 1.1.370.0. If we compare the the &ldquo;User sign-in&rdquo; page to that of an older build you&rsquo;ll notice the addition of a few more features:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/02/2a.png"><img title="2a" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="2a" src="http://www.cgoosen.com/wp-content/uploads/2017/02/2a_thumb.png" width="400" height="282"></a>&nbsp;<a href="http://www.cgoosen.com/wp-content/uploads/2017/02/7.png"><img title="7" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="7" src="http://www.cgoosen.com/wp-content/uploads/2017/02/7_thumb.png" width="400" height="282"></a></p>
+<p>To upgrade AAD Connect, follow your regular upgrade procedure. If you don&rsquo;t have any customizations or special considerations, you can just let the wizard perform the upgrade for you:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/02/3.png"><img title="3" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="3" src="http://www.cgoosen.com/wp-content/uploads/2017/02/3_thumb.png" width="400" height="282"></a></p>
+<p align="left">Once upgraded, you&rsquo;ll want to run the configuration wizard again and tick the &ldquo;Enable single sign on&rdquo; checkbox on the &ldquo;User sign-in&rdquo; page (shown above) and that is all there is to it!</p>
+<p align="left">Let&rsquo;s compare the user experience before and after enabling Single Sign On. Here is the user experience before:</p>
+<p align="center"><iframe height="482" src="https://player.vimeo.com/video/206158120" frameborder="0" width="640" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe></p>
+<p align="left">and here is the user experience after implementing Single Sign On with AAD Connect (you&rsquo;ll notice that I do not have to re-enter my password this time):</p>
+<p align="center"><iframe height="482" src="https://player.vimeo.com/video/206158265" frameborder="0" width="640" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe></p>
+<p align="left">Note: In the demo videos, I have my home page set in a way that forces my custom branding before any user credentials are entered. You can do this by either creating a web redirect or setting your home page to: <a href="https://login.microsoftonline.com/login.srf?whr=your_domain.com">https://login.microsoftonline.com/login.srf?whr=your_domain.com</a> (replace your_domain.com with your actual domain name!)</p>
+<p align="left">There is a lot of great documentation available about Single Sign On on the Microsoft website, I highly recommend that you check it out as well:</p>
+<ul>
+<li>
+<div align="left"><a href="https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso" target="_blank">What is Single Sign On (SSO)</a></div>
+</li>
+<li>
+<div align="left"><a href="https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history" target="_blank">Azure AD Connect: Version release history</a></div>
+</li>
+</ul>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Single Sign On with Azure AD Connect&p[summary]=Ever since the launch of Office 365 (and BPOS before that) there has been a desire to make accessing these services as seamless as possib...&p[url]=http://172.16.7.177:4000/2017/02/single-sign-on-with-azure-ad-connect" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2017/02/single-sign-on-with-azure-ad-connect&text=Ever since the launch of Office 365 (and BPOS before that) there has been a desire to make accessing these services as seamless as possib...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2016-11-30T12:00:03-06:00" itemprop="datePublished">30 Nov, 2016</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2016/11/getting-started-with-aad-conditional-access-location-based-access-rules">Getting started with AAD conditional access - Location based access rules</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Azure Active Directory (AAD) conditional access is something I&rsquo;ve been wanting to post about for a while now. A scenario I come across fairly often is the desire to prevent access or add an additional layer of security to certain Office 365 workloads when the user is connecting from a remote, non-corporate location. In the past, this could be achieved by making use of claims rules and Active Directory Federation Services (AD FS) which meant that it wasn&rsquo;t possible for those organizations not making use of federated identities with Office 365.</p>
+<p>AAD conditional access solves this problem and makes it really simple to apply access policies to AAD connected applications. Conditional access does require an AAD premium license (P1). In this post we&rsquo;ll cover a simple location based scenario where we prevent users from accessing Outlook on the web (OWA) from outside of the organization&rsquo;s network. In order to configure conditional access you will require:</p>
+<ul>
+<ul>
+<li>Azure Active Directory premium licensing</li>
+<li>Access to the Azure management portal (classic portal)</li>
+</ul>
+</ul>
+<p>Conditional access policies are configured via the classic Azure management portal (http://manage.windowsazure.com). Locate &ldquo;Active Directory&rdquo; on the left-hand side, select your Office 365 directory and click the &ldquo;Applications&rdquo; option.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.10.34-PM.png"><img class="aligncenter size-medium wp-image-2170" src="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.10.34-PM-300x178.png" alt="screen-shot-2016-11-30-at-3-10-34-pm" width="300" height="178" /></a></p>
+<p>Next, select the &ldquo;Office 365 Exchange Online&rdquo; application and turn access rules &ldquo;On&rdquo; under the &ldquo;Multi-factor authentication and location based access rules&rdquo; section. You have the option of applying your rules to all users or select groups. You then select the &ldquo;Block access when not at work&rdquo; option. You also have to option to enforce MFA for an application which is useful if you would like to enable MFA only for specific applications or you could require MFA only when users are accessing the application from outside the corporate network.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.19.39-PM.png"><img class="aligncenter size-medium wp-image-2171" src="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.19.39-PM-300x284.png" alt="screen-shot-2016-11-30-at-3-19-39-pm" width="300" height="284" /></a></p>
+<p>It is important to ensure that you define your corporate network ranges by clicking link. All connections from locations outside the definted network ranges will be treated as remote.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.16.18-PM.png"><img class="aligncenter size-medium wp-image-2172" src="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.16.18-PM-276x300.png" alt="screen-shot-2016-11-30-at-3-16-18-pm" width="276" height="300" /></a>Once configured, you will notice that users are still able to access the Office 365 portal however, once they click the mail option in the app launcher they will no longer be able to access Outlook on the web unless they are connecting from a approved location.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.22.49-PM-1.png"><img class="aligncenter size-medium wp-image-2173" src="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.22.49-PM-1-300x156.png" alt="screen-shot-2016-11-30-at-3-22-49-pm" width="300" height="156" /></a></p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.23.23-PM.png"><img class="aligncenter size-medium wp-image-2174" src="http://www.cgoosen.com/wp-content/uploads/2016/12/Screen-Shot-2016-11-30-at-3.23.23-PM-300x184.png" alt="screen-shot-2016-11-30-at-3-23-23-pm" width="300" height="184" /></a></p>
+<p>This is a very simple example of how to use location based access rules. It is also possible to configure device based access policies which provide an incredible amount of control over which devices can access your applications. I&rsquo;ll cover device based access policies in a future post.</p>
+<p>&nbsp;</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Getting started with AAD conditional access - Location based access rules&p[summary]=Azure Active Directory (AAD) conditional access is something I&rsquo;ve been wanting to post about for a while now. A scenario I come acr...&p[url]=http://172.16.7.177:4000/2016/11/getting-started-with-aad-conditional-access-location-based-access-rules" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2016/11/getting-started-with-aad-conditional-access-location-based-access-rules&text=Azure Active Directory (AAD) conditional access is something I&rsquo;ve been wanting to post about for a while now. A scenario I come acr...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2016-06-30T12:46:19-05:00" itemprop="datePublished">30 Jun, 2016</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2016/06/minor-update-to-my-connect-exo-ps1-script">Minor update to my Connect-EXO.ps1 script</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I've just published an updated version of my Connect-EXO.ps1 script. This version, (version 3.2) includes a very minor fix for those using German language keyboards. This update is the result of testing and feedback from the TechNet community and I wanted to thank all those involved.</p>
+<p>I have been planning some big updates to this script and work on version 4.0 will begin soon - watch this space!</p>
+<p>The update has been published to the TechNet Gallery,&nbsp;<a href="http://cgoo.se/1srvTiS" target="_blank">it can be downloaded by clicking here&hellip;</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Minor update to my Connect-EXO.ps1 script&p[summary]=I've just published an updated version of my Connect-EXO.ps1 script. This version, (version 3.2) includes a very minor fix for those usin...&p[url]=http://172.16.7.177:4000/2016/06/minor-update-to-my-connect-exo-ps1-script" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2016/06/minor-update-to-my-connect-exo-ps1-script&text=I've just published an updated version of my Connect-EXO.ps1 script. This version, (version 3.2) includes a very minor fix for those usin...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2016-04-12T04:31:15-05:00" itemprop="datePublished">12 Apr, 2016</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2016/04/my-connect-exo-ps1-script-has-been-updated-2">My Connect-EXO.ps1 script has been updated!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I've just published an updated version of my Connect-EXO.ps1 script. Version 3.1 includes the ability&nbsp;to connect to the&nbsp;Office 365 Security &amp; Compliance Center. Based on the options selected it will connect to either or all&nbsp;services with Exchange Online being the only one selected by default. Here is a screenshot of the new interface:</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2014/10/cap1.png" rel="attachment wp-att-1504"><img class="aligncenter wp-image-1504" src="http://www.cgoosen.com/wp-content/uploads/2014/10/cap1.png" alt="GUI" width="454" height="298" /></a></p>
+<p style="text-align: left;">The update has been published to the TechNet Gallery, <a href="http://cgoo.se/1srvTiS" target="_blank">it can be downloaded by clicking here&hellip;</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=My Connect-EXO.ps1 script has been updated!&p[summary]=I've just published an updated version of my Connect-EXO.ps1 script. Version 3.1 includes the ability&nbsp;to connect to the&nbsp;Office ...&p[url]=http://172.16.7.177:4000/2016/04/my-connect-exo-ps1-script-has-been-updated-2" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2016/04/my-connect-exo-ps1-script-has-been-updated-2&text=I've just published an updated version of my Connect-EXO.ps1 script. Version 3.1 includes the ability&nbsp;to connect to the&nbsp;Office ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2016-02-18T10:18:15-06:00" itemprop="datePublished">18 Feb, 2016</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2016/02/azure-ad-connect-gets-a-big-update">Azure AD Connect gets a big update!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>In case you missed it, the latest version of Azure AD Connect (version 1.1.105.0) was <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-version-history/" target="_blank">recently made available for download.</a> One of the big changes and great new additions in this version is the new built-in scheduler which was separate to the sync engine in previous releases and would run as a scheduled task in Windows task scheduler:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture1" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture1_thumb.png" alt="Capture1" width="776" height="110" border="0" /></a></p>
+<p>Another big change is the fact that the default synchronization frequency has been updated and is now 30 minutes which is a big change from the previous default of 3 hours. In addition, this value can now be configured which is something that was not supported previously &ndash; I know this change is going to be very well received by many organizations. The scheduler can be viewed and configured using the</p>
+<p>[powershell]Get-ADSyncScheduler[/powershell]</p>
+<p>and</p>
+<p>[powershell]Set-ADSyncScheduler[/powershell]</p>
+<p>cmdlets. You can also manually start a synchronization cycle with the</p>
+<p>[powershell]Start-ADSyncSyncCycle[/powershell]</p>
+<p>cmdlet</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture3" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture3_thumb.png" alt="Capture3" width="669" height="223" border="0" /></a></p>
+<p>As before, the upgrade process from previous versions is very simple &ndash; The wizard will detect the previous installation and ask to if you would like to upgrade:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture2" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture2_thumb.png" alt="Capture2" width="622" height="438" border="0" /></a></p>
+<p align="left">You will notice after the upgrade that the old Azure AD Sync Scheduler task no longer exists in Windows task scheduler</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/after.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="after" src="http://www.cgoosen.com/wp-content/uploads/2016/02/after_thumb.png" alt="after" width="741" height="105" border="0" /></a></p>
+<p align="left">Other new features in this release are:</p>
+<ul>
+<li>Automatic upgrade feature for Express settings customers.</li>
+<li>Support for the global admin using MFA and PIM in the installation wizard.</li>
+<li>Support changing the user's sign-in method after initial install.</li>
+<li>Allows Domain and OU filtering in the installation wizard.</li>
+</ul>
+<p align="left">For more information on these <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-version-history/" target="_blank">and other new features, click here</a></p>
+<p align="left">For more information about the <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnectsync-feature-scheduler/" target="_blank">new built-in scheduler, click here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Azure AD Connect gets a big update!&p[summary]=In case you missed it, the latest version of Azure AD Connect (version 1.1.105.0) was recently made available for download. One of the bi...&p[url]=http://172.16.7.177:4000/2016/02/azure-ad-connect-gets-a-big-update" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2016/02/azure-ad-connect-gets-a-big-update&text=In case you missed it, the latest version of Azure AD Connect (version 1.1.105.0) was recently made available for download. One of the bi...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+            </main>
+        </div>
+
+        <script src="http://172.16.7.177:4000/assets/js/jquery-1.12.2.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/backtotop.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr-feed.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/jquery.fitvids.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/svg4everybody.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/scripts.js"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXXXX-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+        <style>
+.lightbox {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.85); z-index: 9999999; line-height: 0; cursor: pointer;}
+.lightbox .img {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 100%;
+	max-height: 100%;
+}
+.lightbox .img img {opacity: 0; pointer-events: none; width: auto;}
+@media screen and (min-width: 1200px) {
+    .lightbox .img {
+		max-width: 1200px;
+    }
+}
+@media screen and (min-height: 1200px) {
+    .lightbox img {
+		max-height: 1200px;
+	}
+}
+.lightbox span {display: block; position: fixed; bottom: 13px; height: 1.5em; line-height: 1.4em; width: 100%; text-align: center; color: white; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+
+
+
+
+.lightbox .videoWrapperContainer {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 900px;
+	max-height: 100%;
+}
+.lightbox .videoWrapperContainer .videoWrapper {
+	height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-bottom: 56.333%; /* custom */
+	background: black;
+} 
+.lightbox .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}   
+.lightbox #prev, .lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
+.lightbox.gallery #prev, .lightbox.gallery #next {display: block;}
+.lightbox #prev {left: 0;}
+.lightbox #next {right: 0;}
+.lightbox #close {height: 50px; width: 50px; position: fixed; cursor: pointer; text-decoration: none; z-index: 99; right: 0; top: 0;}
+.lightbox #close:after, .lightbox #close:before {position: absolute; margin-top: 22px; margin-left: 14px; content: ""; height: 3px; background: white; width: 23px;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+/* Safari */
+-webkit-transform: rotate(-45deg);
+/* Firefox */
+-moz-transform: rotate(-45deg);
+/* IE */
+-ms-transform: rotate(-45deg);
+/* Opera */
+-o-transform: rotate(-45deg);
+}
+.lightbox #close:after {
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+/* Opera */
+-o-transform: rotate(45deg);
+}
+.lightbox, .lightbox * {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+</style>
+		
+<script>
+function is_youtubelink(url) {
+  var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  return (url.match(p)) ? RegExp.$1 : false;
+}
+function is_imagelink(url) {
+	var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
+	return (url.match(p)) ? true : false;
+}
+function is_vimeolink(url,el) {
+	var id = false;
+	$.ajax({
+	  url: 'https://vimeo.com/api/oembed.json?url='+url,
+	  async: true,
+	  success: function(response) {
+		if(response.video_id) {
+		  id = response.video_id;
+		  $(el).addClass('lightbox-vimeo').attr('data-id',id);
+		}
+	  }
+	});
+}
+
+$(document).ready(function() {
+	//add classes to links to be able to initiate lightboxes
+	$("a").each(function(){
+		var url = $(this).attr('href');
+		if(url) {
+			if(url.indexOf('vimeo') !== -1 && !$(this).hasClass('no-lightbox')) is_vimeolink(url,$(this));
+			if(is_youtubelink(url) && !$(this).hasClass('no-lightbox')) $(this).addClass('lightbox-youtube').attr('data-id',is_youtubelink(url));
+			if(is_imagelink(url) && !$(this).hasClass('no-lightbox')) {
+				$(this).addClass('lightbox-image');
+				var href = $(this).attr('href');
+				var filename = href.split('/').pop();
+				var split = filename.split(".");
+				var name = split[0];
+				$(this).attr('title',name);
+			}
+		}
+	});
+	//remove the clicked lightbox
+	$("body").on("click", ".lightbox", function(event){
+		if($(this).hasClass('gallery')) {
+			$(this).remove();
+			if($(event.target).attr('id')=='next') {
+				//next item
+				if($("a.gallery.current").nextAll("a.gallery:first").length) $("a.gallery.current").nextAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").first().click();
+			}
+			else if ($(event.target).attr('id')=='prev') {
+				//prev item
+				if($("a.gallery.current").prevAll("a.gallery:first").length) $("a.gallery.current").prevAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").last().click();
+			}
+			else {
+				$("a.gallery").removeClass('gallery');
+			}
+		}
+		else $(this).remove();
+	});
+	//prevent image from being draggable (for swipe)
+	$("body").on('dragstart', ".lightbox img", function(event) { event.preventDefault(); });
+	//add the youtube lightbox on click
+	$("a.lightbox-youtube").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&showinfo=0&rel=0"></iframe></div></div></div>').appendTo('body');
+	});
+	//add the image lightbox on click
+	$("a.lightbox-image").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" style="background: url('+$(this).attr('href')+') center center / contain no-repeat;" title="'+$(this).attr('title')+'" ><img src="'+$(this).attr('href')+'" alt="'+$(this).attr('title')+'" /></div><span>'+$(this).attr('title')+'</span></div>').appendTo('body');
+	});
+	//add the vimeo lightbox on click
+	$("body").on("click", "a.lightbox-vimeo", function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+$(this).attr('data-id')+'/?autoplay=1&byline=0&title=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div></div>').appendTo('body');
+	});
+
+	$("body").on("click", "a[class*='lightbox-']", function(){
+		var link_elements = $(this).parent().find("a[class*='lightbox-']");
+		$(link_elements).removeClass('current');
+		for (var i=0; i<link_elements.length; i++) {
+			if($(this).attr('href') == $(link_elements[i]).attr('href')) {
+				$(link_elements[i]).addClass('current');
+			}
+		}
+		if(link_elements.length>1) {
+			$('.lightbox').addClass('gallery');
+			$(link_elements).addClass('gallery');
+		}
+	});
+
+	
+});
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $("#prev").click();
+        break;
+        case 39: // right
+        $("#next").click();
+        break;
+	case 27: // esc
+        $("#close").click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+  /*===========================
+  Swipe-it v1.4.1
+  An event listener for swiping gestures with vanilla js.
+  https://github.com/tri613/swipe-it#readme
+ 
+  @Create 2016/09/22
+  @Update 2017/08/11
+  @Author Trina Lu
+  ===========================*/
+  "use strict";var _slicedToArray=function(){function n(n,t){var e=[],i=!0,o=!1,r=void 0;try{for(var u,c=n[Symbol.iterator]();!(i=(u=c.next()).done)&&(e.push(u.value),!t||e.length!==t);i=!0);}catch(n){o=!0,r=n}finally{try{!i&&c.return&&c.return()}finally{if(o)throw r}}return e}return function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return n(t,e);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();!function(n,t,e){function i(n){function e(){o("touchstart",m,w),o("touchmove",d,w),o("touchend",p,w),E.mouseEvent&&o("mousedown",s,w)}function i(){y=!1,D=!1,A=!1,b=!1,a=!1}function s(n){a=this,y=n.clientX,D=n.clientY,o("mousemove",l,v),o("mouseup",h,v)}function l(n){n.preventDefault(),y&&D&&(A=n.clientX,b=n.clientY)}function h(n){r("mousemove",l,v),r("mouseup",h,v),p(n)}function m(n){a=this,y=n.touches[0].clientX,D=n.touches[0].clientY}function d(n){A=n.touches[0].clientX,b=n.touches[0].clientY}function p(n){if(y&&D&&A&&b){var t=y-A,e=D-b,o=[t,e].map(Math.abs),r=_slicedToArray(o,2),c=r[0],s=r[1],v=E.minDistance;if(c>v){var f=y<A?"swipeRight":"swipeLeft";u(f,a,{distance:t,start:y,end:A})}if(s>v){var l=D>b?"swipeUp":"swipeDown";u(l,a,{distance:e,start:D,end:b})}(c>v||s>v)&&u("swipe",a)}i()}var E=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},w=c(t.querySelectorAll(n)),y=void 0,D=void 0,A=void 0,b=void 0;E.mouseEvent=void 0===E.mouseEvent?f.mouseEvent:E.mouseEvent,E.minDistance=void 0===E.minDistance?f.minDistance:E.minDistance,i(),e(),this.on=function(n,t){return o(n,t,w),this}}function o(n,t,e){s(e).forEach(function(e){return e.addEventListener(n,t)})}function r(n,t,e){s(e).forEach(function(e){return e.removeEventListener(n,t)})}function u(n,e){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},o=t.createEvent("Event");o.initEvent(n,!0,!0),o.swipe=i,s(e).forEach(function(n){return n.dispatchEvent(o)})}function c(n){for(var t=[],e=0;e<n.length;e++)t.push(n[e]);return t}function s(n){return Array.isArray(n)?n:[n]}var a=!1,v=[n],f={mouseEvent:!0,minDistance:30};n[e]=i}(window,document,"SwipeIt");
+
+var mySwipeIt = new SwipeIt('body');
+mySwipeIt.on('swipeLeft',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#next").click();
+	}
+}).on('swipeRight',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#prev").click();
+	}
+});
+</script>
+
+    </body>
+</html>

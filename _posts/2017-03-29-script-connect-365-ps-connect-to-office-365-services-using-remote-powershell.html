@@ -1,0 +1,121 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Script: Connect-365.ps1 - Connect to Office 365 services using remote PowerShell'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 2681
+wordpress_url: http://www.cgoosen.com/?p=2681
+date: '2017-03-29 06:15:11 +0000'
+date_gmt: '2017-03-29 12:15:11 +0000'
+categories:
+- Cloud
+- Office 365
+- Scripts
+- PowerShell
+- Azure AD
+tags: []
+comments:
+- id: 270771
+  author: Pat Richard
+  author_email: pat@innervation.com
+  author_url: https://ucunleashed.com
+  date: '2017-03-29 18:55:25 +0000'
+  date_gmt: '2017-03-30 00:55:25 +0000'
+  content: Cool stuff. Have you thought about running it through PSSharper (part of
+    ISEsteroids) in ISE? It's making a few suggestions.
+- id: 270773
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-03-29 19:52:49 +0000'
+  date_gmt: '2017-03-30 01:52:49 +0000'
+  content: |-
+    Hey Pat,
+
+    Thanks for the suggestion, I'll definitely check it out.
+
+    Cheers,
+
+    Chris
+- id: 272901
+  author: Onlabs
+  author_email: bastien.perez@outlook.com
+  author_url: ''
+  date: '2017-12-05 09:13:10 +0000'
+  date_gmt: '2017-12-05 15:13:10 +0000'
+  content: "Hello, I read your roadmap about install auto install prerequisites, maybe
+    you can use the work of https://gallery.technet.microsoft.com/scriptcenter/O365InstallsConnectionsps1-e4821bf1\r\n(careful,
+    the download links is outdated and Azure AD in version 1).\r\n\r\nIn addition,
+    you could add to parameters:\r\n-install : to install as a module (like the script
+    above)\r\n-commandline : to launch the script in command line (in fact, it is
+    more flexible when we want to use your script in another big script)\r\n\r\nPost
+    your script on github could be interesting for collaboration on it :)"
+- id: 273028
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-01-05 10:36:29 +0000'
+  date_gmt: '2018-01-05 16:36:29 +0000'
+  content: Thanks for the info. I've been considering GitHub, will definitely give
+    it some thought.
+- id: 274219
+  author: Urs Rau
+  author_email: urs.rau@om.org
+  author_url: ''
+  date: '2018-06-05 10:14:35 +0000'
+  date_gmt: '2018-06-05 16:14:35 +0000'
+  content: "Hi Chris, Great stuff thanks. When trying to run it from powershell core
+    6 it complies about \r\n[System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
+    being a problematic way \r\nAvoid Binding on Partial Assembly Names from best
+    practice document and apparently 'presentationframework' is an obsoleted dll in
+    framework 4.5 and newer.\r\n\"This method has been deprecated. Please use Assembly.Load()
+    instead.\" \r\nCan you rework this and use the more modern approach so it has
+    a chance of eventually working across win/mac/linux on powershell core"
+- id: 274361
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-06-14 09:44:14 +0000'
+  date_gmt: '2018-06-14 15:44:14 +0000'
+  content: Thanks for the feedback - I'll definitely look into this.
+---
+<p>I'm excited to announce the release of Connect-365! Back 2012, I put together a basic script with a GUI to simplify connecting to Exchange Online via remote PowerShell. I had never intended to make the script publicly available and it was just something I used myself. After a couple years I realized that it had been shared with so many colleagues and clients that I decided to clean it up and publish it on the TechNet gallery. Connect-EXO was born! Here's a screenshot of the original first version:</p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/Capture1.png"><img class="aligncenter size-medium wp-image-2684" src="https://www.cgoosen.com/wp-content/uploads/2017/03/Capture1-300x281.png" alt="" width="300" height="281" /></a></p>
+<p style="text-align: left;">Over time the script matured <a href="https://www.cgoosen.com/2014/10/script-connect-exo-ps1-connect-to-exchange-online-using-remote-powershell/" target="_blank" rel="noopener">into what Connect-EXO is today</a>. One of the challenges in the early version was that I used WPF for the GUI, this was problematic for older versions of PowerShell so I made the decision to port it to Windows Forms for backward compatibility. Forms is old and added a lot of bloat and since&nbsp;backwards compatibility is no longer a concern, I decided to move back to WPF. Connect-365 is essentially the next version of Connect-EXO, I renamed it so more accurately reflect it's purpose and this will allow me to continue to maintain Connect-EXO.</p>
+<p style="text-align: left;">Connect-365 features a GUI that will prompt for your tenant credentials and then connect to various Office 365 services using remote PowerShell. The built-in prerequisite checker will check to ensure that the correct modules are installed and provide a download link for those that are not.</p>
+<p>The current version of the script allows connectivity to:</p>
+<ul>
+<li>Exchange Online</li>
+<li>Azure Active Directory (using v2 module)</li>
+<li>Office 365 Security &amp; Compliance Center</li>
+<li>Skype for Business Online</li>
+<li>SharePoint Online</li>
+</ul>
+<p><strong>Requirements:</strong><br />
+This script will work natively in PowerShell 4.0+</p>
+<p><strong>Usage:</strong><br />
+There are no parameters or switches, simply execute the script: <em>.\Connect-365.ps1</em></p>
+<p><strong>Execution Policy:</strong><br />
+This script has been digitally signed and will run just fine under a "RemoteSigned" execution policy</p>
+<p><strong>Screenshots:</strong></p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png"><img class="aligncenter size-full wp-image-3707" src="https://www.cgoosen.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png" alt="" width="539" height="415" /></a></p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2019-02-27-at-2.09.09-PM.png"><img class="aligncenter size-full wp-image-3710" src="https://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2019-02-27-at-2.09.09-PM.png" alt="" width="539" height="415" /></a></p>
+<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/c.png"><img class="aligncenter wp-image-2687" src="https://www.cgoosen.com/wp-content/uploads/2017/03/c.png" alt="" width="628" height="125" /></a></p>
+<p><strong>Roadmap:</strong></p>
+<ul>
+<li><del>Support Azure AD v1 and v2</del> - Removed as v1 is depreciated</li>
+<li><del>Support for Exchange Online MFA (via module)</del> - Done!</li>
+<li>Derive SPO Admin URL</li>
+<li>Auto-install prerequisites</li>
+<li>Much more..</li>
+</ul>
+<p><strong>Download:<br />
+</strong>I have published it to the TechNet Gallery, <a href="http://cgoo.se/1srvTiS" target="_blank" rel="noopener">it can be downloaded by clicking here&hellip;</a></p>

@@ -1,0 +1,170 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange Server and the Reverse Proxy
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 916
+wordpress_url: http://www.cgoosen.com/?p=916
+date: '2013-03-27 14:52:32 +0000'
+date_gmt: '2013-03-27 03:52:32 +0000'
+categories:
+- ISA Server
+- Exchange Server
+- Forefront TMG
+tags: []
+comments:
+- id: 1262
+  author: John
+  author_email: jmango@hotmail.com
+  author_url: ''
+  date: '2013-04-11 10:55:02 +0000'
+  date_gmt: '2013-04-10 23:55:02 +0000'
+  content: What about UAG 2010 with SP3?
+- id: 1263
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-04-11 16:48:42 +0000'
+  date_gmt: '2013-04-11 05:48:42 +0000'
+  content: "Hi John,\n\nThat's a great question. \n\nUAG 2010 with SP3 does support
+    Exchange 2013 so it should work. It's been a while since I have used UAG or seen
+    it being used for this purpose, from memory there are a few things UAG can't do
+    (or at least never used to be able to do), things like 2-factor authentication
+    for EAS or certificate authentication - I am unsure if this is still the case.
+    I have seen the UAG licensing model be a blocker in the past, unlike TMG, UAG
+    requires each user to have a CAL. \n\nAs I mentioned in the post, there probably
+    are other equally suitable solutions out there. If you require a proxy server
+    and UAG works for you, then that's great!\n\nCheers,\n\nChris"
+- id: 1314
+  author: Andy
+  author_email: andy@edgenetworks.co.nz
+  author_url: ''
+  date: '2013-05-15 20:26:17 +0000'
+  date_gmt: '2013-05-15 09:26:17 +0000'
+  content: "Good post.\r\nInterested in the mod_proxy post ;)"
+- id: 1321
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-06-04 15:29:21 +0000'
+  date_gmt: '2013-06-04 04:29:21 +0000'
+  content: Thanks Andy. I've been thinking about the mod_proxy post for a while. I'd
+    be really keen to get it working with apache 2.4 mod_auth_form and html5.  Sadly
+    is keeps slipping down the list of things to do, hopefully I'll get it done sometime.
+- id: 1327
+  author: Laurent
+  author_email: l_francfort@hotmail.com
+  author_url: ''
+  date: '2013-06-05 03:43:01 +0000'
+  date_gmt: '2013-06-04 16:43:01 +0000'
+  content: And what about IIS with ARR ? It should do the job as Apache does
+- id: 1328
+  author: Sai Prasad
+  author_email: prasad@ics-inc.com
+  author_url: ''
+  date: '2013-06-06 10:58:01 +0000'
+  date_gmt: '2013-06-05 23:58:01 +0000'
+  content: "Chris: Great Article, this is exactly my approach when a client thinks
+    of a reverse proxy solution for exchange.\r\n\r\nBut i wanted to bring up an issue
+    that i had to deal and spend quite a few hours to narrow down the issue due to
+    Apache.\r\nI am no Linux\\Unix expert, the proxy for Exchange with was already
+    implememted and working fine for Exchange CAS until the client decided to move
+    to office 365.\r\nI did a hybrid deployment to move from on-Premise to O365 and
+    everything went well after introducing ADFS and Hybrid deployment. Mailflow worked
+    between O365 and Onpremise servers but F/B lookup will not work 1 way. After hours
+    of troubleshooting with some traces and looging, i was able to figure out that
+    Apache server manipulates the Security token from O365 federation gateway service
+    before the packet gets to CAS server, this was preventing from F/B to work between
+    the Hybrid setup. As soon as i bypassed the Apache proxying to CAS for EWS requests,
+    everything worked like a charm. Hope this saves some time for someone.\r\n\r\nbtw:
+    i m eagerly waiting for your Apache article as well"
+- id: 1329
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-06-06 12:33:11 +0000'
+  date_gmt: '2013-06-06 01:33:11 +0000'
+  content: |-
+    Hi Laurent,
+
+    I've seen some discussions about using ARR but to be honest I haven't really tried. The only thing (in theory) that apache should be able to do it handle the different workloads differently. There are many howto articles on the internet that will get apache to reverse proxy all the exchange workloads and it is quite simple to do. What I'm talking about is actually setting it up to perform pre-auth as well and in that way present you an authentication form if you are attempting to access OWA/ECP vs just accepting the basic popup auth prompt when querying autodiscover for example. In theory this should be possible, however it is something I have not yet been able to achieve.
+
+    Cheers,
+
+    Chris
+- id: 1330
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-06-06 12:34:35 +0000'
+  date_gmt: '2013-06-06 01:34:35 +0000'
+  content: |-
+    Thanks for the info Sai.
+
+    I'll hopefully get around to completing my apache lab soon.
+
+    Cheers,
+
+    Chris
+- id: 1334
+  author: Benoit Boudeville
+  author_email: benoit.boudeville@outlook.com
+  author_url: http://unifiees.blogspot.fr
+  date: '2013-06-15 08:10:43 +0000'
+  date_gmt: '2013-06-14 21:10:43 +0000'
+  content: ARR work well but is not really what I would call "scalable". Have a look
+    at HAProxy and Exceliance load-balancers, they're far superior to KEMP and much
+    cheaper than BigIPs...
+- id: 1335
+  author: pericles Staikopoulos
+  author_email: Pstaikopoulos@hraf.gr
+  author_url: ''
+  date: '2013-06-18 23:45:52 +0000'
+  date_gmt: '2013-06-18 12:45:52 +0000'
+  content: We have tried Apache as a reverse proxy with Exchange 2010 but when it
+    comes to RCP our Outlook anywhere clients were not able to connect in any way
+    (they simply do not authendicate). Have you tested that in the lab I am really
+    interested in a solution to this.
+- id: 1343
+  author: Ian Clarke
+  author_email: ianc@tesl.com
+  author_url: ''
+  date: '2013-07-17 23:03:01 +0000'
+  date_gmt: '2013-07-17 12:03:01 +0000'
+  content: "We now have 2012 R2 that has the Web Application Proxy role built in.
+    \ This will no doubt develop over the years but can provide reverse publishing
+    without the expense of UAG CALs.  It also supports 2-Factor.\r\nWorth a look\r\nhttp://blog.peterdahl.net/post/How-does-the-Mirosoft-Windows-2012-R2-Web-Application-Proxy-compare-to-the-Microsoft-Forefront-UAG-2010\r\nhttp://technet.microsoft.com/en-us/library/dn280944.aspx"
+- id: 1347
+  author: Exchange Server and the Reverse Proxy &#8211; Part 2 | Chris&#039;s Blog
+  author_email: ''
+  author_url: http://www.cgoosen.com/2013/07/exchange-server-and-the-reverse-proxy-part-2/
+  date: '2013-07-19 12:09:07 +0000'
+  date_gmt: '2013-07-19 01:09:07 +0000'
+  content: "[...] March this year I wrote a post entitled &ldquo;Exchange Server and
+    the Reverse Proxy&rdquo;. I had many similar conversations with peers and customers
+    about the topic, and at the time my [...]"
+---
+<p>Ever since <a href="http://blogs.technet.com/b/server-cloud/archive/2012/09/12/important-changes-to-forefront-product-roadmaps.aspx" target="_blank">Microsoft announced</a> that Forefront Threat Management Gateway (TMG) 2010 will be discontinued, I have had many customers ask me &ldquo;What should we use as a reverse proxy for Exchange?&rdquo;. This question has sparked many heated debates among colleagues and customers alike. To be fair, this announcement may have come as a huge shock to many people, but I think deep down many of us expected it to happen sooner or later.. TMG was a great product and really became the de facto standard for reverse proxying Exchange (and Lync, etc) and thinking back to all the Exchange deployments I have been involved with over the years, it is fair to say that most of them made use of ISA/TMG as a reverse proxy in some way. It worked well, but sadly all good things come to an end.</p>
+<p>So, lets get back to the question.. &ldquo;What should we use as a reverse proxy for Exchange?&rdquo; I&rsquo;ve been thinking about this for a while and I don&rsquo;t believe there is a magical silver bullet solution that will work for everyone and I urge my customers to think it through and make an informed decision. Do you even need a reverse proxy for Exchange? This is where things get heated.. but hear me out.. there are those who have been talking about the death of the DMZ for some time now. I remember attending a Tech-Ed session back in 2008 where <a href="http://channel9.msdn.com/Events/TechEd/Europe/2008/SEC309" target="_blank">Steve Riley talked about this</a> and Deb Shinder has also <a href="http://www.windowsecurity.com/articles-tutorials/misc_network_security/Has-Day-Death-DMZ-Finally-Arrived.html" target="_blank">blogged about this topic in the past.</a> I&rsquo;m not saying get rid of your firewall, but what I am saying is that perhaps you no longer need to use a reverse proxy to secure connections to your Exchange servers and this is something that should be thought about. My first response to the &ldquo;What should we use as a reverse proxy for Exchange?&rdquo; question is &ldquo;Do you still need a reverse proxy?&rdquo; and 99% of the time the answer I get back is &ldquo;Yes, because it is insecure not to&rdquo;. Perhaps it used to be, but is that statement still true? Every environment is different and every organisation has different needs and requirements. My intention with this post is to help you ask the right questions and make an informed decision.</p>
+<p>One of the great things about being a consultant is that I get to work with many different types of customers and see many different types of environments and typically the decision to implement a reverse proxy is driven by one or both of the following factors:</p>
+<ol>
+<li><strong>Application Hardening</strong> - The concept of application hardening has been around for some time now and there is a lot of information floating around about it. The question we need to ask is: does Exchange (the CAS role in particular) need to be hardened? The reality is that times have changed and both Windows Server and Exchange have matured and are hardened by default. Exchange CAS was designed to be internet facing so there really is no need for a reverse proxy in order to secure it anymore. Sure, using a reverse proxy is useful if you wish to implement third party two factor authentication or have other very specific requirements, but will your Exchange implementation be less secure without one? probably not.
+<li><strong>Security Policy - </strong>Security policy is much more complex and as you would expect, these policies come in many flavours! One thing most of them have in common is that they restrict traffic from passing through an entire zone or prevent services on the internal network from being accessed directly from the internet, i.e traffic cannot pass directly through the DMZ to the internal network, and must first terminate in the DMZ. In the past, the solution was to implement ISA/TMG as a reverse proxy in the DMZ. We already know that Exchange does not need any further hardening, so technically there is no need for this, but while technology matures relatively quickly security policies rarely keep up so it is fairly common to have this type of out-dated policy that dictates the use of a reverse proxy. Sometimes the remnants of this type of security policy are still visible long after the policy has evolved &ndash; I did some work with a customer recently who had a policy like this in the past and over time as their network grew they made decisions based on this policy that have resulted in a few technical constraints that are now causing some headaches. Typically, these security policies are similar to the diagram below:</li>
+</ol>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/03/Blog-Diagrams.png"><img title="Blog Diagrams" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="Blog Diagrams" src="http://www.cgoosen.com/wp-content/uploads/2013/03/Blog-Diagrams_thumb.png" width="742" height="346"></a></p>
+<p>There is something else to consider and that is performance. Often due to the mission critical nature of DMZ infrastructure and its various dependencies, this infrastructure is not upgraded or refreshed as regularly as other infrastructure so you end up building on infrastructure that was never intended to deal with the load that is now being placed on it. A classic example of this is an environment I saw a while back &ndash; this particular organisation was in the process of refreshing their messaging platform and had just made a significant investment in a highly available Exchange environment only to go and use the ageing 32-bit only ISA 2006 infrastructure in their DMZ as a reverse proxy because connections to Exchange needed to be &ldquo;secured&rdquo;.</p>
+<p>So what&rsquo;s answer then? Well.. I think it is important to first understand what your requirements are. Are you currently using TMG? why change? Mainstream support for TMG will <a href="http://support.microsoft.com/lifecycle/search/default.aspx?sort=PN&amp;alpha=Forefront+Threat+Management+Gateway+2010&amp;Filter=FilterNO" target="_blank">continue into 2015 with extended support through 2020</a>. Are you looking to implement a reverse proxy because you think it will make Exchange more secure? If so, perhaps you need to rethink your approach. Are you looking for a TMG replacement because your security policy dictates the use of a proxy server and you really have no choice in the matter? Here are three options:</p>
+<ol>
+<li><strong>F5 BIG-IP Access Policy Manager (APM)</strong>&nbsp; - Many organisations have already invested in BIG-IP LTM devices to load balance Exchange. It makes sense to leverage this infrastructure, you&rsquo;ll have the added benefit of infrastructure consolidation if you move the reverse proxy functionality to your BIG-IP devices. <a href="http://www.f5.com/products/big-ip/big-ip-access-policy-manager/overview/" target="_blank">More info here</a>
+<li><strong>KEMP LoadMaster Edge Security Pack (ESP) - </strong>I have always been a big fan of the KEMP LoadMaster devices and KEMP is currently working on their Edge Security Pack which will help provide some TMG functionality and compliment their already excellent offering. These devices already provide excellent value for money and my understanding is that the ESP will be a free upgrade for most customers. ESP is not publically available yet but I think it is worth looking at. <a href="http://www.kemptechnologies.com/en/tmg-edge-security-authentication.html" target="_blank">More info here</a>
+<li><strong>Apache HTTP Server with mod_proxy - </strong>No, your eyes are not deceiving you, it is possible to use apache as a reverse proxy. I am not making any claims about the supportability of the solution or saying that it is an enterprise ready option, and just because it is possible to do it does not mean you should. I have seen many attempts at this solution in the past so I am currently working on a post that will provide a guide on how to go about setting it all up as well as explain the limitations and pitfalls of the solution. I hope to post more about it soon.</li>
+</ol>
+<p>I&rsquo;m sure there are many other equally suitable solutions, but my intention was to mention some of the ones I have worked with or tested. Each of these also have different pricing and scalability options so they will appeal to a wide range of different organisations.</p>

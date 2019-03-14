@@ -1,0 +1,189 @@
+---
+layout: post
+status: publish
+published: true
+title: Migrate Legacy Public Folders to Exchange Online &ndash; Part 2
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 996
+wordpress_url: http://www.cgoosen.com/?p=996
+date: '2013-11-08 14:18:06 +0000'
+date_gmt: '2013-11-08 03:18:06 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 1461
+  author: Andy Walker
+  author_email: andy.walker@kloud.com.au
+  author_url: ''
+  date: '2014-01-31 10:07:04 +0000'
+  date_gmt: '2014-01-30 23:07:04 +0000'
+  content: "Hey Chris,\r\nGreat article and much more accurate than the MS version..\r\nOne
+    thing I thought might come in handy to anyone reading this article is be sure
+    to confirm the authentication method is set correctly when running the New-PublicFolderMigrationRequest
+    command.  \r\n\r\nDuring a recent public folder migration that I performed for
+    one of our clients, I copied the command verbatim from the the MS technet article
+    which unfortunately doesn't include any commentary around the use of the authentication
+    method switch and just includes 'authenticationmethod basic'.  This obviously
+    should reflect the authentication type used by the Outlook Anywhere ingress point.
+    \ It seems obvious in hindsite but in the midst of 1001 powershell commands was
+    easily missed.\r\n\r\nThe result of using the wrong auth method was that the script
+    ran for over 7 hours and successfully created all the public folders but when
+    it came to copying the actual data, bombed out with a completely non descript
+    error. Awesome.."
+- id: 264234
+  author: Mark Miranda
+  author_email: mark@markmiranda.com
+  author_url: ''
+  date: '2015-09-24 23:41:37 +0000'
+  date_gmt: '2015-09-25 05:41:37 +0000'
+  content: How do you migrate modern public folders to online.  Public folders which
+    have already been migrated from legacy public folders?
+- id: 264241
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-09-26 10:27:52 +0000'
+  date_gmt: '2015-09-26 16:27:52 +0000'
+  content: |-
+    Hi Mark,
+    There isn't any native way of moving modern public folders to Exchange Online, but there are some third-party tools that can help with that - migrationwiz comes to mind.
+    I typically try and steer away from migrating public folders if I can and look to using other technologies to provide that functionality - things like shared mailboxes or Office 365 groups. Every environment and situation is different so that approach may not work for you.
+
+    All the best,
+    Chris
+- id: 264477
+  author: Ken W
+  author_email: kww8@kerrith.com
+  author_url: ''
+  date: '2015-10-09 07:45:53 +0000'
+  date_gmt: '2015-10-09 13:45:53 +0000'
+  content: "Really well written article - thanks.  You mentioned only one public folder
+    migration can run at a time which makes sense.  What doesn't make much sense (probably
+    only to me - and not through any fault of your post) is whether you can run a
+    public folder migration at the same time as a mailbox migration.\r\n\r\nThe MS
+    article says you need to migrate mailboxes before you migrate public folders but
+    doesn't say whether you actually need to go all the way and finalize them.  Can
+    you do the initial mailbox sync via the Office 365 mailbox migration tool in the
+    EAC, do the public folder migration using this scripted method, then finalize
+    both the mailbox and public folder migrations at the same time?  Otherwise, Outlook
+    gets moved over to Office 365 while public folders are still sat on the legacy
+    on-premises Exchange Server inaccessible."
+- id: 264483
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-10-09 09:35:35 +0000'
+  date_gmt: '2015-10-09 15:35:35 +0000'
+  content: "Hi Ken,\n\nThanks for your feedback. \n\nIn a typical migration scenario,
+    you would move all your mailboxes to Exchange Online over time which means there
+    will be a period of coexistence required which is what a Hybrid deployment of
+    Exchange allows. During this time, users who have had their mailbox moved to Exchange
+    Online can still access legacy public folders using proxy public folder mailboxes
+    (see: Step 1 https://technet.microsoft.com/en-us/library/dn249373(v=exchg.150).aspx)
+    Once the mailbox move is complete and everyone has been moved to Exchange Online
+    you would perform the Public Folder migration which really is a cut-over of all
+    Public Folders at one time. \n\nI guess you probably could try finalizing all
+    mailboxes and cutting over the Public Folders at the same time, this probably
+    would not be the best idea if you had a large number of users but for small environments
+    it might work ok. I'll be honest, it isn't something that I've tried.\n\nAll the
+    best,\n\nChris"
+---
+<p><a href="http://www.cgoosen.com/2013/10/migrate-legacy-public-folders-to-exchange-online-part-1/" target="_blank">In part 1 we</a> briefly looked at the architectural changes made to modern public folders in Exchange 2013 as well as some of the things to you may want to consider as you prepare to migrate you public folders to Exchange Online. In this post we will step through the actual migration process in detail.</p>
+<p>Let&rsquo;s firstly take a look at the migration scripts. I typically place all these scripts in the same folder, c:\pfmigration for example. You should have the following scripts downloaded:</p>
+<ul>
+<li>Export-PublicFolderStatistics.ps1 - This script creates a .csv file that contains a folder name-to-folder size mapping.
+<li>PublicFolderToMailboxMapGenerator.ps1 - This script uses the mapping file to create a public folder-to-mailbox mapping file which is also a .csv file.
+<li>Export-MailPublicFoldersForMigration.ps1 - This script exports the mail-enabled public folder objects from the on-premises organization&rsquo;s Active Directory into a .xml file.
+<li>Import-MailPublicFoldersForMigration.ps1 - This script imports the mail-enabled public folder objects into Exchange Online.</li>
+</ul>
+<p>Note: These scripts also have support files with a .psd1 extension, it is important that these support files are placed in the same folder.</p>
+<p>Before starting the migration process, you should confirm that there are no existing public folder migration requests in Exchange Online. These would need to be removed before you can continue, but it is important to first understand why there are already there before removing them. You can easily see if there are any existing request by running the following cmdlet in Exchange Online:</p>
+<blockquote><p>Get-PublicFolderMigrationRequest | Get-PublicFolderMigrationRequestStatistics -IncludeReport | Format-List</p>
+</blockquote>
+<p>The first step in the migration process is to ensure that mail-flow to mail-enabled public folders will continue to work. The steps required to do this will depend on your configuration. If you already have an Exchange Hybrid configured (as I do), you will most likely not need to do anything as the Hybrid Configuration Wizard will take care of this step.</p>
+<p>Next it is time to start using the migration scripts. We start with the Export-PublicFolderStatistics.ps1 script to create our name-to-folder size mapping file. This script is run on the legacy public folder server:</p>
+<blockquote><p>Export-PublicFolderStatistics.ps1&nbsp; <size_mapping_file_name> <legacy_server></p>
+</blockquote>
+<p>Once we have our size mapping file, we can run the PublicFolderToMailboxMapGenerator.ps1 script to create the public folder-to-mailbox mapping file which is used to calculate the correct number of public folder mailboxes that will be required in Exchange Online. This script is run on the legacy public folder server:</p>
+<blockquote><p>PublicFolderToMailboxMapGenerator.ps1 <maximum_mailbox_size_in_bytes> <size_mapping_file_name> <mailbox_mapping_file_name></p>
+</blockquote>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/11/image.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2013/11/image_thumb.png" width="1014" height="277"></a></p>
+<p>Note: The <maximum_mailbox_size_in_bytes> parameter is used to size your public folder mailboxes in Exchange Online. In my example I have used 10 GB (or there about!) Public folders in Exchange Online can be a maximum of 50 GB, however I would recommend leaving enough room for growth. </p>
+<p>I was having a discussion with a colleague of mine last week about public folder migration, more specifically how to selectively migrate only certain public folders. In the interest of full disclosure, I have not tested this (yet!), but in theory it should work. If you were to edit the size mapping file in Excel, you will notice that it contains two columns: &lsquo;FolderName&rsquo; and &lsquo;FolderSize&rsquo;. Remove all the entries for folders that you don&rsquo;t want to migrate before running the PublicFolderToMailboxMapGenerator.ps1 script and complete the rest of the process as documented. If you have tried this and have some feedback, let me know. I hope to be able to test it soon.</p>
+<p>Moving on.. once we have our mapping files created, we should export our mail enabled public folders on our legacy public folder server:</p>
+<blockquote><p>Export-MailPublicFoldersForMigration.ps1 <export_file_name></p>
+</blockquote>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo3.png"><img title="pfeo3" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="pfeo3" src="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo3_thumb.png" width="1014" height="168"></a></p>
+<p>Next, we can connect to Exchange Online and create our new public folder mailboxes. The first public folder mailbox that is created will be the primary hierarchy mailbox and it must be created in &lsquo;HoldForMigration mode&rsquo;. This public folder mailbox should also be excluded from the serving hierarchy so that the public folders won&rsquo;t be available to Exchange Online users.</p>
+<blockquote><p>New-Mailbox -PublicFolder <mailbox_name> -HoldForMigration:$true -IsExcludedFromServingHierarchy:$true</p>
+</blockquote>
+<p>We should also import our mail enabled public folders:</p>
+<blockquote><p>Import-MailPublicFoldersForMigration.ps1 <export_file_name></p>
+</blockquote>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo4.png"><img title="pfeo4" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="pfeo4" src="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo4_thumb.png" width="1014" height="231"></a></p>
+<p>We are now ready to submit the migration request, but before we do, let&rsquo;s gather all the required information for the New-PublicFolderMigrationRequest cmdlet:</p>
+<p>First we need our Outlook Anywhere hostname and authentication method:</p>
+<blockquote><p>Get-OutlookAnywhere | Format-List Identity, ExternalHostName, IISAuthenticationMethods</p>
+</blockquote>
+<p>We also need the LegacyExchangeDN of the administrator mailbox:</p>
+<blockquote><p>Get-Mailbox <user> | Format-Table LegacyExchangeDN</p>
+</blockquote>
+<p>Lastly, we need the ExchangeLegacyDN of the legacy public folder server:</p>
+<blockquote><p>Get-ExchangeServer &ndash;Identity <server> | Format-Table ExchangeLegacyDN</p>
+</blockquote>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/11/Capture.png"><img title="Capture" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Capture" src="http://www.cgoosen.com/wp-content/uploads/2013/11/Capture_thumb.png" width="1014" height="341"></a></p>
+<p>Given the length of the cmdlet and parameters, I recommend using variables. Using the information we have gathered, we can easily do this:</p>
+<blockquote><p>$OAHostname = <ExternalHostName_value></p>
+<p>$Csv = Get-Content c:\PFMigration\pf2mbx.csv -Encoding Byte</p>
+<p>$OnPremCred = Get-Credential</p>
+<p>$Rmldn = <LegacyExchangeDN_value></p>
+<p>$Rpfsldn = <ExchangeLegacyDN_value></p>
+</blockquote>
+<p>We can then run the New-PublicFolderMigrationRequest cmdlet using these variables. You&rsquo;ll know that the command started successfully when the migration request reaches a status of &lsquo;Queued&rsquo; or &lsquo;InProgress&rsquo;:</p>
+<blockquote><p>New-PublicFolderMigrationRequest -OutlookAnywhereHostName $OAHostName -CSVData $Csv -RemoteCredential $OnPremCred -RemoteMailboxLegacyDN $Rmldn -RemoteMailboxServerLegacyDN $Rpfsldn -AuthenticationMethod <Basic/NTLM></p>
+</blockquote>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/11/image1.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2013/11/image_thumb1.png" width="1014" height="341"></a></p>
+<p>Once the migration request kicks off it will copy the public folder data and will continue running until it reaches 95% at which point it will auto suspend the request. We can monitor the progress using the Get-PublicFolderMigrationRequest and Get-PublicFolderMigrationRequestStatistics cmdlets:</p>
+<blockquote><p>Get-PublicFolderMigrationRequest | Get-PublicFolderMigrationRequestStatistics -IncludeReport | Format-List Status, SourceServer, SourceVersion, BytesTransferred, ItemsTransferred, PercentComplete, Message</p>
+</blockquote>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo7.png"><img title="pfeo7" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="pfeo7" src="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo7_thumb.png" width="1014" height="294"></a></p>
+<p>In order to complete the migration request, we need to arrange downtime or a service outage as there will be period while the last bit of data is transferred where public folders will be unavailable to end users. The amount of downtime depends on how much new content has been generated since the migration was suspended. In large environments with a lot of changing content, I would recommend running the Resume-PublicFolderMigrationRequest cmdlet. This cmdlet can be run as often as required and will merely copy any new content and auto suspend at 95%, this will reduce the amount of downtime required.</p>
+<p>Once we have scheduled a service outage and informed out end users, we need to lock the legacy public folder environment in order to prevent any further changes:</p>
+<blockquote><p>Set-OrganizationConfig &ndash;PublicFoldersLockedForMigration $true</p>
+</blockquote>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo8.png"><img title="pfeo8" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="pfeo8" src="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo8_thumb.png" width="1014" height="256"></a></p>
+<p>Next we need to allow the migration request to complete, we do this by removing &lsquo;PreventCompletion&rsquo;:</p>
+<blockquote><p>Get-PublicFolderMigrationRequest | Set-PublicFolderMigrationRequest -PreventCompletion $false</p>
+</blockquote>
+<p>We can now resume the migration request and this time it will run through to completion and not auto suspend at 95%:</p>
+<blockquote><p>Get-PublicFolderMigrationRequest | Resume-PublicFolderMigrationRequest</p>
+</blockquote>
+<p>We monitor the request as before to verify that it has completed successfully:</p>
+<blockquote><p>Get-PublicFolderMigrationRequest | Get-PublicFolderMigrationRequestStatistics -IncludeReport | Format-List Status, SourceServer, SourceVersion, BytesTransferred, ItemsTransferred, PercentComplete, Message</p>
+</blockquote>
+<p>Once we are happy that the migration has completed successfully, we allow the hierarchy to be served:</p>
+<blockquote><p>Get-Mailbox -PublicFolder | Set-Mailbox -PublicFolder -IsExcludedFromServingHierarchy $false</p>
+</blockquote>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo10.png"><img title="pfeo10" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="pfeo10" src="http://www.cgoosen.com/wp-content/uploads/2013/11/pfeo10_thumb.png" width="1014" height="295"></a></p>
+<p>The final set in the process is to set the migration as complete in the legacy environment:</p>
+<blockquote><p>Set-OrganizationConfig -PublicFolderMigrationComplete $true</p>
+</blockquote>
+<p>It is possible to roll back the migration, however I would like to mention a few really important points about rolling back:</p>
+<ul>
+<li>The roll back process will not copy any changed data back to the legacy environment, this should be considered when deciding to roll back. It would be a really bad idea to try and roll back a change heavy environment after 3 weeks.</li>
+<li>Roll back will obviously require the original public folder databases to be online, I therefore recommend dismounting these for a period of time after the migration just in case you need them. This process is a lot more difficult if you delete the databases and then try and roll back.</li>
+</ul>
+<p>For more information on the migration process, see the following article on TechNet:</p>
+<ul>
+<li><a href="http://technet.microsoft.com/en-us/library/jj983799(v=exchg.150).aspx" target="_blank">Migrate Legacy Public Folders to Exchange Online</a></li>
+</ul>

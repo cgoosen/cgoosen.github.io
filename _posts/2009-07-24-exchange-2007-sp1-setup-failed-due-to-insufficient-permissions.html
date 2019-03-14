@@ -1,0 +1,60 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2007 SP1 Setup failed due to insufficient permissions
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 189
+wordpress_url: http://www.cgoosen.com/2009/07/exchange-2007-sp1-setup-failed-due-to-insufficient-permissions/
+date: '2009-07-24 17:27:27 +0000'
+date_gmt: '2009-07-24 06:27:27 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 13
+  author: David Wilson
+  author_email: david.g.wilson@capgemini.com
+  author_url: ''
+  date: '2009-09-23 03:04:02 +0000'
+  date_gmt: '2009-09-22 16:04:02 +0000'
+  content: An alternative is to right click on setup.exe and choose "Runa as administrator".
+    This saves turning off UAC and rebooting
+- id: 14
+  author: chris
+  author_email: chris.goosen@gen-i.com.au
+  author_url: http://www.cgoosen.com
+  date: '2009-09-23 09:58:45 +0000'
+  date_gmt: '2009-09-22 22:58:45 +0000'
+  content: if i recall from my testing, that did not solve the problem, but it was
+    some time ago so i may be mistaken. thanks for the input!
+- id: 15
+  author: David Wilson
+  author_email: david.g.wilson@capgemini.com
+  author_url: ''
+  date: '2009-09-23 23:56:09 +0000'
+  date_gmt: '2009-09-23 12:56:09 +0000'
+  content: Just to confirm it did solve the problem for me. Please to help.
+- id: 18
+  author: chris
+  author_email: chris.goosen@gen-i.com.au
+  author_url: http://www.cgoosen.com
+  date: '2009-09-26 16:54:16 +0000'
+  date_gmt: '2009-09-26 05:54:16 +0000'
+  content: thanks for confirming.
+---
+<p>I came across this error for the first time the other day, not entirely sure why I have not seen it before on Win 2008. This particular server was Windows 2008 Ent with SP2.</p>
+<p>&ldquo;Setup failed due to insufficient permissions&hellip;.&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/07/image.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/07/image-thumb1.png" width="410" height="165" /></a> </p>
+<p>At first I thought it was pretty obvious that my account did not have the correct permissions, right? that's what the error suggests.. checked AD and it turns out I had been granted the correct permissions. What else could it be? As a test, I tried to open the Security Log and that worked.. I was a little confused. Then I realised what it was.. UAC</p>
+<p>User Account Control (UAC) is a technology and security infrastructure introduced with Microsoft's Windows Vista operating system. It aims to improve the security of Microsoft Windows by limiting application software to standard user privileges until an administrator authorizes an increase in privilege level. In this way, only applications that the user trusts receive higher privileges, and malware should be kept from receiving the privileges necessary to compromise the operating system. In other words, a user account may have administrator privileges assigned to it, but applications that the user runs do not also have those privileges unless they are approved beforehand or the user explicitly authorizes it to have higher privileges. Windows 2008 also uses UAC.</p>
+<p>The workaround I used was to turn off UAC and reboot the server, setup worked perfectly after that.</p>
+<p>To turn off UAC, go to &ldquo;Control Panel&rdquo;, then &ldquo;User Accounts&rdquo;.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/07/image2.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/07/image-thumb3.png" width="561" height="178" /></a></p>

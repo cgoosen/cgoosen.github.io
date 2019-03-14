@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Apple iOS 6.1 devices causing increased resource consumption in Exchange Server
+  2010
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 907
+wordpress_url: http://www.cgoosen.com/?p=907
+date: '2013-02-14 09:54:21 +0000'
+date_gmt: '2013-02-13 22:54:21 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 679
+  author: iOS 6.1.2 Software Update &#8211; Fixes Exchange calendar bug | Chris&#039;s
+    Blog
+  author_email: ''
+  author_url: http://www.cgoosen.com/2013/02/ios-6-1-2-software-update-fixes-exchange-calendar-bug/
+  date: '2013-02-20 09:45:28 +0000'
+  date_gmt: '2013-02-19 22:45:28 +0000'
+  content: "[...] Apple iOS 6.1 devices causing increased resource consumption in
+    Exchange Server 2010 [...]"
+---
+<p><span style="color: #ff0000;">Update:</span> <a title="iOS 6.1.2 Software Update &ndash; Fixes Exchange calendar bug" href="http://www.cgoosen.com/2013/02/ios-6-1-2-software-update-fixes-exchange-calendar-bug/">iOS 6.1.2 resolves this problem</a></p>
+<p>I have see a lot of reports lately about the Apple iOS 6.1 bug effecting organisations using Exchange 2010. The problem appears to occur when a user using a Apple device (iPad, iPhone, etc) with iOS 6.1 responds to or edits a single instance of a recurring calendar event, this causes excessive log growth and a significant increase in memory and CPU resource consumption in turn causing server performance to be affected. Both <a href="http://support.microsoft.com/kb/2814847" target="_blank">Microsoft</a> and <a href="http://support.apple.com/kb/TS4532" target="_blank">Apple</a> have released support articles for this bug, but at the time of writing it has not been fixed.</p>
+<p>If you do currently have a large iOS device fleet, I would suggest advising your users against upgrading their devices until this is resolved. If you are already experiencing resource problems on your Exchange servers, I strongly suggest using either a custom throttling policy for iOS 6.1 users or blocking iOS 6.1 users completely. For more information on these workarounds, see the <a href="http://support.microsoft.com/kb/2814847" target="_blank">following Microsoft support article.</a></p>

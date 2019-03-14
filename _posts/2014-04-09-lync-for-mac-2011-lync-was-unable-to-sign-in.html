@@ -1,0 +1,36 @@
+---
+layout: post
+status: publish
+published: true
+title: Lync for Mac 2011 &ndash; &ldquo;Lync was unable to sign in..&rdquo;
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1056
+wordpress_url: http://www.cgoosen.com/?p=1056
+date: '2014-04-09 09:47:48 +0000'
+date_gmt: '2014-04-08 22:47:48 +0000'
+categories:
+- Office 365
+- Lync
+tags: []
+comments: []
+---
+<p><span style="color: #ff0000;">##Update##</span><br />
+<span style="color: #ff0000;">Since writing the post, I have been able to obtain a copy of the hotfix described in <a href="http://support.microsoft.com/kb/2926055" target="_blank">KB2926055</a> and I can confirm that it does fix this issue.</span></p>
+<p>I recently came across an interesting issue when attempting to log into Lync Online using Lync for Mac 2011. This was a newly installed an updated version of Lync for Mac 2011, version 14.0.7 (131205) to be exact. At first I thought I&rsquo;d made a typo with my password but after a couple of attempts I knew something else was wrong. I tried a couple of other Lync accounts and still kept receiving the &ldquo;Lync was unable to sign in. Please verify your logon credentials and try again. If the problem continues, please contact your support team.&rdquo; error message.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="image" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb.png" width="290" height="504" border="0" /></a></p>
+<p>I tried using manual server configuration as suggested in the &ldquo;<a href="http://support.microsoft.com/kb/2629861" target="_blank">Troubleshoot sign in issues with Lync for Mac 2011 in Lync Online</a>&rdquo; article, but that didn&rsquo;t make any difference either. I then tried using a different Mac with Lync for Mac version 14.0.6 and that one was able to log in without any issues. After digging into the client logs, we saw the following entry:</p>
+<p><em>04/08/2014|20:48:55.286 25A:B0115000 WARN&nbsp; :: GetNewWebTicket: "Got new web ticket already expired: Current time=1396954135, expire time=0"</em></p>
+<p>It seems Lync for Mac 2011 tries to use a web ticket that is expired. After a bit of searching around, we found Article ID: 2927775 <a href="http://support.microsoft.com/kb/2927775" target="_blank">&ldquo;Can't sign in or see contact pictures in Lync for Mac 2011 when system time zone is set to UTC+8 or an earlier time zone&rdquo;</a> which exactly describes the issue which occurs because Lync for Mac 2011 calculates the expiration time of a web ticket based on an incorrect time zone.&nbsp; I was able to confirm this by changing my time zone settings which resulted in my client immediately being able to log in.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb1.png" width="651" height="562" border="0" /></a></p>
+<p align="left">Once you have successfully logged in, you can change your time zone back to the correct configuration and you will still be able to log in. Unfortunately, this workaround does not persist across reboots or hibernations.</p>
+<p align="left">Article ID: 2926055 <a href="http://support.microsoft.com/kb/2926055" target="_blank">&ldquo;Description of the Microsoft Lync for Mac 2011 14.0.7 hotfix&rdquo;</a> describes a hotfix that should resolve this issue, unfortunately you need to contact Microsoft Customer Support Services to obtain this hotfix and I haven&rsquo;t been able to obtain it yet. I have logged the appropriate service request and will update this post once I have tested it.</p>
+<p align="left">With the correct DNS configuration, I haven&rsquo;t found the need to use manual server configuration as suggested in numerous support articles. I find that the default configuration works just fine.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb2.png" width="381" height="359" border="0" /></a></p>
+<p align="left">I also wanted to thank for my colleague, Lync MCM Aidan Freeman for helping me troubleshoot this issue.</p>

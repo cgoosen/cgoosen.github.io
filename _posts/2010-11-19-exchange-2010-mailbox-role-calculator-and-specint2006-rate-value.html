@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2010 Mailbox Role Calculator and SPECint2006 Rate Value
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 639
+wordpress_url: http://www.cgoosen.com/2010/11/exchange-2010-mailbox-role-calculator-and-specint2006-rate-value/
+date: '2010-11-19 14:30:18 +0000'
+date_gmt: '2010-11-19 03:30:18 +0000'
+categories:
+- Exchange Server
+tags: []
+comments: []
+---
+<p>I often talk about the Exchange 2010 Mailbox role calculator, I&rsquo;m sure everyone uses it (everyone should be using it!) during the planning phases of any Exchange 2010 deployment. If you have no idea what I am talking about, <a href="http://msexchangeteam.com/archive/2009/11/09/453117.aspx" target="_blank">click here now!</a></p>
+<p>There is an area on the input tab where you define the number of processor cores that will have deployed for each mailbox server within your primary and secondary data centres, as well as, enter the SPECint2006 rate value for the system you have selected. The SPECint2006 rate value often causes some confusion so I thought I would write this post to try and clarify what to enter in the SPECint2006 rate value field.</p>
+<p>In previous versions of the Exchange 2010 Mailbox role calculator (prior to 12.8) you had to enter the &ldquo;Adjusted Megacycles / Core&rdquo; which meant that you needed to normalise your server platform against the baseline platform -Intel Xeon x5470 3.33GHZ processors (2x4 core arrangement) and enter that value. To get to this value, you had to find your rate value and then use the following formula to calculate the &ldquo;Adjusted Megacycles / Core&rdquo; value: </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/11/image.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/11/image_thumb.png" width="321" height="42" /></a> </p>
+<p>In version 12.8, the field name has changed to &ldquo;SPECint2006 Rate Value&rdquo; which means you no longer need to normalise your server platform against the baseline platform and you merely enter the rate value. </p>
+<p>To find the rate value, <a href="http://www.spec.org" target="_blank">go here</a>, click on &ldquo;Results&rdquo;, highlight &ldquo;CPU2006&rdquo; and then select &ldquo;Search CPU2006 Results&rdquo;. Under &ldquo;Available Configurations&rdquo;, select &ldquo;SPECint2006 Rates&rdquo; and click Go. Under &ldquo;Simple Request&rdquo;, enter the search criteria (e.g. Processor matches x5550) and find the server and processor you are planning to deploy and take note of the result value. </p>
+<p>For example, let's say you are deploying a Dell PowerEdge M710 8-core server with Intel x5550 2.67GHz processors (2670 Hertz); the SPECint_rate2006 results value is 240, simply go back to the Exchange 2010 Mailbox role calculator and select &ldquo;8&rdquo; in the &ldquo;Processor Cores / Server&rdquo; field and enter &ldquo;240&rdquo; in &ldquo;SPECint2006 Rate Value&rdquo; field. Easy, huh?</p>

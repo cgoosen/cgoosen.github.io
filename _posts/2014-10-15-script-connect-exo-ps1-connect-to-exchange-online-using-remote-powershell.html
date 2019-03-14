@@ -1,0 +1,63 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Script: Connect-EXO.ps1 - Connect to Exchange Online using remote PowerShell'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1200
+wordpress_url: http://www.cgoosen.com/?p=1200
+date: '2014-10-15 15:39:16 +0000'
+date_gmt: '2014-10-15 21:39:16 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+- Scripts
+tags: []
+comments:
+- id: 232958
+  author: Thomas Stensitzki
+  author_email: thomas@stensitzki.de
+  author_url: http://www.granikos.eu
+  date: '2014-10-16 00:19:24 +0000'
+  date_gmt: '2014-10-16 06:19:24 +0000'
+  content: Thanks for sharing this script to simplify the EXO login.
+- id: 267164
+  author: Katherine Bargas
+  author_email: Katherine_Bargas@discovery.com
+  author_url: ''
+  date: '2016-04-07 11:32:45 +0000'
+  date_gmt: '2016-04-07 17:32:45 +0000'
+  content: I really like this script to connect.  I also have to connect to do compliance
+    searches (https://ps.compliance.protection.outlook.com/powershell-liveid/ ).  I'm
+    not a developer and looking at your script really understand how its making its
+    connections but is it possible to add to connect to the URL above for the Compliance
+    searches?  Thank you.
+---
+<p>I recently came across an old script I wrote to simplify connecting to Exchange Online using remote PowerShell and thought I&rsquo;d polish it up a little and release it in case it could help make life easier for someone else.</p>
+<p>This page will be updated whenever new features are added to the script..</p>
+<p>This script features a GUI that will prompt for your tenant credentials and then connect to various Office 365 services using remote PowerShell. The current version of the script allows connectivity to:</p>
+<ul>
+<li>Exchange Online</li>
+<li>Azure Active Directory</li>
+<li>Office 365 Security &amp; Compliance Center<strong>&nbsp;</strong></li>
+</ul>
+<p><strong>Requirements:<br />
+</strong>The script will work natively in PowerShell 2.0+</p>
+<p><strong>Usage:</strong><br />
+There are no parameters or switches, simply execute the script:</p>
+<p>[shell].\Connect-EXO.ps1[/shell]</p>
+<p><strong>Execution Policy:<br />
+</strong>The script has been digitally signed and will run just fine under a "RemoteSigned" execution policy.</p>
+<p><strong>Screenshots:</strong></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/10/cap1.png" rel="attachment wp-att-1504"><img class="aligncenter wp-image-1504" src="http://www.cgoosen.com/wp-content/uploads/2014/10/cap1.png" alt="GUI" width="451" height="296" /></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/10/cap2.png" rel="attachment wp-att-1505"><img class="aligncenter size-large wp-image-1505" src="http://www.cgoosen.com/wp-content/uploads/2014/10/cap2-1024x292.png" alt="Connected!" width="640" height="183" /></a></p>
+<p><strong>Download:<br />
+</strong>I have published it to the TechNet Gallery, <a href="http://cgoo.se/2mPzFJo" target="_blank">it can be downloaded by clicking here...</a></p>

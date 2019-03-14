@@ -1,0 +1,103 @@
+---
+layout: post
+status: publish
+published: true
+title: 'MigrationPermanentException: The target mailbox doesn''t have an SMTP proxy
+  matching ''company.mail.onmicrosoft.com''.'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1219
+wordpress_url: http://www.cgoosen.com/?p=1219
+date: '2014-11-21 10:59:34 +0000'
+date_gmt: '2014-11-21 16:59:34 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 257773
+  author: Brian Reid
+  author_email: brian.reid@c7solutions.com
+  author_url: ''
+  date: '2015-02-05 08:48:53 +0000'
+  date_gmt: '2015-02-05 14:48:53 +0000'
+  content: "Hi Chris,\r\n\r\nYour script could read the DomainName value from the
+    RemoteDomain that is TargetDeliveryDomain = $True. The domain for the RemoteDomain
+    that has this setting $True is the domain used for the TargetAddress attribute
+    stamping against the email address policy. This way you do not need to ask the
+    administrator for the value, or at least supply the value configured during the
+    hybrid wizard.\r\n\r\n\"<b>(Get-RemoteDomain | Where {$_.TargetDeliveryDomain
+    -eq $True}).DomainName.Domain</b>\" returns the value of the mail routing domain<b>\r\n\r\nBrian"
+- id: 257816
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-02-05 21:04:28 +0000'
+  date_gmt: '2015-02-06 03:04:28 +0000'
+  content: |-
+    Hey Brian!
+
+    Thanks for the suggestion, I'm working on a new version and will look to incorporate this.
+
+    Looking forward to catching up at Ignite in May!
+
+    Cheers,
+
+    Chris
+- id: 259805
+  author: Jeremy
+  author_email: jeremy@fluxlabs.net
+  author_url: ''
+  date: '2015-03-31 11:05:31 +0000'
+  date_gmt: '2015-03-31 17:05:31 +0000'
+  content: Thanks for this script. For some reason it is only picking up 2 mailboxes.
+    I have 40+ on a 2010 fully patched Exchange.
+- id: 259819
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-03-31 15:04:40 +0000'
+  date_gmt: '2015-03-31 21:04:40 +0000'
+  content: |-
+    Hey Jeremy,
+
+    Just to clarify, are you saying you have 40 users that do not have an address book policy assigned to them and the script is only finding 2 of them? You could try Brian Reid's method in the comments above and see if that makes any difference. Let me know your findings.
+
+    Cheers,
+
+    Chris
+- id: 268752
+  author: Arend van Dijk
+  author_email: arendvandijk1988@gmail.com
+  author_url: ''
+  date: '2016-09-21 01:28:02 +0000'
+  date_gmt: '2016-09-21 07:28:02 +0000'
+  content: "Hi Chris,\r\n\r\nGreat job, thanks a lot for this script!\r\n\r\nArend"
+- id: 269568
+  author: Daniel
+  author_email: DLiang@icp.org
+  author_url: ''
+  date: '2016-12-12 15:02:52 +0000'
+  date_gmt: '2016-12-12 21:02:52 +0000'
+  content: "Thank you for the script. It worked well in my environment.\r\n\r\n-Daniel"
+- id: 269570
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2016-12-12 20:37:53 +0000'
+  date_gmt: '2016-12-13 02:37:53 +0000'
+  content: Thanks for the feedback Daniel!
+---
+<p>One of the most common error message I find when performing mailbox moves to Office 365 &ndash; Exchange Online is the &ldquo;<font color="#ff0000"><em>MigrationPermanentException: The target mailbox doesn't have an SMTP proxy matching 'company.mail.onmicrosoft.com'.</em></font><font color="#000000"><em>&rdquo; </em>error:</font></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/11/Capture41.png"><img title="Capture4" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="Capture4" src="http://www.cgoosen.com/wp-content/uploads/2014/11/Capture4_thumb1.png" width="438" height="166"></a> </p>
+<p align="left">The error message is pretty descriptive and is caused when the mailbox being moved doesn&rsquo;t have a proxy address that matches the routing domain. In an Exchange hybrid deployment, the hybrid configuration wizard updates the on-premises email address policies to ensure that all mailboxes have the relevant SMTP proxy address added. This should work fine except in instances when for whatever reason a mailbox or group of mailboxes are not being updated by an email address policy. Typically because the &ldquo;Automatically update email addresses based on the email address policy applied to this recipient&rdquo; has been manually removed:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/11/script41.png"><img title="script4" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" border="0" alt="script4" src="http://www.cgoosen.com/wp-content/uploads/2014/11/script4_thumb1.png" width="347" height="259"></a> </p>
+<p align="left">There are a couple of ways to fix this, you could just enable the email address policy for those particular mailboxes, but the risk with that option is that it may have been removed for a particular reason. Email address policies are additive only, so while an email address policy will not remove or overwrite an email address, it may change the default SMTP address.</p>
+<p align="left">Or, you may want to simply add the relevant SMTP proxy address for those mailboxes, this can easily be done via PowerShell. I have published a PowerShell script to simplify this process, <a href="https://gallery.technet.microsoft.com/Fix-ProxyAddressps1-7036dfa1" target="_blank">check it out on the TechNet Gallery.</a></p>

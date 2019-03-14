@@ -1,0 +1,75 @@
+---
+layout: post
+status: publish
+published: true
+title: Potential for database corruption after installing Exchange 2007 SP3 RU3
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 662
+wordpress_url: http://www.cgoosen.com/2011/03/potential-for-database-corruption-after-installing-exchange-2007-sp3-ru3/
+date: '2011-03-30 11:24:26 +0000'
+date_gmt: '2011-03-30 00:24:26 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 205
+  author: Exchange 2007 Service Pack 3 Update Rollup 3 re-released!
+  author_email: ''
+  author_url: http://www.cgoosen.com/2011/04/exchange-2007-service-pack-3-update-rollup-3-re-released/
+  date: '2011-04-01 01:03:42 +0000'
+  date_gmt: '2011-03-31 14:03:42 +0000'
+  content: "[...] recently posted about an issue with Exchange 2007 SP3 RU3 that could
+    result in database corruption. The Exchange [...]"
+---
+<p>I <a href="http://www.cgoosen.com/2011/03/update-rollup-3-for-exchange-2007-sp3-and-exchange-2010-sp1/">recently posted</a> about the availability of Update Rollup 3 for Exchange 2007 SP3 and Exchange 2010 SP1 and then followed up by <a href="http://www.cgoosen.com/2011/03/update-rollup-3-for-exchange-2010-download-disabled/">posting about</a> an issue impacting some customers which have RIM BlackBerry devices connecting to Exchange 2010 SP1 with RU3.</p>
+<p><a href="http://blogs.technet.com/b/exchange/archive/2011/03/29/potential-for-database-corruption-as-a-result-of-installing-exchange-2007-sp3-ru3.aspx">Over the weekend</a>, the Exchange Product Group was made aware of an issue which may lead to database corruption if you are running Exchange 2007 Service Pack 3 with Update Rollup 3. </p>
+<p>The issue was introduced in Exchange 2007 SP3 RU3 by a change in how the database is grown during transaction log replay when new data is written to the database file and there are no available free pages to be consumed and is of specific concern in two scenarios: </p>
+<ol>
+<li>When transaction log replay is performed by the Replication Service as part of ensuring the passive database copy is up-to-date and/or </li>
+<li>When a database is not cleanly shut down and recovery occurs. </li>
+</ol>
+<p>When this issue occurs, the following similar events are logged in the Application Event log of the Mailbox server:</p>
+<blockquote><ul>
+<li>Event Type: Error        <br />Event Source: ESE         <br />Event Category: Logging/Recovery         <br />Event ID: 454         <br />Description: Microsoft.Exchange.Cluster.ReplayService (12716) Recovery E20 SG1\DB1: Database recovery/restore failed with unexpected error -4001. </li>
+<li>Event Type: Error        <br />Event Source: MSExchangeRepl         <br />Event Category: Service         <br />Event ID: 2097         <br />Description: The Microsoft Exchange Replication Service encountered an unexpected Extensible Storage Engine (ESE) exception in storage group 'SG1\DB1'. The ESE exception is a read was issued to a location beyond EOF (writes will expand the file) (-4001) (). </li>
+<li>Event Type: Error        <br />Event Source: MSExchangeRepl         <br />Event Category: Service         <br />Event ID: 2095         <br />Description: Log file D:\logs\SG1\E200006AFAE.log in SG1\DB1 could not be replayed. Re-seeding the passive node is now required. Use the Update-StorageGroupCopy cmdlet in the Exchange Management Shell to perform a re-seed operation </li>
+</ul>
+</blockquote>
+<p><font color="#ff0000">While only a small number of customers have been affected to date, the Product Group believe the risk is significant enough that they are recommending all customers to uninstall Exchange 2007 SP3 RU3 on all Mailbox Servers and Transport servers. Uninstalling the rollup will revert the system back to the previously installed version. They have also removed the Exchange 2007 SP3 RU3 download from the Microsoft Download Center and from Microsoft Update until we are able to produce a new version of the rollup.</font></p>
+<p>It is strongly recommended that the below actions are taken to ensure that no data loss or outage is experienced.</p>
+<p><strong>For environments leveraging CCR and/or Standby Continuous Replication (SCR) </strong></p>
+<p>If you note the listed events in your environment the following steps must be taken in order to restore your high-availability configuration: </p>
+<ol>
+<li>Rollback the CCR Mailbox server hosting the passive database copies and any SCR target Mailbox servers to the previously installed version (e.g., Exchange 2007 SP3 RU2) by uninstalling RU3. </li>
+<li>Re-seed all database copies on the CCR Mailbox server and any SCR target Mailbox servers hosting the passive database copies. </li>
+<li>Verify the database copy status is healthy for all passive copies. </li>
+<li>Perform a switchover and rollback the remaining CCR Mailbox server to the previously installed version (e.g., Exchange 2007 SP3 RU2). </li>
+</ol>
+<p>If you are not seeing these events in your continuous replication enabled environment, we recommend the following steps: </p>
+<ol>
+<li>Rollback the CCR Mailbox server hosting the passive database copies and any SCR target Mailbox servers to the previously installed version (e.g., Exchange 2007 SP3 RU2) by uninstalling RU3. </li>
+<li>Perform a switchover and rollback the remaining CCR Mailbox server to the previously installed version (e.g., Exchange 2007 SP3 RU2). </li>
+</ol>
+<p><strong>For environments leveraging Single Copy Clusters (SCC) </strong></p>
+<ol>
+<li>Rollback passive nodes within the SCC environment to the previously installed version (e.g., Exchange 2007 SP3 RU2) by uninstalling RU3. </li>
+<li>Perform a switchover and rollback the remaining SCC Mailbox server nodes to the previously installed version (e.g., Exchange 2007 SP3 RU2). </li>
+<li>Restore and recover any damaged databases leveraging a last known good backup. </li>
+</ol>
+<p><strong>For environments leveraging standalone Mailbox servers </strong></p>
+<ol>
+<li>Rollback the standalone Mailbox servers to the previously installed version (e.g., Exchange 2007 SP3 RU2) by uninstalling RU3. </li>
+<li>Restore and recovery any damaged databases leveraging a last known good backup. </li>
+</ol>
+<p><strong>For Hub Transport and Edge Transport servers </strong></p>
+<ol>
+<li>Rollback the standalone transport servers to the previously installed version (e.g., Exchange 2007 SP3 RU2) by uninstalling RU3. </li>
+<li>Recover damaged mail.que databases by following the steps in <a href="http://technet.microsoft.com/en-us/library/bb124343(EXCHG.80).aspx">Working with the Queue Database on Transport Servers</a>. </li>
+</ol>

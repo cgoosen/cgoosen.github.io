@@ -1,0 +1,508 @@
+---
+layout: post
+status: publish
+published: true
+title: Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010,
+  Part 6 - Publishing Outlook Web App
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 570
+wordpress_url: http://www.cgoosen.com/2010/06/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-6-publishing-outlook-web-app/
+date: '2010-06-02 13:00:00 +0000'
+date_gmt: '2010-06-02 02:00:00 +0000'
+categories:
+- Exchange Server
+- Forefront TMG
+tags: []
+comments:
+- id: 102
+  author: william
+  author_email: wcwj@yeah.net
+  author_url: ''
+  date: '2010-06-14 01:58:58 +0000'
+  date_gmt: '2010-06-13 14:58:58 +0000'
+  content: |-
+    "so I&rsquo;ll just submit the request opening https://tldc01.testlab.local/CertSrv Click &ldquo;Request a certificate&rdquo;
+    "
+    Hi I have installed ADCA in W08 S2, but how can I access this page?
+    many thanks
+- id: 104
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-06-14 22:44:22 +0000'
+  date_gmt: '2010-06-14 11:44:22 +0000'
+  content: "Hi William, \r\n\r\nIf you have installed AD CS on a windows 2008 server,
+    simply connect to it by typing the SERVERNAME/CertSrv in your browser. If the
+    page fails to display, you may not have installed Web Enrollment correctly. See
+    these links for guidance:\r\n\r\nhttp://technet.microsoft.com/en-us/library/cc772393%28WS.10%29.aspx\r\n\r\nhttp://technet.microsoft.com/en-us/library/cc732895.aspx\r\n\r\nCheers,\r\n\r\nChris"
+- id: 105
+  author: william
+  author_email: wcwj@yeah.net
+  author_url: ''
+  date: '2010-06-15 04:48:29 +0000'
+  date_gmt: '2010-06-14 17:48:29 +0000'
+  content: |-
+    many thanks for the reply , there is another problem I meet
+    "Click &ldquo;Select Certificate&rdquo; and then select the exchange certificate we installed in the previously. Click &ldquo;Select&rdquo;"
+
+    TMG says "One or more array members is not responding . To select a certificate,forefront tmg services must be running on all the servers in the array
+    "  and I can not continue for the next ,is there sth I should change ?
+- id: 120
+  author: Ian
+  author_email: iz10000-1@yahoo.com
+  author_url: ''
+  date: '2010-08-19 04:14:06 +0000'
+  date_gmt: '2010-08-18 17:14:06 +0000'
+  content: Can I use a NLB Array with 2 nodes, CASHT1 and CASHT2 and a DAG with MB1/MB2
+    in this setup? What will I need to change in this 6-part article? Thanks
+- id: 121
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-08-19 10:19:56 +0000'
+  date_gmt: '2010-08-18 23:19:56 +0000'
+  content: you would need to ensure that the urls you are using are the NLB array
+    name and also ensure that you have the names of all the nodes included in the
+    certificate request, both fqdn and netbios, i.e CASHT1, CASHT2, CASHT1.YOUDOMAIN.LOCAL,
+    CASHT2.YOUDOMAIN.LOCAL
+- id: 123
+  author: Ian
+  author_email: iz10000-1@yahoo.com
+  author_url: ''
+  date: '2010-08-21 02:50:24 +0000'
+  date_gmt: '2010-08-20 15:50:24 +0000'
+  content: |-
+    Thanks Chirs. Need a little bit more details:
+    requesting certificate includes creating and submitting a certificate request, downloading and assigning services to the certificate. Those need to be done on both CASHT1 and CASHT2. Then export the certificates from both CASHTs and import them into TMG1. Is that correct?
+- id: 125
+  author: Ian
+  author_email: iz10000-2@yahoo.ca
+  author_url: ''
+  date: '2010-08-26 07:39:04 +0000'
+  date_gmt: '2010-08-25 20:39:04 +0000'
+  content: When creating the listener above, you add tldc01 as LDAP server, not tltmg01.
+    Do we need has Active Directory Lightweight Directory Services role enabled on
+    tldc01 too?
+- id: 126
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-08-26 17:56:38 +0000'
+  date_gmt: '2010-08-26 06:56:38 +0000'
+  content: |-
+    Hi Ian,
+    you are correct, you would add tldc01 (or whatever your domain controller is called) as the LDAP server. You do not need to install AD LDS on the DC.
+- id: 133
+  author: Cyril
+  author_email: cvoirin@symtrax.com
+  author_url: ''
+  date: '2010-09-01 02:58:02 +0000'
+  date_gmt: '2010-08-31 15:58:02 +0000'
+  content: "Hello,\n\nI got an error 500 when trying OWA access right after entering
+    my credentials. From Microsoft website I found :\n\nThis error occurs when the
+    name in the SSL client request from ISA Server does not match the common name
+    on the Web site certificate. Check that the certificate names follow the guidelines:\nFor
+    the certificate on the ISA Server computer, the name must match the name that
+    the external clients specify to reach the site. \nFor the certificate on the published
+    Web server, the name must match the name that appears on the To tab of the rule.
+    \nIn the case of the certificate on the Web server in a server publishing scenario,
+    the certificate should have the name that users will use to connect to the server.\n\nSo
+    I need 2 different certificates ? One for Clients->TMG and one for TMG->Exchange
+    ?"
+- id: 137
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-09-01 16:39:16 +0000'
+  date_gmt: '2010-09-01 05:39:16 +0000'
+  content: You only need one certificate. You need to ensure that you have the correct
+    netbios and fqdn's in your certificate.
+- id: 139
+  author: Cyril
+  author_email: cvoirin@symtrax.com
+  author_url: ''
+  date: '2010-09-01 20:07:32 +0000'
+  date_gmt: '2010-09-01 09:07:32 +0000'
+  content: |-
+    Hello,
+
+    Well, from what I can see, the CN is corresponding to my mail server public address (FQDN mail.xxx.com in my case), and the DNS names contain the public FQDN and the internal server FQDN.
+
+    What am I missing ?
+
+    Thanks again and congrat for the great work.
+- id: 141
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-09-02 12:27:08 +0000'
+  date_gmt: '2010-09-02 01:27:08 +0000'
+  content: not sure. perhaps a link to a screen shot of the error would help.
+- id: 142
+  author: Cyril
+  author_email: cvoirin@symtrax.com
+  author_url: ''
+  date: '2010-09-02 18:20:22 +0000'
+  date_gmt: '2010-09-02 07:20:22 +0000'
+  content: |-
+    I'm confused... I recreated a certificate, using fqdn + server hostname + both with autodiscover, recreated the rule (not the web listenner) and it worked.
+
+    By the way, I thing I have misconfigured FPE since it only reports ~50 scanned mail in 5/6 days and 0 blocked messages... EdgySync is OK on both server. Any clue (even with so few information)?
+- id: 165
+  author: Vadim
+  author_email: skynet@kgbmail.net
+  author_url: ''
+  date: '2011-01-09 07:53:33 +0000'
+  date_gmt: '2011-01-08 20:53:33 +0000'
+  content: |-
+    many thanks for the reply , there is another problem I meet
+     &ldquo;Click &ldquo;Select Certificate&rdquo; and then select the exchange certificate we installed in the previously. Click &ldquo;Select&rdquo;&rdquo;
+     TMG says &ldquo;One or more array members is not responding . To select a certificate,forefront tmg services must be running on all the servers in the array
+     &rdquo; and I can not continue for the next ,is there sth I should change ?
+- id: 170
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2011-01-20 14:46:10 +0000'
+  date_gmt: '2011-01-20 03:46:10 +0000'
+  content: |-
+    sorry for the late reply.
+
+    confirm that all TMG services are running on all the array members.
+- id: 172
+  author: Nick
+  author_email: nick.rietsch@gmail.com
+  author_url: ''
+  date: '2011-02-11 21:49:38 +0000'
+  date_gmt: '2011-02-11 10:49:38 +0000'
+  content: |-
+    Hi Chris,
+
+    My OWA was working just fine but never managed to get my active sync working; always complaining about certificates.
+    In outlook, I was also asked for the credentials every time.
+
+    I found your very usefull blog and followed all the steps.
+    I moved away from my selfsigned cert to an internal CA.
+
+    Outlook is now happy, OWA (internal is still happy) but from the outside, Exchange is still receiving and sending mails but OWA, which used to work is now returning a "Internet Explorer cannot display the webpage" and that's it.
+    Config:
+    ISP-TMG (with EDGE)-DMZ-TMG-LAN (with HUB, CAS,...)
+    The certificate created following your steps has been installed on both TMG (the .cer and .pfx), and obviously Exchange. I also installed them on the smartphone.
+    The publishing rule has been modified for the listener to use the new certificate.
+    Finally, I used digicert (http://www.digicert.com/help/) to check if the "chain" was ok and the result was unexpected:
+    DNS resolution is fine but then here is the error I'm getting:
+    No certificates were found.
+    Output from 'openssl s_client' command:
+    CONNECTED(00000003) --- no peer certificate available --- No client certificate CA names sent --- SSL handshake has read 0 bytes and written 0 bytes --- New, (NONE), Cipher is (NONE) Secure Renegotiation IS NOT supported Compression: NONE Expansion: NONE SSL-Session: Protocol : SSLv3 Cipher : 0000 Session-ID: Session-ID-ctx: Master-Key: Key-Arg : None PSK identity: None PSK identity hint: None Start Time: 1297418310 Timeout : 7200 (sec) Verify return code: 0 (ok) ---
+
+    I am missing something obvious here?
+
+    Thanks for your help.
+- id: 173
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2011-02-11 22:35:38 +0000'
+  date_gmt: '2011-02-11 11:35:38 +0000'
+  content: |-
+    Hi Nick,
+
+    How are the OA/Activesyn & OWA listeners setup in TMG? Are you using a different IP/Listener for each or are they all on the same listener? What auth method?
+- id: 174
+  author: Nick
+  author_email: nick.rietsch@gmail.com
+  author_url: ''
+  date: '2011-02-11 23:03:55 +0000'
+  date_gmt: '2011-02-11 12:03:55 +0000'
+  content: |-
+    Thanks for the quick reply.
+
+    Same IP for everyone (I have only one public IP unfortunately).
+    Auth method is basic and integrated.
+
+    I can give you the full rules + listener setup over the week end if needed.
+
+    The stange thing is that the certificate was responding before I changed it...
+- id: 175
+  author: Nick
+  author_email: nick.rietsch@gmail.com
+  author_url: ''
+  date: '2011-02-12 08:13:04 +0000'
+  date_gmt: '2011-02-11 21:13:04 +0000'
+  content: |-
+    Hi Chris,
+
+    Here are my firewall settings; first of all, I followed the instructions from this link for the setup (again, OWA worked fine with OWA from the internet before the certificate change):
+    <a href="http://www.petri.co.il/forums/showthread.php?t=52830" rel="nofollow">http://www.petri.co.il/forums/showthread.php?t=52830</a>
+
+    Front-End Firewall config:
+    Rule: Publish Exchange Autodiscover and Outlook Anywhere - HTTPS
+    Type: Server Publishing Rule
+    Traffic: HTTPS
+    From: Anywhere
+    To: IP address of the back-end firewall (DMZ NIC)
+    Request appear to come from the original client
+    Networks External
+
+    Back-End Firewall
+    Rule 1: Publish Exchange Autodiscover and Outlook Anywhere
+    Type: Web Publishing Rule
+    From: Anywhere
+    To: mail.contoso.com
+    Request appears to come from the Forefront TMG computer
+    Authentication Delegation: Basic authentication
+    Listener: Exchange (see below)
+
+    Rule 2: Publish Exchange ActiveSync
+    Type: Web Publishing Rule
+    From: Anywhere
+    To: mail.contoso.com
+    Request appears to come from the Forefront TMG computer
+    Authentication Delegation: Basic authentication
+    Listener: Exchange (see below)
+
+    Listener: Exchange
+    Networks: External + Perimeter
+    Certificates: the newly created one
+    Authentication: HTML Form Authentication / Windows (Active Directory)
+
+    Can you give me a hand?
+- id: 176
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2011-02-15 15:39:41 +0000'
+  date_gmt: '2011-02-15 04:39:41 +0000'
+  content: "Hi Nick,\n\nYour problem sounds strange as you mentioned that you are
+    able to view OWA internally, correct? Are you able to view OWA internally over
+    HTTPS?\nAre your internal and external URLs for OWA the same? \n\nI understand
+    that you may not want to share your urls publicly, in fact I'd advise against
+    it so perhaps we should take the discussion off list and just do it via email
+    for now.\n\nCheers,\n\nChris"
+- id: 208
+  author: gandasitumorang@socfindo.co.id
+  author_email: chapter@chapterholic.com
+  author_url: http://www.chapterholic.com
+  date: '2011-04-06 17:26:37 +0000'
+  date_gmt: '2011-04-06 06:26:37 +0000'
+  content: |-
+    Hi Chris.
+    What a great post.. thanks for your tutorial here..
+    i have follow all your guidelines and stuck in the implementing LDAP Over SSL.
+
+    I have separate my Domain Controller (DC-Win 2008) and my Global Catalog (GC-GC-Win2003) in two servers. I have also have another DC that sync with the original DC (Branch Office topology).
+
+    My question is, How and where i can installing and using a CA and all this certificate stuff?
+    Do you have any guidelines related to configure LDAP over SSL?
+- id: 211
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2011-04-13 17:59:42 +0000'
+  date_gmt: '2011-04-13 06:59:42 +0000'
+  content: |-
+    Hello.
+    For LDAP over SSL you need to have server certificates installed on your domain controllers. This is done my default if you have a enterprise CA installed. See this link for info on that: http://technet.microsoft.com/en-us/library/cc772393%28WS.10%29.aspx
+
+    Cheers,
+    Chris
+- id: 260
+  author: Sam
+  author_email: samf@newerait.co.nz
+  author_url: ''
+  date: '2012-01-09 18:53:48 +0000'
+  date_gmt: '2012-01-09 07:53:48 +0000'
+  content: Just a note which will hopefully save someone an hour of frustration!  If,
+    when you import the CAS / Web server cert, you are not prompted for a password
+    (even if the import is successful) and subsequently TMG still reports the cert
+    as 'Invalid', check that you are importing a .pfx file, and not a .cer file!  I
+    made this mistake because when I exported my cert to .pfx I gave it the same name
+    as another existing .cer file, and since the cert selection defaults to showing
+    only .cer files, I was inadvertently selecting the .cer with the same base name
+    as the .pfx file... Maybe naming them something different is better? :D
+- id: 261
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2012-01-09 19:23:11 +0000'
+  date_gmt: '2012-01-09 08:23:11 +0000'
+  content: |-
+    Hi Sam,
+
+    Yeah! the lack of password prompt/'invalid' certificate in TMG is because the .cer does not contain the private key. I've not experienced this myself but I can see how it may be slightly confusing. Thanks for calling it out.
+
+    Cheers,
+    Chris
+---
+<p>In the first 5 parts of this series, I went through all the steps required to successfully install Forefront Protection 2010 for Exchange Server and Forefront Threat Management Gateway (TMG) 2010 on the same server as your Exchange Server Edge Transport role. I also looked at some basic configuration so we should now be able to send and receive email.</p>
+<p>What about external access? TMG 2010 can also securely publish all your Exchange Server related services such as Outlook Web App (OWA), Outlook Anywhere and ActiveSync (EAS).</p>
+<p>In this final part of the series I&rsquo;ll look at publishing OWA to the internet. While my focus is mainly on OWA, Outlook Anywhere and EAS should also work after very little or no additional configuration. I&rsquo;ll start by creating a new certificate request and then submitting it to certificate authority and then install the issued certificate. I&rsquo;ll then go over how to correctly export the issued certificate and import it on the TMG server. I&rsquo;ll then conclude the series by creating a new &ldquo;Exchange Web Client Access Publishing Rule&rdquo;.</p>
+<p>A few notes before I begin.. When working with certificates, there are two options, I have opted to use my own Enterprise Root CA which has been installed on my domain controller. You are of course welcome to purchase a certificate from a third-party CA, if you decide that this is a better option for you, the basic configuration steps below will not differ all that much, the only difference will be in how you submit the request to the CA. I highly recommend purchasing a UC Certificate for this, please see the following <a href="http://support.microsoft.com/kb/929395" target="_blank">Microsoft TechNet</a> article for more information.</p>
+<p>This post also assumes that your domain controllers already accept LDAP connections over SSL. To enable this, you need to install a server certificate on each of your domain controllers. The following <a href="http://support.microsoft.com/kb/321051" target="_blank">Microsoft TechNet</a> article may provide some guidance if you need further assistance with this.</p>
+<p>The first step is to confirm out OWA configuration, this is done by opening the Exchange Management Console, expand &ldquo;Server Configuration&rdquo;, click &ldquo;Client Access&rdquo; and then right-click &ldquo;owa (Default Web Site)&rdquo; and select &ldquo;Properties&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image37.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image3_thumb.png" border="0" alt="image" width="504" height="584" /></a></p>
+<p>It is also important to change the authentication settings by clicking on the &ldquo;Authentication&rdquo; tab. We need to disable forms based authentication as TMG will be providing this feature. If you keep Exchange forms based authentication enabled your users will be prompted to log into OWA twice.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image61.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image6_thumb1.png" border="0" alt="image" width="504" height="581" /></a></p>
+<p>We now need to create a certificate request for the certificate that will be used to OWA. This can of course be done from the Exchange Management Shell by making use of the <em>New-ExchangeCertifate </em>cmdlet or by making use of the new wizard included in the Exchange Management Console. To access the wizard, click &ldquo;Server Configuration&rdquo;, select your CAS server and click &ldquo;New Exchange Certificate&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image91.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image9_thumb.png" border="0" alt="image" width="204" height="215" /></a></p>
+<p>&ldquo;Enter a friendly name for the certificate&rdquo;, I usually use the external FQDN here. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image121.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image12_thumb1.png" border="0" alt="image" width="504" height="442" /></a></p>
+<p>If you are using a wildcard certificate, you can enter the root domain name here, I have elected not to use a wildcard certificate. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image151.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image15_thumb1.png" border="0" alt="image" width="504" height="437" /></a></p>
+<p>Next, select your required configuration. Enter your configuration and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image181.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image18_thumb1.png" border="0" alt="image" width="504" height="442" /></a></p>
+<p>Review your certificate domains, I usually enter the server name without a suffix as well, but this is not necessarily required. Ensure that you have your internal, external and both autodiscover names listed and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image211.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image21_thumb.png" border="0" alt="image" width="504" height="442" /></a></p>
+<p>Enter your organization and location details and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image241.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image24_thumb1.png" border="0" alt="image" width="504" height="439" /></a></p>
+<p>Review your certificate configuration summary and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image272.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image27_thumb2.png" border="0" alt="image" width="504" height="439" /></a></p>
+<p>Once complete, click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image301.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image30_thumb1.png" border="0" alt="image" width="504" height="439" /></a></p>
+<p>For those looking to use the Exchange Management Shell to complete this request, the command would look something like this:</p>
+<p><em>New-ExchangeCertificate -FriendlyName 'dogfood.cgoosen.com' &ndash;GenerateRequest -PrivateKeyExportable $true -KeySize '2048' -SubjectName 'C=AU,S="NSW",L="Sydney",O="cgoosen.com",OU="test lab",CN=dogfood.cgoosen.com' &ndash;DomainName 'tlex01.testlab.local','dogfood.cgoosen.com','autodiscover.testlab.local','autodiscover.dogfood.cgoosen.com','tlex01' -Server 'TLEX01'</em></p>
+<p>Now that we have completed out certificate request, it is time to submit this request to a CA. I&rsquo;ll be using my Enterprise Root CA which is installed on my domain controller, so I&rsquo;ll just submit the request opening <a href="https://tldc01.testlab.local/CertSrv">https://tldc01.testlab.local/CertSrv</a> Click &ldquo;Request a certificate&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image40.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb15.png" border="0" alt="image" width="504" height="237" /></a></p>
+<p>Then click on &ldquo;advanced certificate request&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image333.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image33_thumb3.png" border="0" alt="image" width="504" height="229" /></a></p>
+<p>Since we have already created the certificate request, select &ldquo;Submit a certificate request by using a base-64-encoded CMC or PKCS#10 file, or submit a renewal request by using a base-64-encoded PKCS#7 file&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image362.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image36_thumb2.png" border="0" alt="image" width="504" height="112" /></a></p>
+<p>Paste the certificate request in the box provided, select the &ldquo;Web Server&rdquo; template and click &ldquo;Submit&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image391.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image39_thumb1.png" border="0" alt="image" width="504" height="279" /></a></p>
+<p>Click &ldquo;Yes&rdquo; to acknowledge the &ldquo;Web Access Confirmation&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image42.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image42_thumb.png" border="0" alt="image" width="354" height="205" /></a></p>
+<p>Next download only the &ldquo;DER encoded&rdquo; certificate.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image451.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image45_thumb1.png" border="0" alt="image" width="354" height="172" /></a></p>
+<p>Now that we have our new certificate, it&rsquo;s time to install it. Once again, click &ldquo;Server Configuration&rdquo; and select your new certificate. Click &ldquo;Complete Pending Request&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image511.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image51_thumb1.png" border="0" alt="image" width="504" height="96" /></a></p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image481.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image48_thumb1.png" border="0" alt="image" width="204" height="109" /></a></p>
+<p>Select your new certificate and click &ldquo;Complete&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image541.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image54_thumb1.png" border="0" alt="image" width="504" height="444" /></a></p>
+<p>Once completed, click &ldquo;Finish&rdquo;. You have now installed your new certificate.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image571.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image57_thumb1.png" border="0" alt="image" width="504" height="439" /></a></p>
+<p>We now need to assign services to the certificate, click &ldquo;Server Configuration&rdquo; and select your new certificate. Click &ldquo;Assign Services to Certificate&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image60.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image60_thumb.png" border="0" alt="image" width="204" height="164" /></a></p>
+<p>Select your CAS server and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image631.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image63_thumb1.png" border="0" alt="image" width="504" height="439" /></a></p>
+<p>Ensure that you have selected &ldquo;Internet Information Services&rdquo; and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image661.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image66_thumb1.png" border="0" alt="image" width="504" height="442" /></a></p>
+<p>Review the configuration summary and click &ldquo;Assign&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image691.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image69_thumb1.png" border="0" alt="image" width="504" height="442" /></a></p>
+<p>Once completed, click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image72.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image72_thumb.png" border="0" alt="image" width="504" height="442" /></a></p>
+<p>Now that we&rsquo;ve installed the new certificate and assigned services to it, lets give it a quick test internally. My internal URL is <a href="https://tlex01.testlab.local/owa">https://tlex01.testlab.local/owa</a></p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image751.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image75_thumb1.png" border="0" alt="image" width="504" height="206" /></a></p>
+<p>Before we can import the certificate on the TMG server, you need to export the certificate along with its private key from the CAS server. Open the &ldquo;Certificates&rdquo; MMC and make sure you are viewing the &ldquo;Local Computer&rdquo;. We need to export 2 certificates. The first is the Enterprise Root CA certificate located in the &ldquo;Trusted Root Certificate Authorities&rdquo; store.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image781.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image78_thumb1.png" border="0" alt="image" width="504" height="152" /></a></p>
+<p>The second certificate is the new exchange certificate we just installed, it should be located in the &ldquo;Personal&rdquo; store.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image811.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image81_thumb1.png" border="0" alt="image" width="504" height="146" /></a></p>
+<p>Lets start with the Enterprise Root CA certificate, right-click the certificate and click &ldquo;Export&rdquo;. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image84.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image84_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Select &ldquo;DER encoded binary X.509 (.CER)&rdquo; and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image87.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image87_thumb.png" border="0" alt="image" width="504" height="456" /></a></p>
+<p>Give it a meaningful and name be sure to note down the location and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image901.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image90_thumb1.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Review the settings and click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image931.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image93_thumb1.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Once completed successfully, click &ldquo;Ok&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image96.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image96_thumb.png" border="0" alt="image" width="204" height="141" /></a></p>
+<p>Next we export the exchange certificate along with its private key. right-click the certificate and click &ldquo;Export&rdquo;. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image841.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image84_thumb1.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Ensure that you have selected &ldquo;Yes, export the private key&rdquo; and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image99.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image99_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Ensure that you have selected &ldquo;Export all extended properties&rdquo; and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image105.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image105_thumb.png" border="0" alt="image" width="504" height="456" /></a></p>
+<p>You need to protect the private key by using a password, be sure to remember what password you enter here and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image108.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image108_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Give it a meaningful and name be sure to note down the location and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image111.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image111_thumb.png" border="0" alt="image" width="504" height="458" /></a></p>
+<p>Review the settings and click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image114.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image114_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Once completed successfully, click &ldquo;Ok&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image961.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image96_thumb1.png" border="0" alt="image" width="204" height="141" /></a></p>
+<p>Once you have those 2 certificates, (ca_cert.cer and cas_cert.pfx if you followed my naming convention) copy them to your TMG server. The log onto the TMG server and open the &ldquo;Certificates&rdquo; MMC and make sure you are viewing the &ldquo;Local Computer&rdquo;. We now repeat the previous process in reverse.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image117.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image117_thumb.png" border="0" alt="image" width="504" height="135" /></a></p>
+<p>First we import the Enterprise Root CA certificate, expand the &ldquo;Trusted Root Certificate Authorities&rdquo; store, right-click &ldquo;Certificates&rdquo; and select &ldquo;Import&rdquo;. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image120.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image120_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Locate the certificate and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image123.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image123_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>You will notice that it will already have the correct location specified, do not change this, just click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image126.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image126_thumb.png" border="0" alt="image" width="504" height="456" /></a></p>
+<p>Review the settings and click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image129.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image129_thumb.png" border="0" alt="image" width="504" height="456" /></a></p>
+<p>Once completed successfully, click &ldquo;Ok&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image132.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image132_thumb.png" border="0" alt="image" width="204" height="133" /></a></p>
+<p>We then import the exchange certificate. Expand the &ldquo;Personal&rdquo; store right-click &ldquo;Certificates&rdquo; and select &ldquo;Import&rdquo;. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image1201.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image120_thumb1.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Locate the certificate and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image135.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image135_thumb.png" border="0" alt="image" width="504" height="456" /></a></p>
+<p>Enter the private key password (you do remember it, right?) Ensure that you have selected &ldquo;Include all extended properties&rdquo; and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image138.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image138_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>The correct location should already be specified, do not change this, just click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image141.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image141_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Review the settings and click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image144.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image144_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Once completed successfully, click &ldquo;Ok&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image1321.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image132_thumb1.png" border="0" alt="image" width="204" height="133" /></a></p>
+<p>Once this is done, should should be able to double-click the exchange certificate and check the status. Both certificates should be &ldquo;Ok&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image147.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image147_thumb.png" border="0" alt="image" width="354" height="435" /></a></p>
+<p>The final step in the process is to create a &ldquo;Exchange Web Client Access Publishing Rule&rdquo;. Open the TMG Management Console, right-click &ldquo;Firewall Policy&rdquo;, select &ldquo;New&rdquo; and then select &ldquo;Exchange Web Client Access Publishing Rule&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image150.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image150_thumb.png" border="0" alt="image" width="504" height="256" /></a></p>
+<p>Give your rule a meaningful name and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image153.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image153_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Select your Exchange version and select &ldquo;Outlook Web Access&rdquo;, then click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image156.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image156_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Select your publishing type and then click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image159.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image159_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Since we will be using SSL, select that option and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image162.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image162_thumb.png" border="0" alt="image" width="504" height="477" /></a></p>
+<p>Enter your internal site name, only enter the FQDN, there is no need to add HTTP/S or /OWA. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image165.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image165_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Enter your public name here, again only the FQDN. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image168.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image168_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Select your web listener, since I don&rsquo;t already have one, I am going to create a new one by clicking &ldquo;New&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image171.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image171_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Enter a meaningful name and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image174.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image174_thumb.png" border="0" alt="image" width="504" height="473" /></a></p>
+<p>We will be using SSL and want to require SSL connections from all clients. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image177.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image177_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Select your listener IP address, this should be your external network address. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image180.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image180_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Click &ldquo;Select Certificate&rdquo; and then select the exchange certificate we installed in the previously. Click &ldquo;Select&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image183.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image183_thumb.png" border="0" alt="image" width="504" height="429" /></a></p>
+<p>Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image186.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image186_thumb.png" border="0" alt="image" width="504" height="474" /></a></p>
+<p>Next we look at authentication settings, since our server is not a part of the domain, we are unable to use &ldquo;Windows&rdquo; authentication. Make sure &ldquo;HTML Form Authentication&rdquo; is selected, select &ldquo;LDAP (Active Directory)&rdquo; and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image189.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image189_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>I won&rsquo;t be making use of SSO, make your selection and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image192.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image192_thumb.png" border="0" alt="image" width="504" height="473" /></a></p>
+<p>We need to add at least one LDAP server for user authentication, add your domain controllers here, type your domain name and I highly recommend that you make use of LDAP over SSL. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image198.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image198_thumb.png" border="0" alt="image" width="504" height="473" /></a></p>
+<p>Review your web listener configuration and click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image195.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image195_thumb.png" border="0" alt="image" width="504" height="477" /></a></p>
+<p>Select the web listener you just created and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image201.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image201_thumb.png" border="0" alt="image" width="504" height="473" /></a></p>
+<p>Select &ldquo;Basic Authentication&rdquo; and then click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image204.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image204_thumb.png" border="0" alt="image" width="504" height="474" /></a></p>
+<p>This rule will apply to &ldquo;All Authenticated Users&rdquo;, click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image207.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image207_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Review your configuration and then click &ldquo;Finish&rdquo; to create the rule.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image210.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image210_thumb.png" border="0" alt="image" width="504" height="475" /></a></p>
+<p>Once the rule has been created, we need to apply it to TMG, click &ldquo;Apply&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image213.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image213_thumb.png" border="0" alt="image" width="504" height="123" /></a></p>
+<p>You should now see your rule listed..</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image216.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image216_thumb.png" border="0" alt="image" width="504" height="108" /></a></p>
+<p>Now for the fun part, lets test our configuration. If you visit your external URL, mine is <a href="https://dogfood.cgoosen.com/owa">https://dogfood.cgoosen.com/owa</a> you should be presented with a OWA login form. Notice the &ldquo;Secured by Microsoft Forefront Threat Management Gateway&rdquo; banner at the bottom.</p>
+<p>Enter your user name in the format &ldquo;Domain\user name&rdquo; and your password and click &ldquo;Log On&rdquo; If you have any certificate alerts, you may need to install your Root CA certificate to the &ldquo;Trusted Root Certification Authorities&rdquo; store on your workstation. If you are using an Enterprise Root CA, it uses Group Policy to propagate its certificate to the &ldquo;Trusted Root Certification Authorities&rdquo; store for all users and computers in the domain.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image219.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image219_thumb.png" border="0" alt="image" width="504" height="466" /></a></p>
+<p>If everything has been correctly configured, you should be presented with your inbox.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image2221.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image222_thumb.png" border="0" alt="image" width="504" height="145" /></a></p>
+<p>To summarise, in this final part of the series I created a new certificate request and then submitted it to certificate authority. Once I had downloaded the issued certificate, I installed it on my exchange CAS server and assigned services to it. I then exported the issued certificate and imported it on the TMG server. To complete the process, I created a new &ldquo;Exchange Web Client Access Publishing Rule&rdquo;.</p>
+<p>In this 6 part series, I went through the process of installing Exchange Server Edge, Forefront Protection 2010 for Exchange Server and TMG 2010 on the same server. Consolidating these services greatly reduces management complexity and overhead.</p>

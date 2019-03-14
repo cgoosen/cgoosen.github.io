@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Step away from that Exchange 2013 SP1 update!
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1038
+wordpress_url: http://www.cgoosen.com/?p=1038
+date: '2014-03-20 08:36:09 +0000'
+date_gmt: '2014-03-19 21:36:09 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 1472
+  author: Warning added to Exchange 2013 SP1 download page
+  author_email: ''
+  author_url: http://www.cgoosen.com/2014/03/warning-added-to-exchange-2013-sp1-download-page/
+  date: '2014-03-21 17:34:16 +0000'
+  date_gmt: '2014-03-21 06:34:16 +0000'
+  content: "[&#8230;] I wrote a post noting the lack of any warning on the Exchange
+    2013 SP1 download page about the bug that affects [&#8230;]"
+---
+<p>The Exchange Team <a href="http://blogs.technet.com/b/exchange/archive/2014/02/25/exchange-server-2013-service-pack-1-available.aspx" target="_blank">announced the release of Exchange 2013 SP1</a> in late Feb and while SP1 introduced some great new features and functionality like Windows Server 2012 R2 support, it didn&rsquo;t take long for customers to start reporting transport issues after the update. To their credit, Microsoft responded quickly to address these issues and released <a href="http://support.microsoft.com/kb/2938053" target="_blank">KB 2938053</a>. The issue affected environments that make use of third-party or custom-developed transport agents, typically in the form of anti-virus or disclaimer software.</p>
+<p>All good then? Well, yes and no.. If you were affected by the issue you can now <a href="http://www.microsoft.com/en-us/download/details.aspx?id=42065" target="_blank">download the relevant PowerShell script</a> that corrects a formatting error in the configuration files that govern the transport extensibility built into Exchange Server 2013 and issue will be resolved. If you are about to update your Exchange 2013 environment to SP1 you should note that this fix has not been included in the SP1 download and a permanent fix for this will only be delivered in Exchange Server 2013 CU5. There also doesn&rsquo;t appear to be any warning about this issue on the any of the SP1 pages on the Microsoft website so if you make use of any third-party software or custom-developed transport agents <u>you will break</u> your Exchange environment if you apple the SP1 update. </p>
+<p>It is important to be aware of any applications running on your Exchange servers that may be making use of transport extensibility and as always I recommend thorough planning and testing before deploying SP1 in your production environment. </p>
+<p>For more information about the issue, see <a href="http://support.microsoft.com/kb/2938053" target="_blank">KB 2938053</a></p>
+<p>Tony Redmond has also written <a href="http://windowsitpro.com/blog/exchange-2013-sp1-bug-breaks-third-party-products" target="_blank">a great, in-depth article about this on windowsitpro.com</a></p>

@@ -1,0 +1,150 @@
+---
+layout: post
+status: publish
+published: true
+title: Automating archive folder creation in Exchange Online mailboxes
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1735
+wordpress_url: http://www.cgoosen.com/?p=1735
+date: '2016-07-26 19:23:53 +0000'
+date_gmt: '2016-07-27 01:23:53 +0000'
+categories:
+- Exchange Server
+- Office 365
+- PowerShell
+tags: []
+comments:
+- id: 267906
+  author: Charles
+  author_email: Charles.VanHeusen@live.com
+  author_url: ''
+  date: '2016-07-26 20:17:13 +0000'
+  date_gmt: '2016-07-27 02:17:13 +0000'
+  content: So what you're really telling us that after years of trying to get rid
+    of PSTs, there is now a "personal online archive" the provides the PST functionality.
+---
+<p align="left">If you are using Outlook 2016 on Windows or Mac you will have noticed the recent addition of a one-click &lsquo;Archive&rsquo; button to the ribbon. The addition of the archive button was <a href="https://blogs.office.com/2016/02/25/february-office-365-updates/" target="_blank">announced at the end of February</a>, but seems to have caught a bunch of customers by surprise and there appears to be some confusion about it&rsquo;s intended purpose. If you are unfamiliar with the one-click &lsquo;Archive&rsquo; button, here&rsquo;s what it looks like:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/07/a.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="a" src="http://www.cgoosen.com/wp-content/uploads/2016/07/a_thumb.png" alt="a" width="240" height="140" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.cgoosen.com/wp-content/uploads/2016/07/b.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="b" src="http://www.cgoosen.com/wp-content/uploads/2016/07/b_thumb.png" alt="b" width="206" height="120" border="0" /></a></p>
+<p align="left">The archive button is intended to make archiving email a one-click operation, but this does not archive email to an Online Archive and does not require users to have an Online Archive enabled. Instead, the button will file email to an &lsquo;Archive&rsquo; folder in your existing mailbox. The intention here is that this button provides a single-click way to clean or declutter your inbox of messages that you have already read. It is important to understand the following about the archive button:</p>
+<ul>
+<li>
+<div align="left">The archive button cannot be used to send email messages to the Online Archive.</div>
+</li>
+<li>
+<div align="left">Since the archive folder is a folder in the root of the mailbox, moving email to it will not reduce the overall size of the mailbox.</div>
+</li>
+</ul>
+<p align="left">If a folder called &lsquo;Archive&rsquo; does not already exist in the root of the mailbox, the user will be prompted to create one:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/07/1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="1" src="http://www.cgoosen.com/wp-content/uploads/2016/07/1_thumb.png" alt="1" width="416" height="112" border="0" /></a></p>
+<p align="left">Certain organizations may feel like this creates confusion amongst their user community and would therefore like to automate the create of the &lsquo;Archive&rsquo; folder in their user mailboxes. Fortunately, MVP (and fellow Aussie!) <a href="https://mvp.microsoft.com/en-us/PublicProfile/10145?fullName=Glen%20%20Scales" target="_blank">Glen Scales</a> has a <a href="http://gsexdev.blogspot.com/2015/09/ews-create-mailbox-folder-powershell.html" target="_blank">great solution for creating mailbox folders using PowerShell the EWS managed API.</a> In order to use his module, you will need to download and install the <a href="http://go.microsoft.com/fwlink/?LinkId=255472" target="_blank">EWS managed API from here.</a> Once installed, you will need to connect to <a href="http://www.cgoosen.com/2014/10/script-connect-exo-ps1-connect-to-exchange-online-using-remote-powershell/" target="_blank">Exchange Online via remote PowerShell</a> and import the module. It them becomes a matter of using the Create-Folder cmdlet included in the module. The module has few parameters and a lot of other functionality but we only need the following:</p>
+<p>[powershell]<br />
+Create-Folder -MailboxName user@domain.com -NewFolderName Archive<br />
+[/powershell]</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/07/3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="3" src="http://www.cgoosen.com/wp-content/uploads/2016/07/3_thumb.png" alt="3" width="534" height="167" border="0" /></a></p>
+<p>With some minor tweaks to Glen&rsquo;s code, we can easily script this process for multiple (or all) mailboxes:</p>
+<p>[powershell]<br />
+function Load-EWSManagedAPI{<br />
+    param(<br />
+    )<br />
+ 	Begin<br />
+	{<br />
+		## Load Managed API dll<br />
+		###CHECK FOR EWS MANAGED API, IF PRESENT IMPORT THE HIGHEST VERSION EWS DLL, ELSE EXIT<br />
+		$EWSDLL = (($(Get-ItemProperty -ErrorAction SilentlyContinue -Path Registry::$(Get-ChildItem -ErrorAction SilentlyContinue -Path 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Exchange\Web Services'|Sort-Object Name -Descending| Select-Object -First 1 -ExpandProperty Name)).'Install Directory') + "Microsoft.Exchange.WebServices.dll")<br />
+		if (Test-Path $EWSDLL)<br />
+		    {<br />
+		    Import-Module $EWSDLL<br />
+		    }<br />
+		else<br />
+		    {<br />
+		    "$(get-date -format yyyyMMddHHmmss):"<br />
+		    "This script requires the EWS Managed API 1.2 or later."<br />
+		    "Please download and install the current version of the EWS Managed API from"<br />
+		    "http://go.microsoft.com/fwlink/?LinkId=255472"<br />
+		    ""<br />
+		    "Exiting Script."<br />
+		    exit<br />
+		    }<br />
+  	}<br />
+}</p>
+<p>function Connect-Exchange{<br />
+    param(<br />
+    	[Parameter(Position=0, Mandatory=$true)] [string]$MailboxName,<br />
+		[Parameter(Position=1, Mandatory=$true)] [System.Management.Automation.PSCredential]$Credentials<br />
+    )<br />
+ 	Begin<br />
+		 {<br />
+		Load-EWSManagedAPI</p>
+<p>		## Set Exchange Version<br />
+		$ExchangeVersion = [Microsoft.Exchange.WebServices.Data.ExchangeVersion]::Exchange2010_SP1</p>
+<p>		## Create Exchange Service Object<br />
+		$service = New-Object Microsoft.Exchange.WebServices.Data.ExchangeService($ExchangeVersion)  </p>
+<p>		#Credentials<br />
+		$creds = New-Object System.Net.NetworkCredential($Credentials.UserName.ToString(),$Credentials.GetNetworkCredential().password.ToString())<br />
+		$service.Credentials = $creds       </p>
+<p>		#CAS URL hardcoded for Exchange Online </p>
+<p>		$uri=[system.URI] "https://outlook.office365.com/EWS/Exchange.asmx"<br />
+		$service.Url = $uri    </p>
+<p>        if(!$service.URL){<br />
+			throw "Error connecting to EWS"<br />
+		}<br />
+		else<br />
+		{<br />
+			return $service<br />
+		}<br />
+	}<br />
+}</p>
+<p>function Create-Folder{<br />
+    param(<br />
+    	[Parameter(Position=0, Mandatory=$true)] [string]$MailboxName,<br />
+		[Parameter(Position=1, Mandatory=$true)] [System.Management.Automation.PSCredential]$Credentials,<br />
+		[Parameter(Position=2, Mandatory=$true)] [String]$NewFolderName<br />
+    )<br />
+ 	Begin<br />
+	 {<br />
+		$service = Connect-Exchange -MailboxName $MailboxName -Credentials $Credentials<br />
+		$NewFolder = new-object Microsoft.Exchange.WebServices.Data.Folder($service)<br />
+		$NewFolder.DisplayName = $NewFolderName<br />
+        $NewFolder.FolderClass = "IPF.Note"</p>
+<p>        # Bind to the MsgFolderRoot folder<br />
+		$folderid= new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]::MsgFolderRoot,$MailboxName)<br />
+		$EWSParentFolder = [Microsoft.Exchange.WebServices.Data.Folder]::Bind($service,$folderid)</p>
+<p>		#Define Folder Veiw Really only want to return one object<br />
+		$fvFolderView = new-object Microsoft.Exchange.WebServices.Data.FolderView(1)<br />
+		#Define a Search folder that is going to do a search based on the DisplayName of the folder<br />
+		$SfSearchFilter = new-object Microsoft.Exchange.WebServices.Data.SearchFilter+IsEqualTo([Microsoft.Exchange.WebServices.Data.FolderSchema]::DisplayName,$NewFolderName)<br />
+		#Do the Search<br />
+		$findFolderResults = $service.FindFolders($EWSParentFolder.Id,$SfSearchFilter,$fvFolderView)<br />
+		if ($findFolderResults.TotalCount -eq 0){<br />
+		    Write-host ("Folder Doesn't Exist") -ForegroundColor Yellow<br />
+			$NewFolder.Save($EWSParentFolder.Id)<br />
+			Write-host ("Folder Created") -ForegroundColor Green<br />
+		}<br />
+		else{<br />
+		    Write-error ("Folder already Exist with that Name")<br />
+		}  </p>
+<p>	 }<br />
+}</p>
+<p># Define tenant credentials<br />
+$Credentials = Get-Credential</p>
+<p># Define mailboxes that need the archive folder created<br />
+# Get all mailboxes<br />
+$Mailboxes = Get-Mailbox -ResultSize Unlimited | Where-Object {$_.Name -notlike "DiscoverySearchMailbox*"}</p>
+<p># Or import a list of mailboxes from .txt<br />
+# $Mailboxes = Get-Content C:\Temp\Mailboxes.txt</p>
+<p># Create the folder<br />
+ForEach ($MailboxName in $Mailboxes) {<br />
+    Write-host "Processing $MailboxName" -ForegroundColor Yellow<br />
+    Create-Folder -MailboxName $MailboxName.PrimarySmtpAddress -NewFolderName Archive -Credentials $Credentials<br />
+    }<br />
+[/powershell]</p>
+<p align="left">Once the &lsquo;Archive&rsquo; folder has been created, it will become the destination for all messages that are selected when the &lsquo;Archive&rsquo; button is clicked.</p>
+<p align="left">A word of caution: If you have a large number of mailboxes, you may run into throttling issues if you attempt to do this on all mailboxes at the same time so it is definitely worth considering a phased rollout in larger environments.</p>
+<p align="left">Glen has some great stuff <a href="http://gsexdev.blogspot.com" target="_blank">on his blog so be sure to check it out here</a>.</p>

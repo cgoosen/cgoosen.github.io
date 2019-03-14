@@ -1,0 +1,42 @@
+---
+layout: post
+status: publish
+published: true
+title: Moving to Microsoft Exchange Online is easy&hellip;
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 412
+wordpress_url: http://www.cgoosen.com/2010/05/moving-to-microsoft-exchange-online-is-easy/
+date: '2010-05-23 12:22:00 +0000'
+date_gmt: '2010-05-23 01:22:00 +0000'
+categories:
+- Exchange Server
+- Cloud
+tags: []
+comments: []
+---
+<p>I recently decided to move my personal domain (cgoosen.com), to Microsoft Exchange Online and I thought it would be appropriate to share my experience. I had previously been using my web hosting providers mail service and when I starting having some unusual mail delivery problems I took that as a sign to do what I have been meaning to do for some time now.</p>
+<p>Microsoft Exchange Online is Microsoft's own hosted enterprise messaging solution based on Microsoft Exchange Server 2007. There are a number of reasons why I chose Exchange Online instead of just going with an Exchange Server based solution from a Microsoft partner, the main reason is that I anticipate this solution will continue to grow in popularity, especially once it is upgraded to Exchange 2010 and more organizations start making use of &ldquo;Hybrid&rdquo; installations.</p>
+<p>I live in Australia, which meant that I had to purchase my Exchange Online services from <a href="http://www.telstrabusiness.com/business/portal/online/site/productsservices/tsuiteapplications.11003" target="_blank">Telstra Business</a> instead of going directly to <a href="http://www.microsoft.com/online/exchange-online.mspx" target="_blank">Microsoft</a>. Once I had signed up, I was sent a link to the Microsoft Online admin panel. </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image20.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb7.png" width="354" height="229" /></a> </p>
+<p>At this point, the only Telstra involvement is that they are billing me around $3.50 US per month more that if I was able to go direct to Microsoft and I personally don&rsquo;t see the value they are adding. Just my opinion!</p>
+<p>Once I had signed in, I was presented with a list of &ldquo;Tasks I need To Do&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image21.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb8.png" width="354" height="170" /></a> </p>
+<p>The first step is to &ldquo;Add your domain to Microsoft Online Services&rdquo;. You also need to decided if you would like Exchange Online to be authoritative for your domain or not.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image23.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb9.png" width="504" height="377" /></a> </p>
+<p>As you would expect, you need to validate that you actually own that domain, this is done by creating a DNS CNAME record on your primary DNS server. Mine only took a couple of minutes.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image26.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb10.png" width="504" height="350" /></a> </p></p></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image31.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb11.png" width="504" height="221" /></a> </p>
+<p align="left">The next step is to enable inbound messaging and change your MX record.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image32.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb12.png" width="504" height="477" /></a> </p></p>
+<p>The final step is to create some user accounts and assign services to them. The services available depend on the licenses you have purchased.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image34.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb13.png" width="504" height="354" /></a>&#160;</p>
+<p>User accounts can be created manually of if you have a large amount of accounts to create, these can be imported from a .CSV file. There are sample and template .CSV files available for download if you are unsure of the format.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image35.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb14.png" width="504" height="283" /></a>&#160;</p>
+<p align="left">The entire process was so simple and I was up and running in less than 30 minutes. I would recommend keeping your existing mailboxes in place for at least 48 hours to allow the new MX record to full replicate.</p>

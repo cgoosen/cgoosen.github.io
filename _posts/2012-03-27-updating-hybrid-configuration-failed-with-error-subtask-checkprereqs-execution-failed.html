@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: Updating hybrid configuration failed with error 'Subtask CheckPrereqs execution
+  failed
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 748
+wordpress_url: http://www.cgoosen.com/?p=748
+date: '2012-03-27 21:15:19 +0000'
+date_gmt: '2012-03-27 10:15:19 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments: []
+---
+<p>I came across this error recently while running the Hybrid Configuration Wizard on Exchange 2010 SP2. It caught me out a little and as it turns out the fix is quite simple. It seems the wizard does not recognise certificates that begin with anything other than &ldquo;CN=&rdquo;. In my particular case I was being tripped up by a certificate beginning with &ldquo;E=&rdquo;. What made this even more confusing was that the certificate causing the problem was installed, but completely unrelated and not actually the one I was using to configure my Hybrid Exchange environment.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/03/Capture.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Capture" border="0" alt="Capture" src="http://www.cgoosen.com/wp-content/uploads/2012/03/Capture_thumb.png" width="529" height="463" /></a></p>
+<p>It seems this is a known bug and was fixed in Update Rollup 1 for Exchange Server 2010 Service Pack 2. I can confirm that after installing the update, it all worked as expected.</p>
+<p>For more info and to download <a href="http://support.microsoft.com/kb/2645995" target="_blank">Update Rollup 1 for Exchange Server 2010 Service Pack 2, click here</a></p>

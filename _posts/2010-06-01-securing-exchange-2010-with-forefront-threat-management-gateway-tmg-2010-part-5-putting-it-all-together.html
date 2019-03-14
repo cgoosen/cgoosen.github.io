@@ -1,0 +1,286 @@
+---
+layout: post
+status: publish
+published: true
+title: Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010,
+  Part 5 - Putting it all together
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 380
+wordpress_url: http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-5-putting-it-all-together/
+date: '2010-06-01 06:45:00 +0000'
+date_gmt: '2010-05-31 19:45:00 +0000'
+categories:
+- Exchange Server
+- Forefront TMG
+tags: []
+comments:
+- id: 97
+  author: Javier Ibarra
+  author_email: jibarra@sanantoniointernacional.com
+  author_url: ''
+  date: '2010-06-11 03:49:28 +0000'
+  date_gmt: '2010-06-10 16:49:28 +0000'
+  content: |-
+    Hi!. When I try to hit "Generate Edge Subscription Files" and select a folder to save the files its popup a message showing the following text:
+    "Microsoft Forefront TMG Managed Control Service XXXXXX is not responding".
+    Any ideas?
+- id: 100
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-06-11 10:47:06 +0000'
+  date_gmt: '2010-06-10 23:47:06 +0000'
+  content: have you checked to see if the service is running?
+- id: 101
+  author: Javier Ibarra
+  author_email: jibarra@sanantoniointernacional.com
+  author_url: ''
+  date: '2010-06-11 21:13:08 +0000'
+  date_gmt: '2010-06-11 10:13:08 +0000'
+  content: |-
+    yeap. it tried with exchange powershell. the problem is that the certificate of the machine running TMG (SERVER-VM-TMG) it was not correctly the friendly name because it was missing the domain part.
+    The Friendly name was SERVER-VM-TMG and then i changed to SERVER-VM-TMG.intranet.teitor and its works fine!
+- id: 103
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-06-14 22:38:54 +0000'
+  date_gmt: '2010-06-14 11:38:54 +0000'
+  content: well done for fixing it!
+- id: 117
+  author: Ian
+  author_email: iz10000-2@yahoo.ca
+  author_url: ''
+  date: '2010-08-14 11:38:55 +0000'
+  date_gmt: '2010-08-14 00:38:55 +0000'
+  content: |-
+    Hi, I have ADLDS role installed on EX1 but I get the following when run Start-EdgeSynchronization
+
+    RunspaceId     : 488afe7a-5a9f-4ad1-bb1a-038a2788de60
+    Result         : CouldNotConnect
+    Type           : Recipients
+    Name           : TMG1
+    FailureDetails : The LDAP server is unavailable.
+    StartUTC       : 8/14/2010 12:14:25 AM
+    EndUTC         : 8/14/2010 12:14:46 AM
+    Added          : 0
+    Deleted        : 0
+    Updated        : 0
+    Scanned        : 0
+    TargetScanned  : 0
+- id: 119
+  author: Ian
+  author_email: iz10000-2@yahoo.ca
+  author_url: ''
+  date: '2010-08-17 09:59:47 +0000'
+  date_gmt: '2010-08-16 22:59:47 +0000'
+  content: run Start-EdgeSynchronization OK AFTER Step 6 is done.
+- id: 129
+  author: nandha
+  author_email: nandhujoe@athenainfo.in
+  author_url: ''
+  date: '2010-08-30 18:47:41 +0000'
+  date_gmt: '2010-08-30 07:47:41 +0000'
+  content: "Hi,\nyour documents are very nice for TMG with Exchange. I have few questions
+    with you that, i had installed exchange edge server 2007 and TMG for exchange
+    in single server with two NIC in workgroup environment. i had configured all the
+    subscription and everything working fine. but i am unable to update the Engine
+    update in TMG for Exchange 2010. \n\nplease help me what should i do.\n\nThanks\nNandha"
+- id: 130
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-08-31 11:56:51 +0000'
+  date_gmt: '2010-08-31 00:56:51 +0000'
+  content: Hi Nandha,  Are you able to provide some more information? any error messages?
+- id: 131
+  author: nandha
+  author_email: nandhujoe@athenainfo.in
+  author_url: ''
+  date: '2010-08-31 15:43:38 +0000'
+  date_gmt: '2010-08-31 04:43:38 +0000'
+  content: |-
+    Hi
+
+    Thank you for your reply. please see the below error from My Event viewer
+
+    Microsoft Forefront Protection encountered an error while performing a scan engine update.
+       Scan Engine: WormList
+       Update Path: http://forefrontdl.microsoft.com/server/scanengineupdate
+       Error Detail: An error occurred during the download procedure.
+
+    Microsoft Forefront Protection encountered an error while performing a scan engine update.
+       Scan Engine: WormList
+       Update Path: http://forefrontdl.microsoft.com/server/scanengineupdate/x86/WormList
+       Proxy Settings: Disabled
+       Error Code: 0x80004005
+       WinHttpClient send request returned an invalid return code 403.
+
+    In my environment does not have proxy server. the edge server wan interface directly connected to firewall also the wan interface IP address has been exclusion list in firewall and from the edge server we can able to access the internet. when i open the above mentioned URL from my internet explorer. its open with error.
+
+    Please advice.
+
+    Thanks
+    Nandha
+- id: 132
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-08-31 21:27:12 +0000'
+  date_gmt: '2010-08-31 10:27:12 +0000'
+  content: |-
+    when you access those urls from your browser, do you get an access denied error?
+
+    perhaps it is timing out, see http://support.microsoft.com/kb/939411 for some info on how to change the timeout period
+- id: 143
+  author: CLK
+  author_email: cindy.kucharski@internode.on.net
+  author_url: ''
+  date: '2010-09-07 16:57:38 +0000'
+  date_gmt: '2010-09-07 05:57:38 +0000'
+  content: |-
+    Hi Chris,
+    Firstly, congratulations on an excellent series of articles. I was also one of the early adopters of the TMG / Exchange / Forefront combination as a consultant &amp; it has brought me many headaches! I have one question though - why did you sent the authentication method on the TMG Internal_Mail_Servers route to be TLS / Exchange only?
+    Thanks,
+    Cindy
+- id: 144
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-09-07 17:18:43 +0000'
+  date_gmt: '2010-09-07 06:18:43 +0000'
+  content: "Hi Cindy.\n\nThanks for the compliments. \n\nIn my setup, the Hub Transport
+    server was set to TLS & Exchange Server auth so the TMG server was set to match
+    (since they relay messages to each other). I hope this makes sense, let me know
+    if it does not.\n\nCheers,\n\nChris"
+- id: 169
+  author: 'Exchange 2010 Edge and Threat Management Gateway : Servus'
+  author_email: ''
+  author_url: http://servusinc.org/myblog/?p=847
+  date: '2011-01-20 13:39:07 +0000'
+  date_gmt: '2011-01-20 02:39:07 +0000'
+  content: "[...] http://www.cgoosen.com/2010/06/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2...
+    [...]"
+- id: 209
+  author: kashif
+  author_email: kashifzai86@gmail.com
+  author_url: ''
+  date: '2011-04-13 05:42:50 +0000'
+  date_gmt: '2011-04-12 18:42:50 +0000'
+  content: |-
+    Dear Chris
+
+    After copying Edge Subscription file from my TMG, When I make a rule in Hub transport server, Error occur indicating Time Sync.. kindly reply me how to resolve
+- id: 210
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2011-04-13 17:55:43 +0000'
+  date_gmt: '2011-04-13 06:55:43 +0000'
+  content: as stated in part 1,you need to make sure the time on your Exchange servers
+    and TMG/Exchange Edge is perfectly in sync.
+- id: 213
+  author: kashif
+  author_email: kashifzai86@gmail.com
+  author_url: ''
+  date: '2011-04-14 00:44:18 +0000'
+  date_gmt: '2011-04-13 13:44:18 +0000'
+  content: |-
+    Dear Chris.
+
+    U mean to check the time of both server at same instance, or is there any service or any other way to sync the time of both machine
+- id: 717
+  author: Schaefer
+  author_email: TPSchaefer@hotmail.com
+  author_url: ''
+  date: '2013-02-21 07:29:42 +0000'
+  date_gmt: '2013-02-20 20:29:42 +0000'
+  content: "Do you have a \"how to\" on installing TMG and Exchange 2010 Edge on separate
+    servers.\r\n\r\nI am looking to keep the servers separate becauze TMG will be
+    a member of the domain and Edge will not be a member."
+- id: 1079
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-03-05 16:06:44 +0000'
+  date_gmt: '2013-03-05 05:06:44 +0000'
+  content: |-
+    Hello Schaefer,
+
+    Unfortunately I have not written any how-to material for your required scenario. This scenario is actually really common perhaps these technet articles would be a good place to start:
+    <ol>
+    http://technet.microsoft.com/en-us/library/bb124701(v=exchg.141).aspx
+    http://technet.microsoft.com/en-us/library/cc441445.aspx</ol>
+
+    Cheers,
+
+    Chris
+---
+<p>We finally have our consolidated Exchange Server Edge and TMG 2010 server installed, but what now? How do we take advantage of all the great new features? In this part of the series, I&rsquo;ll configure our E-Mail Policy, create a new Edge Subscription and then configure Antivirus and File Filters</p>
+<p>Firstly, we&rsquo;ll configure our E-Mail Policy. If you open the TMG Management Console, select &ldquo;E-Mail Policy&rdquo; and then select &ldquo;Configure E-Mail Policy&rdquo; from the tasks pane.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image5.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb4.png" border="0" alt="image" width="504" height="200" /></a></p>
+<p>On the &ldquo;Welcome to the E-Mail Policy Wizard&rdquo; screen, click &ldquo;Next&rdquo; to continue</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image41.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image4_thumb.png" border="0" alt="image" width="504" height="444" /></a></p>
+<p>On the &ldquo;Internal Mail Server Configuration&rdquo; screen, add all the Exchange hub servers that you want to forward incoming mail to. You also need to add your accepted domains. Then click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image711.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image711_thumb.png" border="0" alt="image" width="504" height="446" /></a></p>
+<p>For the &ldquo;Internal E-Mail Listener&rdquo; choose the Internal network. You can also specify which IP to listen on if multiple IPs are available. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image10.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image10_thumb.png" border="0" alt="image" width="504" height="444" /></a></p>
+<p>For the &ldquo;External E-Mail Listener&rdquo; choose to listen on the External network and specify the FQDN that will be presented in HELO and EHLO commands.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image13111.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image13111_thumb.png" border="0" alt="image" width="504" height="444" /></a></p>
+<p>Enable spam filtering, virus and content filtering. You also have the option to enable EdgeSync Traffic, you should enable this here as it will create the relevant System Policy to allow port 50636 for communication with the Exchange hub transport server.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image16.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image16_thumb.png" border="0" alt="image" width="504" height="444" /></a></p>
+<p>Click &ldquo;Finish&rdquo; to complete the e-mail policy wizard</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image19.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image19_thumb.png" border="0" alt="image" width="504" height="444" /></a></p>
+<p>TMG will prompt you to create a System Policy, click &ldquo;Yes&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image2211.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image2211_thumb.png" border="0" alt="image" width="354" height="164" /></a></p>
+<p>Once done, click &ldquo;Apply&rdquo; to apply the new E-Mail Policy</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image251.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image251_thumb.png" border="0" alt="image" width="504" height="123" /></a></p>
+<p>Next, we setup a new edge subscription, From the TMG Management console, navigate to &ldquo;E-Mail Policy&rdquo; and in the &ldquo;Tasks&rdquo; plane, click &ldquo;Generate Edge Subscription Files&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image281.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image281_thumb.png" border="0" alt="image" width="504" height="239" /></a></p>
+<p>Make a note of where you save this file. Once complete, copy the edge subscription file to your Hub Transport server.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image3111.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image3111_thumb.png" border="0" alt="image" width="354" height="126" /></a></p>
+<p>Log on to your Hub Transport server and open the Exchange Management Console, then expand &ldquo;Organization Configuration&rdquo; and click on &ldquo;Hub Transport&rdquo;. Click &ldquo;New Edge Subscription under the &ldquo;Actions&rdquo; menu.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image341.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image341_thumb.png" border="0" alt="image" width="504" height="210" /></a></p>
+<p>Select the appropriate AD site and locate the edge subscription file copied from your TMG server. Click &ldquo;New&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image371.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image371_thumb.png" border="0" alt="image" width="504" height="439" /></a></p>
+<p>Once the wizard completes successfully, click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image401.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image401_thumb.png" border="0" alt="image" width="504" height="439" /></a></p>
+<p>Expand &ldquo;Organization Configuration&rdquo;, click on &ldquo;Hub Transport&rdquo; and select the &ldquo;Edge Subscriptions&rdquo; tab. You should now see your edge subscription listed there.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image46.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image46_thumb.png" border="0" alt="image" width="504" height="108" /></a></p>
+<p>On your Hub Transport server, ensure that the &ldquo;Microsoft Exchange EdgeSync&rdquo; service is set to automatically start.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image131.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image13_thumb1.png" border="0" alt="image" width="504" height="567" /></a></p>
+<p>On the Hub Transport server, open the Exchange Management Shell and start edge synchronization by issuing the following cmdlet</p>
+<p><em>Start-EdgeSynchronization</em></p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image11.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image11_thumb.png" border="0" alt="image" width="504" height="331" /></a></p>
+<p>After a few minutes, you should be able to verify that your edge synchronization is working by opening the &ldquo;Exchange Management Shell&rdquo; and issuing the following cmdlet:</p>
+<p><em>Get-SendConnector</em></p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image71.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image71_thumb.png" border="0" alt="image" width="504" height="144" /></a></p>
+<p>Next, We need to verify the authentication settings on the Receive Connectors.</p>
+<p>On the Hub Transport server, open the Exchange Management Console and expand to "Server Configuration", click on "Hub Transport", right click on the "Default Receive Connector" and select Properties. On the Authentication tab, verify that TLS and Exchange Server authentication are selected.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image1611.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image1611_thumb.png" border="0" alt="image" width="504" height="565" /></a></p>
+<p>On the TMG server, open the TMG Management console and navigate to "E-Mail Policy", right click on the "Internal_Mail_Servers" route and select Properties. On the Listener tab, click "Authentication Settings" and verify that only TLS and Exchange Server Authentication are selected.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image191.png"><img class="aligncenter" style="display: inline; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image191_thumb.png" border="0" alt="image" width="354" height="255" /></a></p>
+<p>Lastly, we can configure Antivirus scanning and file filtering settings. In this example I will enable a 3 antivirus engines and configure file filtering to block .EXE files.</p>
+<p>On the TMG server, open the TMG Management console, click &ldquo;E-Mail Policy, then select the &ldquo;Virus and Content Filtering&rdquo; tab,</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image8.png"><img class="aligncenter" style="display: inline; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb5.png" border="0" alt="image" width="504" height="196" /></a></p>
+<p>Click &ldquo;Select AV Engines&rdquo; on the Tasks Pane. Select one or more engines from the list. The click &ldquo;OK&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image222.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image22_thumb2.png" border="0" alt="image" width="504" height="560" /></a></p>
+<p>Next, click the &ldquo;Enabled&rdquo; link below &ldquo;File Filtering&rdquo;. On the File Filters&rdquo; tab, click &ldquo;Add&rdquo; and then on the General tab give it a meaningful name. You can apply the filter to inbound and/or outbound messages.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image25.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image25_thumb.png" border="0" alt="image" width="504" height="560" /></a></p>
+<p>On the File Types tab select Microsoft Windows Executable. Click &ldquo;Apply&rdquo;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image28.png"><img style="display: block; float: none; margin-left: auto; margin-right: auto; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image28_thumb.png" border="0" alt="image" width="504" height="560" /></a></p>
+<p>Confirm that the filter has been added and click &ldquo;OK&rdquo;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image9.png"></a></p>
+<p><a href="file:///D:/Users/T812609/AppData/Local/Temp/WindowsLiveWriter-429641856/supfiles179D955/image121.png"></a></p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image14.png"><img class="aligncenter" style="display: inline; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb6.png" border="0" alt="image" width="504" height="554" /></a></p>
+<p>Once done, click &ldquo;Apply&rdquo; to apply the settings</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image251.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image251_thumb.png" border="0" alt="image" width="504" height="123" /></a></p>
+<p>To summarise, in this part of the series I configured my E-Mail Policy/ I then created and verified a new Edge Subscription. I finished off by configuring Antivirus and creating a File Filter to block .EXE files.</p>
+<p>In the next and final part of this series, I&rsquo;ll look at how to securely publish Outlook Web App.</p>

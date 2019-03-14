@@ -1,0 +1,42 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange Hybrid Deployment and Sizing
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1442
+wordpress_url: http://www.cgoosen.com/?p=1442
+date: '2015-11-30 17:27:35 +0000'
+date_gmt: '2015-11-30 23:27:35 +0000'
+categories:
+- Exchange Server
+- Office 365
+tags: []
+comments: []
+---
+<p>In September, I posted about the great new Office 365 Hybrid Configuration Wizard and while there is no question that the HCW is a great help when configuring hybrid deployments, there are a few other important considerations to take into account when deploying Exchange Hybrid. I've helped many organizations deploy hybrid configurations and move mailboxes to the cloud over the last few years and often to come across the same questions and misconceptions, so I thought I'd address some of these in a blog post.</p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>"Help!, I need to implement a hybrid server!"<br></strong>That is not necessarily true, Exchange Hybrid is a configuration state and should not be thought of as a server role. A Hybrid deployment uses existing Exchange workloads like Autodiscover and Exchange Web Services (EWS) so if you already have Exchange 2010/2013/2016 deployed according to best practices then chances are you already have everything you need to configure Exchange Hybrid. Sure, there is some additional functionality available if you use the most recent version of Exchange, but do you need that functionality? I've seen so many environments that have correctly sized and load balanced Exchange servers and then have a tiny virtual machine deployed as a "hybrid server". This type of configuration creates a single point of failure and inevitably becomes a migration bottleneck.</p>
+<p>If you are looking to migrate from a legacy version of Exchange then you will need to implement additional servers in order to deploy Hybrid. For Exchange 2003 your only option for going hybrid is to deploy a correctly sized Exchange 2010 deployment. For those on Exchange 2007 it is recommended that Exchange 2013 is used instead.</p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>"Can I virtualize my servers for Hybrid?"</strong> or <strong>"How do I size my servers for Hybrid?"</strong><br>If you are in a position where you are looking to upgrade your Exchange Organization prior to a migration to Exchange Online or you need to implement new Exchange servers because you are on a legacy version, you can definitely make use of virtualization. Virtualization in the Exchange world has long been a hot topic and isn&rsquo;t really something that I&rsquo;ll get into in this post. In my experience, incorrectly configured or undersized virtual Exchange servers are by far the most common issue I&rsquo;ve come across in the field so it is often simpler to use physical hardware which is also the recommended practice.</p>
+<p>To illustrate this, here is an example of some actual performance data I gathered when working with a customer. This particular customer was migrating from Exchange 2007 and had implemented virtual Exchange 2013 servers. Everything worked great until they attempted to migrate several mailboxes at the same time and they noticed that it was taking a considerable amount of time for small mailboxes to migrate. After confirming that the issue wasn&rsquo;t bandwidth related we decided to take a closer look at the new virtual servers. These servers sized with 4 CPU cores and 32 GB of RAM but didn&rsquo;t appear to be performing correctly. Our initial performance tests indicated that the servers seemed to be CPU constrained and after a lot of testing and much discussion with their virtualization team we found that simply changing the configuration from 2 sockets with 2 cores each (4 cores total) to 1 socket with 4 cores (still 4 cores) greatly improved the performance. The same 100 mailboxes were used in both tests:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/11/CPU1.png"><img title="CPU" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="CPU" src="http://www.cgoosen.com/wp-content/uploads/2015/11/CPU_thumb1.png" width="873" height="320"></a></p>
+<p align="left">If you are planning to virtualize, make sure you follow <a href="http://download.microsoft.com/download/4/a/c/4ac32fd3-220e-45dc-aa97-dbdbe19c15b2/best_practices_for_virtualizing_and_managing_exchange_2013.pdf" target="_blank">Microsoft&rsquo;s best practices for virtualizing Exchange</a> and always use the <a href="http://blogs.technet.com/b/exchange/archive/2013/05/14/released-exchange-2013-server-role-requirements-calculator.aspx" target="_blank">Exchange Server Role Requirements Calculator</a> to correctly size your deployments.</p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>"The cloud is awesome, I plan to remove all my on-premises Exchange servers!"</strong><br>There is no denying that moving to the cloud makes sense for a lot of organizations and in many instances there is a desire to remove all on-premises workloads. I always advise my customers to be very careful when it comes to decommissioning their entire Exchange Organization. When using directory synchronization with your Office 365 tenant, your users are synchronized from your on-premises Active Directory and therefore most of the attributes associated with these users cannot be managed in Office 365 or Exchange Online and must be managed on-premises. Completely removing your on-premises Exchange Organization makes managing mailbox attributes more difficult so I would definitely recommend retaining at least one Exchange server for user object management. You don&rsquo;t need to retain all your Exchange servers though, so I many environments there will still be a significant reduction in servers.</p>
+<p>Retaining an on-premises Exchange server could also be really useful in SMTP relay scenarios where you have on-premises applications and devices that need to send email.</p>
+<p>Microsoft also has a lot in great resources available to help answer your Hybrid questions, here are a few:</p>
+<ul>
+<li><a href="http://blogs.technet.com/b/exchange/archive/2015/08/10/hybrid-deployment-best-practices.aspx" target="_blank">Hybrid Deployment Best Practices</a></li>
+<li><a href="http://blogs.technet.com/b/exchange/archive/2012/12/05/decommissioning-your-exchange-2010-servers-in-a-hybrid-deployment.aspx" target="_blank">Decommissioning your Exchange 2010 servers in a Hybrid Deployment</a></li>
+<li><a href="https://technet.microsoft.com/en-us/library/dn931280(v=exchg.150).aspx" target="_blank">How and when to decommission your on-premises Exchange servers in a Hybrid Deployment</a></li>
+<li><a href="https://technet.microsoft.com/en-us/library/jj619301(v=exchg.160).aspx" target="_blank">Exchange 2016 Virtualization</a></li>
+</ul>

@@ -1,0 +1,53 @@
+---
+layout: post
+status: publish
+published: true
+title: Rollup, Rollup!
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 629
+wordpress_url: http://www.cgoosen.com/2010/10/rollup-rollup/
+date: '2010-10-11 15:22:06 +0000'
+date_gmt: '2010-10-11 04:22:06 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 153
+  author: Michel de Rooij
+  author_email: michel@eightwone.com
+  author_url: http://eightwone.com
+  date: '2010-10-11 19:20:21 +0000'
+  date_gmt: '2010-10-11 08:20:21 +0000'
+  content: |-
+    Chris,
+
+    "Rollup 1 for Exchange 2003 SP3" (trice) ?   :)
+- id: 155
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-10-11 21:15:13 +0000'
+  date_gmt: '2010-10-11 10:15:13 +0000'
+  content: DOH! my mistake, fixed now.. thanks for pointing it out
+---
+<p>The last month has seen the release of <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=ae45d06e-dcb7-43d8-b1ff-d3953836425b&amp;displaylang=en" target="_blank">Update Rollup 1 for Exchange 2007 SP3</a> and <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=a371fa96-e85b-4a4f-8242-15d56595d0ec&amp;displaylang=en" target="_blank">Update Rollup 1 for Exchange 2010.</a></p>
+<p>For a full list of the fixes included in Update Rollup 1 for Exchange 2007 SP3, see <a href="http://support.microsoft.com/?kbid=2279665" target="_blank">KB2279665</a></p>
+<p>For a full list of the fixes included in Update Rollup 1 for Exchange 2010 SP1, see <a href="http://support.microsoft.com/?kbid=2407028" target="_blank">KB2407028</a></p>
+<p><strong><span style="color: #ff0000;">Note for Forefront Protection for Exchange users</span></strong><br />
+For those running Forefront Protection for Exchange, be sure you perform these important steps from the command line in the Forefront directory before and after installing this rollup. Without these steps, the Information Store and Transport services will not start.</p>
+<ol>
+<li>Before installing the rollup, disable ForeFront by using the "fscutility /disable" command</li>
+<li>After rollup installation completes, re-enable ForeFront by running the "fscutility /enable" command</li>
+</ol>
+<p>Download Links:</p>
+<ul>
+<li><a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=ae45d06e-dcb7-43d8-b1ff-d3953836425b&amp;displaylang=en" target="_blank">Update Rollup 1 for Exchange 2007 SP3</a></li>
+<li><a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=a371fa96-e85b-4a4f-8242-15d56595d0ec&amp;displaylang=en" target="_blank">Update Rollup 1 for Exchange 2010 SP1</a></li>
+</ul>

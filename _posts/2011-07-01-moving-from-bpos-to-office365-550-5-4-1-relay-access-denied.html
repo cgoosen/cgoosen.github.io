@@ -1,0 +1,74 @@
+---
+layout: post
+status: publish
+published: true
+title: Moving from BPOS to Office365 &ndash; &ldquo;550 5.4.1 Relay Access Denied&rdquo;
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 673
+wordpress_url: http://www.cgoosen.com/2011/07/moving-from-bpos-to-office365-550-5-4-1-relay-access-denied/
+date: '2011-07-01 12:52:04 +0000'
+date_gmt: '2011-07-01 01:52:04 +0000'
+categories:
+- Exchange Server
+- Cloud
+tags: []
+comments:
+- id: 222
+  author: BastiS
+  author_email: basti@ignobilis.de
+  author_url: ''
+  date: '2011-07-16 05:19:15 +0000'
+  date_gmt: '2011-07-15 18:19:15 +0000'
+  content: thank you!
+- id: 223
+  author: 'Migraci&#243;n manual de BPOS a Office 365: dos cosas que deber&#237;as
+    saber - Un paseo por las nubes'
+  author_email: ''
+  author_url: http://geeks.ms/blogs/davidjrh/archive/2011/08/12/migraci-243-n-manual-de-bpos-a-office-365-dos-cosas-que-deber-237-as-saber.aspx
+  date: '2011-08-13 01:52:29 +0000'
+  date_gmt: '2011-08-12 14:52:29 +0000'
+  content: "[...] http://www.cgoosen.com/2011/07/moving-from-bpos-to-office365-550-5-4-1-relay-access-denied/
+    [...]"
+- id: 227
+  author: Probleme beim Wechsel von BPOS zu Office 365 &raquo; Mountain Prophet
+  author_email: ''
+  author_url: http://www.mountainprophet.de/2011/08/29/probleme-beim-wechsel-von-bpos-zu-office-365/
+  date: '2011-08-30 03:39:57 +0000'
+  date_gmt: '2011-08-29 16:39:57 +0000'
+  content: "[...] Ausf&uuml;hrliche Anleitung / Erkl&auml;rung hier: http://www.cgoosen.com/2011/07/moving-from-bpos-to-office365-550-5-4-1-relay-access-denied/
+    [...]"
+- id: 360
+  author: Chris
+  author_email: chris@oneboise.com
+  author_url: ''
+  date: '2012-11-09 12:00:04 +0000'
+  date_gmt: '2012-11-09 01:00:04 +0000'
+  content: Thank you. This fixed my issue. Copied and pasted your commands and after
+    about 10 minutes, mail was flowing again!
+---
+<p>With the recent launch of <a href="http://www.microsoft.com/en-au/office365/online-software.aspx" target="_blank">Office365</a> I was very excited at the thought of moving my existing BPOS account to a new Office365 tenant. I signed up, removed my &ldquo;cgoosen.com&rdquo; domain from my BPOS account and went through the process of adding it to Office365. I thought the whole process was going really well until I tested it by sending myself an email from another external account. I immediately received a &ldquo;550 5.4.1 Relay Access Denied&rdquo; error which seemed a little strange. After some research on the Office365 Community forums I realised that this seems to be a common issue with people moving a domain from BPOS to Office365.</p>
+<p>I ended up calling Microsoft Customer Support and after some trial and error here is how I fixed it.</p>
+<p>The first thing you need to do is use PowerShell to connect to your Office365 tenant, make sure you have the correct versions of Windows PowerShell and Windows Remote Management (WinRM) installed and configured on your computer. If you are running Windows 7 or Windows Server 2008 R2, you don't have to install anything. If you are running anything else, see the link at the bottom of the post. By default, PowerShell&rsquo;s execution policy is set to &ldquo;Restricted&rdquo; that means that scripts won&rsquo;t run so before we try to connect, we need to change that. Open PowerShell and execute the following cmdlets:</p>
+<p><em>Get-ExecutionPolicy &ndash; </em>verify that it is set to &ldquo;Restricted&rdquo;</p>
+<p>Lets change it to &ldquo;RemoteSigned&rdquo;. PowerShell will now run any scripts that you write yourself and scripts downloaded from the Internet only if those scripts have been signed by a trusted publisher:</p>
+<p><em>Set-ExecutionPolicy RemoteSigned</em></p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2011/07/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2011/07/image_thumb.png" width="625" height="139" /></a></p>
+<p>Now we are ready to connect to our Office365 tenant. Execute the following cmdlets:</p>
+<p><em>$LiveCred = Get-Credential</em></p>
+<p>Enter your Office365 admin credentials in the dialog</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2011/07/image1.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2011/07/image_thumb1.png" width="244" height="194" /></a></p>
+<p><em>$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri </em><em>https://ps.outlook.com/powershell/</em><em> -Credential $LiveCred -Authentication Basic -AllowRedirection</em></p>
+<p><em>Import-PSSession $Session</em></p>
+<p>Once connected you, execute the following cmdlets:</p>
+<p><em>Set-AcceptedDomain -Identity "yourdomain.com" -OutboundOnly $True</em></p>
+<p><em>Set-AcceptedDomain -Identity "yourdomain.com" -OutboundOnly $False</em></p>
+<p>You may need to allow around 40mins for replication, after that you should be able to receive mail again without the &ldquo;550 5.4.1 Relay Access Denied&rdquo; error.</p>
+<p>If you are using running anything other than Windows 7 or Windows Server 2008 R2, <a href="http://technet.microsoft.com/en-us/library/cc952756%28EXCHSRVCS.149%29.aspx" target="_blank">see this link for information</a> on Install and Configure Windows PowerShell.</p>
+<p>For more information about connecting to Office365 via PowerShell, <a href="http://technet.microsoft.com/en-us/library/cc952755%28EXCHSRVCS.149%29.aspx" target="_blank">click here</a>.</p>

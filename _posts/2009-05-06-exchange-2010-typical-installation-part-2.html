@@ -1,0 +1,54 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Exchange 2010 &ldquo;Typical Installation&rdquo;: Part 2'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 152
+wordpress_url: http://www.cgoosen.com/2009/05/exchange-2010-typical-installation-part-2/
+date: '2009-05-06 12:39:56 +0000'
+date_gmt: '2009-05-06 01:39:56 +0000'
+categories:
+- Exchange Server
+tags: []
+comments: []
+---
+<p>In <a href="http://www.cgoosen.com/2009/05/exchange-2010-typical-installation-part-1/" target="_blank">Part 1</a> we looked at preparing our server for the installation of Exchange 2010. What about preparing Active Directory and domains? As you&rsquo;ll see during the installation, if you run the Exchange 2010 Setup wizard with an account that has the permissions required to prepare Active Directory and the domain, the wizard will automatically do it for you. You can, of course, prepare Active Directory manually the way you have always been able to &ndash; Refer to <a href="http://technet.microsoft.com/en-au/library/bb125224(EXCHG.140).aspx" target="_blank">Microsoft Technet</a> for more information.</p>
+<p>If you&rsquo;ve reached this phase of the installation you&rsquo;ve probably already downloaded a copy of the Exchange 2010 Beta. If not, simply <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=1898ed2c-2f88-48ac-824e-d3d20fad77d7" target="_blank">click here</a> to download it!</p>
+<p>Once extracted, launch the Exchange 2010 Setup wizard..</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image2.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb2.png" width="462" height="347" /></a>If you have not installed all the prerequisites, Setup will link you to the appropriate sites where you can download the components. We did this in Part 1, so we simply click &ldquo;Step 4: Install Microsoft Exchange&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image3.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb3.png" width="457" height="399" /></a></p>
+<p align="left">After clicking &ldquo;Next&rdquo; on the Introduction page, we are presented with the following options relating to the location of the language files. I selected the &ldquo;Download latest language files from the Web&rdquo; option.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image4.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb4.png" width="456" height="397" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image5.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb5.png" width="456" height="398" /></a> </p>
+<p>Once you acknowledge the confirmation, the Setup wizard will &ldquo;acquire&rdquo; the latest language files.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image6.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb6.png" width="459" height="402" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image16.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb16.png" width="458" height="401" /></a> </p>
+<p align="left">Accept the License Agreement and click &ldquo;Next&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image17.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb17.png" width="455" height="399" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image18.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb18.png" width="451" height="393" /></a> </p>
+<p align="left">Next we select the installation type, here we select &ldquo;Typical Exchange Server Installation&rdquo; which will install the Hub Transport, Client Access and Mailbox Server Roles on our single server. Because we selected the &ldquo;Typical Exchange Server Installation&rdquo; option, we will not be able to install the Unified Messaging Server Role, Edge Transport Server Role, or Clustered Mailbox servers during this installation.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image19.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb19.png" width="451" height="394" /></a> </p>
+<p align="left">Because this is the first Exchange Server in the organization, we are asked to provide a name for the Organization. The Exchange organization name can't contain more than 64 characters and can contain only the following characters: </p>
+<ul>
+<li>A to Z</li>
+<li>a to z</li>
+<li>0 to 9</li>
+<li>Space (not leading or trailing)</li>
+<li>Hyphen or dash</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image20.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb20.png" width="447" height="392" /></a> </p>
+<p align="left">Since this is the first Exchange Server in the organization, on the &ldquo;Client Settings&rdquo; page we select the option that describes the client computers in our organization that are running Microsoft Office Outlook. If you select &ldquo;No&rdquo;, Exchange Setup will not create a public folder database on the Mailbox server. You can add a public folder database later. For example, if you add client computers that are running Outlook 2003 and you need a public folder database, you can create one on the Exchange Mailbox server. You must then configure the offline address book for public folder distribution, and then restart the Microsoft Exchange Information Store service before client computers that are running Outlook 2003 and earlier will be able to connect to the server.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image21.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb21.png" width="445" height="388" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image22.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb22.png" width="446" height="389" /></a> </p>
+<p>On the &ldquo;Readiness Checks&rdquo; page, view the status to determine if the organization and Server Role prerequisite checks completed successfully. If they have completed successfully, click &ldquo;Install&rdquo; to install Exchange.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image23.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb23.png" width="458" height="401" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image24.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb24.png" width="461" height="404" /></a> </p>
+<p>Congratulations, you have successfully completed a &ldquo;Typical Installation&rdquo; of Exchange 2010. I highly recommend reading the Exchange 2010 documentation on <a href="http://technet.microsoft.com/en-au/library/bb124558(EXCHG.140).aspx" target="_blank">Microsoft Technet.</a></p>

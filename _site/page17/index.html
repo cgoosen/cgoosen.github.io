@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! </title>
+    <meta property="og:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+    <meta name="twitter:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+
+    <meta name="description" content="">
+    <meta name="description" property="og:description" content="" />
+    <meta name="twitter:description" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:site" content="@chrisgoosen" />
+    
+    <meta property="og:url" content="http://172.16.7.177:4000/page17/" />
+
+    <meta property="og:image" content="" />
+    <meta name="twitter:image" content="" />
+
+    <meta name="author" content="Chris's Blog" />
+
+    <meta name="copyright" content="Copyright by Chris's Blog. All Rights Reserved." />
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v15/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(https://fonts.gstatic.com/s/roboto/v15/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="http://172.16.7.177:4000/assets/css/main.css">
+
+    <link rel="canonical" href="http://172.16.7.177:4000/page17/">
+
+    <link rel="alternate" type="application/rss+xml" title="" href="http://172.16.7.177:4000/feed.xml">
+</head>
+
+    <body>
+        <div class="wrapper">
+            <aside class="user-profile fixed" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
+    </div>
+
+    <div class="compact-header">
+        <a class="avatar" href="http://172.16.7.177:4000"><img alt="Avatar" src="/assets/img/headshot.jpg" /></a>
+        <div class="my-info">
+            <strong class="my-name">Chris's Blog</strong>
+            <span class="my-job-title">It's called thinking...  go with it!</span>
+        </div>
+    </div>
+
+    
+        
+        <div class="mainmenu">
+            <a href="http://172.16.7.177:4000" >Home</a>
+            
+                
+            
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/contact/" >Contact</a>
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/about/" >About</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+    
+    
+    <div>
+    	<img src="/assets/img/mvp.png" style="width:181px;height:74px;">
+    </div>
+
+    <p class="about-me"> </p>
+    
+    <ul class="socials">
+        <li><a href="https://twitter.com/chrisgoosen" target="_blank"><svg title="twitter" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li><li><a href="https://www.linkedin.com/in/ctgoosen/" target="_blank"><svg title="linkedin" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#linkedin-icon"></use></svg></a></li><li><a href="https://github.com/cgoosen" target="_blank"><svg title="github" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#github-icon"></use></svg></a></li>
+
+        
+            <li><a href="/contact" target="_blank"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        
+
+        
+         <li><a href="http://feeds.cgoosen.com/cgoosen"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        
+    </ul>
+</aside>
+
+
+            <main class="the-content" role="main">
+                <div class="search" role="search">
+    <div>
+        <div class="show-results-count">0 Results</div>
+        <div class="search-holder">
+            <input type="text" id="search-input" placeholder="search for..." />
+        </div>
+    </div>
+    <ul id="results-container" class="results-container"></ul>
+</div>
+
+
+                
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-05-18T13:14:30-05:00" itemprop="datePublished">18 May, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-1-the-introduction">Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010, Part 1 &ndash; The Introduction</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>November 2009 was an exciting time.. not only did I turn another year older, but, Microsoft launched both Exchange Server 2010 and Forefront Threat Management Gateway (TMG) 2010. Both of these products were eagerly awaited and while the new features and great benefits of Exchange Server 2010 have already been (and will continue to be!) discussed, I am excited to talk about how TMG 2010 now allows administrators to consolidate their perimeter infrastructure into a single, secure point of entry for email and other messaging related services.</p>
+<p>What is Forefront Threat Management Gateway (TMG) 2010? TMG is essentially the next generation of ISA server (we&rsquo;ve all come to know and love ISA 2006 since it&rsquo;s release in late 2006) but with a few fantastic changes. The first of these is that, as with Exchange Server, it is 64bit only. Other new features include URL Filtering, Web antivirus/anti-malware protection and many more.</p>
+<p>I mentioned earlier in the introduction that TMG 2010 allows administrators to consolidate their perimeter infrastructure into a single, secure point of entry, this is done by combining with a couple of other great technologies. It is now possible to install Exchange Edge, Forefront Protection for Exchange Server (FPES) and TMG 2010 on the same server. Management of the Exchange Server Edge, FPES&#160; and TMG 2010 services are all integrated into the TMG Management console greatly reducing management complexity and overhead.</p>
+<p>In this 6 part series, I&rsquo;ll go through the process of installing Exchange Server Edge, FPES and TMG 2010 on the same server. The series will consist of the following posts:</p>
+<ul>
+<li>Part 1 &ndash; The Introduction </li>
+<li>Part 2 &ndash; Installing Exchange Server Edge </li>
+<li>Part 3 &ndash; Installing Forefront Protection 2010 for Exchange Server </li>
+<li>Part 4 &ndash; Installing Forefront Threat Management Gateway 2010 </li>
+<li>Part 5 &ndash; Putting it all together </li>
+<li>Part 6 &ndash; Publishing Outlook Web App </li>
+</ul>
+<p align="left">This series is intended to be a detailed &ldquo;how to&rdquo; so I&rsquo;ll make use of a lot of screen shots of each of the steps of the process. There are many areas (especially when configuring Exchange Server) where making use of the Powershell or Exchange Management Shell (EMS) may be quicker, but I have opted to use the MMC throughout.</p>
+<p>Here is a brief overview of the environment I&rsquo;ll use throughout this series, the environment is my lab environment. Here is a high level diagram of the environment, I&rsquo;ll discuss each server in a little more detail below:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/lab.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="lab" border="0" alt="lab" src="http://www.cgoosen.com/wp-content/uploads/2010/05/lab_thumb.png" width="504" height="335" /></a> </p>
+<p align="left"><strong>tltmg01.testlab.local:</strong> Windows 2008 R2 x64 with 2 NICS (Internal &amp; External) &ndash; This is the Forefront TMG 2010 server with Exchange Server 2010 Edge and Forefront Protection 2010 for Exchange Server installed.</p>
+<p align="left"><strong>tlex01.testlab.local:</strong> Windows 2008 R2 x64 &ndash; This is the Exchange 2010 Hub Transport and Client Access server.</p>
+<p align="left"><strong>tlex02.testlab.local:</strong> Windows 2008 R2 x64 &ndash; This is the Exchange 2010 Mailbox server</p>
+<p align="left"><strong>tldc01.testlab.local:</strong> Windows 2008 x64 &ndash; This is a Domain Controller and Global Catalog. This server also acts as a DNS server and is the Enterprise Root Certificate Authority.</p>
+<p align="left">Some things to look out for.. there are a few important things to look out for when deploying this solution for the first time, there are:</p>
+<ul>
+<li>
+<div align="left"><strong>Time Sync</strong> &ndash; make sure the time on your Exchange servers and TMG/Exchange Edge is perfectly in sync</div>
+</li>
+<li>
+<div align="left"><strong>DNS</strong> &ndash; Mis-configuring DNS is a very common mistake in ISA/TMG deployments. There are many schools of thought here, but regardless of which one you follow, it is important to note that DNS entries are not NIC specific so make sure you assign a DNS server to either the internal OR external NIC. Your TMG/Exchange Edge server must be able to resolve names internally either through DNS or host entries</div>
+</li>
+<li>
+<div align="left"><strong>Workgroup</strong> &ndash; Since we will be installing Exchange Server Edge, our TMG server will NOT be a domain member. It is important to put sufficient thought into how you will configure authentication for both reverse and forward proxy since AD authentication will not work</div>
+</li>
+<li>
+<div align="left"><strong>Primary DNS suffix</strong> &ndash; The TMG/Exchange Edge will need it&rsquo;s Primary DNS suffix manually set as it will not be a part of the domain</div>
+</li>
+</ul>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010, Part 1 &ndash; The Introduction&p[summary]=November 2009 was an exciting time.. not only did I turn another year older, but, Microsoft launched both Exchange Server 2010 and Forefr...&p[url]=http://172.16.7.177:4000/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-1-the-introduction" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-1-the-introduction&text=November 2009 was an exciting time.. not only did I turn another year older, but, Microsoft launched both Exchange Server 2010 and Forefr...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-04-30T08:10:28-05:00" itemprop="datePublished">30 Apr, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/04/easy-exchange-2010-cas-pre-req-installation">Easy Exchange 2010 CAS pre-req installation</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Just a short post, hope this will help someone by making Exchange 2010 even easier to deploy. Open Powershell with elevated rights and run the following 3 cmdlets:</p>
+<ul>
+<li>Import-Module ServerManager</li>
+<li>Add-WindowsFeature NET-Framework,RSAT-ADDS,Web-Server,Web-Basic-Auth,Web-Windows-Auth,Web-Metabase,Web-Net-Ext,Web-Lgcy-Mgmt-Console,WAS-Process-Model,RSAT-Web-Server,Web-ISAPI-Ext,Web-Digest-Auth,Web-Dyn-Compression,NET-HTTP-Activation,RPC-Over-HTTP-Proxy &ndash;Restart</li>
+<li>Set-Service NetTcpPortSharing -StartupType Automatic</li>
+</ul>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Easy Exchange 2010 CAS pre-req installation&p[summary]=Just a short post, hope this will help someone by making Exchange 2010 even easier to deploy. Open Powershell with elevated rights and ru...&p[url]=http://172.16.7.177:4000/2010/04/easy-exchange-2010-cas-pre-req-installation" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/04/easy-exchange-2010-cas-pre-req-installation&text=Just a short post, hope this will help someone by making Exchange 2010 even easier to deploy. Open Powershell with elevated rights and ru...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-04-14T05:47:31-05:00" itemprop="datePublished">14 Apr, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/04/vulnerabilities-in-microsoft-exchange-and-windows-smtp-service-could-allow-denial-of-service">Vulnerabilities in Microsoft Exchange and Windows SMTP Service Could Allow Denial of Service</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Microsoft yesterday published <a href="http://www.microsoft.com/technet/security/bulletin/ms10-024.mspx" target="_blank">Microsoft Security Bulletin MS10-024</a>. This security update resolves one publicly disclosed vulnerability and one privately reported vulnerability in Microsoft Exchange and Windows SMTP Service. The more severe of these vulnerabilities could allow denial of service if an attacker sent a specially crafted DNS response to a computer running the SMTP service. </p>
+<p><a href="http://support.microsoft.com/?kbid=976323" target="_blank">KB976323</a> provides detailed information on the security update for Windows SMTP Service, for Exchange Server specific information, see the following links:</p>
+<ul>
+<li>For Exchange 2000 Server see <a href="http://support.microsoft.com/?kbid=976703" target="_blank">KB976703</a> or <a href="http://www.microsoft.com/downloads/details.aspx?familyid=e47c90a0-c9c8-43b7-bec7-34107ddde294" target="_blank">download here</a></li>
+<li>For Exchange Server 2003 SP2 see <a href="http://support.microsoft.com/?kbid=976702" target="_blank">KB976702</a> or <a href="http://www.microsoft.com/downloads/details.aspx?familyid=bc8391f8-5335-496b-ad4c-bae38509be4a" target="_blank">download here</a></li>
+<li>For Exchange Server 2007 SP1 see <a href="http://support.microsoft.com/?kbid=981407" target="_blank">KB981407</a> - Update Rollup 10 or <a href="http://www.microsoft.com/downloads/details.aspx?familyid=6a894b4e-12b6-4a91-9555-d813956b6aac" target="_blank">download here</a></li>
+<li>For Exchange Server 2007 SP2 see <a href="http://support.microsoft.com/?kbid=981383" target="_blank">KB981383</a> - Update Rollup 4 or <a href="http://www.microsoft.com/downloads/details.aspx?familyid=b8f7f872-16d5-49d6-9867-adc01351c06f" target="_blank">download here</a></li>
+<li>For Exchange Server 2010 see <a href="http://support.microsoft.com/?kbid=981401" target="_blank">KB981401</a> - Update Rollup 3 or <a href="http://www.microsoft.com/downloads/details.aspx?familyid=7dcf2390-dff7-4e3a-acca-03f4d43fb79a" target="_blank">download here</a></li>
+</ul>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Vulnerabilities in Microsoft Exchange and Windows SMTP Service Could Allow Denial of Service&p[summary]=Microsoft yesterday published Microsoft Security Bulletin MS10-024. This security update resolves one publicly disclosed vulnerability an...&p[url]=http://172.16.7.177:4000/2010/04/vulnerabilities-in-microsoft-exchange-and-windows-smtp-service-could-allow-denial-of-service" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/04/vulnerabilities-in-microsoft-exchange-and-windows-smtp-service-could-allow-denial-of-service&text=Microsoft yesterday published Microsoft Security Bulletin MS10-024. This security update resolves one publicly disclosed vulnerability an...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-04-08T07:39:08-05:00" itemprop="datePublished">8 Apr, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/04/first-look-at-exchange-2010-sp1">First look at Exchange 2010 SP1</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>The Microsoft Exchange Team <a href="http://msexchangeteam.com/archive/2010/04/07/454533.aspx" target="_blank">yesterday announced</a> the upcoming release of Exchange 2010 Service Pack 1 (SP1). As one would expect, SP1 will include fixes and tweaks including a roll-up of the roll-ups released to date. There will also be several feature enhancements, here is an overview of some of these:</p>
+<ul>
+<li>Improvements to the Multi-Mailbox Search: search preview, search result de-duplication &amp; annotation of reviewed items.</li>
+<li>Outlook Web App: Improved reading experience, users will also be able to share their calendars to anonymous viewers via the web (assuming you enable this), the reading pane can be placed on the bottom or the right side.</li>
+<li>Mobility: Support for send-as, full implementation of conversation view, and more..</li>
+<li>Several new management UI enhancements including: RBAC role management in ECP, Configure MailTips in ECP, Configure Transport Rules in ECP, Configure Database Availability Group (DAG) IP Addresses and Alternate Witness Server in EMC, Recursive public folder settings management (including permissions) in EMC </li>
+</ul>
+<p>While these are all great feature improvements, I thought I would call out the two that I am very excited about. There are two things that always come up when I talk to customers about Exchange Server 2010 and the integrated archiving capabilities. The first is the lack of ability to provision a user's personal archive to a different mailbox database from their primary mailbox. The second is that users are unable to access their personal archives from Outlook 2007. The good news is that SP1 will enable the support of both these. Thanks guys!</p>
+<p>Exchange 2010 SP1 is due for release later this year.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=First look at Exchange 2010 SP1&p[summary]=The Microsoft Exchange Team yesterday announced the upcoming release of Exchange 2010 Service Pack 1 (SP1). As one would expect, SP1 will...&p[url]=http://172.16.7.177:4000/2010/04/first-look-at-exchange-2010-sp1" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/04/first-look-at-exchange-2010-sp1&text=The Microsoft Exchange Team yesterday announced the upcoming release of Exchange 2010 Service Pack 1 (SP1). As one would expect, SP1 will...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-04-06T08:13:51-05:00" itemprop="datePublished">6 Apr, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/04/ocs-2007-r2-on-windows-server-2008-r2-support">OCS 2007 R2 on Windows Server 2008 R2 support</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Microsoft have announced official support for the Microsoft Office Communications Server 2007 R2 member server role on a server that has a Windows Server 2008 R2 operating system installed. Now for the fine print.. the following scenarios are currently not supported on Windows Server 2008 R2:</p>
+<ul>
+<li>Group Chat will not function in a Windows 2008 R2 forest or when Group Chat member servers are joined to a Windows 2008 R2 domain. Some issues with changes in Windows 2008 R2 require a Group Chat Client and Group Chat Admin Tools hotfix, scheduled for mid-April 2010.</li>
+<li>Deploying Group Chat on Windows 2008 R2 is currently not supported. </li>
+<li>Upgrading the operating system to Windows Server 2008 R2 for an existing installation of OCS 2007 R2 is not supported.</li>
+<li>Installing 32-bit OCS 2007 R2 administration tools on 64-bit Windows 2008 R2 is not supported.Development with Speech Server 2007 Developer Edition and deployment of the Speech Server 2007 role are not supported on Windows Server 2008 R2.</li>
+</ul>
+<p>For more information, see <a href="http://support.microsoft.com/kb/982021" target="_blank">KB 982021</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=OCS 2007 R2 on Windows Server 2008 R2 support&p[summary]=Microsoft have announced official support for the Microsoft Office Communications Server 2007 R2 member server role on a server that has ...&p[url]=http://172.16.7.177:4000/2010/04/ocs-2007-r2-on-windows-server-2008-r2-support" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/04/ocs-2007-r2-on-windows-server-2008-r2-support&text=Microsoft have announced official support for the Microsoft Office Communications Server 2007 R2 member server role on a server that has ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-03-30T09:31:21-05:00" itemprop="datePublished">30 Mar, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/03/busted-top-10-exchange-storage-myths">Busted&hellip; Top 10 Exchange Storage Myths</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Exchange 2010 includes improvements in performance, reliability, and high availability that enable organizations to run Exchange on a wide range of storage options. Building on improvements to disk input/output (IO) that were introduced in Exchange 2007, the latest version of Exchange requires less storage performance and is more tolerant of storage failures.</p>
+<p>The Microsoft Exchange Team <a href="http://msexchangeteam.com/archive/2010/03/29/454443.aspx" target="_blank">recently posted the &ldquo;Top 10 Exchange Storage Myths&rdquo;</a> and I thought I would share a lot of that excellent content here</p>
+<p><strong>Myth #1:</strong> Exchange requires expensive, high-performing storage . I can't afford large mailboxes!     <br /><em><u>Reality:</u></em> Exchange 2010 enables you to implement large, low-cost mailboxes. It performs well on less expensive disks and supports a range of storage options. See the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e3303d34-af6c-4108-861b-dc05f9cf3e76&amp;displaylang=en" target="_blank">Large Mailbox Vision Whitepaper.</a> </p>
+<p><strong>Myth #2:</strong> Exchange 2010 doesn't support storage area networks (SANs).     <br /><em><u>Reality:</u></em> Exchange 2010 doesn't support network-attached storage (NAS) (maybe the similar spelling confuses people ?), but it does support a large range of storage options including SAN and DAS. Depending on your high availability model, storage can be configured using RAID or RAID-less (JBOD) storage. Different customers will require different solutions based on their requirements, but everyone has the ability to deploy large mailboxes at low cost. </p>
+<p><strong>Myth #3:</strong> I already have a SAN (or I just bought one), so it doesn't make sense to implement DAS. By the way, my SAN can use those less expensive SATA disks too.     <br /><em><u>Reality:</u></em> This one is not really a myth, but it is often misunderstood. SAN deployment may make sense for customers as long as you are able to deploy large mailboxes at low cost. Remember that Exchange supports a range of storage options including SAN and DAS. If you are looking to take advantage of multiple independent copies of databases, then consider the full cost of your storage solution. </p>
+<p><strong>Myth #4:</strong> JBOD configurations are not practical because the re-seed process after a disk failure takes too long, and this generates too much operational overhead.     <br /><em><u>Reality:</u></em> Microsoft IT uses a JBOD configuration very successfully and it can be a very low cost solution. However, a level of operational maturity is required to manage the environment appropriately. There are a multitude of factors that can affect seeding throughput rates, and internally in our JBOD architecture we see between 35-70 GB/hour. </p>
+<p><strong>Myth #5:</strong> Large mailboxes perform badly with Outlook.     <br /><em><u>Reality:</u></em> Exchange 2010 supports up to 100,000 items per folder, up from 20,000 in Exchange 2007. In addition to this, Outlook 2007 SP1 Feb09 update, Outlook 2007 SP2 &amp; Outlook 2010 provide good performance for Cached Exchange Mode for mailboxes up to 10 GB in size, and even larger (25GB) using faster disks like 7.2K drives or SSD. Larger Mailboxes? The Exchange 2010 store was improved to support very large mailboxes (100 GB+) in online mode and with OWA. You can also use the Exchange 2010 <a href="http://technet.microsoft.com/en-us/library/dd979795.aspx" target="_blank">personal archive</a> to reduce mailbox size for Cached Exchange Mode clients. </p>
+<p><strong>Myth #6:</strong> When I migrate to Exchange 2010 my database size will explode because Exchange 2010 doesn't have single instance storage (SIS).     <br /><em><u>Reality:</u></em> Exchange storage planning guidance has always dictated designing the storage without SIS in mind. SIS reduces Exchange Server's ability to do sequential data access, and the changes made help to provide the 70% IO reduction. Exchange 2010 does provide 20% database compression for HTML/Plain Text Messages. For more details about Exchange 2010 and SIS, see previous post &mdash; <a href="http://msexchangeteam.com/archive/2010/02/22/454051.aspx" target="_blank">Dude, Where's My Single Instance?.</a> </p>
+<p><strong>Myth #7:</strong> My Exchange guy knows nothing about storage - it needs to be managed by the storage experts. Less expensive storage is too hard/time-consuming/expensive to manage.     <br /><em><u>Reality:</u></em> We know from the many organizations we have talked to who are using DAS (including Microsoft's own deployment), that they have not needed any additional people to manage less expensive exchange storage, nor have they increased their operational costs. When storage is expensive, you can spend a lot of time and resources optimizing for your storage investment. Using less expensive storage enables you to take a conservative approach and enables you to over-provision. The storage is then never touched except for firmware/driver updates or disk failures. You can use server management staff to manage the storage since the tasks are very similar (driver, firmware updates). </p>
+<p><strong>Myth #8:</strong> I can't backup large Exchange databases.     <br /><em><u>Reality:</u></em> With the ability to have multiple copies of each database, along with features such as single item recovery and lagged copy support, you might not need to use traditional backups. You can also look at reducing the number of backups to weekly or bi-monthly full backups, you can backup from passive database copies, and you can use DPM "express" backups to save space. </p>
+<p><strong>Myth #9:</strong> We need a 3rd party archiving solution because Exchange data needs expensive storage and we need to put archived data on less expensive storage.     <br /><em><u>Reality:</u></em> You can put all Exchange data on less expensive storage, not just the archive data. Co-locate hot and cold data to efficiently utilize large low cost disks and simplify management by using a single storage type. </p>
+<p><strong>Myth #10:</strong> All Exchange storage designs must follow the Exchange Mailbox Role Requirements Calculator verbatim, otherwise they will not be supported.     <br /><em><u>Reality:</u></em> The Exchange Mailbox Role Requirements Calculator (Exchange 2010 / Exchange 2007) provides design guidelines but does not have anything to do with supportability. <a href="http://technet.microsoft.com/en-us/exchange/bb412164.aspx" target="_blank">The Exchange Solution Reviewed Program (ESRP)</a> - Storage also has information from our storage partners.</p>
+<p>For more information on large mailboxes, be sure to check out the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e3303d34-af6c-4108-861b-dc05f9cf3e76&amp;displaylang=en" target="_blank">Large Mailbox Vision Whitepaper.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Busted&hellip; Top 10 Exchange Storage Myths&p[summary]=Exchange 2010 includes improvements in performance, reliability, and high availability that enable organizations to run Exchange on a wid...&p[url]=http://172.16.7.177:4000/2010/03/busted-top-10-exchange-storage-myths" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/03/busted-top-10-exchange-storage-myths&text=Exchange 2010 includes improvements in performance, reliability, and high availability that enable organizations to run Exchange on a wid...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-03-22T06:16:16-05:00" itemprop="datePublished">22 Mar, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/03/recent-update-rollups-for-exchange">Recent Update Rollups for Exchange</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>The last three weeks have seen the release of a couple of update rollups. The first of these was Update Rollup 2 for Exchange Server 2010 RTM.&#160; Article ID: <a href="http://support.microsoft.com/?kbid=979611" target="_blank">979611</a> describes all issues that the update rollup fixes.</p>
+<p>Article ID: <a href="http://support.microsoft.com/?kbid=979784" target="_blank">979784</a> describes Update Rollup 3 for Exchange Server 2007 Service Pack 2 which was released on 18/03/2010. This update rollup does not apply to Exchange Server 2007 RTM or to Exchange 2007 Service Pack 1. The series of update rollup packages for Exchange Server 2007 SP2 is independent of the corresponding series of update rollups for Exchange Server 2007 RTM or Exchange 2007 SP1. For a list of update rollups that apply to Exchange Server 2007 RTM or to Exchange Server 2007 SP1, see <a href="http://technet.microsoft.com/en-us/library/ee221180(EXCHG.80).aspx" target="_blank">How to Obtain the Latest Service Pack or Update Rollup for Exchange 2007</a></p>
+<p><font color="#ff0000">Important information for customers who install the update rollup on computers that are not connected to the Internet:</font></p>
+<p>When you install the update rollup on a computer that is not connected to the Internet, you may experience long installation times. Additionally, you may receive the following message: </p>
+<p><strong><em>"Creating Native images for .Net assemblies."</em></strong> </p>
+<p>This behavior is caused by network requests that connect to the <a href="http://crl.microsoft.com/pki/crl/products/CodeSigPCA.crl">http://crl.microsoft.com/pki/crl/products/CodeSigPCA.crl</a> Web site. The network requests look up the certificate revocation list for each assembly that native image generation (NGen) compiles to native code. However, the Exchange Server is not connected to the Internet. Therefore, each request must wait to time-out before it moves on. To fix this problem, turn off the &ldquo;Check for publisher&rsquo;s certificate revocation&rdquo; security option on the server that is being upgraded. To do this, follow these steps:</p>
+<ol>
+<li>In Internet Explorer, select Tools, select Internet Options, and then click the Advanced Tab.</li>
+<li>In the Security section, click to clear the Check for publisher's certificate revocation check box.</li>
+<li>Click OK to close the Internet Options dialog box.</li>
+</ol>
+<p>When setup is complete, recheck the &ldquo;Check for publisher&rsquo;s certificate revocation&rdquo; check box.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Recent Update Rollups for Exchange&p[summary]=The last three weeks have seen the release of a couple of update rollups. The first of these was Update Rollup 2 for Exchange Server 2010...&p[url]=http://172.16.7.177:4000/2010/03/recent-update-rollups-for-exchange" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/03/recent-update-rollups-for-exchange&text=The last three weeks have seen the release of a couple of update rollups. The first of these was Update Rollup 2 for Exchange Server 2010...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-02-26T08:38:07-06:00" itemprop="datePublished">26 Feb, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/02/exchange-server-pre-deployment-analyzer-expda">Exchange Server Pre-Deployment Analyzer (ExPDA)</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Microsoft recently released the Exchange Pre-Deployment Analyzer. The Exchange Pre-Deployment Analyzer performs an overall topology readiness scan of your environment. When you run the Exchange Pre-Deployment Analyzer, it provides a detailed report that will alert you if there are any issues within your organization, which could prevent you from deploying Exchange 2010. </p>
+<p>The checks performed by ExPDA are similar to the pre-requisite checks implemented (ExBPA) in the Exchange 2010 Setup program. However, unlike Exchange 2010 setup, this tool focuses only on overall topology readiness and not the ability to run Exchange 2010 on the local computer. The scan also performs a deep analysis of each existing Exchange 2003/2007 server to verify that it has the necessary updates and configuration in-place to support Exchange 2010.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/02/image.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/02/image_thumb.png" width="546" height="377" /></a> </p>
+<p align="left">For more information about the Exchange Pre-Deployment Analyzer (ExPDA), visit The Microsoft Exchange Team blog <a href="http://msexchangeteam.com/archive/2010/02/24/454083.aspx" target="_blank">here</a></p>
+<p align="left">To download ExPDA, click <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=88b304e7-9912-4cb0-8ead-7479dab1abf2&amp;displaylang=en" target="_blank">here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange Server Pre-Deployment Analyzer (ExPDA)&p[summary]=Microsoft recently released the Exchange Pre-Deployment Analyzer. The Exchange Pre-Deployment Analyzer performs an overall topology readi...&p[url]=http://172.16.7.177:4000/2010/02/exchange-server-pre-deployment-analyzer-expda" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/02/exchange-server-pre-deployment-analyzer-expda&text=Microsoft recently released the Exchange Pre-Deployment Analyzer. The Exchange Pre-Deployment Analyzer performs an overall topology readi...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-02-25T04:52:16-06:00" itemprop="datePublished">25 Feb, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/02/exchange-server-virtualization">Exchange Server Virtualization</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I am often asked about virtualization when talking to my customers about Exchange. Virtualization has been a big thing in the industry for a while now, so it makes sense that many customers are looking to take advantage of the many benefits, including server consolidation. What does Microsoft support? Virtualization support has not changed much since Exchange Server 2007 SP1.</p>
+<p>Microsoft supports Exchange Server in production on hardware virtualization software only when all the following conditions are true:</p>
+<ol>
+<li>The hardware virtualization software is running:      <br />Windows Server 2008 with Hyper-V technology       <br />Windows Server 2008 R2 with Hyper-V technology       <br />Microsoft Hyper-V Server 2008       <br />Microsoft Hyper-V Server 2008 R2       <br />Any third-party hypervisor that has been validated under the <a href="http://go.microsoft.com/fwlink/?LinkId=125375" target="_blank">Windows Server Virtualization Validation Program (SVVP).</a></li>
+<li>The Exchange guest virtual machine:      <br />Is running Microsoft Exchange 2007 SP1 or Exchange 2010.       <br />Is deployed on the Windows Server 2008 and above       <br />Doesn't have the Unified Messaging server role installed. All Exchange server roles, except for the Unified Messaging server role, are supported in a virtualization environment. </li>
+<li>The storage used by the Exchange guest machine can be virtual storage of a fixed size, SCSI pass-through storage, or iSCSI storage. In a Hyper-V environment, each fixed VHD must be less than 2,040 GB.Virtual disks that dynamically expand or use differencing or delta mechanisms aren't supported by Exchange.</li>
+<li>Only management software can be deployed on the physical root machine. The root machine should be dedicated to running guest virtual machines. </li>
+<li>Microsoft doesn't support combining Exchange high availability solutions (SCC, CCR, DAGs) with hypervisor-based clustering, high availability, or migration solutions. DAGs are supported in hardware virtualization environments provided that the virtualization environment doesn't employ clustered root servers.</li>
+<li>Virtual machine snapshots of an Exchange guest virtual machine is not supported. </li>
+<li>Exchange supports a virtual processor-to-logical processor ratio no greater than 2:1. For example, a dual processor system using quad core processors contains a total of 8 logical processors in the host system. On a system with this configuration, do not allocate more than a total of 16 virtual processors to all guest virtual machines combined. </li>
+<li>The operating system for an Exchange guest machine must use a fixed sized disk that has a minimum size equal to 15 GB plus the size of the virtual memory that's allocated to the guest machine. This requirement is necessary to account for the operating system and paging file disk requirements.</li>
+</ol>
+<p>&#160;</p>
+<p>For more detailed information on Exchange Server Virtualization see the following Technet documentation:</p>
+<ul>
+<li><a href="http://technet.microsoft.com/en-us/library/cc794548%28EXCHG.80%29.aspx" target="_blank">Microsoft Support Policies and Recommendations for Exchange Servers in Hardware Virtualization Environments</a> </li>
+<li><a href="http://technet.microsoft.com/en-us/library/aa996719.aspx" target="_blank">Exchange 2010 System Requirements</a> </li>
+<li><a href="http://support.microsoft.com/kb/957006" target="_blank">Microsoft server software and supported virtualization environments</a></li>
+</ul>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange Server Virtualization&p[summary]=I am often asked about virtualization when talking to my customers about Exchange. Virtualization has been a big thing in the industry fo...&p[url]=http://172.16.7.177:4000/2010/02/exchange-server-virtualization" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/02/exchange-server-virtualization&text=I am often asked about virtualization when talking to my customers about Exchange. Virtualization has been a big thing in the industry fo...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2010-01-15T09:33:57-06:00" itemprop="datePublished">15 Jan, 2010</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2010/01/gartner-highlights-key-predictions-for-it-organizations-and-users-in-2010-and-beyond">Gartner Highlights Key Predictions for IT Organizations and Users in 2010 and Beyond</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>&ldquo;Gartner, Inc. has highlighted the key predictions that herald long-term changes in approach for IT organizations and the people they serve for 2010 and beyond. Gartner's top predictions for 2010 showcase the trends and events that will change the nature of business today and beyond..&rdquo;</p>
+<p>Its a fascinating read, find the <a href="http://www.gartner.com/it/page.jsp?id=1278413" target="_blank">full article here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Gartner Highlights Key Predictions for IT Organizations and Users in 2010 and Beyond&p[summary]=&ldquo;Gartner, Inc. has highlighted the key predictions that herald long-term changes in approach for IT organizations and the people th...&p[url]=http://172.16.7.177:4000/2010/01/gartner-highlights-key-predictions-for-it-organizations-and-users-in-2010-and-beyond" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2010/01/gartner-highlights-key-predictions-for-it-organizations-and-users-in-2010-and-beyond&text=&ldquo;Gartner, Inc. has highlighted the key predictions that herald long-term changes in approach for IT organizations and the people th...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+
+
+
+<div class="pagination" role="navigation" aria-label="pagination">
+    
+        <a href="/page16/" class="previous">&larr; Previous</a>
+    
+
+    <span class="page_number">Page 17 of 24</span>
+
+    
+        <a href="/page18/" class="next">Next &rarr;</a>
+    
+</div>
+
+            </main>
+        </div>
+
+        <script src="http://172.16.7.177:4000/assets/js/jquery-1.12.2.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/backtotop.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr-feed.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/jquery.fitvids.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/svg4everybody.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/scripts.js"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXXXX-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+        <style>
+.lightbox {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.85); z-index: 9999999; line-height: 0; cursor: pointer;}
+.lightbox .img {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 100%;
+	max-height: 100%;
+}
+.lightbox .img img {opacity: 0; pointer-events: none; width: auto;}
+@media screen and (min-width: 1200px) {
+    .lightbox .img {
+		max-width: 1200px;
+    }
+}
+@media screen and (min-height: 1200px) {
+    .lightbox img {
+		max-height: 1200px;
+	}
+}
+.lightbox span {display: block; position: fixed; bottom: 13px; height: 1.5em; line-height: 1.4em; width: 100%; text-align: center; color: white; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+
+
+
+
+.lightbox .videoWrapperContainer {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 900px;
+	max-height: 100%;
+}
+.lightbox .videoWrapperContainer .videoWrapper {
+	height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-bottom: 56.333%; /* custom */
+	background: black;
+} 
+.lightbox .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}   
+.lightbox #prev, .lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
+.lightbox.gallery #prev, .lightbox.gallery #next {display: block;}
+.lightbox #prev {left: 0;}
+.lightbox #next {right: 0;}
+.lightbox #close {height: 50px; width: 50px; position: fixed; cursor: pointer; text-decoration: none; z-index: 99; right: 0; top: 0;}
+.lightbox #close:after, .lightbox #close:before {position: absolute; margin-top: 22px; margin-left: 14px; content: ""; height: 3px; background: white; width: 23px;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+/* Safari */
+-webkit-transform: rotate(-45deg);
+/* Firefox */
+-moz-transform: rotate(-45deg);
+/* IE */
+-ms-transform: rotate(-45deg);
+/* Opera */
+-o-transform: rotate(-45deg);
+}
+.lightbox #close:after {
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+/* Opera */
+-o-transform: rotate(45deg);
+}
+.lightbox, .lightbox * {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+</style>
+		
+<script>
+function is_youtubelink(url) {
+  var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  return (url.match(p)) ? RegExp.$1 : false;
+}
+function is_imagelink(url) {
+	var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
+	return (url.match(p)) ? true : false;
+}
+function is_vimeolink(url,el) {
+	var id = false;
+	$.ajax({
+	  url: 'https://vimeo.com/api/oembed.json?url='+url,
+	  async: true,
+	  success: function(response) {
+		if(response.video_id) {
+		  id = response.video_id;
+		  $(el).addClass('lightbox-vimeo').attr('data-id',id);
+		}
+	  }
+	});
+}
+
+$(document).ready(function() {
+	//add classes to links to be able to initiate lightboxes
+	$("a").each(function(){
+		var url = $(this).attr('href');
+		if(url) {
+			if(url.indexOf('vimeo') !== -1 && !$(this).hasClass('no-lightbox')) is_vimeolink(url,$(this));
+			if(is_youtubelink(url) && !$(this).hasClass('no-lightbox')) $(this).addClass('lightbox-youtube').attr('data-id',is_youtubelink(url));
+			if(is_imagelink(url) && !$(this).hasClass('no-lightbox')) {
+				$(this).addClass('lightbox-image');
+				var href = $(this).attr('href');
+				var filename = href.split('/').pop();
+				var split = filename.split(".");
+				var name = split[0];
+				$(this).attr('title',name);
+			}
+		}
+	});
+	//remove the clicked lightbox
+	$("body").on("click", ".lightbox", function(event){
+		if($(this).hasClass('gallery')) {
+			$(this).remove();
+			if($(event.target).attr('id')=='next') {
+				//next item
+				if($("a.gallery.current").nextAll("a.gallery:first").length) $("a.gallery.current").nextAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").first().click();
+			}
+			else if ($(event.target).attr('id')=='prev') {
+				//prev item
+				if($("a.gallery.current").prevAll("a.gallery:first").length) $("a.gallery.current").prevAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").last().click();
+			}
+			else {
+				$("a.gallery").removeClass('gallery');
+			}
+		}
+		else $(this).remove();
+	});
+	//prevent image from being draggable (for swipe)
+	$("body").on('dragstart', ".lightbox img", function(event) { event.preventDefault(); });
+	//add the youtube lightbox on click
+	$("a.lightbox-youtube").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&showinfo=0&rel=0"></iframe></div></div></div>').appendTo('body');
+	});
+	//add the image lightbox on click
+	$("a.lightbox-image").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" style="background: url('+$(this).attr('href')+') center center / contain no-repeat;" title="'+$(this).attr('title')+'" ><img src="'+$(this).attr('href')+'" alt="'+$(this).attr('title')+'" /></div><span>'+$(this).attr('title')+'</span></div>').appendTo('body');
+	});
+	//add the vimeo lightbox on click
+	$("body").on("click", "a.lightbox-vimeo", function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+$(this).attr('data-id')+'/?autoplay=1&byline=0&title=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div></div>').appendTo('body');
+	});
+
+	$("body").on("click", "a[class*='lightbox-']", function(){
+		var link_elements = $(this).parent().find("a[class*='lightbox-']");
+		$(link_elements).removeClass('current');
+		for (var i=0; i<link_elements.length; i++) {
+			if($(this).attr('href') == $(link_elements[i]).attr('href')) {
+				$(link_elements[i]).addClass('current');
+			}
+		}
+		if(link_elements.length>1) {
+			$('.lightbox').addClass('gallery');
+			$(link_elements).addClass('gallery');
+		}
+	});
+
+	
+});
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $("#prev").click();
+        break;
+        case 39: // right
+        $("#next").click();
+        break;
+	case 27: // esc
+        $("#close").click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+  /*===========================
+  Swipe-it v1.4.1
+  An event listener for swiping gestures with vanilla js.
+  https://github.com/tri613/swipe-it#readme
+ 
+  @Create 2016/09/22
+  @Update 2017/08/11
+  @Author Trina Lu
+  ===========================*/
+  "use strict";var _slicedToArray=function(){function n(n,t){var e=[],i=!0,o=!1,r=void 0;try{for(var u,c=n[Symbol.iterator]();!(i=(u=c.next()).done)&&(e.push(u.value),!t||e.length!==t);i=!0);}catch(n){o=!0,r=n}finally{try{!i&&c.return&&c.return()}finally{if(o)throw r}}return e}return function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return n(t,e);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();!function(n,t,e){function i(n){function e(){o("touchstart",m,w),o("touchmove",d,w),o("touchend",p,w),E.mouseEvent&&o("mousedown",s,w)}function i(){y=!1,D=!1,A=!1,b=!1,a=!1}function s(n){a=this,y=n.clientX,D=n.clientY,o("mousemove",l,v),o("mouseup",h,v)}function l(n){n.preventDefault(),y&&D&&(A=n.clientX,b=n.clientY)}function h(n){r("mousemove",l,v),r("mouseup",h,v),p(n)}function m(n){a=this,y=n.touches[0].clientX,D=n.touches[0].clientY}function d(n){A=n.touches[0].clientX,b=n.touches[0].clientY}function p(n){if(y&&D&&A&&b){var t=y-A,e=D-b,o=[t,e].map(Math.abs),r=_slicedToArray(o,2),c=r[0],s=r[1],v=E.minDistance;if(c>v){var f=y<A?"swipeRight":"swipeLeft";u(f,a,{distance:t,start:y,end:A})}if(s>v){var l=D>b?"swipeUp":"swipeDown";u(l,a,{distance:e,start:D,end:b})}(c>v||s>v)&&u("swipe",a)}i()}var E=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},w=c(t.querySelectorAll(n)),y=void 0,D=void 0,A=void 0,b=void 0;E.mouseEvent=void 0===E.mouseEvent?f.mouseEvent:E.mouseEvent,E.minDistance=void 0===E.minDistance?f.minDistance:E.minDistance,i(),e(),this.on=function(n,t){return o(n,t,w),this}}function o(n,t,e){s(e).forEach(function(e){return e.addEventListener(n,t)})}function r(n,t,e){s(e).forEach(function(e){return e.removeEventListener(n,t)})}function u(n,e){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},o=t.createEvent("Event");o.initEvent(n,!0,!0),o.swipe=i,s(e).forEach(function(n){return n.dispatchEvent(o)})}function c(n){for(var t=[],e=0;e<n.length;e++)t.push(n[e]);return t}function s(n){return Array.isArray(n)?n:[n]}var a=!1,v=[n],f={mouseEvent:!0,minDistance:30};n[e]=i}(window,document,"SwipeIt");
+
+var mySwipeIt = new SwipeIt('body');
+mySwipeIt.on('swipeLeft',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#next").click();
+	}
+}).on('swipeRight',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#prev").click();
+	}
+});
+</script>
+
+    </body>
+</html>

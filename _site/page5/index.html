@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! </title>
+    <meta property="og:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+    <meta name="twitter:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+
+    <meta name="description" content="">
+    <meta name="description" property="og:description" content="" />
+    <meta name="twitter:description" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:site" content="@chrisgoosen" />
+    
+    <meta property="og:url" content="http://172.16.7.177:4000/page5/" />
+
+    <meta property="og:image" content="" />
+    <meta name="twitter:image" content="" />
+
+    <meta name="author" content="Chris's Blog" />
+
+    <meta name="copyright" content="Copyright by Chris's Blog. All Rights Reserved." />
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v15/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(https://fonts.gstatic.com/s/roboto/v15/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="http://172.16.7.177:4000/assets/css/main.css">
+
+    <link rel="canonical" href="http://172.16.7.177:4000/page5/">
+
+    <link rel="alternate" type="application/rss+xml" title="" href="http://172.16.7.177:4000/feed.xml">
+</head>
+
+    <body>
+        <div class="wrapper">
+            <aside class="user-profile fixed" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
+    </div>
+
+    <div class="compact-header">
+        <a class="avatar" href="http://172.16.7.177:4000"><img alt="Avatar" src="/assets/img/headshot.jpg" /></a>
+        <div class="my-info">
+            <strong class="my-name">Chris's Blog</strong>
+            <span class="my-job-title">It's called thinking...  go with it!</span>
+        </div>
+    </div>
+
+    
+        
+        <div class="mainmenu">
+            <a href="http://172.16.7.177:4000" >Home</a>
+            
+                
+            
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/contact/" >Contact</a>
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/about/" >About</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+    
+    
+    <div>
+    	<img src="/assets/img/mvp.png" style="width:181px;height:74px;">
+    </div>
+
+    <p class="about-me"> </p>
+    
+    <ul class="socials">
+        <li><a href="https://twitter.com/chrisgoosen" target="_blank"><svg title="twitter" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li><li><a href="https://www.linkedin.com/in/ctgoosen/" target="_blank"><svg title="linkedin" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#linkedin-icon"></use></svg></a></li><li><a href="https://github.com/cgoosen" target="_blank"><svg title="github" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#github-icon"></use></svg></a></li>
+
+        
+            <li><a href="/contact" target="_blank"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        
+
+        
+         <li><a href="http://feeds.cgoosen.com/cgoosen"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        
+    </ul>
+</aside>
+
+
+            <main class="the-content" role="main">
+                <div class="search" role="search">
+    <div>
+        <div class="show-results-count">0 Results</div>
+        <div class="search-holder">
+            <input type="text" id="search-input" placeholder="search for..." />
+        </div>
+    </div>
+    <ul id="results-container" class="results-container"></ul>
+</div>
+
+
+                
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2016-03-30T09:30:09-05:00" itemprop="datePublished">30 Mar, 2016</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2016/03/using-powershell-to-automate-office-365-license-assignment">Using PowerShell to automate Office 365 license assignment</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>The move to Office 365 almost always requires changes to existing operational processes. One of the processes that inevitably requires an update is the provisioning process and the extent of these changes will differ from organization to organization and depend on the maturity of your identity lifecycle management process. In many environments, license assignment can be easily automated using a scheduled task and PowerShell so I wanted to put together a post that provides an outline on how this can be done.</p>
+<p>Before getting into it, I just want to add a little disclaimer to this post &ndash; I love PowerShell and because I love PowerShell, I like to use it, but this doesn&rsquo;t mean it is always fit for purpose. Each environment is different so I would urge you to consider all options before implementing a full blown PowerShell provisioning process because you may already own better tools for the job (FIM/MIM, etc). These tools often take a while to implement when done properly, so PowerShell could also be a great stop-gap solution. This post is intended to provide a foundation that helps you put together your own process and should not necessarily be implemented &ldquo;as-is&rdquo;.</p>
+<p>With that out of the way, there are some requirements to think of as well. The server executing the script will need the following:</p>
+<ul>
+<li>The ability to connect to Azure AD via remote PowerShell which requires the Azure AD Module &ndash;&nbsp; <a title="https://msdn.microsoft.com/en-us/library/jj151815.aspx" href="https://msdn.microsoft.com/en-us/library/jj151815.aspx" target="_blank">Click here for more info</a></li>
+<li>Remote Server Administration Tools &ndash; RSAT</li>
+<li>A certificate to encrypt and decrypt your service account passwords. This certificate can be from an internal CA &ndash; <a href="http://www.cgoosen.com/2015/02/using-a-certificate-to-encrypt-credentials-in-automated-powershell-scripts/" target="_blank">See this post for more info</a></li>
+<li>Service accounts with the relevant permissions</li>
+<li>Relay permission on your Exchange server &ndash; Used for send report emails</li>
+</ul>
+<p>The scenario I will be addressing in this post is to automate mailbox provisioning and license assignment in a hybrid deployment. All new mailboxes get provisioned as remote mailboxes directly in Office 365 and users are assigned the relevant Office 365 license. Each user account has an entry in the &lsquo;extensionAttribute1&rsquo; attribute which determines the license they will be assigned, eg. E3 or Exchange Plan 2. We make use of 2 security groups during this process so users can be created in any OU as long as that OU is being synchronized to Azure AD. These groups are:</p>
+<ul>
+<li>O365_Provision &ndash; Starts the provisioning process. New accounts are added to this group once they have been created in Active Directory</li>
+<li>O365_License &ndash; Used by the script to keep track of users who still need to have licenses assigned</li>
+</ul>
+<p>At a high level the workflow looks something like this:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/03/FlowChart.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="FlowChart" src="http://www.cgoosen.com/wp-content/uploads/2016/03/FlowChart_thumb.png" alt="FlowChart" width="1020" height="692" border="0" /></a></p>
+<p>Lets start by looking at the variables and functions we need. Here you can define you license SKUs, service account credentials, etc:</p>
+<p>[powershell]<br />
+# Modules<br />
+Import-Module ActiveDirectory</p>
+<p># Variables - Edit these<br />
+#########################<br />
+$ErrorActionPreference = 'Stop'<br />
+$ExchangeServer = 'you_exchange_server'<br />
+$FromAddress = 'Provisioning Service
+<provisioning@yourdomain.com>'<br />
+$ToAddress = 'you@yourdomain.com'<br />
+$ADUsername = 'YourDomain\service_acc'<br />
+$RoutingDomain = 'yourtenant.mail.onmicrosoft.com'<br />
+$ADEncryptedPwd = ''<br />
+$MSOLUsername = 'service_acc@yourtenant.onmicrosoft.com'<br />
+$MSOLEncryptedPwd = ''<br />
+$Cert = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Subject -like 'CN=Provisioning Service*'}<br />
+$E3SKU = 'yourtenant:ENTERPRISEPACK'<br />
+$EP2SKU = 'yourtenant:EXCHANGEENTERPRISE'</p>
+<p>#Email Styling<br />
+$EmailBody = @"<br />
+<html><br />
+<head></p>
+<style>
+	.table {<br />
+		border:1px solid #F0F0F0;<br />
+        border-collapse: collapse;<br />
+		padding:10px;<br />
+	}<br />
+	.table th {<br />
+		border:1px solid #F0F0F0;<br />
+		padding:10px;<br />
+		background:#F0F0F0;<br />
+	}<br />
+	.table td {<br />
+		border:1px solid #F0F0F0;<br />
+		padding:10px;<br />
+	}<br />
+</style>
+<p></head><br />
+<body></p>
+<p>Hello,</p>
+<p>This is an automated report from the Office 365 Provisioning Service. The following user accounts have been successfully provisioned in Office 365:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Username</th>
+<th>Email Address</th>
+<th>License Assigned</th>
+</tr>
+</thead>
+<tbody>
+"@<br />
+$EmailBodyClosure = @"</p>
+<p>Regards,
+<p>Provisioning Service</p>
+<p> </body><br />
+ </html><br />
+"@<br />
+###########################</p>
+<p># Functions<br />
+# Function to create report email<br />
+function Send-Report{<br />
+    $Msg = New-Object Net.Mail.MailMessage<br />
+    $Smtp = New-Object Net.Mail.SmtpClient($ExchangeServer)<br />
+    $Msg.From = $FromAddress<br />
+    $Msg.To.Add($ToAddress)<br />
+    $Msg.Subject = $EmailSubject<br />
+    $Msg.Body = $EmailBody<br />
+    $Msg.IsBodyHTML = $true<br />
+    $Smtp.Send($Msg)<br />
+    }</p>
+<p># Function for Exchange Connection<br />
+function Connect-Exchange{<br />
+    $ADEncryptedBytes = [System.Convert]::FromBase64String($ADEncryptedPwd)<br />
+    $ADDecryptedBytes = $Cert.PrivateKey.Decrypt($ADEncryptedBytes, $true)<br />
+    $ADDecryptedPwd = [system.text.encoding]::UTF8.GetString($ADDecryptedBytes) | ConvertTo-SecureString -AsPlainText -Force<br />
+    $ADCredentials = New-Object System.Management.Automation.PSCredential ($ADUsername,$ADDecryptedPwd)<br />
+    $ExchSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://$ExchangeServer/PowerShell/ -Authentication Kerberos -Credential $ADCredentials<br />
+    Import-PSSession $ExchSession<br />
+    } </p>
+<p># Function for MSOL Connection<br />
+function Connect-MSOL{<br />
+    $MSOLEncryptedBytes = [System.Convert]::FromBase64String($MSOLEncryptedPwd)<br />
+    $MSOLDecryptedBytes = $Cert.PrivateKey.Decrypt($MSOLEncryptedBytes, $true)<br />
+    $MSOLDecryptedPwd = [system.text.encoding]::UTF8.GetString($MSOLDecryptedBytes) | ConvertTo-SecureString -AsPlainText -Force<br />
+    $MSOLCredentials = New-Object System.Management.Automation.PSCredential ($MSOLUsername,$MSOLDecryptedPwd)<br />
+    Connect-MSOLService -Credential $MSOLCredentials<br />
+    }<br />
+[/powershell]</p>
+<p>Next we have the &lsquo;licensing phase&rsquo; &ndash; This phase also generates the email report because a user is considered to be fully provisioned once they have a license assigned. We can also catch any errors and generate an error report email for those.</p>
+<p>[powershell]<br />
+# Licensing Phase - Check if any users need to have licenses assigned<br />
+$NeedLicense = Get-AdGroupMember -Identity O365_License<br />
+If ($NeedLicense) {<br />
+        $HasMbxArray = @()<br />
+        Connect-MSOL<br />
+        Foreach ($User in $NeedLicense) {<br />
+            $UserInfo = Get-ADUser $User.SamAccountName -Properties *<br />
+            $Username = $UserInfo.SamAccountName<br />
+            $UserEmail = $UserInfo.Mail<br />
+            $UserLic = $UserInfo.extensionAttribute1<br />
+            $UserLoc = $UserInfo.c<br />
+            $UPN = $UserInfo.UserPrincipalName<br />
+            $MsolUser = Get-MsolUser -UserPrincipalName $UPN<br />
+            $HasLic = $MsolUser.IsLicensed<br />
+                If ($MsolUser -and $UserLic -and $UserLoc) {<br />
+                    Try {<br />
+						If ($HasLic) {<br />
+	                    $ExistingLic = $MsolUser.Licenses.AccountSkuId<br />
+	                    Set-MsolUserLicense -UserPrincipalName $UPN -RemoveLicenses $ExistingLic<br />
+	                    }<br />
+	                    If ($UserLic -eq 'Exchange 2') {<br />
+	                    Set-MsolUser -UserPrincipalName $UPN -UsageLocation $UserLoc<br />
+	                    Set-MsolUserLicense -UserPrincipalName $UPN -AddLicenses $EP2SKU<br />
+                            Remove-AdGroupMember -Identity O365_License -Members $Username -Confirm:$False<br />
+	                    }<br />
+	                    ElseIf ($UserLic -eq 'E3') {<br />
+	                    Set-MsolUser -UserPrincipalName $UPN -UsageLocation $UserLoc<br />
+	                    Set-MsolUserLicense -UserPrincipalName $UPN -AddLicenses $E3SKU<br />
+                            Remove-AdGroupMember -Identity O365_License -Members $Username -Confirm:$False<br />
+                       }<br />
+					 }<br />
+					Catch {<br />
+        			$EmailSubject = 'Office 365 Provisioning Error'<br />
+        			$EmailBody = @"<br />
+<html><br />
+<head><br />
+</head><br />
+<body></p>
+<p>Hello,</p>
+<p>This is an automated report from the Office 365 Provisioning Service. The following errors occurred when attempting to provision users in Office 365:</p>
+<p><span style="color:#B22222;">$Error</span></p>
+<p><strong>Additional Diagnostic Info:</strong><br />
+Username: $Username<br />
+Email Address: $UserEmail<br />
+License Assigned: $UserLic<br />
+Usage Location: $UserLoc</p>
+<p>Regards,
+<p>Provisioning Service</p>
+<p></body><br />
+</html><br />
+"@<br />
+			        Send-Report<br />
+			        }<br />
+                    $EmailBody += '<br />
+<tr>'<br />
+	            $EmailBody += "
+<td>$Username</td>
+<p>"<br />
+	            $EmailBody += "
+<td>$UserEmail</td>
+<p>"<br />
+	            $EmailBody += "
+<td>$UserLic</td>
+<p>"<br />
+	            $EmailBody += '</tr>
+<p>'<br />
+                      }<br />
+                     }<br />
+	        $Licenses = Get-MsolAccountSku<br />
+	        $E3Consumed = $Licenses[0].ConsumedUnits<br />
+	        $E3Total = $Licenses[0].ActiveUnits<br />
+	        $E3Remaining = $E3Total - $E3Consumed<br />
+	        $ExP2Consumed = $Licenses[1].ConsumedUnits<br />
+	        $ExP2Total = $Licenses[1].ActiveUnits<br />
+	        $ExP2Remaining = $ExP2Total - $ExP2Consumed<br />
+	        $EmailBodyLic = @"<br />
+	</tbody>
+</table>
+<p><strong>License Summary:</strong></p>
+<ul>
+<li>You have consumed <strong>$E3Consumed</strong> Exchange Online (Plan 2) licenses and have <strong>$E3Remaining</strong> remaining</li>
+<li>You have consumed <strong>$ExP2Consumed</strong> Office 365 Enterprise E3 licenses and have <strong>$ExP2Remaining</strong> remaining</span></li>
+</ul>
+<p>"@<br />
+	        $EmailSubject = 'Office 365 Provisioning Report'<br />
+	        $EmailBody += $EmailBodyLic<br />
+	        $EmailBody += $EmailBodyClosure<br />
+	        Send-Report<br />
+    }<br />
+[/powershell]</p>
+<p>The &lsquo;mailbox enablement phase&rsquo; connects to the local Exchange server and creates a new remote mailbox. <a href="http://www.cgoosen.com/2016/01/how-to-create-a-remote-office-365-mailbox-in-a-hybrid-deployment/" target="_blank">See this post for more information</a> on this process. This phase also attempts to generate error notification emails.</p>
+<p>[powershell]<br />
+# Mailbox Enablement Phase - Check if any new mailboxes need to be provisioned<br />
+$NeedMailbox = Get-AdGroupMember -Identity O365_Provisioning<br />
+If ($NeedMailbox) {<br />
+    Connect-Exchange<br />
+    Foreach ($User in $NeedMailbox) {<br />
+    $Username = $User.SamAccountName<br />
+    $UserInfo = Get-ADUser $Username -Properties *<br />
+    $UserLic = $UserInfo.extensionAttribute1<br />
+    $UserLoc = $UserInfo.c<br />
+    If ($UserLic -and $UserLoc){<br />
+        Try {<br />
+            Enable-RemoteMailbox $Username -RemoteRoutingAddress "$Username@$RoutingDomain"<br />
+            Add-ADGroupMember -Identity O365_License -Members $Username<br />
+            Remove-AdGroupMember -Identity O365_Provisioning -Members $Username -Confirm:$False<br />
+                }<br />
+        Catch {<br />
+        $EmailSubject = 'Office 365 Provisioning Error'<br />
+        $EmailBody = @"<br />
+<html><br />
+<head><br />
+</head><br />
+<body></p>
+<p>Hello,</p>
+<p>This is an automated report from the Office 365 Provisioning Service. The following errors occurred when attempting to mail-enable users:</p>
+<p><span style="color:#B22222;">$Error</span></p>
+<p><strong>Additional Diagnostic Info:</strong><br />
+Username: $Username</p>
+<p>Regards,
+<p>Provisioning Service</p>
+<p></body><br />
+</html><br />
+"@<br />
+        Send-Report<br />
+        }<br />
+        }<br />
+    Else {<br />
+        $EmailSubject = 'Office 365 Provisioning Error'<br />
+        $EmailBody = @"<br />
+<html><br />
+<head><br />
+</head><br />
+<body></p>
+<p>Hello,</p>
+<p>This is an automated report from the Office 365 Provisioning Service. The following user could not be provisioned, please check to ensure that the required license type has been correctly entered in the "Company" field and that the "Country/region" has been set:</p>
+<p><span style="color:#B22222;">User: $Username</span></p>
+<p>Regards,
+<p>Provisioning Service</p>
+<p></body><br />
+</html><br />
+"@<br />
+        Send-Report<br />
+        }<br />
+    }<br />
+}<br />
+[/powershell]</p>
+<p>Putting this all together will hopefully form be a great foundation to help you build your own workflow. Once done, you can simply schedule your script to run using task scheduler.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Using PowerShell to automate Office 365 license assignment&p[summary]=The move to Office 365 almost always requires changes to existing operational processes. One of the processes that inevitably requires an...&p[url]=http://172.16.7.177:4000/2016/03/using-powershell-to-automate-office-365-license-assignment" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2016/03/using-powershell-to-automate-office-365-license-assignment&text=The move to Office 365 almost always requires changes to existing operational processes. One of the processes that inevitably requires an...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2016-02-18T10:18:15-06:00" itemprop="datePublished">18 Feb, 2016</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2016/02/azure-ad-connect-gets-a-big-update">Azure AD Connect gets a big update!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>In case you missed it, the latest version of Azure AD Connect (version 1.1.105.0) was <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-version-history/" target="_blank">recently made available for download.</a> One of the big changes and great new additions in this version is the new built-in scheduler which was separate to the sync engine in previous releases and would run as a scheduled task in Windows task scheduler:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture1" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture1_thumb.png" alt="Capture1" width="776" height="110" border="0" /></a></p>
+<p>Another big change is the fact that the default synchronization frequency has been updated and is now 30 minutes which is a big change from the previous default of 3 hours. In addition, this value can now be configured which is something that was not supported previously &ndash; I know this change is going to be very well received by many organizations. The scheduler can be viewed and configured using the</p>
+<p>[powershell]Get-ADSyncScheduler[/powershell]</p>
+<p>and</p>
+<p>[powershell]Set-ADSyncScheduler[/powershell]</p>
+<p>cmdlets. You can also manually start a synchronization cycle with the</p>
+<p>[powershell]Start-ADSyncSyncCycle[/powershell]</p>
+<p>cmdlet</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture3" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture3_thumb.png" alt="Capture3" width="669" height="223" border="0" /></a></p>
+<p>As before, the upgrade process from previous versions is very simple &ndash; The wizard will detect the previous installation and ask to if you would like to upgrade:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture2" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture2_thumb.png" alt="Capture2" width="622" height="438" border="0" /></a></p>
+<p align="left">You will notice after the upgrade that the old Azure AD Sync Scheduler task no longer exists in Windows task scheduler</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/after.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="after" src="http://www.cgoosen.com/wp-content/uploads/2016/02/after_thumb.png" alt="after" width="741" height="105" border="0" /></a></p>
+<p align="left">Other new features in this release are:</p>
+<ul>
+<li>Automatic upgrade feature for Express settings customers.</li>
+<li>Support for the global admin using MFA and PIM in the installation wizard.</li>
+<li>Support changing the user's sign-in method after initial install.</li>
+<li>Allows Domain and OU filtering in the installation wizard.</li>
+</ul>
+<p align="left">For more information on these <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-version-history/" target="_blank">and other new features, click here</a></p>
+<p align="left">For more information about the <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnectsync-feature-scheduler/" target="_blank">new built-in scheduler, click here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Azure AD Connect gets a big update!&p[summary]=In case you missed it, the latest version of Azure AD Connect (version 1.1.105.0) was recently made available for download. One of the bi...&p[url]=http://172.16.7.177:4000/2016/02/azure-ad-connect-gets-a-big-update" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2016/02/azure-ad-connect-gets-a-big-update&text=In case you missed it, the latest version of Azure AD Connect (version 1.1.105.0) was recently made available for download. One of the bi...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2016-01-27T09:20:39-06:00" itemprop="datePublished">27 Jan, 2016</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2016/01/how-to-create-a-remote-office-365-mailbox-in-a-hybrid-deployment">How to create a remote &ldquo;Office 365&rdquo; mailbox  in a hybrid deployment</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I&rsquo;ve recently seen the same issue pop up in a few different environments so I thought I would put together a short post that explains how to create a &ldquo;Office 365&rdquo; mailbox when using a hybrid deployment of Exchange. One of the questions I&rsquo;ve had had answer a few times recently is &ldquo;Why do newly created Exchange Online mailboxes not appear in the on-premises Exchange Admin Center as &ldquo;Office 365&rdquo; mailboxes like migrated mailboxes do?&rdquo;</p>
+<p>There appears to be some confusion around provisioning of new user mailboxes once a hybrid deployment has been configured as this issue is caused when the mailbox has not be correctly provisioned in the on-premises environment.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap3" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap3_thumb.png" alt="cap3" width="725" height="314" border="0" /></a></p>
+<p>While it is technically possible to create a new user account in Active Directory, wait for AAD Connect to provision that account to AAD and then assign an Exchange Online license to that user to create their mailbox, but the problem with that process is that it does not set the msExchRecipientType (and other) Exchange related attributes for that user object and that is why it will never appear in the on-premises Exchange Admin Center:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap2" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap2_thumb.png" alt="cap2" width="344" height="456" border="0" /></a></p>
+<p align="left">In order to correctly popular these attributes, you either need to create the new user and mailbox via the Exchange Admin Center by clicking on the &ldquo;+&rdquo; icon and selecting &ldquo;Office 365 Mailbox&rdquo; or you need to enable a remote mailbox for a previously created user using the <em>Enable-RemoteMailbox </em>cmdlet</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap4" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap4_thumb.png" alt="cap4" width="345" height="131" border="0" /></a></p>
+<p align="left">Many organizations already have automated provisioning processes in place so adjusting the mailbox enablement workflow may be the preferred method, an example of the cmdlet is shown below:</p>
+<p>[powershell]<br />
+#Syntax is: Enable-RemoteMailbox <user> &ndash;RemoteRoutingAddress <user@tenant.mail.onmicrosoft.com><br />
+Enable-RemoteMailbox homer -RemoteRoutingAddress homer@gooselabs.mail.onmicrosoft.com<br />
+[/powershell]</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap1" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap1_thumb.png" alt="cap1" width="694" height="240" border="0" /></a></p>
+<p align="left">The <em>Enable-RemoteMailbox </em>cmdlet can be run immediately after creating the user account in Active Directory so there is no need to wait for the next AAD Connect synchronization cycle to complete before enabling the mailbox. Once the user account has been provisioned to AAD, the mailbox will automatically created and the appropriate license should then be assigned to the user.</p>
+<p align="left">More information on the <em>Enable-RemoteMailbox</em> cmdlet can be <a href="https://technet.microsoft.com/en-us/library/ff607313%28v=exchg.160%29.aspx" target="_blank">found on TechNet here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=How to create a remote &ldquo;Office 365&rdquo; mailbox  in a hybrid deployment&p[summary]=I&rsquo;ve recently seen the same issue pop up in a few different environments so I thought I would put together a short post that explai...&p[url]=http://172.16.7.177:4000/2016/01/how-to-create-a-remote-office-365-mailbox-in-a-hybrid-deployment" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2016/01/how-to-create-a-remote-office-365-mailbox-in-a-hybrid-deployment&text=I&rsquo;ve recently seen the same issue pop up in a few different environments so I thought I would put together a short post that explai...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2015-12-31T07:16:04-06:00" itemprop="datePublished">31 Dec, 2015</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2015/12/multiple-tenant-domains-with-a-single-yammer-network">Multiple tenant domains with a single Yammer network</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I recently worked with a customer who had a large number of different business units and each one had their own domain. As part of their Office 365 enablement project they wanted to enable Yammer Enterprise for their tenant and allow users from the different business units to collaborate with each other using the same Yammer network. Yammer integration with Office 365 has come a long way over the last few years and while merging multiple networks or adding domains into the same network is possible, there are a few things to think about before initiating the process and I wanted to post some of my notes.</p>
+<p>Firstly, here are some of the key points to remember:</p>
+<ul>
+<li>Yammer no longer requires the use of Yammer Directory Sync and can now make use of Azure AD Connect</li>
+<li>Once Yammer has been activated and a Yammer Enterprise network has been created for the tenant, any user who was a valid account in the tenant will be able to log on to Yammer without any additional license assignment</li>
+<li>Yammer users are created the first time they log on and will therefore not appear in the Yammer people directory prior to that</li>
+<li>Office 365 supports one activated Yammer Enterprise network per tenant</li>
+<li>Yammer content is not copied during the merge process</li>
+</ul>
+<p>Since Office 365 supports only one activated Yammer Enterprise network per tenant, it is recommended that in environments with multiple domains the home network is activated using the domain that accommodates the majority of users. Once this network has been created, adding a domain to a network is very simple.&nbsp; log into the Office 365 portal, submit a service request and once you have completed the request form (pictured below) it only takes a day or two to complete.
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/12/Capture1.png"><img title="Capture1" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Capture1" src="http://www.cgoosen.com/wp-content/uploads/2015/12/Capture1_thumb.png" width="694" height="581"></a></p>
+<p>If a domain already has a Yammer Basic network, you can choose to either upgrade that network to an Enterprise network or create a new Enterprise network and merge the old Basic one, but it is important to understand that during the merge process the old Yammer content will not be copied. This network migration process no longer requires a service request and can be performed by Yammer admins. <a href="https://support.office.com/en-us/article/Network-migration-Consolidate-multiple-Yammer-networks-a22c1b20-9231-4ce2-a916-392b1056d002?ui=en-US&amp;rs=en-US&amp;ad=US" target="_blank">There is some great documentation available here.</a>&nbsp;
+<p>Some additional documentation on <a href="https://support.office.com/en-us/article/Upgrade-your-network-to-Yammer-Enterprise-9cdcf894-4a3d-4956-8a6c-6cb4d62770ea" target="_blank">upgrading your Yammer network is available here.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Multiple tenant domains with a single Yammer network&p[summary]=I recently worked with a customer who had a large number of different business units and each one had their own domain. As part of their ...&p[url]=http://172.16.7.177:4000/2015/12/multiple-tenant-domains-with-a-single-yammer-network" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2015/12/multiple-tenant-domains-with-a-single-yammer-network&text=I recently worked with a customer who had a large number of different business units and each one had their own domain. As part of their ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2015-11-30T11:27:35-06:00" itemprop="datePublished">30 Nov, 2015</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2015/11/exchange-hybrid-deployment-and-sizing">Exchange Hybrid Deployment and Sizing</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>In September, I posted about the great new Office 365 Hybrid Configuration Wizard and while there is no question that the HCW is a great help when configuring hybrid deployments, there are a few other important considerations to take into account when deploying Exchange Hybrid. I've helped many organizations deploy hybrid configurations and move mailboxes to the cloud over the last few years and often to come across the same questions and misconceptions, so I thought I'd address some of these in a blog post.</p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>"Help!, I need to implement a hybrid server!"<br></strong>That is not necessarily true, Exchange Hybrid is a configuration state and should not be thought of as a server role. A Hybrid deployment uses existing Exchange workloads like Autodiscover and Exchange Web Services (EWS) so if you already have Exchange 2010/2013/2016 deployed according to best practices then chances are you already have everything you need to configure Exchange Hybrid. Sure, there is some additional functionality available if you use the most recent version of Exchange, but do you need that functionality? I've seen so many environments that have correctly sized and load balanced Exchange servers and then have a tiny virtual machine deployed as a "hybrid server". This type of configuration creates a single point of failure and inevitably becomes a migration bottleneck.</p>
+<p>If you are looking to migrate from a legacy version of Exchange then you will need to implement additional servers in order to deploy Hybrid. For Exchange 2003 your only option for going hybrid is to deploy a correctly sized Exchange 2010 deployment. For those on Exchange 2007 it is recommended that Exchange 2013 is used instead.</p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>"Can I virtualize my servers for Hybrid?"</strong> or <strong>"How do I size my servers for Hybrid?"</strong><br>If you are in a position where you are looking to upgrade your Exchange Organization prior to a migration to Exchange Online or you need to implement new Exchange servers because you are on a legacy version, you can definitely make use of virtualization. Virtualization in the Exchange world has long been a hot topic and isn&rsquo;t really something that I&rsquo;ll get into in this post. In my experience, incorrectly configured or undersized virtual Exchange servers are by far the most common issue I&rsquo;ve come across in the field so it is often simpler to use physical hardware which is also the recommended practice.</p>
+<p>To illustrate this, here is an example of some actual performance data I gathered when working with a customer. This particular customer was migrating from Exchange 2007 and had implemented virtual Exchange 2013 servers. Everything worked great until they attempted to migrate several mailboxes at the same time and they noticed that it was taking a considerable amount of time for small mailboxes to migrate. After confirming that the issue wasn&rsquo;t bandwidth related we decided to take a closer look at the new virtual servers. These servers sized with 4 CPU cores and 32 GB of RAM but didn&rsquo;t appear to be performing correctly. Our initial performance tests indicated that the servers seemed to be CPU constrained and after a lot of testing and much discussion with their virtualization team we found that simply changing the configuration from 2 sockets with 2 cores each (4 cores total) to 1 socket with 4 cores (still 4 cores) greatly improved the performance. The same 100 mailboxes were used in both tests:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/11/CPU1.png"><img title="CPU" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="CPU" src="http://www.cgoosen.com/wp-content/uploads/2015/11/CPU_thumb1.png" width="873" height="320"></a></p>
+<p align="left">If you are planning to virtualize, make sure you follow <a href="http://download.microsoft.com/download/4/a/c/4ac32fd3-220e-45dc-aa97-dbdbe19c15b2/best_practices_for_virtualizing_and_managing_exchange_2013.pdf" target="_blank">Microsoft&rsquo;s best practices for virtualizing Exchange</a> and always use the <a href="http://blogs.technet.com/b/exchange/archive/2013/05/14/released-exchange-2013-server-role-requirements-calculator.aspx" target="_blank">Exchange Server Role Requirements Calculator</a> to correctly size your deployments.</p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>"The cloud is awesome, I plan to remove all my on-premises Exchange servers!"</strong><br>There is no denying that moving to the cloud makes sense for a lot of organizations and in many instances there is a desire to remove all on-premises workloads. I always advise my customers to be very careful when it comes to decommissioning their entire Exchange Organization. When using directory synchronization with your Office 365 tenant, your users are synchronized from your on-premises Active Directory and therefore most of the attributes associated with these users cannot be managed in Office 365 or Exchange Online and must be managed on-premises. Completely removing your on-premises Exchange Organization makes managing mailbox attributes more difficult so I would definitely recommend retaining at least one Exchange server for user object management. You don&rsquo;t need to retain all your Exchange servers though, so I many environments there will still be a significant reduction in servers.</p>
+<p>Retaining an on-premises Exchange server could also be really useful in SMTP relay scenarios where you have on-premises applications and devices that need to send email.</p>
+<p>Microsoft also has a lot in great resources available to help answer your Hybrid questions, here are a few:</p>
+<ul>
+<li><a href="http://blogs.technet.com/b/exchange/archive/2015/08/10/hybrid-deployment-best-practices.aspx" target="_blank">Hybrid Deployment Best Practices</a></li>
+<li><a href="http://blogs.technet.com/b/exchange/archive/2012/12/05/decommissioning-your-exchange-2010-servers-in-a-hybrid-deployment.aspx" target="_blank">Decommissioning your Exchange 2010 servers in a Hybrid Deployment</a></li>
+<li><a href="https://technet.microsoft.com/en-us/library/dn931280(v=exchg.150).aspx" target="_blank">How and when to decommission your on-premises Exchange servers in a Hybrid Deployment</a></li>
+<li><a href="https://technet.microsoft.com/en-us/library/jj619301(v=exchg.160).aspx" target="_blank">Exchange 2016 Virtualization</a></li>
+</ul>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange Hybrid Deployment and Sizing&p[summary]=In September, I posted about the great new Office 365 Hybrid Configuration Wizard and while there is no question that the HCW is a great ...&p[url]=http://172.16.7.177:4000/2015/11/exchange-hybrid-deployment-and-sizing" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2015/11/exchange-hybrid-deployment-and-sizing&text=In September, I posted about the great new Office 365 Hybrid Configuration Wizard and while there is no question that the HCW is a great ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2015-10-29T10:34:43-05:00" itemprop="datePublished">29 Oct, 2015</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2015/10/my-connect-exo-ps1-script-has-been-updated">My Connect-EXO.ps1 script has been updated!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I recently published an updated version of my Connect-EXO.ps1 script. Version 3.0 includes the option to connect to Azure AD. Based on the options selected it will connect to either or both services, here is a screenshot of the new interface:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/10/Capture.png"><img title="Capture" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Capture" src="http://www.cgoosen.com/wp-content/uploads/2015/10/Capture_thumb.png" width="507" height="336"></a></p>
+<p>The update has been published to the TechNet Gallery, <a href="http://cgoo.se/1srvTiS">it can be downloaded by clicking here&hellip;</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=My Connect-EXO.ps1 script has been updated!&p[summary]=I recently published an updated version of my Connect-EXO.ps1 script. Version 3.0 includes the option to connect to Azure AD. Based on th...&p[url]=http://172.16.7.177:4000/2015/10/my-connect-exo-ps1-script-has-been-updated" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2015/10/my-connect-exo-ps1-script-has-been-updated&text=I recently published an updated version of my Connect-EXO.ps1 script. Version 3.0 includes the option to connect to Azure AD. Based on th...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2015-09-16T07:42:22-05:00" itemprop="datePublished">16 Sep, 2015</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2015/09/a-look-at-the-microsoft-office-365-hybrid-configuration-wizard">A look at the Microsoft Office 365 Hybrid Configuration Wizard</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>In case you missed it, <a href="http://blogs.technet.com/b/exchange/archive/2015/09/04/introducing-the-microsoft-office-365-hybrid-configuration-wizard.aspx" target="_blank">Microsoft recently announced the</a> Microsoft Office 365 Hybrid Configuration Wizard (HCW). The HCW has come a long way since it was first introduced in Exchange 2010 SP2, prior to that configuring a hybrid deployment required ~50 manual steps. This is the third version of the HCW and one of the most notable changes is that it is a standalone application which decouples it from the Exchange update cycle. The HCW will download the latest version every time it is run which will ensure that the latest version is always used.</p>
+<p>The new HCW is available for use with Exchange 2013 CU8 or higher, however you will need to have <a href="https://support.microsoft.com/en-us/kb/3078678" target="_blank">Exchange 2013 CU10</a> installed if you would like see the new HCW landing page (pictured below) which is accessible via the &ldquo;Hybrid&rdquo; menu item in your on-premises Exchange Admin Center:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/09/cap1.png"><img title="cap1" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="cap1" src="http://www.cgoosen.com/wp-content/uploads/2015/09/cap1_thumb.png" width="859" height="251"></a></p>
+<p align="left">Those using Exchange 2013 CU8 or CU9 <a href="http://aka.ms/TAPHCW" target="_blank">can download the new HCW here</a>.</p>
+<p align="left">The wizard itself with take you through a series of configuration pages very similar to the pervious version, however there are improvements to error handling and a number of changes under the covers that greatly improve performance and efficiency.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/09/cap2.png"><img title="cap2" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="cap2" src="http://www.cgoosen.com/wp-content/uploads/2015/09/cap2_thumb.png" width="560" height="518"></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/09/cap12.png"><img title="cap12" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="cap12" src="http://www.cgoosen.com/wp-content/uploads/2015/09/cap12_thumb.png" width="560" height="516"></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/09/cap13.png"><img title="cap13" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="cap13" src="http://www.cgoosen.com/wp-content/uploads/2015/09/cap13_thumb.png" width="560" height="516"></a></p>
+<p align="left">It is worth noting that the log file location has changed from &ldquo;%ProgramFiles%\Microsoft\Exchange Server\V15\Logging\Update-HybridConfiguration&rdquo;&nbsp; to &ldquo;%AppData%\Microsoft\Exchange Hybrid Configuration&rdquo;</p>
+<p align="left">The Exchange Team has a detailed post about all the great new features in the Microsoft Office 365 Configuration Wizard, <a href="http://blogs.technet.com/b/exchange/archive/2015/09/04/introducing-the-microsoft-office-365-hybrid-configuration-wizard.aspx" target="_blank">I'd encourage you to check it out here.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=A look at the Microsoft Office 365 Hybrid Configuration Wizard&p[summary]=In case you missed it, Microsoft recently announced the Microsoft Office 365 Hybrid Configuration Wizard (HCW). The HCW has come a long w...&p[url]=http://172.16.7.177:4000/2015/09/a-look-at-the-microsoft-office-365-hybrid-configuration-wizard" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2015/09/a-look-at-the-microsoft-office-365-hybrid-configuration-wizard&text=In case you missed it, Microsoft recently announced the Microsoft Office 365 Hybrid Configuration Wizard (HCW). The HCW has come a long w...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2015-08-31T06:47:10-05:00" itemprop="datePublished">31 Aug, 2015</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2015/08/migrating-office-for-mac-users-to-exchange-online">Migrating Office for Mac users to Exchange Online</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I recently worked with a customer who has a workstation fleet that is almost entirely made up of Macintosh computers. Users make use of Outlook 2011 for Mac and were being migrated to Exchange Online. We found that there wasn&rsquo;t a great deal of documentation around that covers this scenario so I wanted to post some of my notes here.</p>
+<p>According to the <a href="https://support.office.com/en-us/article/Office-365-system-requirements-719254C0-2671-4648-9C84-C6A3D4F3BE45?ui=en-US" target="_blank">&ldquo;Office 365 system requirements&rdquo; page on office.com,</a> Office 365 is designed to work with the following software:</p>
+<blockquote><ul>
+<li>The current or immediately previous version of Internet Explorer or Firefox, or the latest version of Chrome or Safari.
+<li>Any version of Microsoft Office in mainstream support.</li>
+</ul>
+</blockquote>
+<p><a href="https://support.microsoft.com/en-us/lifecycle/search?sort=PN&amp;qid=&amp;alpha=Microsoft%20Office%20for%20Mac%202011&amp;Filter=FilterNO" target="_blank">Microsoft Support Lifecycle</a> indicates that you would need at least Microsoft Office for Mac 2011 SP3 and I can confirm after some testing that anything prior to Office for Mac 2011 SP2 simply won&rsquo;t even connect. The <a href="https://www.microsoft.com/mac/downloads?pid=Mactopia_Office2011&amp;fid=6ED764CC-7EB4-4BEE-949F-B0A122BF6FC6#viewer" target="_blank">latest update currently</a> available for Microsoft Office for Mac 2011 will bring the version number to 14.5.4. There is of course also the new <a href="https://blogs.office.com/2015/07/09/office-2016-for-mac-is-here/" target="_blank">Office 2016 for Mac.</a></p>
+<p>The user experience when migrating a Mac user is similar to what we experience in the Windows world, with one exception &ndash; no restart of Outlook is required. Autodiscover will detect the mailbox move and prompt the user to re-configure. Here are some examples of this prompt in Outlook for Mac 2011 and Outlook 2016 for Mac:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/08/20111.png"><img title="2011" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="2011" src="http://www.cgoosen.com/wp-content/uploads/2015/08/2011_thumb1.png" width="387" height="254"></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/08/20161.png"><img title="2016" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="2016" src="http://www.cgoosen.com/wp-content/uploads/2015/08/2016_thumb1.png" width="430" height="314"></a></p>
+<p align="left">Not sure what version your clients have installed? You can use <a href="https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765" target="_blank">Log Parser Studio</a> to parse the IIS logs on your CAS servers to help determine the versions you have out there. </p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Migrating Office for Mac users to Exchange Online&p[summary]=I recently worked with a customer who has a workstation fleet that is almost entirely made up of Macintosh computers. Users make use of O...&p[url]=http://172.16.7.177:4000/2015/08/migrating-office-for-mac-users-to-exchange-online" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2015/08/migrating-office-for-mac-users-to-exchange-online&text=I recently worked with a customer who has a workstation fleet that is almost entirely made up of Macintosh computers. Users make use of O...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2015-07-31T06:26:32-05:00" itemprop="datePublished">31 Jul, 2015</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2015/07/my-get-azcopygui-ps1-script-has-been-updated">My Get-AZCopyGUI.ps1 script has been updated</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p><a title="Script: Get-AZCopyGUI.ps1 &ndash; AZCopy GUI for PST Import" href="http://www.cgoosen.com/2015/05/script-get-azcopygui-ps1/">At the end of May</a>, I published my Get-AZCopyGUI.ps1 script which is&nbsp;a&nbsp;simple GUI wrapper for AZCopy.exe and helps simplify the process of importing .PSTs into Exchange Online. Today I published an updated version of the script which fixes a small bug and provides some additional functionality. The GUI now includes the following new options:</p>
+<ul>
+<li>The ability to use /Pattern switch - It will automatically be set&nbsp;to *.PST</li>
+<li>The ability to choose a custom log&nbsp;location. If &nbsp;no location is selected,&nbsp;a log file is named AzCopyVerbose.log will be created in the default location which is %LocalAppData%\Microsoft\Azure\AzCopy</li>
+</ul>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2015/05/Capture.png"><img class="aligncenter wp-image-1395" src="http://www.cgoosen.com/wp-content/uploads/2015/05/Capture-300x221.png" alt="Get-AzcopyGUI" width="523" height="386" /></a></p>
+<p style="text-align: left;">For more information about&nbsp;Get-AZCopyGUI.ps1, <a title="Script: Get-AZCopyGUI.ps1 &ndash; AZCopy GUI for PST Import" href="http://www.cgoosen.com/2015/05/script-get-azcopygui-ps1/" target="_blank">see this post</a>.&nbsp;I have published it to the TechNet Gallery, <a href="http://cgoo.se/1Qnxtfg" target="_blank">it can be downloaded by clicking here&hellip;</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=My Get-AZCopyGUI.ps1 script has been updated&p[summary]=At the end of May, I published my Get-AZCopyGUI.ps1 script which is&nbsp;a&nbsp;simple GUI wrapper for AZCopy.exe and helps simplify the ...&p[url]=http://172.16.7.177:4000/2015/07/my-get-azcopygui-ps1-script-has-been-updated" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2015/07/my-get-azcopygui-ps1-script-has-been-updated&text=At the end of May, I published my Get-AZCopyGUI.ps1 script which is&nbsp;a&nbsp;simple GUI wrapper for AZCopy.exe and helps simplify the ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2015-06-25T02:56:27-05:00" itemprop="datePublished">25 Jun, 2015</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2015/06/upgrading-to-azure-ad-connect">Upgrading to Azure AD Connect</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>It&rsquo;s here! <a href="http://blogs.technet.com/b/ad/archive/2015/06/24/azure-ad-connect-amp-connect-health-is-now-ga.aspx" target="_blank">Yesterday, Microsoft announced</a> the general availability of Azure AD Connect (AAD Connect). Over the years the humble DirSync tool has evolved and AAD Connect is the simplest way yet to integrate on-premises AD identities with Azure Active Directory. There has been a lot of confusion out there about which tool to use for directory synchronization but Microsoft has been hard at work on one tool to rule them all and as noted on the Microsoft Azure site, this tool is AAD Connect:</p>
+<blockquote><p><em>Azure AD Connect incorporates the components and functionality previously released as Dirsync and AAD Sync. These tools are no longer being released individually, and all future improvements will be included in updates to Azure AD Connect, so that you always know where to get the most current functionality.</em></p>
+</blockquote>
+<p>One of the great features of AAD Connect is that it will upgrade your existing deployment of DirSync or AAD Sync, it&rsquo;s a simple wizard and 5 clicks away!</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/06/22.png"><img title="2" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="2" src="http://www.cgoosen.com/wp-content/uploads/2015/06/2_thumb2.png" width="543" height="383"></a></p>
+<p align="left"><a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect/" target="_blank">Click here for more</a> Azure AD Connect information and resources.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Upgrading to Azure AD Connect&p[summary]=It&rsquo;s here! Yesterday, Microsoft announced the general availability of Azure AD Connect (AAD Connect). Over the years the humble Dir...&p[url]=http://172.16.7.177:4000/2015/06/upgrading-to-azure-ad-connect" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2015/06/upgrading-to-azure-ad-connect&text=It&rsquo;s here! Yesterday, Microsoft announced the general availability of Azure AD Connect (AAD Connect). Over the years the humble Dir...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+
+
+
+<div class="pagination" role="navigation" aria-label="pagination">
+    
+        <a href="/page4/" class="previous">&larr; Previous</a>
+    
+
+    <span class="page_number">Page 5 of 24</span>
+
+    
+        <a href="/page6/" class="next">Next &rarr;</a>
+    
+</div>
+
+            </main>
+        </div>
+
+        <script src="http://172.16.7.177:4000/assets/js/jquery-1.12.2.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/backtotop.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr-feed.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/jquery.fitvids.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/svg4everybody.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/scripts.js"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXXXX-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+        <style>
+.lightbox {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.85); z-index: 9999999; line-height: 0; cursor: pointer;}
+.lightbox .img {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 100%;
+	max-height: 100%;
+}
+.lightbox .img img {opacity: 0; pointer-events: none; width: auto;}
+@media screen and (min-width: 1200px) {
+    .lightbox .img {
+		max-width: 1200px;
+    }
+}
+@media screen and (min-height: 1200px) {
+    .lightbox img {
+		max-height: 1200px;
+	}
+}
+.lightbox span {display: block; position: fixed; bottom: 13px; height: 1.5em; line-height: 1.4em; width: 100%; text-align: center; color: white; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+
+
+
+
+.lightbox .videoWrapperContainer {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 900px;
+	max-height: 100%;
+}
+.lightbox .videoWrapperContainer .videoWrapper {
+	height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-bottom: 56.333%; /* custom */
+	background: black;
+} 
+.lightbox .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}   
+.lightbox #prev, .lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
+.lightbox.gallery #prev, .lightbox.gallery #next {display: block;}
+.lightbox #prev {left: 0;}
+.lightbox #next {right: 0;}
+.lightbox #close {height: 50px; width: 50px; position: fixed; cursor: pointer; text-decoration: none; z-index: 99; right: 0; top: 0;}
+.lightbox #close:after, .lightbox #close:before {position: absolute; margin-top: 22px; margin-left: 14px; content: ""; height: 3px; background: white; width: 23px;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+/* Safari */
+-webkit-transform: rotate(-45deg);
+/* Firefox */
+-moz-transform: rotate(-45deg);
+/* IE */
+-ms-transform: rotate(-45deg);
+/* Opera */
+-o-transform: rotate(-45deg);
+}
+.lightbox #close:after {
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+/* Opera */
+-o-transform: rotate(45deg);
+}
+.lightbox, .lightbox * {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+</style>
+		
+<script>
+function is_youtubelink(url) {
+  var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  return (url.match(p)) ? RegExp.$1 : false;
+}
+function is_imagelink(url) {
+	var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
+	return (url.match(p)) ? true : false;
+}
+function is_vimeolink(url,el) {
+	var id = false;
+	$.ajax({
+	  url: 'https://vimeo.com/api/oembed.json?url='+url,
+	  async: true,
+	  success: function(response) {
+		if(response.video_id) {
+		  id = response.video_id;
+		  $(el).addClass('lightbox-vimeo').attr('data-id',id);
+		}
+	  }
+	});
+}
+
+$(document).ready(function() {
+	//add classes to links to be able to initiate lightboxes
+	$("a").each(function(){
+		var url = $(this).attr('href');
+		if(url) {
+			if(url.indexOf('vimeo') !== -1 && !$(this).hasClass('no-lightbox')) is_vimeolink(url,$(this));
+			if(is_youtubelink(url) && !$(this).hasClass('no-lightbox')) $(this).addClass('lightbox-youtube').attr('data-id',is_youtubelink(url));
+			if(is_imagelink(url) && !$(this).hasClass('no-lightbox')) {
+				$(this).addClass('lightbox-image');
+				var href = $(this).attr('href');
+				var filename = href.split('/').pop();
+				var split = filename.split(".");
+				var name = split[0];
+				$(this).attr('title',name);
+			}
+		}
+	});
+	//remove the clicked lightbox
+	$("body").on("click", ".lightbox", function(event){
+		if($(this).hasClass('gallery')) {
+			$(this).remove();
+			if($(event.target).attr('id')=='next') {
+				//next item
+				if($("a.gallery.current").nextAll("a.gallery:first").length) $("a.gallery.current").nextAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").first().click();
+			}
+			else if ($(event.target).attr('id')=='prev') {
+				//prev item
+				if($("a.gallery.current").prevAll("a.gallery:first").length) $("a.gallery.current").prevAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").last().click();
+			}
+			else {
+				$("a.gallery").removeClass('gallery');
+			}
+		}
+		else $(this).remove();
+	});
+	//prevent image from being draggable (for swipe)
+	$("body").on('dragstart', ".lightbox img", function(event) { event.preventDefault(); });
+	//add the youtube lightbox on click
+	$("a.lightbox-youtube").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&showinfo=0&rel=0"></iframe></div></div></div>').appendTo('body');
+	});
+	//add the image lightbox on click
+	$("a.lightbox-image").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" style="background: url('+$(this).attr('href')+') center center / contain no-repeat;" title="'+$(this).attr('title')+'" ><img src="'+$(this).attr('href')+'" alt="'+$(this).attr('title')+'" /></div><span>'+$(this).attr('title')+'</span></div>').appendTo('body');
+	});
+	//add the vimeo lightbox on click
+	$("body").on("click", "a.lightbox-vimeo", function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+$(this).attr('data-id')+'/?autoplay=1&byline=0&title=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div></div>').appendTo('body');
+	});
+
+	$("body").on("click", "a[class*='lightbox-']", function(){
+		var link_elements = $(this).parent().find("a[class*='lightbox-']");
+		$(link_elements).removeClass('current');
+		for (var i=0; i<link_elements.length; i++) {
+			if($(this).attr('href') == $(link_elements[i]).attr('href')) {
+				$(link_elements[i]).addClass('current');
+			}
+		}
+		if(link_elements.length>1) {
+			$('.lightbox').addClass('gallery');
+			$(link_elements).addClass('gallery');
+		}
+	});
+
+	
+});
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $("#prev").click();
+        break;
+        case 39: // right
+        $("#next").click();
+        break;
+	case 27: // esc
+        $("#close").click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+  /*===========================
+  Swipe-it v1.4.1
+  An event listener for swiping gestures with vanilla js.
+  https://github.com/tri613/swipe-it#readme
+ 
+  @Create 2016/09/22
+  @Update 2017/08/11
+  @Author Trina Lu
+  ===========================*/
+  "use strict";var _slicedToArray=function(){function n(n,t){var e=[],i=!0,o=!1,r=void 0;try{for(var u,c=n[Symbol.iterator]();!(i=(u=c.next()).done)&&(e.push(u.value),!t||e.length!==t);i=!0);}catch(n){o=!0,r=n}finally{try{!i&&c.return&&c.return()}finally{if(o)throw r}}return e}return function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return n(t,e);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();!function(n,t,e){function i(n){function e(){o("touchstart",m,w),o("touchmove",d,w),o("touchend",p,w),E.mouseEvent&&o("mousedown",s,w)}function i(){y=!1,D=!1,A=!1,b=!1,a=!1}function s(n){a=this,y=n.clientX,D=n.clientY,o("mousemove",l,v),o("mouseup",h,v)}function l(n){n.preventDefault(),y&&D&&(A=n.clientX,b=n.clientY)}function h(n){r("mousemove",l,v),r("mouseup",h,v),p(n)}function m(n){a=this,y=n.touches[0].clientX,D=n.touches[0].clientY}function d(n){A=n.touches[0].clientX,b=n.touches[0].clientY}function p(n){if(y&&D&&A&&b){var t=y-A,e=D-b,o=[t,e].map(Math.abs),r=_slicedToArray(o,2),c=r[0],s=r[1],v=E.minDistance;if(c>v){var f=y<A?"swipeRight":"swipeLeft";u(f,a,{distance:t,start:y,end:A})}if(s>v){var l=D>b?"swipeUp":"swipeDown";u(l,a,{distance:e,start:D,end:b})}(c>v||s>v)&&u("swipe",a)}i()}var E=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},w=c(t.querySelectorAll(n)),y=void 0,D=void 0,A=void 0,b=void 0;E.mouseEvent=void 0===E.mouseEvent?f.mouseEvent:E.mouseEvent,E.minDistance=void 0===E.minDistance?f.minDistance:E.minDistance,i(),e(),this.on=function(n,t){return o(n,t,w),this}}function o(n,t,e){s(e).forEach(function(e){return e.addEventListener(n,t)})}function r(n,t,e){s(e).forEach(function(e){return e.removeEventListener(n,t)})}function u(n,e){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},o=t.createEvent("Event");o.initEvent(n,!0,!0),o.swipe=i,s(e).forEach(function(n){return n.dispatchEvent(o)})}function c(n){for(var t=[],e=0;e<n.length;e++)t.push(n[e]);return t}function s(n){return Array.isArray(n)?n:[n]}var a=!1,v=[n],f={mouseEvent:!0,minDistance:30};n[e]=i}(window,document,"SwipeIt");
+
+var mySwipeIt = new SwipeIt('body');
+mySwipeIt.on('swipeLeft',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#next").click();
+	}
+}).on('swipeRight',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#prev").click();
+	}
+});
+</script>
+
+    </body>
+</html>

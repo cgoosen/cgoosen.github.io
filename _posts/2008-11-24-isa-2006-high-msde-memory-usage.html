@@ -1,0 +1,31 @@
+---
+layout: post
+status: publish
+published: true
+title: ISA 2006 - High MSDE memory usage
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 11
+wordpress_url: http://www.cgoosen.com/archives/11
+date: '2008-11-24 10:42:59 +0000'
+date_gmt: '2008-11-23 23:42:59 +0000'
+categories:
+- ISA Server
+tags: []
+comments: []
+---
+<p>I came across this issues on a ISA 2006 proxy server the other day. Basically, if you are logging to a MSDE database you may experience high memory usage by SQL server because the amount of physical memory that is allocated for SQL Server is not limited by default.</p>
+<p><img style="0px" src="http://www.cgoosen.com/wp-content/uploads/2008/11/cap-thumb.jpg" border="0" alt="cap" width="410" height="454" align="left" />It is possible to limit the amount of physical memory that is allocated for SQL Server. Recommended values are:</p>
+<p>System Memory - Setting</p>
+<p>1 GB - 386 MB</p>
+<p>2 GB - 512 MB</p>
+<p>3 GB - 764 MB</p>
+<p>4 GB - 1024 MB</p>
+<p>For detailed information on how to set these limits, <a href="http://support.microsoft.com/?id=909636" target="_blank">see the following Microsoft KB article</a></p>
+<ol><span style="font-size: small;"> </span></ol>

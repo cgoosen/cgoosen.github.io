@@ -1,0 +1,122 @@
+---
+layout: post
+status: publish
+published: true
+title: Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010,
+  Part 2 - Installing Exchange Server Edge
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 266
+wordpress_url: http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-2-installing-exchange-server-edge/
+date: '2010-05-20 18:16:00 +0000'
+date_gmt: '2010-05-20 07:16:00 +0000'
+categories:
+- Exchange Server
+- Forefront TMG
+tags: []
+comments:
+- id: 57
+  author: Server 2008 Active Directory
+  author_email: ''
+  author_url: http://findterm.com/server_2008_active_directory.html
+  date: '2010-05-20 22:38:11 +0000'
+  date_gmt: '2010-05-20 11:38:11 +0000'
+  content: "[...] configuring | full and ... Vtc 70-640 windows server 2008 active
+    directory, configuring ... Securing exchange 2010 with forefront threat management
+    gateway ... Windows hosting &ndash; a perfect solution for your website | sql
+    server ... Microsoft groove server [...]"
+- id: 94
+  author: Javier Ibarra
+  author_email: jibarra@sanantoniointernacional.com
+  author_url: ''
+  date: '2010-06-09 04:14:56 +0000'
+  date_gmt: '2010-06-08 17:14:56 +0000'
+  content: |-
+    The TMG server must be joined to the domain or can work in workgroup mode?
+    How do you do in this lab? because it is not mencioned.
+    Thank!!
+- id: 95
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-06-09 08:42:25 +0000'
+  date_gmt: '2010-06-08 21:42:25 +0000'
+  content: "Hi Javier,\r\n\r\nIt is mentioned in part 1 that the TMG server is not
+    a member of the domain - http://is.gd/cefsx\r\n\r\nCheers.\r\n\r\nChris"
+- id: 168
+  author: 'Exchange 2010 Edge and Threat Management Gateway : Servus'
+  author_email: ''
+  author_url: http://servusinc.org/myblog/?p=847
+  date: '2011-01-20 13:38:51 +0000'
+  date_gmt: '2011-01-20 02:38:51 +0000'
+  content: "[...] http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2...
+    [...]"
+- id: 178
+  author: kashif
+  author_email: kashifzai86@gmail.com
+  author_url: ''
+  date: '2011-02-22 02:07:43 +0000'
+  date_gmt: '2011-02-21 15:07:43 +0000'
+  content: |-
+    If I install Active Directory(dcpromo) then I install Active Directory (LADS, and then I install Exchange Server 2010, and then I install TMG2010
+
+    Will it work ??
+- id: 200
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2011-03-11 10:24:38 +0000'
+  date_gmt: '2011-03-10 23:24:38 +0000'
+  content: |-
+    Hi Kashif,
+
+    No, this machine should not be a domain controller or even be joined to the domain.
+
+    Cheers,
+
+    Chris
+---
+<p>In Part 1 of the series I talked about Forefront Threat Management Gateway (TMG) 2010 and how it allows administrators to consolidate their perimeter infrastructure into a single, secure point of entry for email and other messaging related services.</p>
+<p>In this part of the series, it&rsquo;s time to start getting our hands dirty so to speak and start the installation process. Microsoft recommends the following installation order:</p>
+<ol>
+<li>Install Active Directory Lightweight Directory Services (AD LDS). </li>
+<li>Install the Exchange Server Edge Transport Transport role. </li>
+<li>Install Forefront Protection 2010 for Exchange Server. </li>
+<li>Install TMG 2010 </li>
+</ol>
+<p>In Part 2, we will start by installing Exchange Server Edge. For more information, on the minimum system requirements, see <a href="http://technet.microsoft.com/en-us/library/dd896981.aspx" target="_blank">Microsoft TechNet</a></p>
+<p>To get started, I have already installed Windows Server 2008 R2. </p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb.png" width="504" height="167" /></a></p>
+<p>It is important to ensure that you have a Primary DNS suffix set, to set this, </p>
+<ol>
+<li>Right-click My Computer, and then click Properties. The System Properties dialog box will appear. </li>
+<li>Click the Computer Name tab. </li>
+<li>Click Change. The Computer Name Changes dialog box will appear. </li>
+<li>Click More. The DNS Suffix and NetBIOS Computer Name dialog box will appear. </li>
+<li>Enter the appropriate DNS suffix for the domain. </li>
+<li>Select the Change primary DNS suffix when domain membership changes check box. </li>
+<li>Click OK to save the changes, and then click OK to exit the Computer Name Changes dialog box. </li>
+<li>Click OK to close the System Properties dialog box, and then restart the computer for the change to take effect. </li>
+</ol>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image29.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image29_thumb.png" width="354" height="206" /></a>&#160;</p>
+<p>The first step is to install Active Directory Lightweight Directory Services (AD LDS), I have elected to do this via the &ldquo;Add Roles Wizard&rdquo; in &ldquo;Server Manager&rdquo;. If you do not already have .NET Framework 3.5.1 installed, it will prompt you to install this feature as well.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image2.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image2_thumb.png" width="504" height="244" /></a>&#160;</p>
+<p align="left"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image7.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image7_thumb.png" width="504" height="131" /></a> </p>
+<p align="left">Once this part of the installation has completed, it is time to install the Exchange Server Edge Transport Role. Once you launch Exchange Server 2010 setup, you can click Step 3 and choose your Exchange language option, I&rsquo;m going to be installing only languages on the DVD. Then click &ldquo;Step 4: Install Microsoft Exchange&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image1.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb1.png" width="504" height="379" /></a> </p>
+<p align="left">Read the introduction window of the setup wizard and click &ldquo;Next&rdquo;. Read and accept the License Agreement and click &ldquo;Next&rdquo; again. Make your selection on the &ldquo;Error Reporting&rdquo; window and Click &ldquo;Next&rdquo;. Select &ldquo;Custom Exchange Server Installation&rdquo; on the &ldquo;Installation Type&rdquo; window, verify the installation path and click &ldquo;Next&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image17.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image17_thumb.png" width="504" height="437" /></a> </p>
+<p align="left">On the &ldquo;Server Role Selection&rdquo; window, select &ldquo;Edge Transport Role&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image22.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image22_thumb.png" width="504" height="439" /></a> </p>
+<p align="left">Read about the &ldquo;Customer Experience Improvement Program&rdquo; and make your selection about joining. Then click &ldquo;Next&rdquo;&#160; Verify that all Readiness Checks are successful and click &ldquo;Install&rdquo; to proceed with the installation.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image33.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image33_thumb.png" width="504" height="438" /></a> </p>
+<p>Once the installation process completes successfully, click &ldquo;Finish&rdquo;</p></p></p></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image38.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image38_thumb.png" width="504" height="438" /></a></p>
+<p align="left">To summarise, in this part of the series I prepared a Windows Server 2008 R2 server by firstly ensuring that it had a Primary DNS suffix set, and installed Active Directory Lightweight Directory Services (AD LDS) and .NET Framework 3.5.1. I then proceeded to install the Exchange Server Edge Transport Role.</p>
+<p align="left">In Part 3 I&rsquo;ll install Forefront Protection 2010 for Exchange Server.</p>

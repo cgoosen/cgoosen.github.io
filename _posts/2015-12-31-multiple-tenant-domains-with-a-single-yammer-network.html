@@ -1,0 +1,43 @@
+---
+layout: post
+status: publish
+published: true
+title: Multiple tenant domains with a single Yammer network
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1456
+wordpress_url: http://www.cgoosen.com/?p=1456
+date: '2015-12-31 13:16:04 +0000'
+date_gmt: '2015-12-31 19:16:04 +0000'
+categories:
+- Office 365
+- Yammer
+tags: []
+comments:
+- id: 265585
+  author: Gregory Damon
+  author_email: Greg@DamonCloud.com
+  author_url: ''
+  date: '2016-01-07 10:17:48 +0000'
+  date_gmt: '2016-01-07 16:17:48 +0000'
+  content: Very informative.  Thanks for sharing, Chris!
+---
+<p>I recently worked with a customer who had a large number of different business units and each one had their own domain. As part of their Office 365 enablement project they wanted to enable Yammer Enterprise for their tenant and allow users from the different business units to collaborate with each other using the same Yammer network. Yammer integration with Office 365 has come a long way over the last few years and while merging multiple networks or adding domains into the same network is possible, there are a few things to think about before initiating the process and I wanted to post some of my notes.</p>
+<p>Firstly, here are some of the key points to remember:</p>
+<ul>
+<li>Yammer no longer requires the use of Yammer Directory Sync and can now make use of Azure AD Connect</li>
+<li>Once Yammer has been activated and a Yammer Enterprise network has been created for the tenant, any user who was a valid account in the tenant will be able to log on to Yammer without any additional license assignment</li>
+<li>Yammer users are created the first time they log on and will therefore not appear in the Yammer people directory prior to that</li>
+<li>Office 365 supports one activated Yammer Enterprise network per tenant</li>
+<li>Yammer content is not copied during the merge process</li>
+</ul>
+<p>Since Office 365 supports only one activated Yammer Enterprise network per tenant, it is recommended that in environments with multiple domains the home network is activated using the domain that accommodates the majority of users. Once this network has been created, adding a domain to a network is very simple.&nbsp; log into the Office 365 portal, submit a service request and once you have completed the request form (pictured below) it only takes a day or two to complete.
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/12/Capture1.png"><img title="Capture1" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Capture1" src="http://www.cgoosen.com/wp-content/uploads/2015/12/Capture1_thumb.png" width="694" height="581"></a></p>
+<p>If a domain already has a Yammer Basic network, you can choose to either upgrade that network to an Enterprise network or create a new Enterprise network and merge the old Basic one, but it is important to understand that during the merge process the old Yammer content will not be copied. This network migration process no longer requires a service request and can be performed by Yammer admins. <a href="https://support.office.com/en-us/article/Network-migration-Consolidate-multiple-Yammer-networks-a22c1b20-9231-4ce2-a916-392b1056d002?ui=en-US&amp;rs=en-US&amp;ad=US" target="_blank">There is some great documentation available here.</a>&nbsp;
+<p>Some additional documentation on <a href="https://support.office.com/en-us/article/Upgrade-your-network-to-Yammer-Enterprise-9cdcf894-4a3d-4956-8a6c-6cb4d62770ea" target="_blank">upgrading your Yammer network is available here.</a></p>

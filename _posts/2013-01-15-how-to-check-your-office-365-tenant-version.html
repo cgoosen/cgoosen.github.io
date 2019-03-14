@@ -1,0 +1,28 @@
+---
+layout: post
+status: publish
+published: true
+title: How to check your Office 365 tenant version?
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 884
+wordpress_url: http://www.cgoosen.com/?p=884
+date: '2013-01-15 09:26:53 +0000'
+date_gmt: '2013-01-14 22:26:53 +0000'
+categories:
+- Cloud
+- Office 365
+tags: []
+comments: []
+---
+<p>Ever wondered what version of Exchange your tenant is provisioned on? <a href="http://michaelvh.wordpress.com/" target="_blank">Michael Van Horenbeeck</a> has written quick post on how to determine this. I think this will be really handy in the near future so I wanted to share it. </p>
+<p>You can check the version by issuing the following cmd via powershell:</p>
+<blockquote><p>Get-OrganizationConfig | ft AdminDisplayVersion,IsUpgradingOrganization</p>
+</blockquote>
+<p>Michael has some great information in his post that <a href="http://michaelvh.wordpress.com/2013/01/13/how-to-check-what-the-version-of-your-tenant-is-in-the-cloud-office-365/" target="_blank">can be found here</a> so be sure to check it out.</p>

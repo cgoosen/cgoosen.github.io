@@ -1,0 +1,290 @@
+---
+layout: post
+status: publish
+published: true
+title: Online Migration Tools - Comparing MigrationWiz and Dell On Demand Migration
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1166
+wordpress_url: http://www.cgoosen.com/?p=1166
+date: '2014-06-05 00:41:06 +0000'
+date_gmt: '2014-06-04 13:41:06 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 242861
+  author: Bart
+  author_email: Bartosz.r.n@gmail.com
+  author_url: ''
+  date: '2014-11-10 10:25:22 +0000'
+  date_gmt: '2014-11-10 16:25:22 +0000'
+  content: "Very good article! I regret finding this just recently. I'm going to perform
+    my first SaaS migration from GroupWise 7.0.3 to Exchange 2013 using Dell OnDemand.
+    Cant wait to see the fireworks.\r\n\r\nQuestion to you Chris, I've been asked
+    many times about this but never found a proper answer. Are you aware of any working
+    tool that can be used when migrating from GroupWise to windows environment - file
+    wise.\r\n\r\nPeople store them into GW Libraries, and exporting these to standard
+    SMB fileshares was a painful experience to me..."
+- id: 243642
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2014-11-12 17:41:27 +0000'
+  date_gmt: '2014-11-12 23:41:27 +0000'
+  content: |-
+    Hi Bart,
+
+    Thanks for compliment!
+
+    Unfortunately I have never even attempted a file migration from GW to Windows so I'm not aware what tools may be out there.. Sorry :(
+
+    Good luck,
+
+    Chris
+- id: 251190
+  author: Eric D.
+  author_email: ericd@yahoo.com
+  author_url: ''
+  date: '2014-12-09 00:38:46 +0000'
+  date_gmt: '2014-12-09 06:38:46 +0000'
+  content: I have tried both and MigrationWiz was always the clear winner from a support,
+    scalability, and fidelity perspective. For example for GroupWise, they reconnect
+    recurring appointment series. They have also added archive, document and PST migration.
+- id: 251204
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2014-12-09 10:18:28 +0000'
+  date_gmt: '2014-12-09 16:18:28 +0000'
+  content: Thanks for the feedback Eric!
+- id: 262593
+  author: James Corbishley
+  author_email: james.corbishley@scc.com
+  author_url: ''
+  date: '2015-07-20 08:08:06 +0000'
+  date_gmt: '2015-07-20 14:08:06 +0000'
+  content: "Dude, how's it going! Hope you are well mate. \r\nJust so happens I am
+    doing one of these this next weekend. Using OnDemand as well. I contacted Dell
+    about some issues we are having and they pointed me to your blog... :)\r\n\r\nKeep
+    up the good work!"
+- id: 264913
+  author: Mike Bokros
+  author_email: mbokros@cyrusone.com
+  author_url: ''
+  date: '2015-11-20 04:54:03 +0000'
+  date_gmt: '2015-11-20 10:54:03 +0000'
+  content: "Very helpful article!\r\n\r\nI'm new to Exchange Online. Just poking around
+    my new tenant, it seems like the migration tab in recipients has some pretty useful
+    wizardry. Why not just use that? The hybrid model is the one my boss is attracted
+    to.\r\n\r\nDoes MigrationWiz require MRSProxy to run on the on-prem client access
+    source server? I need to migrate from on-prem Exchange 2013 to Exchange Online.\r\n\r\nAlso,
+    it seems like acceptance of BitTitan's privacy policy pretty well gives them free
+    rein to share information they collect with anyone they want. Has your research
+    covered this ground at all?\r\n\r\nThanks again for the great article!"
+- id: 264916
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-11-20 09:19:34 +0000'
+  date_gmt: '2015-11-20 15:19:34 +0000'
+  content: |-
+    Hi Mike,
+
+    Thanks for getting in touch!
+
+    You are correct, Exchange online does have some great options built into the product and I would definitely recommend using the hybrid migration approach if it makes sense for you. These tools are intended to take care of migration scenarios that are not covered by the default options or where there are constraints that prevent you from using the default options. Examples of these are:
+    <li>Exchange Online to Exchange Online migrations</li>
+    <li>Migrations from other non-Microsoft platforms</li>
+    <li>Small or legacy environments (like Exchange 2003) where it may not make sense to update to a new version first</li>
+
+    MigrationWiz does require access to EWS on your on-premises CAS server. I have not spent much time analyzing the privacy policies of any of these tools so I can't really comment on that. Obviously if you see something in there that you don't like, you could reach out to them for clarification and/or take that into account when making your decisions.
+
+    I am actually working on an updated version of this post which will include some of the newer migration tools available - I hope to have it done in the next month or so.
+
+    All the best,
+
+    Chris
+- id: 264917
+  author: Mike Bokros
+  author_email: mbokros@cyrusone.com
+  author_url: ''
+  date: '2015-11-20 10:49:53 +0000'
+  date_gmt: '2015-11-20 16:49:53 +0000'
+  content: Incredible responsiveness on your part Chris. Thank you for the info!
+- id: 266946
+  author: Dave Wain
+  author_email: dave.wain@dwm.com.au
+  author_url: http://www.dwm.com.au
+  date: '2016-03-22 03:54:03 +0000'
+  date_gmt: '2016-03-22 09:54:03 +0000'
+  content: "Thanks for your article Chris,\r\n\r\nI am putting together a proposal
+    for a client to migrate from Lotus Notes to Office 365. \r\nAfter doing some review
+    research your article has confirmed MigrationWiz as the solution to suggest.\r\n\r\nI
+    see from your About page you've moved from Sydney to Texas. Are you a fellow Aussie?
+    (Oi)\r\n\r\nCheers,\r\n\r\nDave Wain\r\nDWM Solutions\r\nEchuca | Bendigo | Shepparton
+    | Melbourne"
+---
+<p>I recently needed to migrate my own personal Office 365 tenant to another Office 365 tenant and even though I only have a few fairly small mailboxes, I decided to use online migration tools to ease the migration and I thought it would be a good idea to put together a little comparison between two of the leading solutions, MigrationWiz and Dell (formerly Quest) On Demand Migration.</p>
+<p>The truth is, migration tools aren&rsquo;t new and many of today&rsquo;s players in this market have been around for a some time. Cloud adoption however has driven innovation in the market and migration toolsets have changed in recent years. Online migration tools allow organizations to migrate their data between email platforms without having to install or maintain any migration software on-premises. From an IT professional perspective, the configuration is far simpler and because you are typically using a web browser to initiate and manage the migration you are now free to do it from wherever you want (the train in my case!) using whatever device you have available. At a high level, it is a fairly simple process which typically involves the configuration of source and destination connectors (with all the required permissions of course) and the solution will extract, convert and ingest your data for you. If either your source or target mail infrastructure is located on-premises, you would need to ensure that remote connectivity is correctly configured as well.</p>
+<p>For this comparison, I used exactly the same source mailbox and migrated the content to two new target mailboxes (one for each tool) in a new Office 365 tenant. Both tenants (source and destination) were located in North America and the migrations did not run simultaneously. The source mailbox contained the following:</p>
+<ul>
+<li>Number of folders = 38</li>
+<li>Number of items = 26255</li>
+<li>Total mailbox size = ~1.94 GB</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb.png" alt="image" width="750" height="116" border="0" /></a></p>
+<p><u>Introduction and features:</u></p>
+<p>MigrationWiz has been around for a few years now and was the first online migration tool I used. I have successfully used MigrationWiz several times and migrated users from Domino/Lotus Notes and Exchange to Exchange or Office 365/Exchange Online. One of the great things about MigrationWiz is the amount of supported source and target platforms.</p>
+<div align="center">
+<table border="0" width="674" cellspacing="0" cellpadding="2" align="center">
+<tbody>
+<tr>
+<td valign="top" width="323">
+<p align="center"><strong>Supported sources</strong></p>
+</td>
+<td valign="top" width="349">
+<p align="center"><strong>Supported targets</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="323">
+<p align="left">Amazon S3<br />
+Google Apps/Gmail<br />
+IMAP<br />
+Microsoft Exchange (2003+)<br />
+Microsoft Office 365<br />
+Microsoft Office 365 China<br />
+Novell GroupWise<br />
+POP<br />
+VMware Zimbra Server<br />
+IBM Lotus Notes</p>
+</td>
+<td valign="top" width="349">
+<p align="left">Amazon S3<br />
+Google Apps/Gmail<br />
+IMAP​<br />
+Microsoft Exchange (2007+)<br />
+Microsoft Office 365<br />
+Microsoft Office 365 China</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div align="left"><span style="background-color: #ffffff;">For more detailed information about the platforms currently <a href="https://community.bittitan.com/kb/Pages/What%20systems%20do%20you%20currently%20support.aspx" target="_blank">supported by MigrationWiz, click here.</a></span></div>
+<div align="left"></div>
+<div align="left">I should also mention that migrations from Domino/Lotus Notes require a small <a href="https://migrationwiz.zendesk.com/entries/21309916-How-do-I-configure-a-migration-from-Lotus-Notes-" target="_blank">&ldquo;Lotus Extractor&rdquo;</a> to be installed on-premises. The extractor should be installed on a workstation and not your Domino servers themselves. MigrationWiz are also in the process of launching a new migration portal which is currently in beta and will support a couple of new migrations, namely:</div>
+<ul>
+<li>Public Folder migrations</li>
+<li>Storage migrations</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb1.png" alt="image" width="750" height="425" border="0" /></a></p>
+<p>These options look really promising, however I haven&rsquo;t personally tested them (yet!). A list of items not migrated by <a href="https://community.bittitan.com/kb/Pages/What%20items%20are%20not%20migrated.aspx" target="_blank">MigrationWiz can be found here.</a></p>
+<p>Dell On Demand Migration for Email is a relative newcomer to the online migration tools market, however I&rsquo;m sure we can all agree that they (Quest Software) really set the standard for migration tools in general for a long time. I haven&rsquo;t personally used Dell On Demand for any production migrations but have been meaning to try it out for some time now. Dell On Demand supports the following platforms:</p>
+<table border="0" width="674" cellspacing="0" cellpadding="2" align="center">
+<tbody>
+<tr>
+<td valign="top" width="323">
+<p align="center"><strong>Supported sources</strong></p>
+</td>
+<td valign="top" width="349">
+<p align="center"><strong>Supported targets</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="323">Google Apps<br />
+IMAP​<br />
+Lotus Notes<br />
+Microsoft Exchange (2000+)<br />
+Microsoft Office 365<br />
+Novell GroupWise<br />
+POP<br />
+SunONE/iPlanet<br />
+Windows Live Hotmail<br />
+Zimbra</td>
+<td valign="top" width="349">Microsoft Exchange (2010, 2013)<br />
+Microsoft Office 365</td>
+</tr>
+</tbody>
+</table>
+<p><span style="background-color: #ffffff;">Dell has published a list of <a href="http://documents.software.dell.com/DOC190779" target="_blank">known issues</a> and <a href="http://documents.software.dell.com/DOC190769" target="_blank">limitations.</a></span></p>
+<p><span style="background-color: #ffffff;"><u>Licensing and cost:</u></span></p>
+<p>One of the great things about both these tools is that they are licensed on a consumption basis and there is no minimum purchase required. MigrationWiz offers a couple of different license options, with the difference being that a &ldquo;Premium&rdquo; license will allow you to perform multiple migration passes. I usually suggest purchasing the &ldquo;Premium&rdquo; license because this works really well with the &ldquo;seed and cutover&rdquo; type migrations I usually perform with these tools. With MigrationWiz, you purchase you license up front and each successfully migrated mailbox consumes one of those licenses. Their licensing is based on volume so the more licenses you purchase, the more you save. A basic license will cost you $9.99 (USD) while a premium license costs $11.99 (USD).</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb2.png" alt="image" width="750" height="581" border="0" /></a></p>
+<p>The Dell On Demand licensing model is somewhat simpler in the sense that they only have one license type. The difference is that you add your credit card details to the portal and they will bill you monthly for the amount of licenses you consume with each successfully migrated mailbox consuming one license and getting billed accordingly. Dell also appear to add an &ldquo;Australia Tax&rdquo; as the same license costs about 20% more when you pay in AUD, I always think this is a little cheeky, $1 or $2 could really add up if you are buying thousands of licenses. One license will cost you $11.00 (USD).</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image6.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image6_thumb.png" alt="image" width="750" height="249" border="0" /></a></p>
+<p align="left"><u>Configuration:</u></p>
+<p align="left">To configure MigrationWiz, you first create a &ldquo;Mailbox Connector&rdquo; which defines your source and target mailboxes as well as your migration credentials. You have the ability to use administrator credentials or end-user credentials configured per mailbox. If you have neither of these available, MigrationWiz also provides the ability to request credentials from each individual user. This is done via an email with a secure link in which the end-user may provide their credentials directly to the system.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb3.png" alt="image" width="750" height="616" border="0" /></a></p>
+<p align="left">Once you have created your &ldquo;Mailbox Connector&rdquo; you can import your mailbox list. If you have more than one mailbox to migrate, MigrationWiz provides a few methods of doing this.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb4.png" alt="image" width="750" height="494" border="0" /></a></p>
+<p align="left">I typically use .csv import. You can download a sample import file to get started (see sample below). If you are using administrator credentials for your migration, you only need to populate the &ldquo;Source Email&rdquo; and &ldquo;Destination Email&rdquo; fields. More information about <a href="https://migrationwiz.zendesk.com/entries/489970-How-do-I-import-mailboxes-into-the-system-without-entering-them-one-at-a-time-" target="_blank">migration flags can be found here.</a> I once did a migration for a customer using end-user credentials where some of the users had commas &ldquo;,&rdquo; in their passwords and needless to say, this didn&rsquo;t work very well with .csv files so be mindful of that.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image5.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb5.png" alt="image" width="500" height="102" border="0" /></a></p>
+<p align="left">Once all your mailboxes have been added, you have the ability to tweak many of the migration settings, like filtering, before beginning the migration process.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image7.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb6.png" alt="image" width="750" height="416" border="0" /></a></p>
+<p align="left">You now have the ability to migrate a few or all of the mailboxes you have imported. You will also be able to monitor the migration statistics while the migration is running. The MigrationWiz documentation is really helpful as well, for example if you need more information about <a href="https://community.bittitan.com/kb/Pages/How%20do%20I%20create%20an%20administrator%20account%20for%20login.aspx" target="_blank">migration credentials, see this link</a></p>
+<p>The Dell On Demand configuration process is very similar, you start by creating a &ldquo;Migration Plan&rdquo; which defines your source and target mailboxes as well as your credentials. You have the ability to use administrator credentials or end-user credentials and the tool allows you to increase the number of concurrent mailbox migrations by adding additional administrator credentials. Each administrator can migrate 10 target mailboxes concurrently.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image8.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb7.png" alt="image" width="750" height="512" border="0" /></a></p>
+<p align="left">The next step is to import your mailboxes, this can be done via a .tsv file. A sample file is also provided for reference.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image9.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb8.png" alt="image" width="500" height="325" border="0" /></a></p>
+<p align="left">The final configuration step allows you to tweak the migration options</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb9.png" alt="image" width="750" height="581" border="0" /></a></p>
+<p align="left">You are now ready to start migrating!</p>
+<p><u>Migration Velocity:</u></p>
+<p>As a consultant, one of the most common questions I get asked is &ldquo;How long will my migration take?&rdquo;. Unfortunately, this is a very difficult question to answer and the reality is, even with thorough testing and analysis, it is difficult to accurately predict how long a migration will take as every environment is different and migration velocity depends on so much more than just your network speeds. About 6 months ago, I helped a customer complete a migration from Exchange 2003 in one region to Exchange 2010 in another. They had a very tight deadline and it was a hard cut-off so there was no pushing the deadline. I did I whole bunch of calculations based on their source data size, connectivity, etc and in my mind there was no way we would be able to get all the data migrated in time so we started to prepare the business for that. We decided to use MigrationWiz for the migration and we ended up completing the entire migration with 4 full days to spare. Because we were prepared for the worst possible case, the entire team looked really good when we were able to pull it off successfully. I&rsquo;m glad it didn&rsquo;t end up going the other way and it just goes to show that there is always a small unknown factor that could change the amount of time taken for a migration to complete successfully.</p>
+<p>It is usually a good idea to perform some test migrations using mailboxes that accurately represent those found in your environment. Using data from those migrations will go a long way to helping you predict your migration velocity. It is really handy to use some pilot user mailboxes for this because you will be able to perform multiple passes later on and not consume any additional licenses. MigrationWiz provides some <a href="https://migrationwiz.zendesk.com/entries/489626-How-do-I-size-my-migration-" target="_blank">guidance and a basic calculator here.</a></p>
+<p>The results of the test migrations performed for this post are as follows:</p>
+<table border="0" width="675" cellspacing="0" cellpadding="2" align="center">
+<tbody>
+<tr>
+<td valign="top" width="192"></td>
+<td valign="top" width="233">
+<p align="center"><strong>MigrationWiz</strong></p>
+</td>
+<td valign="top" width="248">
+<p align="center"><strong>Dell On Demand</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="192"><strong>Duration</strong></td>
+<td valign="top" width="258">16 hrs, 23 min</td>
+<td valign="top" width="295">11 hrs, 0 min</td>
+</tr>
+<tr>
+<td valign="top" width="192"><strong>Items Processed</strong></td>
+<td valign="top" width="258">26118</td>
+<td valign="top" width="295">26286</td>
+</tr>
+<tr>
+<td valign="top" width="192"><strong>Errors</strong></td>
+<td valign="top" width="258">0</td>
+<td valign="top" width="295">13</td>
+</tr>
+</tbody>
+</table>
+<p>The statistics above were taken from each migration tool. There are some discrepancies with the amount of items processed and the Dell tool reported some failures. Looking at the target mailbox used for the Dell On Demand migration, we see:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image11.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb10.png" alt="image" width="750" height="106" border="0" /></a></p>
+<p align="left">MigrationWiz provides a whole bunch of information about the migration, including some detailed statistics:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image12.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb11.png" alt="image" width="750" height="581" border="0" /></a></p>
+<p align="left">Dell On Demand provides an overview of the migration with some detailed logging:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image13.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb12.png" alt="image" width="750" height="303" border="0" /></a></p>
+<p>I am perplexed by the large difference in migration duration. These migrations were run on random days of the week at roughly the same time so I&rsquo;m not sure if it is a coincidence or not. I might re-do the MigrationWiz one sometime and see if it changes the duration.</p>
+<p><u>Reporting:</u></p>
+<p>MigrationWiz provides some nice charts at a mailbox level as well as some .csv reports at connector level for those who like to create their own reports in Excel.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb13.png" alt="image" width="750" height="359" border="0" /></a></p>
+<p align="left">Dell On Demand provides a summary and a migration details report which includes a .csv file containing all the errors that were encountered during the migration. The reports menu is &ldquo;conveniently&rdquo; hidden on the bottom right-hand side of the dashboard.</p>
+<p align="left"><a href="http://www.cgoosen.com/wp-content/uploads/2014/06/image15.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/06/image_thumb14.png" alt="image" width="500" height="281" border="0" /></a></p>
+<p><u>Documentation:</u></p>
+<p>MigrationWiz has heaps of useful documentation, the knowledgebase is located here: <a title="https://migrationwiz.zendesk.com/forums" href="https://migrationwiz.zendesk.com/forums">https://migrationwiz.zendesk.com/forums</a> and it seems they are moving their content to a SharePoint based library located here: <a title="https://community.bittitan.com/kb/SitePages/Knowledge%20Base.aspx?product=MigrationWiz" href="https://community.bittitan.com/kb/SitePages/Knowledge%20Base.aspx?product=MigrationWiz">https://community.bittitan.com/kb/SitePages/Knowledge%20Base.aspx?product=MigrationWiz</a></p>
+<p>Dell On Demand has a user guide which is published here: <a title="http://documents.software.dell.com/On%20Demand%20Migration%20for%20Email/1.6/User%20Guide/" href="http://documents.software.dell.com/On%20Demand%20Migration%20for%20Email/1.6/User%20Guide/">http://documents.software.dell.com/On%20Demand%20Migration%20for%20Email/1.6/User%20Guide/</a></p>
+<p><u>In Summary:</u></p>
+<p>I think both are excellent tools which provide a wide range of options. Dell On Demand is targeted towards those organizations who are migrating to Microsoft Exchange while MigrationWiz supports other target platforms, like the ability to archive to Amazon S3. MigrationWiz has also recently added the ability to perform Public Folder and Storage migrations. Dell On Demand appears to have outperformed MigrationWiz when it comes to migration velocity, however I do find the MigrationWiz documentation to be superior.</p>

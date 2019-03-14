@@ -1,0 +1,36 @@
+---
+layout: post
+status: publish
+published: true
+title: Migrating Office for Mac users to Exchange Online
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1405
+wordpress_url: http://www.cgoosen.com/?p=1405
+date: '2015-08-31 11:47:10 +0000'
+date_gmt: '2015-08-31 17:47:10 +0000'
+categories:
+- Mac
+- Cloud
+- Office 365
+tags: []
+comments: []
+---
+<p>I recently worked with a customer who has a workstation fleet that is almost entirely made up of Macintosh computers. Users make use of Outlook 2011 for Mac and were being migrated to Exchange Online. We found that there wasn&rsquo;t a great deal of documentation around that covers this scenario so I wanted to post some of my notes here.</p>
+<p>According to the <a href="https://support.office.com/en-us/article/Office-365-system-requirements-719254C0-2671-4648-9C84-C6A3D4F3BE45?ui=en-US" target="_blank">&ldquo;Office 365 system requirements&rdquo; page on office.com,</a> Office 365 is designed to work with the following software:</p>
+<blockquote><ul>
+<li>The current or immediately previous version of Internet Explorer or Firefox, or the latest version of Chrome or Safari.
+<li>Any version of Microsoft Office in mainstream support.</li>
+</ul>
+</blockquote>
+<p><a href="https://support.microsoft.com/en-us/lifecycle/search?sort=PN&amp;qid=&amp;alpha=Microsoft%20Office%20for%20Mac%202011&amp;Filter=FilterNO" target="_blank">Microsoft Support Lifecycle</a> indicates that you would need at least Microsoft Office for Mac 2011 SP3 and I can confirm after some testing that anything prior to Office for Mac 2011 SP2 simply won&rsquo;t even connect. The <a href="https://www.microsoft.com/mac/downloads?pid=Mactopia_Office2011&amp;fid=6ED764CC-7EB4-4BEE-949F-B0A122BF6FC6#viewer" target="_blank">latest update currently</a> available for Microsoft Office for Mac 2011 will bring the version number to 14.5.4. There is of course also the new <a href="https://blogs.office.com/2015/07/09/office-2016-for-mac-is-here/" target="_blank">Office 2016 for Mac.</a></p>
+<p>The user experience when migrating a Mac user is similar to what we experience in the Windows world, with one exception &ndash; no restart of Outlook is required. Autodiscover will detect the mailbox move and prompt the user to re-configure. Here are some examples of this prompt in Outlook for Mac 2011 and Outlook 2016 for Mac:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/08/20111.png"><img title="2011" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="2011" src="http://www.cgoosen.com/wp-content/uploads/2015/08/2011_thumb1.png" width="387" height="254"></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/08/20161.png"><img title="2016" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="2016" src="http://www.cgoosen.com/wp-content/uploads/2015/08/2016_thumb1.png" width="430" height="314"></a></p>
+<p align="left">Not sure what version your clients have installed? You can use <a href="https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765" target="_blank">Log Parser Studio</a> to parse the IIS logs on your CAS servers to help determine the versions you have out there. </p>

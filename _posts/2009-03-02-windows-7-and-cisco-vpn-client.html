@@ -1,0 +1,36 @@
+---
+layout: post
+status: publish
+published: true
+title: Windows 7 and Cisco VPN Client
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 70
+wordpress_url: http://www.cgoosen.com/2009/03/windows-7-and-cisco-vpn-client/
+date: '2009-03-02 15:56:36 +0000'
+date_gmt: '2009-03-02 04:56:36 +0000'
+categories:
+- Windows 7
+tags: []
+comments: []
+---
+<p>So, managed to get everything installed and working great yesterday, really fought with the Cisco VPN client, but I eventually managed to get it working (or so I thought!) installed all windows updates before shutting down last night .. arrived at the office a little earlier this morning, turn my laptop on, BLUE SCREEN OF DEATH!, happened a few times yesterday while I was fiddling with the Cisco VPN client so I figured I&rsquo;d just repair it and try again, only, this time I was not so lucky..</p>
+<p>To cut a long and frustrating story short: Windows 7 rebuilt and looking good again..</p>
+<p>For the Cisco VPN client, I tried many things, this is how I managed to get it to work:</p>
+<ul>
+<li>Install Citrix <a href="ftp://files.citrix.com/dneupdate.msi">DNEupdate</a></li>
+<li>Reboot</li>
+<li>Take ownership and delete ndis.sys (in c:\windows\system32\drivers).</li>
+<li>Take ownership and delete ndis.sys.mui (in c:\windows\system32\drivers\en-us).</li>
+<li>Install Cisco VPN Client 5.0.04.0300.</li>
+<li>Reboot</li>
+<li>Windows 7 will repair itself (should take a few seconds) and automatically reboot.</li>
+<li>Cisco VPN Client should work without any other tweaks.</li>
+</ul>
+<p>Many thanks to <a href="http://blog.tiensivu.com/aaron/">Aaron Tiensivu</a> for posting this on his blog, <a href="http://blog.tiensivu.com/aaron/archives/1817-How-to-prevent-Cisco-VPN-client-version-5.0.4.0300-installation-from-bluescreening-Windows-7-x32-Build-7000.html">read it here</a></p>

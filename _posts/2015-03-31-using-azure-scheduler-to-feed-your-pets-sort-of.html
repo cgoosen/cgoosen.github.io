@@ -1,0 +1,93 @@
+---
+layout: post
+status: publish
+published: true
+title: Using Azure Scheduler to feed your pets (sort of)
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1336
+wordpress_url: http://www.cgoosen.com/?p=1336
+date: '2015-03-31 13:47:22 +0000'
+date_gmt: '2015-03-31 19:47:22 +0000'
+categories:
+- Cloud
+- IoT
+- Azure
+tags: []
+comments: []
+---
+<p>One of the things I learned shortly after we adopted our cat Kensington is that he doesn&rsquo;t care too much about my sleeping habits, if he&rsquo;s hungry he&rsquo;ll happily let us know. I don&rsquo;t have kids and having to wake up in the early hours of the morning to feed a hungry cat was a troubling proposition so I thought I'd&nbsp;find a better way. After some thought, I decided we needed a automated pet feeder but I wasn&rsquo;t able to find a commercially available one that met my criteria so I had to make my own which ended up being a really fun project.</p>
+<p>My pet feeder had the following requirements:</p>
+<ul>
+<li>It had to be internet enabled</li>
+<li>It needed Wi-Fi connectivity so it could be more portable</li>
+<li>It needed to be small and not an eyesore</li>
+<li>It needed to support scheduling as well as&nbsp;manual operation</li>
+</ul>
+<p>I found a few ideas online (it seems my situation isn&rsquo;t unique!) but yet again none of them met my criteria. After a lot of thought, I settled on a design that I thought would be functional and give me the flexibility that I was looking for and off I went to Home Depot to get the material. I ended up with a few lengths of PVC piping of varying sizes and a polycarbonate sheet. For the electronic brain of the feeder I used the following:</p>
+<ul>
+<li><a href="https://store.spark.io/?product=spark-core" target="_blank">1 x Spark Core</a> (Wi-Fi development board)</li>
+<li>1 x Continuous Rotation Servo</li>
+<li>1 x Green LED (Feed indicator)</li>
+<li>1 x Red LED (Power indicator)</li>
+<li>1 x Glue stick (to create a cheap linear actuator)</li>
+<li>2 x resistors, some leads and a mini breadboard</li>
+</ul>
+<p>The idea is that cat food is deposited in the top part of the feeder, the Spark Core drives the actuator which lowers and then raises a platform inside the main pipe chamber. Lowering the actuator exposes the opening &lsquo;elbow&rsquo; in the middle section of the feeder and the food then falls down the smaller section of pipe and is deposited in the bowl. I wanted to ensure that only&nbsp;1-2 cups of food is dispensed and was able to do this by tweaking how wide of an opening is created when the actuator is lowered and how long it is kept open for. To remove any guessing, I added some LEDs to show me what was happening at all times. The red LED is always lit when the feeder is powered on and the green LED only lights up during a feed operation. I played around with various designs for the platform that moves up and down inside the main chamber and ended up creating an angular platform.&nbsp;Here are some pictures of the feeder:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/DPP_0002.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="DPP_0002" src="http://www.cgoosen.com/wp-content/uploads/2015/03/DPP_0002_thumb.jpg" alt="DPP_0002" width="500" height="333" border="0" /></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/DPP_0003.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="DPP_0003" src="http://www.cgoosen.com/wp-content/uploads/2015/03/DPP_0003_thumb.jpg" alt="DPP_0003" width="500" height="333" border="0" /></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/DPP_0005.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="DPP_0005" src="http://www.cgoosen.com/wp-content/uploads/2015/03/DPP_0005_thumb.jpg" alt="DPP_0005" width="500" height="333" border="0" /></a></p>
+<p align="left">Operating the feeder is done by interacting with the Spark Core via the Spark API. Before this can be done, the board first has to have the relevant operating instructions flashed to it and I put together the following to achieve this:</p>
+<p>[shell]<br />
+Servo myServo;&nbsp; // create servo object to control a servo<br />
+int redLed = D0; // red power LED on pin D0<br />
+int greenLed = D1; //green feed LED on pin D1</p>
+<p>void setup()<br />
+{<br />
+myServo.attach(A0);&nbsp; // attaches the servo on the pin A0</p>
+<p>Spark.function("feed", feedKenny);&nbsp;&nbsp; // register the function</p>
+<p>pinMode(redLed, OUTPUT);<br />
+pinMode(greenLed, OUTPUT);<br />
+}</p>
+<p>void loop()<br />
+{<br />
+digitalWrite(redLed, HIGH); // red LED always on<br />
+}</p>
+<p>int feedKenny(String command)&nbsp; //called upon a matching POST request<br />
+{<br />
+digitalWrite(greenLed, HIGH); // turn on green LED when feeding<br />
+myServo.writeMicroseconds(1000);<br />
+delay(7500);<br />
+myServo.writeMicroseconds(1500);<br />
+delay(2500);<br />
+myServo.writeMicroseconds(2000);<br />
+delay(7500);<br />
+myServo.writeMicroseconds(1500);<br />
+digitalWrite(greenLed, LOW); // turn off green LED<br />
+return 200;<br />
+}<br />
+[/shell]</p>
+<p>Once the Spark Core is connected to the Wi-Fi network and the application code has been flashed you can interact with it using a regular HTTP POST. For testing, you can use PowerShell and Invoke-RestMethod to do this:</p>
+<p>[ps]<br />
+Invoke-RestMethod -Uri 'https://api.spark.io/v1/devices/YOUR-DEVICE-ID/FUNCTION?access_token=YOUR-TOKEN' -Method Post<br />
+[/ps]</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/pscap.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="pscap" src="http://www.cgoosen.com/wp-content/uploads/2015/03/pscap_thumb.png" alt="pscap" width="550" height="128" border="0" /></a></p>
+<p align="left">PowerShell is great for testing, but not very practical for daily use, fortunately this is easily remedied with a few lines for HTML code. I created a very simple form and put it on web server on my home network. This page is not secured and is only accessible when I&rsquo;m on my home network.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/wp_ss_20150331_00021.jpg"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="wp_ss_20150331_0002" src="http://www.cgoosen.com/wp-content/uploads/2015/03/wp_ss_20150331_0002_thumb1.jpg" alt="wp_ss_20150331_0002" width="220" height="387" border="0" /></a></p>
+<p align="left">Scheduling regular feeding times is really easy with <a href="http://azure.microsoft.com/en-us/services/scheduler/" target="_blank">Azure Scheduler.</a> Sign in to your Azure subscription and click &lsquo;Scheduler&rsquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/sched1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="sched1" src="http://www.cgoosen.com/wp-content/uploads/2015/03/sched1_thumb.png" alt="sched1" width="550" height="115" border="0" /></a></p>
+<p align="left">Create a new Job Collection and give it a meaningful name</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/image.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2015/03/image_thumb.png" alt="image" width="240" height="223" border="0" /></a></p>
+<p align="left">The wizard will also give you&nbsp;the option of creating your first Job. Since the Spark API requires a HTTPS POST, be sure to select that option and schedule it accordingly</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/sched2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="sched2" src="http://www.cgoosen.com/wp-content/uploads/2015/03/sched2_thumb.png" alt="sched2" width="228" height="240" border="0" /></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/sched3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="sched3" src="http://www.cgoosen.com/wp-content/uploads/2015/03/sched3_thumb.png" alt="sched3" width="240" height="230" border="0" /></a></p>
+<p align="left">Once the wizard completes, you can add more Jobs to the Job Collection as appropriate:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2015/03/sched4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="sched4" src="http://www.cgoosen.com/wp-content/uploads/2015/03/sched4_thumb.png" alt="sched4" width="240" height="48" border="0" /></a></p>
+<p align="left">Here is a quick demonstration of how the feeder works:</p>
+<p>[embed]https://www.youtube.com/watch?v=O226R01mmD0[/embed]</p>

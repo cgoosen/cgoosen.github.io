@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Forefront TMG error : %%-2146233088'
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 628
+wordpress_url: http://www.cgoosen.com/2010/10/forefront-tmg-error-2146233088/
+date: '2010-10-11 15:06:42 +0000'
+date_gmt: '2010-10-11 04:06:42 +0000'
+categories:
+- Exchange Server
+- Forefront TMG
+tags: []
+comments: []
+---
+<p>Earlier this year I post a 6 part post entitled <a href="http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-1-the-introduction/" target="_blank">&ldquo;Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010&rdquo;</a> which covered colocating Exchange 2010 Edge and Forefront TMG 2010 on the same server to create a a single, secure point of entry for all mail related services.</p>
+<p>When Exchange 2010 SP1 <a href="http://www.cgoosen.com/2010/08/exchange-2010-sp1-is-here/" target="_blank">was released</a> in late August many people started to report seeing the following error in their event log:</p>
+<p><em>&ldquo;Microsoft Forefront TMG Managed Control service fails to start and the event viewer will contain a message that the service terminated with the following error : %%-2146233088&rdquo;</em></p>
+<p>The reason for this is that SP1 removed some of the existing cmdlets, in particular <em>get-antispamupdates </em>which is used by TMG when spam filtering functionality is enabled.</p>
+<p>The forefront team <a href="http://blogs.technet.com/b/isablog/archive/2010/09/20/software-update-1-for-microsoft-forefront-threat-management-gateway-tmg-2010-service-pack-1-now-available-for-download.aspx" target="_blank">recently announced</a> the release of Software Update 1 for Forefront TMG 2010 SP1. This update resolves the issue.</p>
+<p>Download Software Update 1 for Forefront TMG 2010 SP1 <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=695d0709-0d8b-45ee-afdb-727c4428ca4d" target="_blank">here</a></p>

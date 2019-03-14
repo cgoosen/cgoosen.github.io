@@ -1,0 +1,82 @@
+---
+layout: post
+status: publish
+published: true
+title: Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010,
+  Part 4 - Installing Forefront Threat Management Gateway
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 328
+wordpress_url: http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-4-installing-forefront-threat-management-gateway/
+date: '2010-05-28 08:48:00 +0000'
+date_gmt: '2010-05-27 21:48:00 +0000'
+categories:
+- Exchange Server
+- Forefront TMG
+tags: []
+comments:
+- id: 262
+  author: 'Exchange 2010 Edge and Threat Management Gateway : Servus'
+  author_email: ''
+  author_url: http://servusinc.org/myblog/?p=847
+  date: '2012-01-12 17:25:30 +0000'
+  date_gmt: '2012-01-12 06:25:30 +0000'
+  content: "[...] http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2...
+    [...]"
+---
+<p>Here we are, Part 4 of the series. To recap what I have done thus far.. I&rsquo;ve installed the Exchange Server Edge role followed by Forefront Protection 2010 for Exchange Server.</p>
+<p>In this part I install TMG 2010 and perform some basic configuration. The minimum system requirements for TMG 2010 can be found on <a href="http://technet.microsoft.com/en-us/library/dd896981.aspx" target="_blank">Microsoft TechNet</a>.</p>
+<p>To get started, insert your Forefront Threat Management Gateway 2010 installation media and then select &ldquo;Run Preparation Tool&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image4.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image_thumb3.png" border="0" alt="image" width="504" height="358" /></a></p>
+<p>This launches the &ldquo;Forefront TMG Preparation Tool&rdquo;, read through the notes on the welcome screen and click &ldquo;Next&rdquo;. Read and accept the License Agreement and click &ldquo;Next&rdquo;</p>
+<p>Depending on your environment, select the appropriate Installation Type. I won&rsquo;t be installing a TMG array so I selected &ldquo;Forefront TMG services and Management&rdquo;. Then click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image12.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image12_thumb.png" border="0" alt="image" width="504" height="352" /></a></p>
+<p>Once all the prerequisite features have been installed, click &ldquo;Finish&rdquo; to launch the TMG 2010 installation wizard.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image15.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image15_thumb.png" border="0" alt="image" width="504" height="352" /></a></p>
+<p>Click &ldquo;Next&rdquo; on the welcome screen. Read and accept the License Agreement and click &ldquo;Next&rdquo;</p>
+<p>Next you will be presented with the &ldquo;Customer Information&rdquo; page with the Product Serial Number. Once you have entered the appropriate details, click &ldquo;Next&rdquo; and verify the installation path. Change this as appropriate and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image24.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image24_thumb.png" border="0" alt="image" width="504" height="379" /></a></p>
+<p>Next we need to define our internal network ranges. Be sure to include all of them there, mine are fairly simple and are all included in the range 172.0.0.0-172.0.0.255.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image271.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image27_thumb1.png" border="0" alt="image" width="504" height="376" /></a></p>
+<p>During the installation, some services will be restarted. Acknowledge this warning by clicking &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image30.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image30_thumb.png" border="0" alt="image" width="504" height="379" /></a></p>
+<p>Click &ldquo;Install&rdquo; to begin the installation.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image332.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image33_thumb2.png" border="0" alt="image" width="504" height="379" /></a></p>
+<p>Once the installation has completed successfully, click &ldquo;Finish&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image361.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image36_thumb1.png" border="0" alt="image" width="504" height="383" /></a></p>
+<p>Congratulations, you now have TMG 2010 installed. Lets look at some basic configuration. The first time you launch the TMG Management Console, you&rsquo;ll be presented with the &ldquo;Getting Started Wizard&rdquo; The first step is to &ldquo;Configure network settings&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image39.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image39_thumb.png" border="0" alt="image" width="504" height="452" /></a></p>
+<p>Click &ldquo;Next&rdquo; to continue and then select the appropriate network template, you&rsquo;ll want to select &ldquo;Edge Firewall&rdquo; here. It should be noted that the &ldquo;Single network adaptor&rdquo; template has many limitations and will not work in our scenario. <a href="http://technet.microsoft.com/en-us/library/cc995236.aspx" target="_blank">Click here to read more about single network adapter limitations</a>. Click &ldquo;Next&rdquo; to continue</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image45.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image45_thumb.png" border="0" alt="image" width="504" height="437" /></a></p>
+<p>Ensure that your LAN or &ldquo;Internal&rdquo; network settings are configured correctly and click &ldquo;Next&rdquo; *note the absence of a &ldquo;Default Gateway&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image48.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image48_thumb.png" border="0" alt="image" width="504" height="440" /></a></p>
+<p>Then, ensure that your Internet or &ldquo;External&rdquo; network settings are configured correctly and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image51.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image51_thumb.png" border="0" alt="image" width="504" height="443" /></a></p>
+<p>Click &ldquo;Finish&rdquo; to complete the network setup wizard.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image54.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image54_thumb.png" border="0" alt="image" width="504" height="440" /></a></p>
+<p>The next step is to &ldquo;Configure system settings&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image57.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image57_thumb.png" border="0" alt="image" width="504" height="452" /></a></p>
+<p>Click &ldquo;Next&rdquo; to continue and then confirm the &ldquo;Host Identification&rdquo; settings, note once again that this server is a member of a workgroup and is not part of the domain. Click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image63.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image63_thumb.png" border="0" alt="image" width="504" height="439" /></a></p>
+<p>Click &ldquo;Finish&rdquo; to complete the system configuration wizard</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image66.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image66_thumb.png" border="0" alt="image" width="504" height="438" /></a></p>
+<p>The final step is to &ldquo;Define deployment options&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image69.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image69_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>Click &ldquo;Next&rdquo; to continue and on the &ldquo;Microsoft Update Setup&rdquo; screen, select the appropriate setting and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image75.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image75_thumb.png" border="0" alt="image" width="504" height="443" /></a></p>
+<p>Activate the relevant licenses and features and click &ldquo;Next&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image78.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image78_thumb.png" border="0" alt="image" width="504" height="443" /></a></p>
+<p>On the &ldquo;NIS Signature Update Settings&rdquo; screen, select the appropriate setting and click &ldquo;Next&rdquo; if in doubt, just leave the defaults</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image81.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image81_thumb.png" border="0" alt="image" width="504" height="442" /></a></p>
+<p>Would you like to join the &ldquo;Customer Experience Improvement Program&rdquo;? make your selection and click &ldquo;Next&rdquo; and then decide if you would like to participate in the &ldquo;Microsoft Telemetry Reporting Service&rdquo;, make your selection and click &ldquo;Next&rdquo;</p>
+<p>Click &ldquo;Finish&rdquo; to complete the deployment wizard</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image90.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image90_thumb.png" border="0" alt="image" width="504" height="441" /></a></p>
+<p>You have now completed the &ldquo;Getting Started Wizard&rdquo;</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/image93.png"><img class="aligncenter" style="display: inline; border-width: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2010/05/image93_thumb.png" border="0" alt="image" width="504" height="454" /></a></p>
+<p>To summarise, in this part of the series I installed TMG 2010 and then proceeded to perform some basic configuration. In the next part of the series, I&rsquo;ll configure our email policy and create a new Edge Subscription</p>

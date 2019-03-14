@@ -1,0 +1,110 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2010 SP1 Prerequisites
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 621
+wordpress_url: http://www.cgoosen.com/2010/08/exchange-2010-sp1-prerequisites/
+date: '2010-08-30 18:35:12 +0000'
+date_gmt: '2010-08-30 07:35:12 +0000'
+categories:
+- Exchange Server
+tags: []
+comments:
+- id: 135
+  author: Mike
+  author_email: itsupport@radionz.co.nz
+  author_url: ''
+  date: '2010-09-01 15:46:22 +0000'
+  date_gmt: '2010-09-01 04:46:22 +0000'
+  content: I have a 2010 Exchange test enviroment and have downloaded SP1 to install
+    and test. All of the updates and hotfixes are installed but when I try to install
+    SP1 on my Mailbox, Hub Transport server it comes up with a warning, a yellow exlamation
+    mark, in the prerequisites telling me I need to install the Microsoft Office 2010
+    filter Packs. I installed them when I first installed Exchange 2010, but just
+    incase I reinstalled them then re-ran SP1 setup with the same results. Any idea
+    whats going on?
+- id: 136
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-09-01 16:29:23 +0000'
+  date_gmt: '2010-09-01 05:29:23 +0000'
+  content: "You would probably have installed Microsoft Office 2007 filter Packs before.
+    I would suggest you install the Microsoft Office 2010 filter Packs as well.\r\n\r\n*Edit*\r\nCheck
+    that you have both Microsoft Office 2007 and 2010 filter Packs installed."
+- id: 138
+  author: Mike
+  author_email: itsupport@radionz.co.nz
+  author_url: ''
+  date: '2010-09-01 17:01:18 +0000'
+  date_gmt: '2010-09-01 06:01:18 +0000'
+  content: It is a new Domain and new install of 2010, the message says office 2010
+    and I don't have the office 2007 filter Packs, any other ideas?
+- id: 140
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-09-02 12:25:55 +0000'
+  date_gmt: '2010-09-02 01:25:55 +0000'
+  content: "Hi Mike,\r\nI performed a clean install a few weeks ago. Exchange 2010
+    RTM requires  the Office 2007 Filter Pack. If you have not installed SP1 yet,
+    I would suggest first installing it, then installing the Office 2010 Filter Pack
+    which is required by SP1"
+- id: 203
+  author: Pat Jensen
+  author_email: patjensen@gmail.com
+  author_url: ''
+  date: '2011-03-14 07:41:31 +0000'
+  date_gmt: '2011-03-13 20:41:31 +0000'
+  content: Chris - Thanks for taking the time to put this blog post together and saving
+    me some time on the weekend.  :)
+- id: 207
+  author: Muthupandi MK
+  author_email: mkmuthupandi@hotmail.com
+  author_url: ''
+  date: '2011-04-06 16:48:37 +0000'
+  date_gmt: '2011-04-06 05:48:37 +0000'
+  content: |-
+    Hi,
+
+      I have a issue when installed Exchange 2010 SP1 on my Win2008 R2 machine.
+
+     After installed KB977020 it keeps on asking me to install the Same KB in the pre-requisite set up. Can any one help me do that? I am directly pushing the Ex2010-SP1 on R2 machine
+- id: 212
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2011-04-13 18:00:51 +0000'
+  date_gmt: '2011-04-13 07:00:51 +0000'
+  content: |-
+    Hello.
+    I'm not sure I understand your problem. do you have an screenshots or logs files?
+
+    Cheers,
+    Chris
+- id: 224
+  author: Muthupandi MK
+  author_email: mkmuthupandi@hotmail.com
+  author_url: ''
+  date: '2011-08-16 14:22:41 +0000'
+  date_gmt: '2011-08-16 03:22:41 +0000'
+  content: Exchange SP1 installation issue was resolved. Actually i copied one VHD
+    from other source that gave me the issue. Finally i have installed the NEW VHD
+    on Hypher V environment and installed the pre-requiste thus the issue resolved
+---
+<p>I <a href="http://www.cgoosen.com/2010/08/exchange-2010-sp1-is-here/" target="_blank">recently posted</a> about the availability of Exchange 2010 SP1 and thought I would provide some feedback about the installation process.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/08/sp1_2.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="sp1_2" border="0" alt="sp1_2" src="http://www.cgoosen.com/wp-content/uploads/2010/08/sp1_2_thumb.png" width="504" height="378" /></a> </p>
+<p align="left">Before installing SP1 for Exchange 2010, there <font size="2">are</font> several updates and hot fixes that need to be installed first. An important thing to note is that <em>all the Unified Messaging language packs other than US English (en-US) need to be uninstalled before upgrading the Unified Messaging server role.</em> I have split these up then up by server role:</p>
+<p><strong>Hub Transport Role Prerequisites:</strong>     <br /><a href="http://support.microsoft.com/?kbid=979099" target="_blank">Microsoft Knowledge Base article 979099</a>     <br /><a href="http://go.microsoft.com/fwlink/?LinkID=191548" target="_blank">Microsoft Office 2010 Filter Packs</a></p>
+<p><strong>Client Access Role Prerequisites:</strong>     <br /><a href="http://code.msdn.microsoft.com/KB982867" target="_blank">Microsoft Knowledge Base article 982867</a> *requires a restart    <br /><a href="http://code.msdn.microsoft.com/KB979744" target="_blank">Microsoft Knowledge Base article 979744</a> *requires a restart    <br /><a href="http://code.msdn.microsoft.com/KB983440" target="_blank">Microsoft Knowledge Base article 983440</a> *requires a restart    <br /><a href="http://code.msdn.microsoft.com/KB977020" target="_blank">Microsoft Knowledge Base article 977020</a>     <br /><a href="http://support.microsoft.com/?kbid=979099" target="_blank">Knowledge Base article 979099</a> </p>
+<p><strong>Mailbox Role Prerequisites:</strong>     <br /><a href="http://support.microsoft.com/?kbid=979099 " target="_blank">Microsoft Knowledge Base article 979099</a>    <br /><a href="http://go.microsoft.com/fwlink/?LinkID=191548" target="_blank">Microsoft Office 2010 Filter Packs</a></p>
+<p><strong>Unified Messaging Role Prerequisites:      <br /></strong><a href="http://go.microsoft.com/fwlink/?LinkID=180957" target="_blank">Microsoft Unified Communications Managed API, Core Runtime 64-bit</a>    <br /><a href="http://go.microsoft.com/fwlink/?LinkID=180958" target="_blank">Microsoft Server Speech Platform Runtime 64-bit</a>     <br /><a href="http://support.microsoft.com/?kbid=979099" target="_blank">Microsoft Knowledge Base article 979099</a></p>

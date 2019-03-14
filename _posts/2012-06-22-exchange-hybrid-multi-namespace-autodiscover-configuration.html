@@ -1,0 +1,143 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange Hybrid Multi-namespace Autodiscover Configuration
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 761
+wordpress_url: http://www.cgoosen.com/?p=761
+date: '2012-06-22 14:51:37 +0000'
+date_gmt: '2012-06-22 03:51:37 +0000'
+categories:
+- Exchange Server
+- Forefront TMG
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 289
+  author: Steve
+  author_email: stevenbedwell@hotmail.com
+  author_url: ''
+  date: '2012-08-08 12:21:38 +0000'
+  date_gmt: '2012-08-08 01:21:38 +0000'
+  content: What I found is that the HCW creates the organization relationship with
+    the first domain in the list of hybrid domains specified sorted in alphabetical
+    order (regardless of the order you specify them with Set-HybridConfiguration).
+    The requirement for autodiscover to be configured for all domains seems only to
+    be for cross org free-busy lookups for those domains, but what if you don't have
+    a requirement for that? Well, if the first domain alphabetically happens to have
+    autodiscover configured, the HCW will run successfully. However,if the first domain
+    does NOT have a valid autodiscover DNS/certificate configuration, then the Get-FederationInformation
+    for that domain will fail and HCW will bomb.
+- id: 291
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2012-08-08 12:50:29 +0000'
+  date_gmt: '2012-08-08 01:50:29 +0000'
+  content: |-
+    Thanks for the additional info Steve.
+
+    Cheers,
+
+    Chris
+- id: 297
+  author: Aloisio Lacerda
+  author_email: aloisio.lacerda@outlook.com
+  author_url: ''
+  date: '2012-09-04 10:15:57 +0000'
+  date_gmt: '2012-09-03 23:15:57 +0000'
+  content: Also, option 2 won't work either, from ExDeploy checklist and my personal
+    research I can say that Microsoft only support configuring autodicover with an
+    A record (the option 1 in this article) or with a CNAME. Anything else won't work.
+- id: 298
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2012-09-04 11:07:56 +0000'
+  date_gmt: '2012-09-04 00:07:56 +0000'
+  content: |-
+    Thanks for the reply Aloisio. Yes, Option 1 is the only option that will work. The other options are purely for on-premise deployments.
+
+    Cheers,
+
+    Chris
+- id: 233130
+  author: Hugh Roberts
+  author_email: hugh@live.co.za
+  author_url: ''
+  date: '2014-10-16 08:47:26 +0000'
+  date_gmt: '2014-10-16 14:47:26 +0000'
+  content: "Hey, Chris ...long time.\r\n\r\nFound your article again, since I'm having
+    fun with HCW on EX 2010. \r\n\r\n ... now there is also the option to use a feature
+    back ported from Exchange 2013 to dodge the autod names on cert requirement to
+    get through this phase of HCW  :-\r\n\r\nSet-HybridConfiguration &ndash;Domains
+    \"contoso.com, fabrikam.com\", \"autod:wingtiptoys.com\""
+- id: 233131
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2014-10-16 11:07:50 +0000'
+  date_gmt: '2014-10-16 17:07:50 +0000'
+  content: |-
+    Hey Hugh,
+
+    I haven't updated the post to reflect that new feature so thanks for the update!
+
+    Cheers,
+
+    Chris
+---
+<p>I came across an interesting issue when using the Exchange Hybrid Configuration Wizard in a multi-namespace environment recently. Autodiscover was configured and working correctly for Outlook and EAS clients but the wizard would not complete successfully and would generate the following error: &ldquo;Federation information could not be received from the external organization&hellip;&rdquo; as seen below:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/06/autodiscover.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="autodiscover" src="http://www.cgoosen.com/wp-content/uploads/2012/06/autodiscover_thumb.png" alt="autodiscover" width="568" height="495" border="0" /></a></p>
+<p>After some investigation, I discovered that this problem was related to Autodiscover. Typically in an on-premises Exchange 2010 deployment, there are a number of different ways to configure Autodiscover when using multiple namespaces. These are:</p>
+<p><strong><span style="text-decoration: underline;">Option 1 - Single SSL Certificate that is valid for all DNS names (SAN Certificate)</span></strong><br />
+<strong>Pros:</strong></p>
+<ul>
+<li>Requires only one certificate.</li>
+<li>Requires only 1 public IP.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Cost of additional DNS names in the SAN certificate could be expensive.</li>
+</ul>
+<p><strong><span style="text-decoration: underline;">Option 2 - Single-name SSL Certificate with DNS SRV Lookup</span></strong><br />
+<strong>Pros:</strong></p>
+<ul>
+<li>Requires only 1 public IP.</li>
+<li>Requires 1 single-name SSL certificate.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Not all DNS hosting providers support DNS SRV records.</li>
+<li>Outlook users may be prompted.</li>
+<li>Outlook 2007 required client-side hotfix.</li>
+</ul>
+<p><strong><span style="text-decoration: underline;">Option 3 - Single-name SSL Certificate with HTTP redirect</span></strong><br />
+<strong>Pros:</strong></p>
+<ul>
+<li>Requires 1 single-name SSL certificate.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Requires 2 public IPs</li>
+<li>Requires a second IIS site or ISA/TMG</li>
+</ul>
+<p>While these will all work and have their pros and cons, I would usually always use &lsquo;option 1&rsquo; listed above unless there is a good reason not to. In this particular instance, the Autodiscover was configured using &lsquo;option 3&rsquo; and even though Autodiscover worked fine for clients, the Hybrid Configuration Wizard did not seem to like this configuration.</p>
+<p>The Office 365 documentation does not go into a great amount of detail about multi-domain Autodiscover configuration and says: &ldquo;Configure the Autodiscover public DNS records for your existing SMTP domains to point to an on-premises Exchange 2010 SP2 Client Access server&rdquo; which is technically what had been done. The reason this caused a problem is because unlike Outlook or EAS clients, Office 365 does not use the Autodiscover discovery process and instead makes a direct connection to <strong>https://autodiscover.domain.com/autodiscover/autodiscover.svc/wssecurity </strong>for each domain being used and does not obey the web redirect that had previously been configured.</p>
+<p>In order to solve this problem, we purchased a new SAN certificate and reconfigured Autodiscover as described in &lsquo;option 1&rsquo;. In short, this is the only way to configure Autodiscover if you plan to implement an Exchange Hybrid Deployment. Additionally, if you are not using split DNS and have an internal DNS zone that is different to your external DNS (eg. domain.local), you need to ensure that the relevant external Autodiscover records are resolvable internally as well.</p>
+<p>As a side note, if you are using ISA/TMG to publish EWS/Autodiscover, you need to create a separate rule without authentication delegation for the following paths:</p>
+<ul>
+<li>/ews/mrsproxy.svc</li>
+<li>/ews/exchange.asmx/wssecurity</li>
+<li>/autodiscover/autodiscover.svc/wssecurity</li>
+<li>/autodiscover/autodiscover.svc</li>
+</ul>

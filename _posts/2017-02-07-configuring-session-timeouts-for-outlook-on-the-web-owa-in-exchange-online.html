@@ -1,0 +1,121 @@
+---
+layout: post
+status: publish
+published: true
+title: Configuring session timeouts for Outlook on the Web (OWA) in Exchange Online
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 2458
+wordpress_url: http://www.cgoosen.com/?p=2458
+date: '2017-02-07 17:06:14 +0000'
+date_gmt: '2017-02-07 23:06:14 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 272921
+  author: Pavel Voronin
+  author_email: pavel.voronin@maximumtest.ru
+  author_url: ''
+  date: '2017-12-11 05:48:31 +0000'
+  date_gmt: '2017-12-11 11:48:31 +0000'
+  content: Thank you!
+- id: 272923
+  author: Greg Damon
+  author_email: greg.damon@summit7systems.com
+  author_url: http://summit7systems.com/
+  date: '2017-12-11 14:23:52 +0000'
+  date_gmt: '2017-12-11 20:23:52 +0000'
+  content: Hey Chris.  Great to see yet another great blog from you.  Seems that SPO
+    and OneDrive now have a preview session timeout.  Just tested it successfully
+    - https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/bc-p/119427.
+- id: 273644
+  author: Adrian Pascual
+  author_email: anvpascual@gmail.com
+  author_url: ''
+  date: '2018-04-28 21:03:21 +0000'
+  date_gmt: '2018-04-29 03:03:21 +0000'
+  content: "Good Evening,\r\n\r\nis it possible to set the timeout to be based on
+    if a browser, or browser tab is closed? like if i finished what i was doing, then
+    go ahead and close the browser. will this (or what command) close the session
+    automatically and keep it from staying logged in automatically?\r\n\r\nany help
+    would be appreciated\r\n\r\nThank you,"
+- id: 273671
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-04-30 10:07:55 +0000'
+  date_gmt: '2018-04-30 16:07:55 +0000'
+  content: "Hi Adrian, \r\n\r\nI'm not aware of any way to do this - I believe this
+    is something that would need to be done on the client-side.\r\n\r\nCheers,\r\n\r\nChris"
+- id: 274293
+  author: Doug S
+  author_email: dswanek@insight.com
+  author_url: ''
+  date: '2018-06-09 10:23:20 +0000'
+  date_gmt: '2018-06-09 16:23:20 +0000'
+  content: Very nice article Chris.  Are the settings mentioned above only for OWA
+    (browser-based) or would this also apply to Outlook client sessions?
+- id: 274358
+  author: Doug Swanek
+  author_email: dswanek@insight.com
+  author_url: ''
+  date: '2018-06-14 07:04:05 +0000'
+  date_gmt: '2018-06-14 13:04:05 +0000'
+  content: "Hi Chris,\r\nThanks for the article.  After setting this value in an E2016
+    environment (no O365) the setting still did not take affect.  To make this work
+    on E2016 I did the following that proved successful:\r\n\r\n1. Set the ActivityBasedAuthenticationTimeoutInterval
+    00:30:00  (30 minutes) as stated above in your article\r\n2. On each E2016 server
+    ran this cmd then restarted IIS:\r\n                    Set-ItemProperty \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\MSExchange
+    OWA\" -Name PrivateTimeout     -Value 30 DWORD"
+- id: 274362
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-06-14 09:44:38 +0000'
+  date_gmt: '2018-06-14 15:44:38 +0000'
+  content: Thanks for the info Doug.
+- id: 274914
+  author: Gurmeet
+  author_email: guru.kohli22@hotmail.com
+  author_url: ''
+  date: '2018-08-14 06:41:41 +0000'
+  date_gmt: '2018-08-14 12:41:41 +0000'
+  content: Can we have this value done for selected users in O365
+- id: 274918
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-08-14 07:41:58 +0000'
+  date_gmt: '2018-08-14 13:41:58 +0000'
+  content: |-
+    Hello Gurmeet,
+
+    This is an organization-wide setting and will effect all users.
+
+    Cheers,
+
+    Chris
+---
+<p>In today&rsquo;s browser first, cloud first world, many organizations look at reducing risk by imposing strict session timeout settings on their productivity tools and applications. The idea generally is that if a user is not actively using and application for 10 &ndash;15 mins, they have completed the task they were working on and have forgotten to logoff correctly. This can be especially dangerous when these applications are accessed on shared terminals or public computers. Given that email remains a vitally important business tool for many organizations, reducing the session timeout on Exchange Online (and Exchange 2016) is a fairly common request and it is really simple to do.</p>
+<p>By default, session timeout is enabled for OWA (let&rsquo;s just call it that, shall we?) and it set to 6 hours. You can confirm this configuration via PowerShell using the Get-OrganizationConfig cmdlet:</p>
+<p>[powershell]Get-OrganizationConfig | FL ActivityBasedAuthenticationTimeout*[/powershell]</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2017/01/cap1.png"><img class="aligncenter size-medium wp-image-2456" src="http://www.cgoosen.com/wp-content/uploads/2017/01/cap1-300x65.png" alt="" width="300" height="65" /></a></p>
+<p>There are two parameters in particular worth paying attention to:</p>
+<ul>
+<li>ActivityBasedAuthenticationTimeoutEnabled</li>
+<li>ActivityBasedAuthenticationTimeoutInterval</li>
+</ul>
+<p><em>ActivityBasedAuthenticationTimeoutEnabled </em>is pretty self-explanatory, you will want to keep it enabled if you intended to set the timeout interval. The&nbsp;<em>ActivityBasedAuthenticationTimeoutInterval </em>parameter&nbsp;controls the actual timeout interval in&nbsp;<em>hh</em>:<em>mm</em>:<em>ss</em>&nbsp;format where&nbsp;<em>hh</em>&nbsp;= hours,&nbsp;<em>mm</em>&nbsp;= minutes and&nbsp;<em>ss</em>&nbsp;= seconds. Note that this parameter has a range of 5 min - 8 hrs. Changes can be made using the Set-OrganizationConfig cmdlet, for example to set the timeout interval to 15 mins we'd issue the following cmd:</p>
+<p>[powershell]Set-OrganizationConfig -ActivityBasedAuthenticationTimeoutInterval 00:15:00[/powershell]</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2017/02/cap2.png"><img class="aligncenter size-medium wp-image-2480" src="http://www.cgoosen.com/wp-content/uploads/2017/02/cap2-300x50.png" alt="" width="300" height="50" /></a></p>
+<p>During my testing, it took a really long time (12+ hrs) for this to take effect so don't be alarmed if it doesn't work right away.</p>
+<p>For more information on the <a href="https://technet.microsoft.com/en-us/library/aa997443(v=exchg.160).aspx" target="_blank">Set-OrganizationConfig parameters, see TechNet</a>.</p>

@@ -1,0 +1,69 @@
+---
+layout: post
+status: publish
+published: true
+title: Migrate Legacy Public Folders to Exchange Online &ndash; Part 1
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 979
+wordpress_url: http://www.cgoosen.com/?p=979
+date: '2013-10-30 14:02:59 +0000'
+date_gmt: '2013-10-30 03:02:59 +0000'
+categories:
+- Exchange Server
+- Cloud
+- Office 365
+tags: []
+comments:
+- id: 1443
+  author: Migrate Legacy Public Folders to Exchange Online &ndash; Part 2 | Chris&#039;s
+    Blog
+  author_email: ''
+  author_url: http://www.cgoosen.com/2013/11/migrate-legacy-public-folders-to-exchange-online-part-2/
+  date: '2013-11-08 14:21:18 +0000'
+  date_gmt: '2013-11-08 03:21:18 +0000'
+  content: "[...] Migrate Legacy Public Folders to Exchange Online &ndash; Part 1
+    [...]"
+---
+<p>I&rsquo;ve been meaning to get this series published for some time now. I can&rsquo;t believe it is almost 2 months since TechEd Australia 2013! <a href="http://cgoo.se/18TNT8Y" target="_blank">During my session</a>, I briefly covered modern public folders and how to migrate them to Exchange Online. My aim is to build on that session with a couple of posts that run through the entire process of migrating legacy public folders to Exchange Online. This first post will provide an overview of modern public folder architecture as well as some of the planning and preparation required prior to the migration.</p>
+<p>I&rsquo;m sure by now everyone is aware that in Exchange 2013 public folders were re-engineered using mailbox infrastructure to take advantage of the existing high availability and storage technologies of the mailbox database. Public folder architecture uses specially designed mailboxes to store both the public folder hierarchy and content. This also means that there is no longer a public folder database and high availability for the public folder mailboxes is provided by a DAG. Let&rsquo;s briefly look at the new architecture:</p>
+<p>The main component of public folders are the public folder mailboxes, which can reside in one or more mailbox databases. Public folder mailboxes can be either &lsquo;Primary&rsquo; or &lsquo;Secondary&rsquo;. The primary hierarchy mailbox is the 1 writable copy of the public folder hierarchy. The public folder hierarchy is copied to all other public folder mailboxes, but these secondary copies are read-only copies. The public folder hierarchy contains the folders&rsquo; properties, organizational information and tree structure. Public folder content can include email messages, posts, documents, and eForms. The content is stored in the public folder mailbox but isn&rsquo;t replicated across multiple public folders mailboxes. All users access the same public folder mailbox for the same set of content. </p>
+<p>&nbsp;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/10/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; border-top-width: 0px; margin-right: auto" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2013/10/image_thumb.png" width="690" height="483"></a></p>
+<p>Because there is only 1 writable copy of the hierarchy, it is necessary to synchronize changes to other mailboxes when they are made. Hierarchy synchronization takes place as follows (as illustrated in the diagram above):</p>
+<ol>
+<li>Let&rsquo;s say for example a client connects to a secondary public folder mailbox to access content (Folder 5) and
+<li>Then that client creates a new public folder (Folder 6 in the example)
+<li>The request will be proxied to the primary public folder mailbox where it is written to public folder hierarchy
+<li>Public folder hierarchy synchronisation is triggered immediately to content mailbox
+<li>The public folder hierarchy is updated on all public folder mailboxes. This takes place after 15 mins for mailboxes with connected users and after 24 hrs for mailboxes with no connected users.</li>
+</ol>
+<p>In order to move legacy public folders to Exchange Online, you need at least Exchange 2007 SP3 RU1 or Exchange 2010 SP3 and there are a few other considerations you may want to take note of:</p>
+<ul>
+<li>There is no coexistence between legacy and modern public folders, the migration is a all at once &lsquo;cutover&rsquo; migration</li>
+<li>All mailboxes must be on Exchange 2013 and/or Exchange Online prior to migration</li>
+<li>Migrations are PowerShell based using scripts, there is no migration wizard or GUI</li>
+<li>While a Exchange Hybrid Deployment is not required, it does make things easier as you do not have to manually configure message routing for mail-enabled public folders</li>
+<li>Public folders are migrated using Outlook Anywhere, therefore Outlook Anywhere must be published to the internet and enabled on all legacy public folder servers</li>
+<li>EWS clients such as Entourage 2008 EWS Edition and Outlook for Mac 2011 with mailboxes on Exchange 2013 will not be able to access legacy public folders</li>
+<li>Public folders that include a Backslash (&ldquo;\&rdquo;) in their names are not supported</li>
+</ul>
+<p>You should also ensure that you have the correct permissions:</p>
+<ul>
+<li>In Exchange Online, you need to be a member of the &lsquo;Organization Management&rsquo; role group</li>
+<li>In Exchange 2010, you need to be a member of the &lsquo;Organization Management&rsquo; or &lsquo;Server Management&rsquo; RBAC role groups.</li>
+<li>In Exchange 2007, you need to be assigned the &lsquo;Exchange Organization Administrator&rsquo; role or the &lsquo;Exchange Server Administrator&lsquo; role. You should also be assigned the &lsquo;Public Folder Administrator&rsquo; role and local Administrators group for the target server.</li>
+</ul>
+<p>As previously mentioned, the migration is done via PowerShell. There are a few scripts that should be downloaded, these will be used during the various stages of the migration. Be sure to download the following:</p>
+<ul>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=38407" target="_blank">Microsoft Exchange 2013 Public Folders Migration Scripts</a></li>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=38408" target="_blank">Microsoft Exchange 2013 Public Folders Directory Sync Support Scripts</a></li>
+</ul>
+<p>Finally, when preparing for a public folder migration to Exchange Online, I would highly recommend that public folders are first analyzed and classified. It is not uncommon to see public folder structures that were implemented in the early days of Exchange more than 10 years ago and are now no more than a dumping ground for old data. Often these hierarchies where designed to match an organization structure or meet business requirements that no longer exist. Exchange has come a long way since then and by taking a good look at your public folder use cases, you may find that there are better and more efficient ways to do things today.</p>
+<p>In part 2 we&rsquo;ll will run through the migration process.</p>

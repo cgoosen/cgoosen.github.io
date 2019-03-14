@@ -1,0 +1,131 @@
+---
+layout: post
+status: publish
+published: true
+title: Controlling ActiveSync device access on Exchange 2010 and Exchange Online
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 829
+wordpress_url: http://www.cgoosen.com/?p=829
+date: '2012-10-16 11:15:02 +0000'
+date_gmt: '2012-10-16 00:15:02 +0000'
+categories:
+- Exchange Server
+- Office 365
+tags: []
+comments:
+- id: 350
+  author: Controlling ActiveSync device access on Exchange 2013 | Chris&#039;s Blog
+  author_email: ''
+  author_url: http://www.cgoosen.com/2012/11/controlling-activesync-device-access-on-exchange-2013/
+  date: '2012-11-06 16:35:30 +0000'
+  date_gmt: '2012-11-06 05:35:30 +0000'
+  content: "[...] previously blogged about controlling ActiveSync device access on
+    Exchange 2010 and Exchange Online and thought I would follow-up with quick post
+    on how to accomplish the same results on Exchange [...]"
+- id: 1315
+  author: Cameshia Cargle
+  author_email: c-cargle@tamu.edu
+  author_url: ''
+  date: '2013-05-17 02:02:32 +0000'
+  date_gmt: '2013-05-16 15:02:32 +0000'
+  content: "Is there a way to disable the ABQ notifications to be sent to the users?\r\n\r\nThanks!"
+- id: 1322
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-06-04 15:33:30 +0000'
+  date_gmt: '2013-06-04 04:33:30 +0000'
+  content: |-
+    Hi Cameshia,
+
+    My apologies for the delayed reply, I have been on vacation :)
+
+    I'm not aware of any way to disable ABQ notifications, however I have never actually tested or tried it. Have you figured it out yet?
+
+    Cheers,
+
+    Chris
+- id: 1440
+  author: russellc
+  author_email: russellc@firemtn.com
+  author_url: ''
+  date: '2013-10-09 03:47:41 +0000'
+  date_gmt: '2013-10-08 16:47:41 +0000'
+  content: I have the same question, is there a way to disable the canned response?
+    And if i add a message it just appends to the original message correct?
+- id: 1441
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-10-09 10:35:32 +0000'
+  date_gmt: '2013-10-08 23:35:32 +0000'
+  content: "Hi Russell,\n\nI&rsquo;m not aware of any way to disable ABQ notifications
+    or change the default response. \n\nYes, you are correct, when you add a custom
+    message it will be appended at the end of the message just before the device information.
+    Have a look at the screen shots in the post, I have marked the custom text with
+    a red box.\n\nCheers,\n\nChris"
+- id: 271863
+  author: Osman
+  author_email: Osmannuriimamoglu@gmail.com
+  author_url: ''
+  date: '2017-07-29 03:17:37 +0000'
+  date_gmt: '2017-07-29 09:17:37 +0000'
+  content: "Hi chris\r\nSome device blocked but we did not enable block policy,other
+    device quarantined.\r\nWhat is the reason of blocked device?can we find any log
+    about it?\r\nThanks"
+- id: 271870
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2017-07-31 10:52:29 +0000'
+  date_gmt: '2017-07-31 16:52:29 +0000'
+  content: |-
+    Hi Osman,
+
+    I'm not sure I understand your issue, but perhaps this will help with your logging question:
+
+    https://blogs.technet.microsoft.com/exchange/2013/10/04/under-the-hood-exchange-activesync-mailbox-log-analysis/
+
+    Thanks,
+
+    Chris
+---
+<p>I am often surprised by how few customers know about or use ActiveSync device access rules (or ABQ for short) in Exchange 2010 when everyone seems to have the requirement to some degree or another. I see a growing trend to use third party products to do what Exchange can and has been able to do natively for a while now so I thought I would put together this post to go through some of the functionality offered by ABQ.</p>
+<p>Before I continue, I would like to highlight the following two things:</p>
+<ol>
+<li>Device access rules (ABQ) should not be confused with or is not intended to replace ActiveSync policies which are used to enforce things like device passwords, device encryption, etc. (click <a href="http://technet.microsoft.com/en-us/library/bb123484.aspx" target="_blank">here for more on ActiveSync policies</a>)</li>
+<li>Everything described in this post also applies to Exchange Online</li>
+</ol>
+<p>Depending on your requirements, you may decide to take a restrictive approach where you only allow a small set of tested and supported devices or be more permissive and only block/quarantine problematic devices. For this post, I will create a device policy to quarantine any iPad devices. The use case for this scenario is that an organisation may for example allow users to choose whatever mobile phone they would like to use but block the use of iPads because these are not devices issued by the company. By quarantining a device, we can easily see who is attempting to use such a device, how many are out there and even decide to create a new policy specific to these devices.</p>
+<p>During the connection process, Exchange will follow a logical set of rules to determine the access state of each device and will either allow, block or quarantine the device based on the outcome. The sequence of challenges includes the following steps:</p>
+<ol>
+<li>Is the device authenticated? If not, challenge for the correct credentials. Otherwise, go on to the next step.</li>
+<li>Is Exchange ActiveSync enabled for the current user? If not, return an "access restricted" error to the device. Otherwise, go on to the next step.</li>
+<li>Are the policy enforcement criteria met by the current mobile device? If not, block access. Otherwise, go on to the next step.</li>
+<li>Is this device blocked by a personal exemption for the user? If so, block access. Otherwise, go on to the next step.</li>
+<li>Is this device allowed by a personal exemption for the user? If so, grant full access. Otherwise, go on to the next step.</li>
+<li>Is this device blocked by a device access rule? If so, block access. Otherwise, go on to the next step.</li>
+<li>Is this device quarantined by a device access rule? If so, quarantine the device. Otherwise, go on to the next step.</li>
+<li>Is this device allowed by a device access rule? If so, grant full access. Otherwise, go on to the next step.</li>
+<li>Apply the default access state per the Exchange ActiveSync organisational settings.</li>
+</ol>
+<p>The device policy that I am going to create will be applied at Step 7. To create a device policy, we need to access the &ldquo;ActiveSync Access&rdquo; options under &ldquo;Phone &amp; Voice&rdquo; settings in the ECP. It should look something like this:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog2.png"><img title="blog2" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="blog2" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog2_thumb.png" width="606" height="247"></a></p>
+<p>Clicking the &ldquo;Edit&rdquo; button will allow you to edit various settings. As you can see, I have decided to be permissive and allow all devices unless they are managed by a rule. You can select a distribution group or administrative account that will receive quarantine notification emails. You also have the option to add any custom or organisation specific text that will be included in the email notification sent to users when their device is blocked or quarantined. </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog1.png"><img title="blog1" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog1" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog1_thumb.png" width="458" height="487"></a></p>
+<p>We then click &ldquo;New&rdquo; under &ldquo;Device Access Rules&rdquo; at the bottom of the page to define our new rule. Here we can browse a list of all the devices and device families that have recently connected to our Exchange environment. Device family is a grouping of similar devices, in our case for example if we choose a Device family of &ldquo;iPad&rdquo; we can then decide to only apply this rule to iPad2 models or &ldquo;All models&rdquo; by selecting the appropriate device type. Lastly, we select our ABQ action.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog3.png"><img title="blog3" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog3" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog3_thumb.png" width="464" height="520"></a></p>
+<p align="left">Once we have clicked &ldquo;Save&rdquo; we should see the new device access rule listed under &ldquo;Device Access Rules&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog4.png"><img title="blog4" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog4" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog4_thumb.png" width="874" height="121"></a></p>
+<p>Once we have created the access rule, if any users attempt to connect using an iPad, they will be listed under &ldquo;Quarantines Devices&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog5.png"><img title="blog5" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog5" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog5_thumb.png" width="690" height="119"></a></p>
+<p>Users will receive a notification email similar to the following if they try to connect using an iPad. Note the custom text entered previously (red box)</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2012/10/blog6.png"><img title="blog6" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="blog6" src="http://www.cgoosen.com/wp-content/uploads/2012/10/blog6_thumb.png" width="517" height="492"></a></p>
+<p align="left">One last thing to mention is that you do have the ability to make a personal exception for a specific user if needed, so for example if you have an executive who is adamant about wanting to use his/her iPad of if you decide after some time to test iPads this can be done without affecting anyone else. As always, full documentation can be found on <a href="http://technet.microsoft.com/en-us/library/ff959225.aspx" target="_blank">TechNet</a></p>

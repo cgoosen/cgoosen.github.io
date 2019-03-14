@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! </title>
+    <meta property="og:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+    <meta name="twitter:title" content=" Chris&#39;s Blog &mdash; It&#39;s called thinking...  go with it! " />
+
+    <meta name="description" content="">
+    <meta name="description" property="og:description" content="" />
+    <meta name="twitter:description" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:site" content="@chrisgoosen" />
+    
+    <meta property="og:url" content="http://172.16.7.177:4000/page20/" />
+
+    <meta property="og:image" content="" />
+    <meta name="twitter:image" content="" />
+
+    <meta name="author" content="Chris's Blog" />
+
+    <meta name="copyright" content="Copyright by Chris's Blog. All Rights Reserved." />
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v15/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://fonts.gstatic.com/s/roboto/v15/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(https://fonts.gstatic.com/s/roboto/v15/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="http://172.16.7.177:4000/assets/css/main.css">
+
+    <link rel="canonical" href="http://172.16.7.177:4000/page20/">
+
+    <link rel="alternate" type="application/rss+xml" title="" href="http://172.16.7.177:4000/feed.xml">
+</head>
+
+    <body>
+        <div class="wrapper">
+            <aside class="user-profile fixed" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
+    </div>
+
+    <div class="compact-header">
+        <a class="avatar" href="http://172.16.7.177:4000"><img alt="Avatar" src="/assets/img/headshot.jpg" /></a>
+        <div class="my-info">
+            <strong class="my-name">Chris's Blog</strong>
+            <span class="my-job-title">It's called thinking...  go with it!</span>
+        </div>
+    </div>
+
+    
+        
+        <div class="mainmenu">
+            <a href="http://172.16.7.177:4000" >Home</a>
+            
+                
+            
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/contact/" >Contact</a>
+                
+            
+                
+                    <a href="http://172.16.7.177:4000/about/" >About</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+        
+    
+    
+    <div>
+    	<img src="/assets/img/mvp.png" style="width:181px;height:74px;">
+    </div>
+
+    <p class="about-me"> </p>
+    
+    <ul class="socials">
+        <li><a href="https://twitter.com/chrisgoosen" target="_blank"><svg title="twitter" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li><li><a href="https://www.linkedin.com/in/ctgoosen/" target="_blank"><svg title="linkedin" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#linkedin-icon"></use></svg></a></li><li><a href="https://github.com/cgoosen" target="_blank"><svg title="github" width="16" height="16" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#github-icon"></use></svg></a></li>
+
+        
+            <li><a href="/contact" target="_blank"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        
+
+        
+         <li><a href="http://feeds.cgoosen.com/cgoosen"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        
+    </ul>
+</aside>
+
+
+            <main class="the-content" role="main">
+                <div class="search" role="search">
+    <div>
+        <div class="show-results-count">0 Results</div>
+        <div class="search-holder">
+            <input type="text" id="search-input" placeholder="search for..." />
+        </div>
+    </div>
+    <ul id="results-container" class="results-container"></ul>
+</div>
+
+
+                
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-07-06T12:58:19-05:00" itemprop="datePublished">6 Jul, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/07/helpful-error-message">Helpful Error Message..</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>After a long day of troubleshooting ISA 2006 array problems, I must say, I felt like one after I saw this error:</p>
+<p>&#160;</p>
+<p><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/07/image-thumb.png" width="475" height="330" /></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Helpful Error Message..&p[summary]=After a long day of troubleshooting ISA 2006 array problems, I must say, I felt like one after I saw this error:
+&#160;
+
+&p[url]=http://172.16.7.177:4000/2009/07/helpful-error-message" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/07/helpful-error-message&text=After a long day of troubleshooting ISA 2006 array problems, I must say, I felt like one after I saw this error:
+&#160;
+
+&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-06-30T04:56:45-05:00" itemprop="datePublished">30 Jun, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/06/high-availability-in-exchange-server-2010">High Availability in Exchange Server 2010</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>There has been a serious lack of original content on my blog this month, with the financial year coming to an end here in Australia, I&rsquo;ve been flat out</p>
+<p>Never fear though, Scott Schnoll over at <a href="http://msexchangeteam.com" target="_blank">The Microsoft Exchange Team Blog</a> has put together a great 4 part video series on high availability in Exchange Server 2010:</p>
+<p>In <a href="http://msexchangeteam.com/archive/2009/05/18/451353.aspx" target="_blank">Part 1</a> he introduces the concept of database mobility, and the features known as database availability groups (DAGs) and mailbox database copies.</p>
+<p>In <a href="http://msexchangeteam.com/archive/2009/05/21/451400.aspx" target="_blank">Part 2</a> he demonstrates how to create a DAG and how to add mailbox servers to a DAG</p>
+<p>In <a href="http://msexchangeteam.com/archive/2009/06/03/451542.aspx" target="_blank">Part 3</a> he shows how to add a mailbox database copy</p>
+<p>and, in <a href="http://msexchangeteam.com/archive/2009/06/14/451609.aspx" target="_blank">Part 4</a> he performs a database switchover using the Exchange Management Console (EMC)</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=High Availability in Exchange Server 2010&p[summary]=There has been a serious lack of original content on my blog this month, with the financial year coming to an end here in Australia, I&rs...&p[url]=http://172.16.7.177:4000/2009/06/high-availability-in-exchange-server-2010" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/06/high-availability-in-exchange-server-2010&text=There has been a serious lack of original content on my blog this month, with the financial year coming to an end here in Australia, I&rs...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-06-25T05:03:16-05:00" itemprop="datePublished">25 Jun, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/06/free-ocs-2007-r2-e-books">Free OCS 2007 R2 e-books..</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>For the next few days you can download free copies of some MS Press e-books on OCS 2007 R2.. visit Johann&rsquo;s Blog <a href="http://blogs.technet.com/jkruse/archive/2009/06/24/download-free-ocs-r2-e-books-but-be-quick.aspx" target="_blank">here</a> for more info</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Free OCS 2007 R2 e-books..&p[summary]=For the next few days you can download free copies of some MS Press e-books on OCS 2007 R2.. visit Johann&rsquo;s Blog here for more info
+&p[url]=http://172.16.7.177:4000/2009/06/free-ocs-2007-r2-e-books" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/06/free-ocs-2007-r2-e-books&text=For the next few days you can download free copies of some MS Press e-books on OCS 2007 R2.. visit Johann&rsquo;s Blog here for more info
+&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-05-29T09:59:06-05:00" itemprop="datePublished">29 May, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/05/did-you-know">Did you know?</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>I first saw this at a Quest Software presentation a little while ago, fascinating stuff:</p>
+<p>&#160;</p>
+<div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:5737277B-5D6D-4f48-ABFC-DD9C333F4C5D:a9ecefe0-0712-4a10-89fa-cd5a6c57b5fe" class="wlWriterEditableSmartContent">
+<div><object width="518" height="432"><param name="movie" value="http://www.youtube.com/v/cL9Wu2kWwSY&amp;hl=en"></param><embed src="http://www.youtube.com/v/cL9Wu2kWwSY&amp;hl=en" type="application/x-shockwave-flash" width="518" height="432"></embed></object></div>
+</div>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Did you know?&p[summary]=I first saw this at a Quest Software presentation a little while ago, fascinating stuff:
+&#160;
+
+
+
+&p[url]=http://172.16.7.177:4000/2009/05/did-you-know" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/05/did-you-know&text=I first saw this at a Quest Software presentation a little while ago, fascinating stuff:
+&#160;
+
+
+
+&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-05-21T11:02:42-05:00" itemprop="datePublished">21 May, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/05/no-32-bit-support-in-exchange-2010">No 32-bit support in Exchange 2010!</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>That&rsquo;s right.. as we already know, when Exchange 2007 was released, a 32-bit version (which was unsupported in production environments) was made available for use in lab environments, for demos etc.</p>
+<p>This will not be the case with Exchange 2010 as Microsoft will not be shipping a 32-bit version at all. What now? well.. I&rsquo;m sure we&rsquo;ll all agree that this a probably a good thing in the long run, forcing organisations to start seriously considering the deployment of 64-bit servers for things other than Exchange, like, for example DC&rsquo;s.</p>
+<p>It certainly is the start of a interesting journey, hopefully other software vendors will be prompted to start making more of an effort to make their applications 64-bit compliant too, it is, in my opinion, long overdue!</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=No 32-bit support in Exchange 2010!&p[summary]=That&rsquo;s right.. as we already know, when Exchange 2007 was released, a 32-bit version (which was unsupported in production environme...&p[url]=http://172.16.7.177:4000/2009/05/no-32-bit-support-in-exchange-2010" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/05/no-32-bit-support-in-exchange-2010&text=That&rsquo;s right.. as we already know, when Exchange 2007 was released, a 32-bit version (which was unsupported in production environme...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-05-21T06:20:27-05:00" itemprop="datePublished">21 May, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/05/exchange-2010-the-future-of-collaboration-webcast">Exchange 2010: The Future of Collaboration Webcast</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>The webcast will be hosted by Johann Kruse on Friday, June 19, 2009 11:00 AM Australia (East). To register for this webcast, <a href="http://msevents.microsoft.com/cui/WebCastEventDetails.aspx?EventID=1032416536&amp;EventCategory=4&amp;IO=EItdjnI1afvMAllu0RhXiw%3d%3d&amp;culture=en-US&amp;CountryCode=US" target="_blank">click here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2010: The Future of Collaboration Webcast&p[summary]=The webcast will be hosted by Johann Kruse on Friday, June 19, 2009 11:00 AM Australia (East). To register for this webcast, click here
+&p[url]=http://172.16.7.177:4000/2009/05/exchange-2010-the-future-of-collaboration-webcast" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/05/exchange-2010-the-future-of-collaboration-webcast&text=The webcast will be hosted by Johann Kruse on Friday, June 19, 2009 11:00 AM Australia (East). To register for this webcast, click here
+&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-05-15T10:06:07-05:00" itemprop="datePublished">15 May, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/05/exchange-server-2007-sp-2-due-in-q3-2009">Exchange Server 2007 SP 2 due in Q3 2009</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Microsoft recently announced that Exchange 2007 SP2 has been slated for release later this year. Exchange Server 2007 SP2 enables customers to increase their operational efficiency and it sets the foundation for the transition to Exchange Server 2010, which is expected to be available in the second half of 2009. In case you haven&rsquo;t heard, a public beta of Exchange Server 2010 is available for download <a href="http://www.microsoft.com/exchange/2010/" target="_blank">here</a></p>
+<p>Key new features of Exchange Server 2007 SP2 include: </p>
+<ul>
+<li>Enhanced Auditing</li>
+<li>Dynamic Active Directory Schema Update and Validation</li>
+<li>Public Folder Quota Management</li>
+<li>Centralized Organizational Settings</li>
+<li>Named Properties cmdlets</li>
+<li>New User Interface for Managing Diagnostic Logging</li>
+<li>Exchange Volume Snapshot Backup Functionality</li>
+</ul>
+<p>The last feature is worth expanding on as it has been the subject of much discussion. Exchange 2007 SP2 will ship with a backup plug-in that will enable Windows Server Backup to backup Exchange data. A few things worth noting about this are:</p>
+<ul>
+<li>The backup is volume-based and as such there is no specific "Exchange only" granularity</li>
+<li>Only VSS backups are supported</li>
+<li>The backup will support backing up to a local hard disk or network share</li>
+<li>There is no remote server backup functionality</li>
+<li>The plug-in supports only full backups of the active copy if using CCR</li>
+<li>When restoring, you do not have to restore the whole backed up volume, but can choose to restore only Exchange application data</li>
+<li>Recovery can be done either in-place or out of place</li>
+<li>You will be able to open different "backup sets", even if they were created on servers different than the one where you are restoring</li>
+</ul>
+<p>Detailed documentation will be available when SP2 ships, but for more detailed information, check out <a href="http://msexchangeteam.com/archive/2009/05/13/451311.aspx" target="_blank">this post</a> on the Exchange Team Blog</p>
+<p>For more detailed information about Exchange 2007 SP2, <a href="http://msexchangeteam.com/archive/2009/05/11/451281.aspx" target="_blank">click here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange Server 2007 SP 2 due in Q3 2009&p[summary]=Microsoft recently announced that Exchange 2007 SP2 has been slated for release later this year. Exchange Server 2007 SP2 enables custome...&p[url]=http://172.16.7.177:4000/2009/05/exchange-server-2007-sp-2-due-in-q3-2009" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/05/exchange-server-2007-sp-2-due-in-q3-2009&text=Microsoft recently announced that Exchange 2007 SP2 has been slated for release later this year. Exchange Server 2007 SP2 enables custome...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-05-06T07:39:56-05:00" itemprop="datePublished">6 May, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/05/exchange-2010-typical-installation-part-2">Exchange 2010 &ldquo;Typical Installation&rdquo;: Part 2</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>In <a href="http://www.cgoosen.com/2009/05/exchange-2010-typical-installation-part-1/" target="_blank">Part 1</a> we looked at preparing our server for the installation of Exchange 2010. What about preparing Active Directory and domains? As you&rsquo;ll see during the installation, if you run the Exchange 2010 Setup wizard with an account that has the permissions required to prepare Active Directory and the domain, the wizard will automatically do it for you. You can, of course, prepare Active Directory manually the way you have always been able to &ndash; Refer to <a href="http://technet.microsoft.com/en-au/library/bb125224(EXCHG.140).aspx" target="_blank">Microsoft Technet</a> for more information.</p>
+<p>If you&rsquo;ve reached this phase of the installation you&rsquo;ve probably already downloaded a copy of the Exchange 2010 Beta. If not, simply <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=1898ed2c-2f88-48ac-824e-d3d20fad77d7" target="_blank">click here</a> to download it!</p>
+<p>Once extracted, launch the Exchange 2010 Setup wizard..</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image2.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb2.png" width="462" height="347" /></a>If you have not installed all the prerequisites, Setup will link you to the appropriate sites where you can download the components. We did this in Part 1, so we simply click &ldquo;Step 4: Install Microsoft Exchange&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image3.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb3.png" width="457" height="399" /></a></p>
+<p align="left">After clicking &ldquo;Next&rdquo; on the Introduction page, we are presented with the following options relating to the location of the language files. I selected the &ldquo;Download latest language files from the Web&rdquo; option.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image4.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb4.png" width="456" height="397" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image5.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb5.png" width="456" height="398" /></a> </p>
+<p>Once you acknowledge the confirmation, the Setup wizard will &ldquo;acquire&rdquo; the latest language files.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image6.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb6.png" width="459" height="402" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image16.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb16.png" width="458" height="401" /></a> </p>
+<p align="left">Accept the License Agreement and click &ldquo;Next&rdquo;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image17.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb17.png" width="455" height="399" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image18.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb18.png" width="451" height="393" /></a> </p>
+<p align="left">Next we select the installation type, here we select &ldquo;Typical Exchange Server Installation&rdquo; which will install the Hub Transport, Client Access and Mailbox Server Roles on our single server. Because we selected the &ldquo;Typical Exchange Server Installation&rdquo; option, we will not be able to install the Unified Messaging Server Role, Edge Transport Server Role, or Clustered Mailbox servers during this installation.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image19.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb19.png" width="451" height="394" /></a> </p>
+<p align="left">Because this is the first Exchange Server in the organization, we are asked to provide a name for the Organization. The Exchange organization name can't contain more than 64 characters and can contain only the following characters: </p>
+<ul>
+<li>A to Z</li>
+<li>a to z</li>
+<li>0 to 9</li>
+<li>Space (not leading or trailing)</li>
+<li>Hyphen or dash</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image20.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb20.png" width="447" height="392" /></a> </p>
+<p align="left">Since this is the first Exchange Server in the organization, on the &ldquo;Client Settings&rdquo; page we select the option that describes the client computers in our organization that are running Microsoft Office Outlook. If you select &ldquo;No&rdquo;, Exchange Setup will not create a public folder database on the Mailbox server. You can add a public folder database later. For example, if you add client computers that are running Outlook 2003 and you need a public folder database, you can create one on the Exchange Mailbox server. You must then configure the offline address book for public folder distribution, and then restart the Microsoft Exchange Information Store service before client computers that are running Outlook 2003 and earlier will be able to connect to the server.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image21.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb21.png" width="445" height="388" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image22.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb22.png" width="446" height="389" /></a> </p>
+<p>On the &ldquo;Readiness Checks&rdquo; page, view the status to determine if the organization and Server Role prerequisite checks completed successfully. If they have completed successfully, click &ldquo;Install&rdquo; to install Exchange.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image23.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb23.png" width="458" height="401" /></a> </p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image24.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb24.png" width="461" height="404" /></a> </p>
+<p>Congratulations, you have successfully completed a &ldquo;Typical Installation&rdquo; of Exchange 2010. I highly recommend reading the Exchange 2010 documentation on <a href="http://technet.microsoft.com/en-au/library/bb124558(EXCHG.140).aspx" target="_blank">Microsoft Technet.</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2010 &ldquo;Typical Installation&rdquo;: Part 2&p[summary]=In Part 1 we looked at preparing our server for the installation of Exchange 2010. What about preparing Active Directory and domains? As ...&p[url]=http://172.16.7.177:4000/2009/05/exchange-2010-typical-installation-part-2" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/05/exchange-2010-typical-installation-part-2&text=In Part 1 we looked at preparing our server for the installation of Exchange 2010. What about preparing Active Directory and domains? As ...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-05-04T12:25:52-05:00" itemprop="datePublished">4 May, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/05/exchange-2010-typical-installation-part-1">Exchange 2010 &ldquo;Typical Installation&rdquo;: Part 1</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Since the release of Exchange 2010 Beta last month, I have been itching to deploy it in my test environment and really get my hands dirty. I have split this post into 2 parts because I want to use screen shots (hey, I&rsquo;m a techie, we like pictures!) to really show off the product.</p>
+<p>In part 1 of this 2 part post, we&rsquo;ll look at how to prepare your server for a &ldquo;Typical Installation&rdquo; of Exchange. Notice how &ldquo;Typical Installation&rdquo; appears in quotation marks, this is because we refer to a &ldquo;Typical Installation&rdquo; when the Hub Transport, Client Access and Mailbox server roles are installed on a single server. Regardless of the installation options you use, installing Exchange does require a certain degree of planning and preparation.</p>
+<p>To give you a brief overview of my test environment: I have a single Active Directory domain and all my servers are running Windows Server 2008, 64bit SP1. IPv6 is disabled on all my servers.</p>
+<p>Exchange 2010 requires the following to be installed prior to installation (I completed my installation in the following order as well):</p>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkID=137039" target="_blank">Microsoft .NET Framework 3.5.</a></li>
+<li>ServerManagerCmd -i RSAT-ADDS </li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb.png" width="575" height="287" /></a> </p>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=135126" target="_blank">Windows Remote Management ( WinRM ) 2.0 Community Technology Preview 3 (CTP3).</a> </li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=135123" target="_blank">Windows PowerShell V2 CTP3.</a> </li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=3052&amp;kbid=951725" target="_blank">Update for the Microsoft Management Console (MMC) in Windows Server 2008. See KB951725.</a></li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=137040" target="_blank">Extensions for ASP.NET AJAX 1.0.</a> </li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=137042" target="_blank">2007 Office System Converter: Microsoft Filter Pack.</a> </li>
+<li>ServerManagerCmd -i Web-Server</li>
+<li>ServerManagerCmd -i Web-ISAPI-Ext</li>
+<li>ServerManagerCmd -i Web-Metabase</li>
+<li>ServerManagerCmd -i Web-Lgcy-Mgmt-Console</li>
+<li>ServerManagerCmd -i Web-Basic-Auth</li>
+<li>ServerManagerCmd -i Web-Digest-Auth</li>
+<li>ServerManagerCmd -i Web-Windows-Auth</li>
+<li>ServerManagerCmd -i Web-Dyn-Compression</li>
+<li>ServerManagerCmd -i NET-HTTP-Activation</li>
+<li>ServerManagerCmd -I RPC-over-HTTP-proxy</li>
+</ul>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2009/05/image1.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.cgoosen.com/wp-content/uploads/2009/05/image-thumb1.png" width="578" height="290" /></a>&#160;</p>
+<ul>
+<li><a href="http://support.microsoft.com/?kbid=950888" target="_blank">Msdrm.dll Update. See KB950888</a></li>
+<li><a href="http://support.microsoft.com/?kbid=958178" target="_blank">Load Balancing Update. See KB958178</a></li>
+</ul>
+<p>&#160;</p>
+<p>In Part 2, its&#160; we&rsquo;ll look at the exciting stuff, the actual installation.</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2010 &ldquo;Typical Installation&rdquo;: Part 1&p[summary]=Since the release of Exchange 2010 Beta last month, I have been itching to deploy it in my test environment and really get my hands dirty...&p[url]=http://172.16.7.177:4000/2009/05/exchange-2010-typical-installation-part-1" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/05/exchange-2010-typical-installation-part-1&text=Since the release of Exchange 2010 Beta last month, I have been itching to deploy it in my test environment and really get my hands dirty...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2009-04-21T12:25:46-05:00" itemprop="datePublished">21 Apr, 2009</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="http://172.16.7.177:4000/2009/04/exchange-2010-beta-released">Exchange 2010 Beta released</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>We&rsquo;ve all been waiting for it for some time now, Microsoft announced the release of Exchange 2010 Beta last week. </p>
+<p>Exchange 2010 was built from the ground up with Software + Services in mind with more than 5 million users are already enjoying the benefits of Exchange 2010 as a service today.</p>
+<p>Exchange 2010 will help organizations reduce costs, protect communications and delight e-mail users with capabilities to do the following:</p>
+<ul>
+<li><b>Lower costs with more flexible deployment and management options.</b></li>
+<li><b>Protect information and meet compliance requirements with the new e-mail archive.</b></li>
+<li><b>Improve user productivity with the ultimate inbox experience.</b></li>
+</ul>
+<p>Exchange 2010 brings many new and exciting features to the table, for an overview of these, check out <a href="http://edge.technet.com/Media/Announcing-Exchange-2010-Beta/" target="_blank">this video on Technet Edge</a></p>
+<p>To download the Exchange 2010 Beta, <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=1898ed2c-2f88-48ac-824e-d3d20fad77d7" target="_blank">click here</a></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Exchange 2010 Beta released&p[summary]=We&rsquo;ve all been waiting for it for some time now, Microsoft announced the release of Exchange 2010 Beta last week. 
+Exchange 2010 wa...&p[url]=http://172.16.7.177:4000/2009/04/exchange-2010-beta-released" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=http://172.16.7.177:4000/2009/04/exchange-2010-beta-released&text=We&rsquo;ve all been waiting for it for some time now, Microsoft announced the release of Exchange 2010 Beta last week. 
+Exchange 2010 wa...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://172.16.7.177:4000/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+
+
+
+<div class="pagination" role="navigation" aria-label="pagination">
+    
+        <a href="/page19/" class="previous">&larr; Previous</a>
+    
+
+    <span class="page_number">Page 20 of 24</span>
+
+    
+        <a href="/page21/" class="next">Next &rarr;</a>
+    
+</div>
+
+            </main>
+        </div>
+
+        <script src="http://172.16.7.177:4000/assets/js/jquery-1.12.2.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/backtotop.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/lunr-feed.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/jquery.fitvids.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/svg4everybody.min.js"></script>
+<script src="http://172.16.7.177:4000/assets/js/scripts.js"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXXXX-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+        <style>
+.lightbox {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.85); z-index: 9999999; line-height: 0; cursor: pointer;}
+.lightbox .img {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 100%;
+	max-height: 100%;
+}
+.lightbox .img img {opacity: 0; pointer-events: none; width: auto;}
+@media screen and (min-width: 1200px) {
+    .lightbox .img {
+		max-width: 1200px;
+    }
+}
+@media screen and (min-height: 1200px) {
+    .lightbox img {
+		max-height: 1200px;
+	}
+}
+.lightbox span {display: block; position: fixed; bottom: 13px; height: 1.5em; line-height: 1.4em; width: 100%; text-align: center; color: white; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+
+
+
+
+
+.lightbox .videoWrapperContainer {
+	position: relative; 
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	max-width: 900px;
+	max-height: 100%;
+}
+.lightbox .videoWrapperContainer .videoWrapper {
+	height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-bottom: 56.333%; /* custom */
+	background: black;
+} 
+.lightbox .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}   
+.lightbox #prev, .lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
+.lightbox.gallery #prev, .lightbox.gallery #next {display: block;}
+.lightbox #prev {left: 0;}
+.lightbox #next {right: 0;}
+.lightbox #close {height: 50px; width: 50px; position: fixed; cursor: pointer; text-decoration: none; z-index: 99; right: 0; top: 0;}
+.lightbox #close:after, .lightbox #close:before {position: absolute; margin-top: 22px; margin-left: 14px; content: ""; height: 3px; background: white; width: 23px;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+/* Safari */
+-webkit-transform: rotate(-45deg);
+/* Firefox */
+-moz-transform: rotate(-45deg);
+/* IE */
+-ms-transform: rotate(-45deg);
+/* Opera */
+-o-transform: rotate(-45deg);
+}
+.lightbox #close:after {
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+/* Opera */
+-o-transform: rotate(45deg);
+}
+.lightbox, .lightbox * {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+</style>
+		
+<script>
+function is_youtubelink(url) {
+  var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  return (url.match(p)) ? RegExp.$1 : false;
+}
+function is_imagelink(url) {
+	var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
+	return (url.match(p)) ? true : false;
+}
+function is_vimeolink(url,el) {
+	var id = false;
+	$.ajax({
+	  url: 'https://vimeo.com/api/oembed.json?url='+url,
+	  async: true,
+	  success: function(response) {
+		if(response.video_id) {
+		  id = response.video_id;
+		  $(el).addClass('lightbox-vimeo').attr('data-id',id);
+		}
+	  }
+	});
+}
+
+$(document).ready(function() {
+	//add classes to links to be able to initiate lightboxes
+	$("a").each(function(){
+		var url = $(this).attr('href');
+		if(url) {
+			if(url.indexOf('vimeo') !== -1 && !$(this).hasClass('no-lightbox')) is_vimeolink(url,$(this));
+			if(is_youtubelink(url) && !$(this).hasClass('no-lightbox')) $(this).addClass('lightbox-youtube').attr('data-id',is_youtubelink(url));
+			if(is_imagelink(url) && !$(this).hasClass('no-lightbox')) {
+				$(this).addClass('lightbox-image');
+				var href = $(this).attr('href');
+				var filename = href.split('/').pop();
+				var split = filename.split(".");
+				var name = split[0];
+				$(this).attr('title',name);
+			}
+		}
+	});
+	//remove the clicked lightbox
+	$("body").on("click", ".lightbox", function(event){
+		if($(this).hasClass('gallery')) {
+			$(this).remove();
+			if($(event.target).attr('id')=='next') {
+				//next item
+				if($("a.gallery.current").nextAll("a.gallery:first").length) $("a.gallery.current").nextAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").first().click();
+			}
+			else if ($(event.target).attr('id')=='prev') {
+				//prev item
+				if($("a.gallery.current").prevAll("a.gallery:first").length) $("a.gallery.current").prevAll("a.gallery:first").click();
+				else $("a.gallery.current").parent().find("a.gallery").last().click();
+			}
+			else {
+				$("a.gallery").removeClass('gallery');
+			}
+		}
+		else $(this).remove();
+	});
+	//prevent image from being draggable (for swipe)
+	$("body").on('dragstart', ".lightbox img", function(event) { event.preventDefault(); });
+	//add the youtube lightbox on click
+	$("a.lightbox-youtube").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+$(this).attr('data-id')+'?autoplay=1&showinfo=0&rel=0"></iframe></div></div></div>').appendTo('body');
+	});
+	//add the image lightbox on click
+	$("a.lightbox-image").click(function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="img" style="background: url('+$(this).attr('href')+') center center / contain no-repeat;" title="'+$(this).attr('title')+'" ><img src="'+$(this).attr('href')+'" alt="'+$(this).attr('title')+'" /></div><span>'+$(this).attr('title')+'</span></div>').appendTo('body');
+	});
+	//add the vimeo lightbox on click
+	$("body").on("click", "a.lightbox-vimeo", function(event){
+		event.preventDefault();
+		$('<div class="lightbox"><a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+$(this).attr('data-id')+'/?autoplay=1&byline=0&title=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div></div>').appendTo('body');
+	});
+
+	$("body").on("click", "a[class*='lightbox-']", function(){
+		var link_elements = $(this).parent().find("a[class*='lightbox-']");
+		$(link_elements).removeClass('current');
+		for (var i=0; i<link_elements.length; i++) {
+			if($(this).attr('href') == $(link_elements[i]).attr('href')) {
+				$(link_elements[i]).addClass('current');
+			}
+		}
+		if(link_elements.length>1) {
+			$('.lightbox').addClass('gallery');
+			$(link_elements).addClass('gallery');
+		}
+	});
+
+	
+});
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $("#prev").click();
+        break;
+        case 39: // right
+        $("#next").click();
+        break;
+	case 27: // esc
+        $("#close").click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+  /*===========================
+  Swipe-it v1.4.1
+  An event listener for swiping gestures with vanilla js.
+  https://github.com/tri613/swipe-it#readme
+ 
+  @Create 2016/09/22
+  @Update 2017/08/11
+  @Author Trina Lu
+  ===========================*/
+  "use strict";var _slicedToArray=function(){function n(n,t){var e=[],i=!0,o=!1,r=void 0;try{for(var u,c=n[Symbol.iterator]();!(i=(u=c.next()).done)&&(e.push(u.value),!t||e.length!==t);i=!0);}catch(n){o=!0,r=n}finally{try{!i&&c.return&&c.return()}finally{if(o)throw r}}return e}return function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return n(t,e);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();!function(n,t,e){function i(n){function e(){o("touchstart",m,w),o("touchmove",d,w),o("touchend",p,w),E.mouseEvent&&o("mousedown",s,w)}function i(){y=!1,D=!1,A=!1,b=!1,a=!1}function s(n){a=this,y=n.clientX,D=n.clientY,o("mousemove",l,v),o("mouseup",h,v)}function l(n){n.preventDefault(),y&&D&&(A=n.clientX,b=n.clientY)}function h(n){r("mousemove",l,v),r("mouseup",h,v),p(n)}function m(n){a=this,y=n.touches[0].clientX,D=n.touches[0].clientY}function d(n){A=n.touches[0].clientX,b=n.touches[0].clientY}function p(n){if(y&&D&&A&&b){var t=y-A,e=D-b,o=[t,e].map(Math.abs),r=_slicedToArray(o,2),c=r[0],s=r[1],v=E.minDistance;if(c>v){var f=y<A?"swipeRight":"swipeLeft";u(f,a,{distance:t,start:y,end:A})}if(s>v){var l=D>b?"swipeUp":"swipeDown";u(l,a,{distance:e,start:D,end:b})}(c>v||s>v)&&u("swipe",a)}i()}var E=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},w=c(t.querySelectorAll(n)),y=void 0,D=void 0,A=void 0,b=void 0;E.mouseEvent=void 0===E.mouseEvent?f.mouseEvent:E.mouseEvent,E.minDistance=void 0===E.minDistance?f.minDistance:E.minDistance,i(),e(),this.on=function(n,t){return o(n,t,w),this}}function o(n,t,e){s(e).forEach(function(e){return e.addEventListener(n,t)})}function r(n,t,e){s(e).forEach(function(e){return e.removeEventListener(n,t)})}function u(n,e){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},o=t.createEvent("Event");o.initEvent(n,!0,!0),o.swipe=i,s(e).forEach(function(n){return n.dispatchEvent(o)})}function c(n){for(var t=[],e=0;e<n.length;e++)t.push(n[e]);return t}function s(n){return Array.isArray(n)?n:[n]}var a=!1,v=[n],f={mouseEvent:!0,minDistance:30};n[e]=i}(window,document,"SwipeIt");
+
+var mySwipeIt = new SwipeIt('body');
+mySwipeIt.on('swipeLeft',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#next").click();
+	}
+}).on('swipeRight',function(e){
+	//check if lightbox is present
+	if($('.lightbox').length >  0 ) {
+		$("#prev").click();
+	}
+});
+</script>
+
+    </body>
+</html>

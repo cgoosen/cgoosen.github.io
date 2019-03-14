@@ -1,0 +1,430 @@
+---
+layout: post
+status: publish
+published: true
+title: Using AD FS &ldquo;Alternate Login ID&rdquo; with Office 365
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1108
+wordpress_url: http://www.cgoosen.com/?p=1108
+date: '2014-04-27 22:55:54 +0000'
+date_gmt: '2014-04-27 11:55:54 +0000'
+categories:
+- Cloud
+- Office 365
+- AD FS
+tags: []
+comments:
+- id: 198027
+  author: David Sampson
+  author_email: david.sampson@cloudbusiness.com
+  author_url: http://www.cloudbusiness.com
+  date: '2014-07-23 22:38:58 +0000'
+  date_gmt: '2014-07-23 11:38:58 +0000'
+  content: "Hi Chris,\r\n\r\nWe are testing using the alternativeloginID functionality
+    to allow the use of either a matched UPN or email address to sign in. To do this
+    we enable the alternative loginID in ADFS but leave the Relying Party Trust and
+    Dirsync alone. This way when ADFS processes the login if the user enters their
+    email address ADFS does and LDAP query on the provided email address, returns
+    the AD UPN and passes it on to 365, as the AD upn and 365 upn matches this works.
+    Is the relying party trust edit what dictates which AD attribute gets passed back
+    to 365? If the user enters their upn this doesn't match the alternativeID attribute
+    and so just passes the credentials as given which will also work. We have tested
+    this and can sign in with either the UPN or email address for any given account
+    providing the on prem &amp; 365 UPN match. Can you foresee any problems with this
+    approach?\r\n\r\nInfo sourced from http://blogs.technet.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-91-74-metablogapi/ADFS_5F00_18697E16.jpg"
+- id: 198112
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2014-07-24 00:50:15 +0000'
+  date_gmt: '2014-07-23 13:50:15 +0000'
+  content: |-
+    Hi David,
+
+    Thanks for getting in touch. This approach really interests me and to be honest I've not see or heard it done this way before, but given the workflow diagram in the link you shared it does make sense. I recently (yesterday) heard some rumors that the method described in my post may not actually be supported by Microsoft but I have not been able to confirm this. The approach you mentioned would certainly get around that as you are not actually making any changes to DirSync. Are you able to share a link to the documentation page that contains the workflow diagram you shared?
+
+    Thanks
+
+    Chris
+- id: 199604
+  author: Brendan Zivcic
+  author_email: brendanz@gmail.com
+  author_url: ''
+  date: '2014-07-24 10:15:25 +0000'
+  date_gmt: '2014-07-23 23:15:25 +0000'
+  content: "The diagram that was posted by David is very interesting and I haven't
+    considered it before either. It does differentiate Passive (web browser) and Rich
+    clients (Lync), however, leaves out Active clients, such as Outlook.\r\n\r\nI
+    can see this working for passive authentication clients, such as web browsers.
+    If an end user is redirected to their AD FS Service name appropriately, it doesn't
+    matter as the integrated logon process will handle it. Even if they are using
+    Firefox and seeing a form, or hitting the Web Application Proxy, end users can
+    enter their UPN, Email address, or even domain\\samaccountname.\r\n\r\nFor this
+    to work, there are a couple of considerations\r\n\t1. The UPN's must match, as
+    you have already stated.\r\n\t2. However, the UPN in your on premises AD must
+    also be an internet routable FQDN - you would not be able to use an @domain.local
+    UPN, for example (need to be able to verify it in Office 365). I have worked with
+    a customer to deploy the original solution posted in Chris's article and they
+    were heavily using (hundreds of) application that relied on the UPN suffix of
+    @domain.int, or similar, and were very reluctant to change it. Chris' original
+    article worked for them, as office 365 was populated with an SMTP address, also
+    their internet routable UPN by using the DirSync customisation. However, if you
+    are not using this part, you would still need to use an internet routable domain
+    that they own.\r\n\r\nFor Active clients such as Outlook 2010/2013, I think there
+    is an additional concern that you would need to think about.\r\n\r\nKeep in mind
+    that Outlook never actually directly communicates with AD FS. Autodiscover kicks
+    in and an end user enters their email address, let's say john.smith@domain1.com.
+    Exchange online actually presents the user with an authentication prompt. The
+    end user enters their credentials, let's say john.smith@domain1.com. However,
+    the UPN, as Office 365 determines it to be is johns@domain1.com. \r\n\r\nOffice
+    365 then looks up domain1.com to see if it is federated or managed. If it is federated,
+    it will look up the AD FS service name associated to that domain - let's say sts.company.com.
+    Office 365 then passes those credentials to that service name, usually a Web Application
+    Proxy, and then passes to AD FS for processing.\r\n\r\nThis scenario, as described
+    above should work (I think - I am pretty sure Office 365 doesn't actually check
+    to make sure user john.smith@domain1.com exists before passing the auth requests
+    to sts.company.com. If it does, Outlook wouldn't work without the DirSync alteration).
+    \ But there is an additional consideration that I can see, in addition to the
+    first two:\r\n\r\n\t1. The UPN's must match, like with passive (browser) above,\r\n\t2.
+    The UPN must be internet routable, like with passive (browser) above\r\n\t3. The
+    UPN suffix and SMTP suffix (@domain1.com) need to also match*, so that Office
+    365 knows which AD FS service name to look up and where to send the credentials
+    to.\r\n\t\ta. *In the case they don't match, you could also look at the possibility
+    of registering both the UPN suffix and SMTP suffix in the same AD FS service with
+    the -SupportMultipleDomain switch. This may work but you might want to test it
+    out.\r\n\r\nAlso I logged a ticket with Microsoft Online Services to see if they
+    supported any of these scenarios, and the answer was \"no\". The reply I got back
+    was\r\n\r\n<i>\tIssue Definition\r\n\tUsing Alternate Login IDs with ADFS on 2012
+    R2\r\n\t\t\t&nbsp;\r\n\tScope Agreement\r\n\tWe will consider this case closed
+    when your question clarified.\r\n\t&nbsp;&nbsp;\r\n\tAnalysis\r\n\tAbout the question
+    of support boundary of cloud service, as you could see from the document you already
+    found, http://technet.microsoft.com/en-us/library/dn659436.aspx, that during the
+    steps of the configuration, the connectors of Active Directory Synchronization
+    would need to be modified. \r\n\t&nbsp;\r\n\tThis would exceed Office 365 support
+    team&rsquo;s support expertise and boundary. As you have found in http://technet.microsoft.com/en-us/library/jj710171.aspx
+    </i>\r\n\r\nThat's not to say that Premier Support won't support it - they probably
+    would. But Microsoft Online Services are particular about what they support."
+- id: 199642
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2014-07-24 11:02:33 +0000'
+  date_gmt: '2014-07-24 00:02:33 +0000'
+  content: |-
+    Hi Brendan,
+
+    Thanks for the very detailed reply. It certainly clarifies the support stance.
+
+    @David, have you tested all client access scenarios in your testing?
+- id: 199682
+  author: Brendan Zivcic
+  author_email: brendanz@gmail.com
+  author_url: ''
+  date: '2014-07-24 11:14:57 +0000'
+  date_gmt: '2014-07-24 00:14:57 +0000'
+  content: "Also, the Active authentication mechanism is used by a bunch of other
+    applications/protocols, such as POP3, IMAP, SMTP, PowerShell, and ActiveSync.
+    \r\n\r\nThese would also need to be tested as well."
+- id: 255498
+  author: Zak
+  author_email: zak@zakfleming.com
+  author_url: ''
+  date: '2015-01-17 07:04:38 +0000'
+  date_gmt: '2015-01-17 13:04:38 +0000'
+  content: "Hi,\r\n\r\nI assume we can do similar to this to use the sAMAccountName
+    to login instead of the mail example you have used? All our users the sAMAccountName
+    to login to services, i would like Office 365 ADFS to match.\r\n\r\nMany Thanks"
+- id: 255525
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-01-17 10:31:51 +0000'
+  date_gmt: '2015-01-17 16:31:51 +0000'
+  content: |-
+    Hi Zak,
+
+    I've never tried that configuration but in theory you could use any attribute. One thing to remember though is that the attribute you use "must be a well-formed SMTP address" so if you are trying to avoid using a suffix that might not help you and by default your sAMAccountName and UPN attributes will be the same except for the suffix. This configuration also doesn't work very well in a Exchange Hybrid deployment so if you are planning to deploy Exchange Hybrid I recommend you don't use Alternate Login ID.
+
+    I hope this helps,
+
+    Chris
+
+    Attribute requirements reference: http://technet.microsoft.com/en-us/library/dn659436.aspx
+- id: 256214
+  author: Poornim
+  author_email: Poornim.aluri@outlook.com
+  author_url: ''
+  date: '2015-01-22 23:49:12 +0000'
+  date_gmt: '2015-01-23 05:49:12 +0000'
+  content: "Hi David/Chris/Brendan\r\n\r\nWe just enabled alternatelogonID in ADFS
+    and left the Relaying Party and AADSYNC alone in our environment as per the David's
+    procedure described above.It is perfectly working for browsers when authenticating
+    against a mathced UPN or email. But for outlook clients, it is only accepting
+    UPN values and keep prompting for credentials if we enter email . Were any of
+    you able get this working for Outlook clients.??? Let us know. Thanks"
+- id: 256259
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-01-23 12:28:34 +0000'
+  date_gmt: '2015-01-23 18:28:34 +0000'
+  content: |-
+    Hi Poornim,
+
+    The process described in my post does work for Outlook clients, however there are usually some issues with the initial Outlook profile configuration and Autodiscover if you are in a hybrid environment because those Autodiscover requests are being authenticated by the hybrid server and not AD FS. Using an alternate login ID in with a hybrid deployment is flaky and not recommended. Are you able to provide some more detail about your deployment and the particular Outlook scenario that is giving you problems?
+
+    Thanks,
+
+    Chris
+- id: 258741
+  author: Alternate Login ID and Exchange Hybrid | ODDYTEE
+  author_email: ''
+  author_url: https://oddytee.wordpress.com/2015/02/25/alternate-login-id-and-exchange-hybrid/
+  date: '2015-02-25 18:03:45 +0000'
+  date_gmt: '2015-02-26 00:03:45 +0000'
+  content: "[&#8230;] Using AD FS &ldquo;Alternate Login ID&rdquo; with Office 365
+    (Chris Goosen) [&#8230;]"
+- id: 259016
+  author: zak
+  author_email: zak@zakfleming.com
+  author_url: ''
+  date: '2015-03-04 06:13:34 +0000'
+  date_gmt: '2015-03-04 12:13:34 +0000'
+  content: "Hi,\r\n\r\nI have just got back onto this. I decided not to use this for
+    the sAMAccountName. I used the code in the bottom of this link. Was really simple
+    and just worked.\r\n\r\nhttps://technet.microsoft.com/en-us/library/dn636121.aspx\r\n\r\nThought
+    it might be handy for others."
+- id: 259201
+  author: Sam
+  author_email: smoothgravy@hotmail.com
+  author_url: ''
+  date: '2015-03-09 02:13:08 +0000'
+  date_gmt: '2015-03-09 08:13:08 +0000'
+  content: "Hi Chris. I'm dealing with the first scenario you mention of in your post.
+    \ I've performed a cutover migration from Exchange 2010 and it's currently still
+    in the incremental sync phase. I have not assigned licenses to the users.\r\n\r\nThe
+    migration created Office 365 login's using the primary SMTP address (first.lastname)
+    versus samAccount/UPN of first initial - lastname. I'm fine with keeping the Office
+    365 login as is.\r\n\r\nI don't plan to use ADFS, but am interested in using DirSync.
+    \ Two questions: 1) Will I still need to use the alternate login ID option? 2)
+    Do I need to assign licenses before running DirSync?\r\n\r\nMany thanks for the
+    info."
+- id: 259202
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2015-03-09 09:18:48 +0000'
+  date_gmt: '2015-03-09 15:18:48 +0000'
+  content: |-
+    Hey Sam,
+
+    Thanks for getting in touch!
+
+    Alternate login ID is a AD FS configuration so if you are not planning to implement AD FS then there really isn't anything you need to do. I would suggest that you complete your cutover migration and assign licenses before moving on to enabling dirsync. I also recommend updating the UPN attribute for each user in active directory to match their smtp address (firstname.lastname), this won't change their active directory login (samaccountname attribute) but will ease some confusion.
+
+    You  might also want to look at this http://community.office365.com/en-us/w/exchange/835.cutover-exchange-migration-and-single-sign-on.aspx before implementing dirsync (step 3 won't apply to you)
+
+    Cheers,
+
+    Chris
+- id: 267255
+  author: Brendan Zivcic
+  author_email: brendan@brendanz.net
+  author_url: ''
+  date: '2016-04-21 19:30:51 +0000'
+  date_gmt: '2016-04-22 01:30:51 +0000'
+  content: "Hi all,\r\n\r\nInteresting. The guidance has now been updated that says
+    it is now supported, but with a significant number of broken features. There is
+    a seemingly comprehensive table included in the page below.\r\n\r\nhttps://technet.microsoft.com/en-au/library/dn659436.aspx\r\n\r\n\"We
+    have recently changed our support statement on using Alternate ID with Exchange
+    Hybrid. For the best user experience in an Exchange Hybrid environment, we recommend
+    using the same set of credentials for on-premises and Exchange Online. It is also
+    recommended that customers that use Office 2013 clients enable Modern Authentication.
+    Please refer to the table below for the expected user experience using various
+    clients.\""
+- id: 267256
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2016-04-21 19:43:46 +0000'
+  date_gmt: '2016-04-22 01:43:46 +0000'
+  content: |-
+    Yes, that's right. While it is supported, the user experience is poor if modern authentication is not used.
+
+    Thanks for the update!
+- id: 273334
+  author: Aprilia
+  author_email: apriliakinanty@student.telkomuniversity.ac.id
+  author_url: http://telkomuniversity.ac.id
+  date: '2018-03-21 22:52:02 +0000'
+  date_gmt: '2018-03-22 04:52:02 +0000'
+  content: Is there upgrade version?
+- id: 273347
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-03-29 12:42:12 +0000'
+  date_gmt: '2018-03-29 18:42:12 +0000'
+  content: Could you be a little more specific?
+- id: 273431
+  author: Boyd
+  author_email: boyd@lefferts-consulting.com
+  author_url: ''
+  date: '2018-04-08 10:01:16 +0000'
+  date_gmt: '2018-04-08 16:01:16 +0000'
+  content: "Hi Chris,\r\n\r\nThanks for your post and thread which are very useful.\r\nI
+    have question. I have an ADFS which serves two forests. Users of both forests
+    are getting synced with a single AAD Connect server to the same tenant.\r\nI did
+    configure AltID for the second forest (B) as the users cannot change their UPN.
+    I configured AAD Connect to sync the mail attribute as the UserPrincipalName.
+    I also run the command enabling AltID for that forest (B). Furthermore, I did
+    edit the claim rule to accept the \"mail\" attribute instead of the UPN. Now,
+    however, all users have to have an email address in their AD accounts. That also
+    applies to the users of the forest (A) which AltID has not been enabled for.\r\nIs
+    there any way to ensure that the users of the forest (A) for which no AltID has
+    been enabled can continue signing in using their UPN? \r\n\r\nThank you very much."
+- id: 273466
+  author: Eric L
+  author_email: eric.logeson@dukece.com
+  author_url: ''
+  date: '2018-04-12 06:06:25 +0000'
+  date_gmt: '2018-04-12 12:06:25 +0000'
+  content: "anybody have this jpg that was mentioned above, the link is broken.\r\n\r\nInfo
+    sourced from http://blogs.technet.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-91-74-metablogapi/ADFS_5F00_18697E16.jpg"
+- id: 273467
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-04-12 10:34:17 +0000'
+  date_gmt: '2018-04-12 16:34:17 +0000'
+  content: "Hi Eric, \n\nI don't have a a copy of it. Do you have a link to the post
+    where this image was referenced?\n\nThanks,\n\nChris"
+- id: 273468
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-04-12 10:46:36 +0000'
+  date_gmt: '2018-04-12 16:46:36 +0000'
+  content: "Hi Boyd, \n\nMy apologies for the delayed reply. This isn't something
+    I've done in the past, but I'd imagine it would be possible. You would need to
+    have separate claims rules in AD FS that apply to each domain. The same would
+    be true for MAs in AAD Connect. I don't have any sample config on how this would
+    look at the moment unfortunately.\n\nLet me know if you get it figured out and
+    I'll update the post with your info.\n\nCheers,\n\nChris"
+- id: 276270
+  author: Spiros
+  author_email: ntspiros@gmail.com
+  author_url: ''
+  date: '2018-11-22 15:41:20 +0000'
+  date_gmt: '2018-11-22 21:41:20 +0000'
+  content: "Hello Chris,\r\nExcellent article! thank you very much!\r\nI have a really
+    tricky question :\r\nIf I have an internal AD domain name lets say name1.name2.name3.net\r\nbut
+    the external publicly routable domain name is name3.net\r\nCan the federation
+    service name be different than the AD domain name ?\r\ni.e. can be : adfs.name3.net
+    ? instead of adfs.name1.name2.name3.net\r\nand the public certificate contain
+    these values :\r\nadfs.name3.net\r\ncertauth.adfs.name3.net\r\nenterpriseregistration.name3.net\r\nwill
+    everything work ok?\r\nThe server configuration is internally two ADFS servers
+    behind load balancer and in dmz two WAP servers again behind load balancer."
+- id: 276276
+  author: Vijay
+  author_email: sriramvijays@outlook.com
+  author_url: ''
+  date: '2018-11-22 23:08:12 +0000'
+  date_gmt: '2018-11-23 05:08:12 +0000'
+  content: "Hi Chris\r\n\r\nThank you for the details information on Alternate ID
+    login.\r\nJust wanted to check if it is the same process for an external application
+    which would like to user an EmployeeNumber as the Login ID?\r\n\r\n If its the
+    same , then is there a way to remove the full UPN naming format and just use EmployeeNumber
+    as the login?"
+- id: 276342
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-11-29 10:10:20 +0000'
+  date_gmt: '2018-11-29 16:10:20 +0000'
+  content: |-
+    Hi Spiros,
+
+    I'm not sure I follow your question, but if I understand it correctly - you have 'adfsserver.corp.contoso.com' as your internal server name and you would like to publish AD FS as 'adfs.contoso.com'? Yes, that work fine.
+
+    Cheers,
+
+    Chris
+- id: 276343
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2018-11-29 10:13:36 +0000'
+  date_gmt: '2018-11-29 16:13:36 +0000'
+  content: |-
+    Hi Vijay,
+
+    I'm sure you could technically do this, but it wouldn't be a very good idea because of how realm discovery works in Office 365 - its based on the domain suffix so unless your employee number is in the same format as an email address, i.e emp_num@domain.com it will cause you issues.
+
+    Cheers,
+
+    Chris
+---
+<p>As Office 365 adoption continues to grow and more organisations are starting to take advantage of identity federation. One of the most common issues I&rsquo;ve seen over the last couple of years when helping my clients adopt Office 365 services is the disconnect between user principal name (UPN), sAMAccountName (The user name typically used at logon) and the &lsquo;mail&rsquo; attribute in Active Directory. There are many reasons for this and I won&rsquo;t go into that in this post, but it is quite common to see one of the following scenarios:</p>
+<ol>
+<li>sAMAccountName = JSmith, UPN = JSmith@internal.local, Mail = John.Smith@domain.com</li>
+<li>sAMAccountName = ID123456, UPN = ID123456@internal.local, Mail = John.Smith@domain.com &ndash; I&rsquo;ve seen this scenario quite often when working with .gov and .edu clients.</li>
+</ol>
+<p>In the past, the typical recommendation is to add the public domain to the UPN suffix list and change the UPN for each user to match their email address. This causes much less confusion for end users as you won&rsquo;t need to try and explain the different between their UPN and their email address even though they both appear to be the same.</p>
+<p>*Update: I'd like to call out that implementing "Alternate Login ID" with an Exchange Hybrid deployment is not a good idea. Microsoft has the following warning posted on the <a href="http://social.technet.microsoft.com/wiki/contents/articles/24096.dirsync-using-alternate-login-ids-with-azure-active-directory.aspx" target="_blank">TechNet wiki</a>.</p>
+<p style="text-align: center;"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/Capture.png"><img class="aligncenter  wp-image-1310" src="http://www.cgoosen.com/wp-content/uploads/2014/04/Capture-300x95.png" alt="Warning" width="395" height="125" /></a></p>
+<p><a href="http://support.microsoft.com/kb/2919355" target="_blank">The April 2014 Windows Server 2012 R2 Update (KB 2919355)</a> includes a new feature called &ldquo;Alternate Login ID&rdquo; which will allow you to configure an alternate attribute to be used to identify a user object in Active Directory. In other words, you can now use a different attribute, for example &lsquo;mail&rsquo; during login instead of UPN.</p>
+<p>This is great news for those organisations who use of employee ID or payroll numbers as their domain user names. As always, there are a few things to consider. In order for the authentication request to succeed, the attribute configured as the alternate login ID must satisfy the following requirements:</p>
+<ul>
+<li>The attribute must be indexed.</li>
+<li>The attribute must be in the global catalog.</li>
+<li>The attribute must be a well-formed SMTP address and conform to the <a href="http://technet.microsoft.com/en-us/library/jj943764.aspx" target="_blank">UPN rules outlined here.</a></li>
+<li>The attribute must have a single value.</li>
+<li>The CanonicalName attribute on the user object must be accessible to the service account that is used for AD FS.</li>
+<li>The value of the alternate login ID attribute must be unique across all the forests that AD FS is configured to use when enabling this feature.</li>
+</ul>
+<p>The configuration process is really simple as well, for example let&rsquo;s assume we already have AD FS 3.0 implemented with Office 365. My test environment is configured as follows:</p>
+<ul>
+<li>Internal AD domain name: <strong>lab365.com.au</strong> &ndash; NOT configured in Office 365</li>
+<li>Public (SMTP) domain name: <strong>o365testlab.com</strong> &ndash; This domain is also configured in Office 365</li>
+<li>sAMAccountName = ID123456, UPN = <strong>ID123456@lab365.com.au</strong>, Mail = <strong>John.Smith@o365testlab.com</strong></li>
+</ul>
+<p>We would like to allow our users to log in using their email addresses (&lsquo;mail&rsquo; attribute) instead of their UPN.</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image29.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image29_thumb.png" alt="image" width="424" height="558" border="0" /></a></p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image31.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image31_thumb.png" alt="image" width="424" height="558" border="0" /></a></p>
+<p>It is important to note that if you are not using a routable UPN suffix, you will most likely want to pre-configure the correct SMTP and SIP addresses for your user accounts before you synchronise them. This can be done via the &ldquo;proxyAddresses&rdquo; attribute of the user account:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb15.png" alt="image" width="424" height="561" border="0" /></a></p>
+<p align="left">Once the user has been synchronised to Azure AD and assigned the relevant licenses in Office 365 it should look something like:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image16.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb16.png" alt="image" width="504" height="433" border="0" /></a></p>
+<p>To configure AD FS, the first thing to do is install the <a href="http://support.microsoft.com/kb/2919355" target="_blank">April 2014 Windows Server 2012 R2 Update (KB 2919355)</a>, this can easily be done via Windows Update:</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image101.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image10_thumb.png" alt="image" width="755" height="201" border="0" /></a></p>
+<p><span style="color: #ff0000;">Warning:</span> There is a known issue with the April 2014 Windows Server 2012 R2 Update (KB 2919355) that may effect you if you are using Windows Server Update Services. Be sure to <a href="http://support.microsoft.com/kb/2959977" target="_blank">read KB 2959977</a> before installing this update in your environment. As always, planning and testing is very important!</p>
+<p>Next, update the AD FS configuration by running the following PowerShell cmdlet on any of the federation servers in your farm, starting with the primary AD FS server in your farm, obviously you would need to adjust the &ldquo;AlternateLoginID&rdquo; and &ldquo;LookupForests&rdquo; parameters to suite your particular requirements:</p>
+<p>[powershell]Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID mail -LookupForests lab365.com.au[/powershell]</p>
+<p>Next, we need to update one of our AD FS claims rules. We locate the &ldquo;Microsoft Office 365 Identity Platform&rdquo; relying party trust and edit issuance transform rule number 1:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image17.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb17.png" alt="image" width="754" height="763" border="0" /></a></p>
+<p>The new rule should look like this:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image18.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb18.png" alt="image" width="754" height="763" border="0" /></a></p>
+<p align="left">Lastly, we need to update our DirSync attribute flow to ensure the correct attribute is synchronised. Run the miisclient.exe which can be located in "C:\Program Files\Windows Azure Active Directory Sync\SYNCBUS\Synchronization Service\UIShell&rdquo;. Select the &ldquo;Management Agents&rdquo; tab, right-click to view the properties of &ldquo;Active Directory Connector&rdquo;. Under &ldquo;Configure Attribute Flow&rdquo;, expand &ldquo;Object Type: user&rdquo; and find the &ldquo;Data Source Attribute&rdquo; of &ldquo;<dn>,sAMAccountName,userPrincipalName&rdquo;. To edit it:</p>
+<ol>
+<li>Change the &ldquo;Mapping Type&rdquo; from &ldquo;Advanced&rdquo; to &ldquo;Direct&rdquo;</li>
+<li>Select the appropriate attribute (&ldquo;mail&rdquo; in my case) as the &ldquo;Data source attribute&rdquo;.</li>
+</ol>
+<p>Ensure that the &ldquo;Metaverse attribute&rdquo; is set to &ldquo;userPrincipalName&rdquo; and click &ldquo;Edit&rdquo; and then &ldquo;OK&rdquo; to save your changes.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image19.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb19.png" alt="image" width="754" height="529" border="0" /></a></p>
+<p>Once you have completed a successful synchronisation, you will be able to log into the Office 365 portal using your email address as login attribute.</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image20.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb20.png" alt="image" width="754" height="392" border="0" /></a></p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2014/04/image21.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="http://www.cgoosen.com/wp-content/uploads/2014/04/image_thumb21.png" alt="image" width="754" height="420" border="0" /></a></p>
+<p>I&rsquo;d like to conclude this post with the following.. just because something is possible, it doesn't mean it should be done. Unless you have a very specific requirements and/or constraints, I would recommend using UPN as your login attribute even if this means having to go through the process of changing all your user UPNs. In most environments this change will have little or no effect on other systems and may be the best approach.</p>
+<p>For more information on Alternate Login ID, see:</p>
+<ul>
+<li><a href="http://technet.microsoft.com/en-us/library/dn659436.aspx" target="_blank">Configuring Alternate Login ID</a></li>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/24096.using-alternate-login-ids-with-azure-active-directory.aspx" target="_blank">Using Alternate Login IDs with Azure Active Directory</a></li>
+</ul>

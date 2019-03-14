@@ -1,0 +1,65 @@
+---
+layout: post
+status: publish
+published: true
+title: Lync Online 2013 Remote PowerShell
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 892
+wordpress_url: http://www.cgoosen.com/?p=892
+date: '2013-01-22 09:43:36 +0000'
+date_gmt: '2013-01-21 22:43:36 +0000'
+categories:
+- Cloud
+- Office 365
+- Lync
+tags: []
+comments:
+- id: 557
+  author: Daniel Foelker
+  author_email: daniel.foelker@live.com
+  author_url: ''
+  date: '2013-01-23 09:48:27 +0000'
+  date_gmt: '2013-01-22 22:48:27 +0000'
+  content: "FYI\r\n\r\nhttp://officeignitelabs.cloudguides.com/Labs/Configuring%20Lync%20Online%20Hybrid%20Voice%20with%20Lync%20Server.htm"
+- id: 1310
+  author: Alan Byrne
+  author_email: alan@cogmotive.com
+  author_url: https://www.cogmotive.com
+  date: '2013-05-14 07:47:18 +0000'
+  date_gmt: '2013-05-13 20:47:18 +0000'
+  content: |-
+    According to this KB article access to Lync Online via PowerShell is only enabled for some tenants.
+
+    http://support.microsoft.com/kb/2824005/EN-US
+
+    "Currently, Lync Online PowerShell isn't available to all customers and must be enabled on a case-by-case basis by Lync Online technical support. If you feel that you should have access to Lync Online PowerShell to set up Lync Hybrid Voice or a Lync Room System, contact Lync Online technical support to submit a request."
+- id: 1312
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2013-05-14 12:33:54 +0000'
+  date_gmt: '2013-05-14 01:33:54 +0000'
+  content: Thanks for the update!
+---
+<p>As we are all aware, the <a href="http://www.microsoft.com/office/preview/en/office-365-enterprise" target="_blank">next wave of Office 365 is currently in preview</a> and will be available soon. One of the expected (and long awaited) new features is the ability to administer Lync Online via PowerShell, this is something that is lacking in the current release. I was recently working with a customer who are preparing for to transition several thousand users to Lync Online and this got me curious about remote PowerShell and Lync Online 2013. Since there is no documentation available yet for the upcoming release, I thought I would share my initial findings.</p>
+<p>Before I go any further I should mention that at the time of writing this I am testing with a Office 365 Preview tenant and as with all things still in development, it is possible (likely even) the the final release will behave differently. I also want the mention that remote PowerShell does not work with Lync Online on an Office 365 Preview tenant (see details below) so I am sharing this information purely for those who might be interested in how it may or could work in future &ndash; I will of course update this post once the next wave of Office 365 has been released.</p>
+<p>My discovery came after I installed the Lync 2013 administrative tools on my laptop, I was browsing around the modules folder when I noticed it had installed a module called &ldquo;LyncOnlineConnector&rdquo; which is not imported by default.</p>
+<p>&nbsp;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_00_06-Modules.png"><img title="2013-01-21 17_00_06-Modules" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="2013-01-21 17_00_06-Modules" src="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_00_06-Modules_thumb.png" width="1025" height="251"></a></p>
+<p>&nbsp;</p>
+<p>So as any curious geek would, I thought I would play around a little.. I imported the module and took a look at the cmdlets available.</p>
+<p>&nbsp;</p>
+<p><a href="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_02_46-Modules.png"><img title="2013-01-21 17_02_46-Modules" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; border-left: 0px; display: block; padding-right: 0px; margin-right: auto" border="0" alt="2013-01-21 17_02_46-Modules" src="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_02_46-Modules_thumb.png" width="1098" height="378"></a></p>
+<p>&nbsp;</p>
+<p>Once imported, the &ldquo;LyncOnlineConnector&rdquo; module contains a &ldquo;New-CsOnlineSession&rdquo; cmdlet which according to the help file is used to set up a remote session to Lync Online.</p>
+<p>&nbsp;</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_03_55-Windows-PowerShell.png"><img title="2013-01-21 17_03_55-Windows PowerShell" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="2013-01-21 17_03_55-Windows PowerShell" src="http://www.cgoosen.com/wp-content/uploads/2013/01/2013-01-21-17_03_55-Windows-PowerShell_thumb.png" width="1097" height="405"></a></p>
+<p align="center">&nbsp;</p>
+<p align="left">If you attempt to run the cmdlet, you receive the following error: "Remote Windows PowerShell session creation is restricted by tenant Windows PowerShell policy". This leads me to believe that remote PowerShell is currently restricted on Office 365 Preview tenants. </p>

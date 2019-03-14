@@ -1,0 +1,54 @@
+---
+layout: post
+status: publish
+published: true
+title: Azure AD Connect gets a big update!
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 1484
+wordpress_url: http://www.cgoosen.com/?p=1484
+date: '2016-02-18 16:18:15 +0000'
+date_gmt: '2016-02-18 22:18:15 +0000'
+categories:
+- Cloud
+- Office 365
+- Azure AD
+tags: []
+comments:
+- id: 266149
+  author: Azure AD Connect Update Removes Scheduled Task &#8211; TD Sheridan Lab
+  author_email: ''
+  author_url: http://www.tdsheridanlab.com/azure-ad-connect-update-removes-scheduled-task/
+  date: '2016-02-22 09:53:51 +0000'
+  date_gmt: '2016-02-22 15:53:51 +0000'
+  content: "[&#8230;] Another Bloggers Post&#8211; Very helpful [&#8230;]"
+---
+<p>In case you missed it, the latest version of Azure AD Connect (version 1.1.105.0) was <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-version-history/" target="_blank">recently made available for download.</a> One of the big changes and great new additions in this version is the new built-in scheduler which was separate to the sync engine in previous releases and would run as a scheduled task in Windows task scheduler:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture1" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture1_thumb.png" alt="Capture1" width="776" height="110" border="0" /></a></p>
+<p>Another big change is the fact that the default synchronization frequency has been updated and is now 30 minutes which is a big change from the previous default of 3 hours. In addition, this value can now be configured which is something that was not supported previously &ndash; I know this change is going to be very well received by many organizations. The scheduler can be viewed and configured using the</p>
+<p>[powershell]Get-ADSyncScheduler[/powershell]</p>
+<p>and</p>
+<p>[powershell]Set-ADSyncScheduler[/powershell]</p>
+<p>cmdlets. You can also manually start a synchronization cycle with the</p>
+<p>[powershell]Start-ADSyncSyncCycle[/powershell]</p>
+<p>cmdlet</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture3" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture3_thumb.png" alt="Capture3" width="669" height="223" border="0" /></a></p>
+<p>As before, the upgrade process from previous versions is very simple &ndash; The wizard will detect the previous installation and ask to if you would like to upgrade:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Capture2" src="http://www.cgoosen.com/wp-content/uploads/2016/02/Capture2_thumb.png" alt="Capture2" width="622" height="438" border="0" /></a></p>
+<p align="left">You will notice after the upgrade that the old Azure AD Sync Scheduler task no longer exists in Windows task scheduler</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/02/after.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="after" src="http://www.cgoosen.com/wp-content/uploads/2016/02/after_thumb.png" alt="after" width="741" height="105" border="0" /></a></p>
+<p align="left">Other new features in this release are:</p>
+<ul>
+<li>Automatic upgrade feature for Express settings customers.</li>
+<li>Support for the global admin using MFA and PIM in the installation wizard.</li>
+<li>Support changing the user's sign-in method after initial install.</li>
+<li>Allows Domain and OU filtering in the installation wizard.</li>
+</ul>
+<p align="left">For more information on these <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-version-history/" target="_blank">and other new features, click here</a></p>
+<p align="left">For more information about the <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnectsync-feature-scheduler/" target="_blank">new built-in scheduler, click here</a></p>

@@ -1,0 +1,136 @@
+---
+layout: post
+status: publish
+published: true
+title: Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010,
+  Part 1 &ndash; The Introduction
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 247
+wordpress_url: http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-1-the-introduction/
+date: '2010-05-18 18:14:30 +0000'
+date_gmt: '2010-05-18 07:14:30 +0000'
+categories:
+- Exchange Server
+- Forefront TMG
+tags: []
+comments:
+- id: 53
+  author: Tweets that mention Securing Exchange 2010 with Forefront Threat Management
+    Gateway (TMG) 2010, Part 1 &ndash; The Introduction -- Topsy.com
+  author_email: ''
+  author_url: http://topsy.com/trackback?utm_source=pingback&amp;utm_campaign=L1&amp;url=http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2010-part-1-the-introducti
+  date: '2010-05-20 03:56:25 +0000'
+  date_gmt: '2010-05-19 16:56:25 +0000'
+  content: "[...] This post was mentioned on Twitter by Chris Goosen. Chris Goosen
+    said: Securing Exchange 2010 with Forefront Threat Management Gateway (TMG) 2010,
+    Part 1 &ndash; The http://is.gd/cefsx [...]"
+- id: 98
+  author: Joe
+  author_email: joepitt@hotmail.co.uk
+  author_url: ''
+  date: '2010-06-11 04:06:17 +0000'
+  date_gmt: '2010-06-10 17:06:17 +0000'
+  content: "does this series asume that ex01, ex02 and dc01 are already setup? \nwill
+    this work if ex01 and ex02 are merged to one server?"
+- id: 99
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2010-06-11 10:45:09 +0000'
+  date_gmt: '2010-06-10 23:45:09 +0000'
+  content: "Hi Joe, \nYes, this series does assume that your ad and exchange infrastructure
+    is already set up. Have a look at these two posts, they may help you out a little
+    in that regard: \n\nhttp://www.cgoosen.com/2009/05/exchange-2010-typical-installation-part-1/
+    \n\nhttp://www.cgoosen.com/2009/05/exchange-2010-typical-installation-part-2/\n\nTo
+    answer your second question, Yes, the steps will be exactly the same for a single
+    server deployment.\n\nCheers,"
+- id: 152
+  author: 'Forefront TMG error : %%-2146233088'
+  author_email: ''
+  author_url: http://www.cgoosen.com/2010/10/forefront-tmg-error-2146233088/
+  date: '2010-10-11 15:06:48 +0000'
+  date_gmt: '2010-10-11 04:06:48 +0000'
+  content: "[...] this year I post a 6 part post entitled &ldquo;Securing Exchange
+    2010 with Forefront Threat Management Gateway (TMG) 2010&rdquo; which covered
+    colocating Exchange 2010 Edge and Forefront TMG 2010 on the same server to create
+    a a [...]"
+- id: 167
+  author: 'Exchange 2010 Edge and Threat Management Gateway : Servus'
+  author_email: ''
+  author_url: http://servusinc.org/myblog/?p=847
+  date: '2011-01-20 07:02:20 +0000'
+  date_gmt: '2011-01-19 20:02:20 +0000'
+  content: "[...] http://www.cgoosen.com/2010/05/securing-exchange-2010-with-forefront-threat-management-gateway-tmg-2...
+    [...]"
+- id: 276
+  author: Sean
+  author_email: seanote@comcast.net
+  author_url: ''
+  date: '2012-05-02 03:47:49 +0000'
+  date_gmt: '2012-05-01 16:47:49 +0000'
+  content: Thanks for the work you've done on this series.  It is an excellent resource.  I
+    have a couple of questions that apply to my installation, which is a little different,
+    but may be of interest to others.  In order to provide redundancy, I am setting
+    up TMG in an array configuration which will have 2 array members and a separate
+    Configuration Storage Server.  I plan on usinf Network Load Balancing to provide
+    a virtual ip.  Do I run through this process for each array member separately,
+    as well as the CSS?  Are the array members still NOT domain members?  Is the CSS
+    joined to the domain?  Are there any other differences I should be aware of.  Thanks
+    again.
+- id: 277
+  author: Chris
+  author_email: chris@cgoosen.com
+  author_url: http://www.cgoosen.com
+  date: '2012-05-07 20:04:37 +0000'
+  date_gmt: '2012-05-07 09:04:37 +0000'
+  content: "Hello Sean,\r\n\r\nThanks for your comments.\r\n\r\nTo be perfectly honest,
+    I have not personally tried that configuration. I suspect it would be possible,
+    however, I would not load balance SMTP (the Edge transport role) and use MX records
+    with different preferences instead. Using NLB for the https workloads should be
+    ok. Here is some guidance on TMG HA: http://technet.microsoft.com/en-us/library/dd897010.aspx\r\n\r\nTo
+    answer you other questions:\r\n\r\n<li>Yes, both members would not be joined to
+    the domain.</li>\r\n<li>The CSS will be domain joined</li>\r\n<li>You would need
+    to install each member separately and then configure the rules at array level</li>\r\n\r\n\r\nHope
+    this helps. Email me if you would like to bounce ideas off someone.\r\n\r\nCheers.\r\n\r\nChris"
+---
+<p>November 2009 was an exciting time.. not only did I turn another year older, but, Microsoft launched both Exchange Server 2010 and Forefront Threat Management Gateway (TMG) 2010. Both of these products were eagerly awaited and while the new features and great benefits of Exchange Server 2010 have already been (and will continue to be!) discussed, I am excited to talk about how TMG 2010 now allows administrators to consolidate their perimeter infrastructure into a single, secure point of entry for email and other messaging related services.</p>
+<p>What is Forefront Threat Management Gateway (TMG) 2010? TMG is essentially the next generation of ISA server (we&rsquo;ve all come to know and love ISA 2006 since it&rsquo;s release in late 2006) but with a few fantastic changes. The first of these is that, as with Exchange Server, it is 64bit only. Other new features include URL Filtering, Web antivirus/anti-malware protection and many more.</p>
+<p>I mentioned earlier in the introduction that TMG 2010 allows administrators to consolidate their perimeter infrastructure into a single, secure point of entry, this is done by combining with a couple of other great technologies. It is now possible to install Exchange Edge, Forefront Protection for Exchange Server (FPES) and TMG 2010 on the same server. Management of the Exchange Server Edge, FPES&#160; and TMG 2010 services are all integrated into the TMG Management console greatly reducing management complexity and overhead.</p>
+<p>In this 6 part series, I&rsquo;ll go through the process of installing Exchange Server Edge, FPES and TMG 2010 on the same server. The series will consist of the following posts:</p>
+<ul>
+<li>Part 1 &ndash; The Introduction </li>
+<li>Part 2 &ndash; Installing Exchange Server Edge </li>
+<li>Part 3 &ndash; Installing Forefront Protection 2010 for Exchange Server </li>
+<li>Part 4 &ndash; Installing Forefront Threat Management Gateway 2010 </li>
+<li>Part 5 &ndash; Putting it all together </li>
+<li>Part 6 &ndash; Publishing Outlook Web App </li>
+</ul>
+<p align="left">This series is intended to be a detailed &ldquo;how to&rdquo; so I&rsquo;ll make use of a lot of screen shots of each of the steps of the process. There are many areas (especially when configuring Exchange Server) where making use of the Powershell or Exchange Management Shell (EMS) may be quicker, but I have opted to use the MMC throughout.</p>
+<p>Here is a brief overview of the environment I&rsquo;ll use throughout this series, the environment is my lab environment. Here is a high level diagram of the environment, I&rsquo;ll discuss each server in a little more detail below:</p>
+<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2010/05/lab.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="lab" border="0" alt="lab" src="http://www.cgoosen.com/wp-content/uploads/2010/05/lab_thumb.png" width="504" height="335" /></a> </p>
+<p align="left"><strong>tltmg01.testlab.local:</strong> Windows 2008 R2 x64 with 2 NICS (Internal &amp; External) &ndash; This is the Forefront TMG 2010 server with Exchange Server 2010 Edge and Forefront Protection 2010 for Exchange Server installed.</p>
+<p align="left"><strong>tlex01.testlab.local:</strong> Windows 2008 R2 x64 &ndash; This is the Exchange 2010 Hub Transport and Client Access server.</p>
+<p align="left"><strong>tlex02.testlab.local:</strong> Windows 2008 R2 x64 &ndash; This is the Exchange 2010 Mailbox server</p>
+<p align="left"><strong>tldc01.testlab.local:</strong> Windows 2008 x64 &ndash; This is a Domain Controller and Global Catalog. This server also acts as a DNS server and is the Enterprise Root Certificate Authority.</p>
+<p align="left">Some things to look out for.. there are a few important things to look out for when deploying this solution for the first time, there are:</p>
+<ul>
+<li>
+<div align="left"><strong>Time Sync</strong> &ndash; make sure the time on your Exchange servers and TMG/Exchange Edge is perfectly in sync</div>
+</li>
+<li>
+<div align="left"><strong>DNS</strong> &ndash; Mis-configuring DNS is a very common mistake in ISA/TMG deployments. There are many schools of thought here, but regardless of which one you follow, it is important to note that DNS entries are not NIC specific so make sure you assign a DNS server to either the internal OR external NIC. Your TMG/Exchange Edge server must be able to resolve names internally either through DNS or host entries</div>
+</li>
+<li>
+<div align="left"><strong>Workgroup</strong> &ndash; Since we will be installing Exchange Server Edge, our TMG server will NOT be a domain member. It is important to put sufficient thought into how you will configure authentication for both reverse and forward proxy since AD authentication will not work</div>
+</li>
+<li>
+<div align="left"><strong>Primary DNS suffix</strong> &ndash; The TMG/Exchange Edge will need it&rsquo;s Primary DNS suffix manually set as it will not be a part of the domain</div>
+</li>
+</ul>

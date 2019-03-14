@@ -1,0 +1,139 @@
+---
+layout: post
+status: publish
+published: true
+title: Exchange 2007 Mailbox server memory recommendations
+author:
+  display_name: Chris
+  login: chris
+  email: chris@cgoosen.com
+  url: http://www.cgoosen.com
+author_login: chris
+author_email: chris@cgoosen.com
+author_url: http://www.cgoosen.com
+wordpress_id: 27
+wordpress_url: http://www.cgoosen.com/2008/12/exchange-2007-mailbox-server-memory-recommendations/
+date: '2008-12-11 14:21:58 +0000'
+date_gmt: '2008-12-11 03:21:58 +0000'
+categories:
+- Exchange Server
+tags: []
+comments: []
+---
+<p>Exchange 2007 enables much better memory utilization than Exchange 2003 due to its 64-bit architecture. Because of the virtual address space limitations of a 32-bit platform, Exchange 2003 is limited to using 4 GB or less of physical memory.</p>
+<p>The memory configuration process for the Mailbox role is more involved than the other roles since the optimal memory configuration depends upon the mailbox count, client profile and number of storage groups.</p>
+<p>The recommended configuration for the Mailbox role is based predominantly on mailbox count and user profile.The rule of thumb sizing for the Mailbox server role requires an understanding of the average client user profile. This profile can be collected using the <a href="http://technet.microsoft.com/en-us/library/bb508856.aspx" target="_blank">Microsoft Exchange Server Profile Analyzer (EPA)</a>.</p>
+<p>&#160;</p>
+<div align="left">
+<table cellspacing="0" cellpadding="2" width="400" align="center" border="0">
+<tbody>
+<tr>
+<td valign="top" width="165"><font size="2"><strong>User Type</strong></font></td>
+<td valign="top" width="233"><font size="2"><strong>Send/Receive per day</strong> </font></td>
+</tr>
+<tr>
+<td valign="top" width="165"><font size="2">Light</font></td>
+<td valign="top" width="233"><font size="2">5 sent/20 received</font></td>
+</tr>
+<tr>
+<td valign="top" width="165"><font size="2">Average</font></td>
+<td valign="top" width="233"><font size="2">10 sent/40 received </font></td>
+</tr>
+<tr>
+<td valign="top" width="165"><font size="2">Heavy</font></td>
+<td valign="top" width="233"><font size="2">20 sent/80 received</font></td>
+</tr>
+<tr>
+<td valign="top" width="165"><font size="2">Very Heavy</font></td>
+<td valign="top" width="233"><font size="2">30 sent/120 received</font> </td>
+</tr>
+</tbody>
+</table></div>
+<p>&#160;</p>
+<p>The maximum number of Storage Groups configurable in Exchange 2007 has been increased to 50 in the Enterprise Edition (up from 4 with Exchange 2003) and 5 in Standard Edition (up from 1 with Exchange 2003). This increase provides much greater flexibility in server/storage architecture, but the increase has a significant effect on the memory utilization of the Exchange 2007 Mailbox server so Storage Group count is now a factor in minimum memory configuration for Mailbox and Multi-Role servers. In Exchange 2007 Service Pack 1 (SP1), several performance enhancements were made to the Extensible Storage Engine (ESE) that reduce the memory requirements for the Mailbox server role. The following table identifies the specific minimum memory requirements per server, based on the number of storage groups on the server for Exchange 2007 and Exchange 2007 SP1.</p>
+<p>&#160;</p>
+<table cellspacing="0" cellpadding="2" width="402" align="center" border="0">
+<tbody>
+<tr>
+<td valign="top" width="163"><font size="2"><strong>Storage Group Count</strong></font></td>
+<td valign="top" width="237"><font size="2"><strong>Minimum Required Physical Memory</strong> </font></td>
+</tr>
+<tr>
+<td valign="top" width="163">1<font size="2">-4</font></td>
+<td valign="top" width="237"><font size="2">2 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">5-8</font></td>
+<td valign="top" width="237"><font size="2">4 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">9-12</font></td>
+<td valign="top" width="237"><font size="2">5 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">13-16</font></td>
+<td valign="top" width="237"><font size="2">6 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">17-20</font></td>
+<td valign="top" width="237"><font size="2">7 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">21-24</font></td>
+<td valign="top" width="237"><font size="2">8 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">25-28</font></td>
+<td valign="top" width="237"><font size="2">9 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">29-32</font></td>
+<td valign="top" width="237"><font size="2">10 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">33-36</font></td>
+<td valign="top" width="237"><font size="2">11 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">37-40</font></td>
+<td valign="top" width="237"><font size="2">12 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">41-44</font></td>
+<td valign="top" width="237"><font size="2">13 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">45-48</font></td>
+<td valign="top" width="237"><font size="2">14 GB</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">49-50</font></td>
+<td valign="top" width="237"><font size="2">15 GB</font></td>
+</tr>
+</tbody>
+</table>
+<p>&#160;</p>
+<p>Based on the above information, the following table can be used to assist in estimating the memory requirements of a given mailbox server with a given number of hosted mailboxes with a given profile type:</p>
+<p>&#160;</p>
+<table cellspacing="0" cellpadding="2" width="402" align="center" border="0">
+<tbody>
+<tr>
+<td valign="top" width="163"><font size="2"><strong>User Type</strong></font></td>
+<td valign="top" width="237"><font size="2"><strong>Recommended memory</strong>&#160;</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">Light</font></td>
+<td valign="top" width="237"><font size="2">SG Minimum + 2 MB per mailbox</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">Average</font></td>
+<td valign="top" width="237"><font size="2">SG Minimum + 3.5 MB per mailbox</font></td>
+</tr>
+<tr>
+<td valign="top" width="163"><font size="2">Heavy</font></td>
+<td valign="top" width="237"><font size="2">SG Minimum + 5 MB per mailbox</font></td>
+</tr>
+</tbody>
+</table>
+<p>&#160;</p>
+<p>More more information, see the <a href="http://technet.microsoft.com/en-us/library/bb738124.aspx" target="_blank">Exchange 2007: Planning Memory Configurations guide</a> on Microsoft Technet.</p>
