@@ -55,23 +55,23 @@ comments:
 <p>Then create a new Runbook:</p>
 <p><a href="/assets/img/2018/02/auto3.png"><img src="/assets/img/2018/02/auto3.png" style="width:300px;height:185px;" /></a></p>
 <p>Next it's time to add some PowerShell to the Runbook. Since we will be working in Exchange Online, we need to create and import that session. This is similar to working with Exchange Online sessions on your local machine, but you will notice that we don't need to include the credentials in the code and simply reference the credential set we created earlier:</p>
-<p>{% highlight ruby linenos %}<br />
-$UserCredential = Get-AutomationPSCredential -Name "TenantCreds"<br />
-$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection<br />
-$Commands = @("Get-MigrationBatch","Get-MigrationUser","Get-MigrationUserStatistics","Get-MoveRequestStatistics","Get-MoveRequest")<br />
-Import-PSSession -Session $Session -Prefix "EXO" -DisableNameChecking:$true -AllowClobber:$true -CommandName $Commands | Out-Null<br />
+<p>{% highlight ruby linenos %}
+$UserCredential = Get-AutomationPSCredential -Name "TenantCreds"
+$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
+$Commands = @("Get-MigrationBatch","Get-MigrationUser","Get-MigrationUserStatistics","Get-MoveRequestStatistics","Get-MoveRequest")
+Import-PSSession -Session $Session -Prefix "EXO" -DisableNameChecking:$true -AllowClobber:$true -CommandName $Commands | Out-Null
 {% endhighlight %}</p>
 <p>I had some errors when trying to import all Exchange Online cmdlets, so I limit it&nbsp;to only the cmdlets I intend to use in the script. I also add a prefix of "EXO" to these, so these cmdlets are used as follows:</p>
-<p>{% highlight ruby linenos %}<br />
-$MigBatch = Get-EXOMigrationBatch | Where-Object {$_.Identity -like '*MyMigration*'} | foreach {$_.BatchGuid}<br />
+<p>{% highlight ruby linenos %}
+$MigBatch = Get-EXOMigrationBatch | Where-Object {$_.Identity -like '*MyMigration*'} | foreach {$_.BatchGuid}
 {% endhighlight %}</p>
 <p>Lastly, we need to create a schedule for the automation job:</p>
 <p><a href="/assets/img/2018/02/schedule1.png"><img src="/assets/img/2018/02/schedule1.png" style="width:300px;height:146px;" /></a></p>
 <p>Once the schedule has been created, you can link it to the Runbook:</p>
 <p><a href="/assets/img/2018/02/schedule2.png"><img src="/assets/img/2018/02/schedule2.png" style="width:300px;height:142px;" /></a></p>
 <p>This is great if you need to perform tasks that don't generate any output. What happens when something (e.g .CSV file) is generated? There are a couple of ways to deal with that. You could just use the temp folder to store your data and <a href="http://www.cgoosen.com/2015/04/user-powershell-to-bulk-email-your-users/" target="_blank" rel="noopener noreferrer">then email it to yourself</a> - remember, data stored in the temp folder will not persist:</p>
-<p>{% highlight ruby linenos %}<br />
-$TmpPath = $env:TEMP<br />
+<p>{% highlight ruby linenos %}
+$TmpPath = $env:TEMP
 {% endhighlight %}</p>
 <p>Another way to deal with this data is to write it to Azure Storage. There is a <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-powershell-guide-full" target="_blank" rel="noopener noreferrer">PowerShell module available</a> for Azure Storage that can be used with Azure Automation, but you can also use the APIs. Since&nbsp;I figured out how to use the API, it has become my go to method because it is actually much faster. I have also been able to use it in environments where it isn't possible to install modules.</p>
 <p>The first thing we need to do is create a Storage Account in Azure:</p>
@@ -89,51 +89,51 @@ $TmpPath = $env:TEMP<br />
 </ul>
 <p>Timestamp is managed automatically and isn't something you can change. The&nbsp;PartitionKey and RowKey are always required and are used for scalability and indexing of the content so it is important to consider these when designing your table. <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage" target="_blank" rel="noopener noreferrer">Here is some really good information to read up on.</a>&nbsp;In this&nbsp;example, I'll looking up migration status of a mailbox in Exchange Online and will be inserting this data into a table. I'm going to use the "BatchID" as the&nbsp;PartitionKey and the "Status" as the&nbsp;RowKey. The table name in the example will use the "Alias" of the mailbox.</p>
 <p>First, lets define the data we are going to insert. This could easily be used in a script or automation Runbook as a Foreach() loop, but to keep it simple I'm just going to manually define them in the example</p>
-<p>{% highlight ruby linenos %}<br />
-$UserTable = "ZacTurner"<br />
-$PartitionKey = "Batch02"<br />
-$RowKey = "Synced"<br />
-$PrimaryEmailAddress = "ZacTurner@o365testlab.com"<br />
-$MbxGuid = "e31949b2-ebc6-4f57-b9ae-0aa8ae73bb2c"<br />
-$Batch = "Batch02"<br />
-$Status = "Synced"<br />
-$Skipped = "4"<br />
-$LastCheck = "2/27/2018 8:28:01 PM"<br />
+<p>{% highlight ruby linenos %}
+$UserTable = "ZacTurner"
+$PartitionKey = "Batch02"
+$RowKey = "Synced"
+$PrimaryEmailAddress = "ZacTurner@o365testlab.com"
+$MbxGuid = "e31949b2-ebc6-4f57-b9ae-0aa8ae73bb2c"
+$Batch = "Batch02"
+$Status = "Synced"
+$Skipped = "4"
+$LastCheck = "2/27/2018 8:28:01 PM"
 {% endhighlight %}</p>
 <p>Next we will import this information, during the import, we'll first check to see if a unique table already exists (using the Alias). If one does exist, we'll insert the data, if one doesn't exist we will create it.</p>
-<p>{% highlight ruby linenos %}<br />
-$AzureEndpoint = 'https://cgblogpostdemo.table.core.windows.net/'<br />
-$AzureSAS = "?sv=2017-07-29&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacup&amp;se=2018-04-05T02:31:38Z&amp;st=2018-02-27T19:31:38Z&amp;spr=https&amp;sig=<removed>"<br />
-$AzureRequestHeaders = @{<br />
-		"x-ms-date"=(Get-Date -Format r);<br />
-		"x-ms-version"="2016-05-31";<br />
-		"Accept-Charset"="UTF-8";<br />
-		"DataServiceVersion"="3.0;NetFx";<br />
-		"MaxDataServiceVersion"="3.0;NetFx";<br />
-		"Accept"="application/json;odata=nometadata"}</p>
-<p>$UserURI = $AzureEndpoint + $UserTable + "/" + $AzureSAS</p>
-<p>#Check if table already exists<br />
-$UserTableExists = Invoke-WebRequest -Method GET -Uri $UserURI -Headers $AzureRequestHeaders<br />
-$UserTableExists = $UserTableExists.StatusCode</p>
-<p>If ($UserTableExists -ne "200"){<br />
-		 $TableRequestBody = ConvertTo-Json -InputObject @{<br />
-							"TableName"=$UserTable}<br />
-		 $EncodedTableRequestBody = [System.Text.Encoding]::UTF8.GetBytes($TableRequestBody)<br />
-		 $TableURI = $AzureEndpoint + 'Tables/' + $AzureSAS<br />
-		Invoke-WebRequest -Method POST -Uri $TableURI -Headers $AzureRequestHeaders -Body $EncodedTableRequestBody -ContentType "application/json"<br />
-			}</p>
-<p>#Insert data<br />
-$AzureRequestBody = ConvertTo-Json -InputObject @{<br />
-		"PartitionKey"= "$PartitionKey";<br />
-		"RowKey"= "$RowKey";<br />
-		"PrimaryEmailAddress"= "$PrimaryEmailAddress";<br />
-		"MbxGuid"= "$MbxGuid";<br />
-		"BatchName"= "$Batch";<br />
-		"Status"= "$Status";<br />
-		"ItemsSkipped"= "$Skipped";<br />
-		"LastCheck"= "$LastCheck"}<br />
-$EncodedAzureRequestBody = [System.Text.Encoding]::UTF8.GetBytes($AzureRequestBody)<br />
-Invoke-WebRequest -Method POST -Uri $UserURI -Headers $AzureRequestHeaders -Body $EncodedAzureRequestBody -ContentType "application/json"<br />
+<p>{% highlight ruby linenos %}
+$AzureEndpoint = 'https://cgblogpostdemo.table.core.windows.net/'
+$AzureSAS = "?sv=2017-07-29&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacup&amp;se=2018-04-05T02:31:38Z&amp;st=2018-02-27T19:31:38Z&amp;spr=https&amp;sig=<removed>"
+$AzureRequestHeaders = @{
+		"x-ms-date"=(Get-Date -Format r);
+		"x-ms-version"="2016-05-31";
+		"Accept-Charset"="UTF-8";
+		"DataServiceVersion"="3.0;NetFx";
+		"MaxDataServiceVersion"="3.0;NetFx";
+		"Accept"="application/json;odata=nometadata"}
+$UserURI = $AzureEndpoint + $UserTable + "/" + $AzureSAS
+#Check if table already exists
+$UserTableExists = Invoke-WebRequest -Method GET -Uri $UserURI -Headers $AzureRequestHeaders
+$UserTableExists = $UserTableExists.StatusCode
+	If ($UserTableExists -ne "200"){
+		 $TableRequestBody = ConvertTo-Json -InputObject @{
+							"TableName"=$UserTable}
+		 $EncodedTableRequestBody = [System.Text.Encoding]::UTF8.GetBytes($TableRequestBody)
+		 $TableURI = $AzureEndpoint + 'Tables/' + $AzureSAS
+		Invoke-WebRequest -Method POST -Uri $TableURI -Headers $AzureRequestHeaders -Body $EncodedTableRequestBody -ContentType "application/json"
+			}
+#Insert data
+$AzureRequestBody = ConvertTo-Json -InputObject @{
+		"PartitionKey"= "$PartitionKey";
+		"RowKey"= "$RowKey";
+		"PrimaryEmailAddress"= "$PrimaryEmailAddress";
+		"MbxGuid"= "$MbxGuid";
+		"BatchName"= "$Batch";
+		"Status"= "$Status";
+		"ItemsSkipped"= "$Skipped";
+		"LastCheck"= "$LastCheck"}
+$EncodedAzureRequestBody = [System.Text.Encoding]::UTF8.GetBytes($AzureRequestBody)
+Invoke-WebRequest -Method POST -Uri $UserURI -Headers $AzureRequestHeaders -Body $EncodedAzureRequestBody -ContentType "application/json"
 {% endhighlight %}</p>
 <p>You could also use <a href="https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod?view=powershell-5.1" target="_blank" rel="noopener noreferrer">Invoke-RestMethod</a> instead of Invoke-WebRequest. The resulting tables should look like this:</p>
 <p><a href="/assets/img/2018/02/storage4-1.png"><img src="/assets/img/2018/02/storage4-1.png" style="width:300px;height:144px;" /></a></p>

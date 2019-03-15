@@ -3,7 +3,7 @@ name: Chris's Blog
 job_title: It's called thinking...  go with it!
 email: /contact
 description: 
-avatar: /assets/img/headshot.jpg
+avatar: /assets/img/headshot.png
 favicon: /favicon.ico
 twitter_handler: chrisgoosen
 analytics_code: UA-XXXXXXX-2
@@ -56,7 +56,7 @@ defaults:
       comments: "true"
 
 # Serving
-url: ""
+url: "cgoosen.github.io"
 baseurl: ""
 
 # Includes

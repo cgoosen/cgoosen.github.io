@@ -88,9 +88,9 @@ comments:
   content: Thanks for the feedback - I'll definitely look into this.
 ---
 <p>I'm excited to announce the release of Connect-365! Back 2012, I put together a basic script with a GUI to simplify connecting to Exchange Online via remote PowerShell. I had never intended to make the script publicly available and it was just something I used myself. After a couple years I realized that it had been shared with so many colleagues and clients that I decided to clean it up and publish it on the TechNet gallery. Connect-EXO was born! Here's a screenshot of the original first version:</p>
-<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/Capture1.png"><img class="aligncenter size-medium wp-image-2684" src="https://www.cgoosen.com/wp-content/uploads/2017/03/Capture1-300x281.png" alt="" width="300" height="281" /></a></p>
-<p style="text-align: left;">Over time the script matured <a href="https://www.cgoosen.com/2014/10/script-connect-exo-ps1-connect-to-exchange-online-using-remote-powershell/" target="_blank" rel="noopener">into what Connect-EXO is today</a>. One of the challenges in the early version was that I used WPF for the GUI, this was problematic for older versions of PowerShell so I made the decision to port it to Windows Forms for backward compatibility. Forms is old and added a lot of bloat and since&nbsp;backwards compatibility is no longer a concern, I decided to move back to WPF. Connect-365 is essentially the next version of Connect-EXO, I renamed it so more accurately reflect it's purpose and this will allow me to continue to maintain Connect-EXO.</p>
-<p style="text-align: left;">Connect-365 features a GUI that will prompt for your tenant credentials and then connect to various Office 365 services using remote PowerShell. The built-in prerequisite checker will check to ensure that the correct modules are installed and provide a download link for those that are not.</p>
+<p><a href="/assets/img/2017/03/Capture1.png"><img src="/assets/img/2017/03/Capture1.png" style="width:300px;height:281px;" /></a></p>
+<p>Over time the script matured <a href="/2014/10/script-connect-exo-ps1-connect-to-exchange-online-using-remote-powershell/" target="_blank" rel="noopener">into what Connect-EXO is today</a>. One of the challenges in the early version was that I used WPF for the GUI, this was problematic for older versions of PowerShell so I made the decision to port it to Windows Forms for backward compatibility. Forms is old and added a lot of bloat and since&nbsp;backwards compatibility is no longer a concern, I decided to move back to WPF. Connect-365 is essentially the next version of Connect-EXO, I renamed it so more accurately reflect it's purpose and this will allow me to continue to maintain Connect-EXO.</p>
+<p >Connect-365 features a GUI that will prompt for your tenant credentials and then connect to various Office 365 services using remote PowerShell. The built-in prerequisite checker will check to ensure that the correct modules are installed and provide a download link for those that are not.</p>
 <p>The current version of the script allows connectivity to:</p>
 <ul>
 <li>Exchange Online</li>
@@ -106,9 +106,9 @@ There are no parameters or switches, simply execute the script: <em>.\Connect-36
 <p><strong>Execution Policy:</strong><br />
 This script has been digitally signed and will run just fine under a "RemoteSigned" execution policy</p>
 <p><strong>Screenshots:</strong></p>
-<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png"><img class="aligncenter size-full wp-image-3707" src="https://www.cgoosen.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png" alt="" width="539" height="415" /></a></p>
-<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2019-02-27-at-2.09.09-PM.png"><img class="aligncenter size-full wp-image-3710" src="https://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2019-02-27-at-2.09.09-PM.png" alt="" width="539" height="415" /></a></p>
-<p style="text-align: center;"><a href="https://www.cgoosen.com/wp-content/uploads/2017/03/c.png"><img class="aligncenter wp-image-2687" src="https://www.cgoosen.com/wp-content/uploads/2017/03/c.png" alt="" width="628" height="125" /></a></p>
+<p><a href="/assets/img/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png"><img src="/assets/img/2019/02/Screen-Shot-2019-02-27-at-2.09.37-PM.png" style="width:539px;height:415px;" /></a></p>
+<p><a href="/assets/img/2017/03/Screen-Shot-2019-02-27-at-2.09.09-PM.png"><img src="/assets/img/2017/03/Screen-Shot-2019-02-27-at-2.09.09-PM.png" style="width:539px;height:415px;" /></a></p>
+<p><a href="/assets/img/2017/03/c.png"><img src="/assets/img/2017/03/c.png" style="width:628px;height:125px;" /></a></p>
 <p><strong>Roadmap:</strong></p>
 <ul>
 <li><del>Support Azure AD v1 and v2</del> - Removed as v1 is depreciated</li>

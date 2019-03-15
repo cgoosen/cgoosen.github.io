@@ -562,25 +562,25 @@ comments:
 ---
 <p>Yes! it is finally possible to connect to Exchange Online from PowerShell installed on MacOS. I noticed some tweets <a href="https://mattmcnabb.github.io/O365-PowerShell-On-Linux" target="_blank" rel="noopener noreferrer">about this being possible on Linux</a> earlier in the week so I thought I&rsquo;d re-visit testing it on MacOS. PowerShell remoting has been available in the MacOs version since powershell-6.0.0-alpha.15, but it didn&rsquo;t include the ability to specify a &ldquo;ConnectionUri&rsquo; as the endpoint &ndash; it only worked with server names and IP addresses. powershell-6.0.0-alpha.17 which was recently released now includes this functionality.</p>
 <p>The first thing you need to do it <a href="https://github.com/PowerShell/PowerShell" target="_blank" rel="noopener noreferrer">download and install the latest release from here</a>, you&rsquo;ll want to download at least powershell-6.0.0-alpha.17</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-3.47.08-PM.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screen Shot 2017-03-15 at 3.47.08 PM" src="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-3.47.08-PM_thumb.png" alt="Screen Shot 2017-03-15 at 3.47.08 PM" width="410" height="290" border="0" /></a></p>
-<p align="left">Next launch PowerShell and confirm the version:</p>
-<p>[powershell]<br />
-$PSVersionTable<br />
-[/powershell]</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.31.53-PM.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screen Shot 2017-03-15 at 4.31.53 PM" src="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.31.53-PM_thumb.png" alt="Screen Shot 2017-03-15 at 4.31.53 PM" width="410" height="263" border="0" /></a></p>
-<p align="left">We are now ready to run establish our remote session. First let&rsquo;s define our credentials:</p>
-<p>[powershell]<br />
-$UserCredential = Get-Credential<br />
-[/powershell]</p>
-<p align="left">Then create the session:</p>
-<p>[powershell]<br />
-$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid -Credential $UserCredential -Authentication Basic -AllowRedirection<br />
-[/powershell]</p>
-<p align="left">And finally, import that session:</p>
-<p>[powershell]<br />
-Import-PSSession $Session<br />
-[/powershell]</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.41.16-PM.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screen Shot 2017-03-15 at 4.41.16 PM" src="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.41.16-PM_thumb.png" alt="Screen Shot 2017-03-15 at 4.41.16 PM" width="410" height="263" border="0" /></a></p>
-<p align="left">Once connected you have all the Exchange Online cmdlets available to you:</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.46.02-PM.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Screen Shot 2017-03-15 at 4.46.02 PM" src="http://www.cgoosen.com/wp-content/uploads/2017/03/Screen-Shot-2017-03-15-at-4.46.02-PM_thumb.png" alt="Screen Shot 2017-03-15 at 4.46.02 PM" width="410" height="263" border="0" /></a></p>
-<p align="left">I haven&rsquo;t thoroughly tested it yet, but I look forward to spending some time using it soon!</p>
+<p><a href="/assets/img/2017/03/Screen-Shot-2017-03-15-at-3.47.08-PM.png"><img src="/assets/img/2017/03/Screen-Shot-2017-03-15-at-3.47.08-PM.png" style="width:410px;height:290px;" /></a></p>
+<p>Next launch PowerShell and confirm the version:</p>
+<p>{% highlight ruby linenos %}
+$PSVersionTable
+{% endhighlight %}</p>
+<p><a href="/assets/img/2017/03/Screen-Shot-2017-03-15-at-4.31.53-PM.png"><img src="/assets/img/2017/03/Screen-Shot-2017-03-15-at-4.31.53-PM.png" style="width:410px;height:263px;" /></a></p>
+<p>We are now ready to run establish our remote session. First let&rsquo;s define our credentials:</p>
+<p>{% highlight ruby linenos %}
+$UserCredential = Get-Credential
+{% endhighlight %}</p>
+<p>Then create the session:</p>
+<p>{% highlight ruby linenos %}
+$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid -Credential $UserCredential -Authentication Basic -AllowRedirection
+{% endhighlight %}</p>
+<p>And finally, import that session:</p>
+<p>{% highlight ruby linenos %}
+Import-PSSession $Session
+{% endhighlight %}</p>
+<p><a href="/assets/img/2017/03/Screen-Shot-2017-03-15-at-4.41.16-PM.png"><img src="/assets/img/2017/03/Screen-Shot-2017-03-15-at-4.41.16-PM.png" style="width:410px;height:263px;" /></a></p>
+<p>Once connected you have all the Exchange Online cmdlets available to you:</p>
+<p><a href="/assets/img/2017/03/Screen-Shot-2017-03-15-at-4.46.02-PM.png"><img src="/assets/img/2017/03/Screen-Shot-2017-03-15-at-4.46.02-PM.png" style="width:410px;height:263px;" /></a></p>
+<p>I haven&rsquo;t thoroughly tested it yet, but I look forward to spending some time using it soon!</p>
