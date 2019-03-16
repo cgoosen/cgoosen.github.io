@@ -56,7 +56,7 @@ defaults:
       comments: "true"
 
 # Serving
-url: "https://cgoosen.github.io/"
+url: "https://cgoosen.github.io"
 baseurl: ""
 
 # Includes
