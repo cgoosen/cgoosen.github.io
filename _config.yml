@@ -6,8 +6,8 @@ description:
 avatar: /assets/img/headshot.png
 favicon: /favicon.ico
 twitter_handler: chrisgoosen
-analytics_code: UA-XXXXXXX-2
-disqus: cgoosen 
+analytics_code: UA-13143939-1
+disqus: cgoosen
 
 # Social Accounts
 social_networks:
@@ -56,7 +56,7 @@ defaults:
       comments: "true"
 
 # Serving
-url: "https://cgoosen.github.io"
+url: "https://www.cgoosen.com"
 baseurl: ""
 
 # Includes
