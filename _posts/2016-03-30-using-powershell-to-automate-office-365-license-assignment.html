@@ -58,7 +58,7 @@ comments:
 <ul>
 <li>The ability to connect to Azure AD via remote PowerShell which requires the Azure AD Module &ndash;&nbsp; <a title="https://msdn.microsoft.com/en-us/library/jj151815.aspx" href="https://msdn.microsoft.com/en-us/library/jj151815.aspx" target="_blank">Click here for more info</a></li>
 <li>Remote Server Administration Tools &ndash; RSAT</li>
-<li>A certificate to encrypt and decrypt your service account passwords. This certificate can be from an internal CA &ndash; <a href="http://www.cgoosen.com/2015/02/using-a-certificate-to-encrypt-credentials-in-automated-powershell-scripts/" target="_blank">See this post for more info</a></li>
+<li>A certificate to encrypt and decrypt your service account passwords. This certificate can be from an internal CA &ndash; <a href="/2015/02/using-a-certificate-to-encrypt-credentials-in-automated-powershell-scripts/" target="_blank">See this post for more info</a></li>
 <li>Service accounts with the relevant permissions</li>
 <li>Relay permission on your Exchange server &ndash; Used for send report emails</li>
 </ul>
@@ -68,50 +68,50 @@ comments:
 <li>O365_License &ndash; Used by the script to keep track of users who still need to have licenses assigned</li>
 </ul>
 <p>At a high level the workflow looks something like this:</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/03/FlowChart.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="FlowChart" src="http://www.cgoosen.com/wp-content/uploads/2016/03/FlowChart_thumb.png" alt="FlowChart" width="1020" height="692" border="0" /></a></p>
+<p><a href="/assets/img/2016/03/FlowChart.png"><img src="/assets/img/2016/03/FlowChart.png" style="width:1020px;height:692px;" /></a></p>
 <p>Lets start by looking at the variables and functions we need. Here you can define you license SKUs, service account credentials, etc:</p>
-<p>[powershell]<br />
-# Modules<br />
-Import-Module ActiveDirectory</p>
-<p># Variables - Edit these<br />
-#########################<br />
-$ErrorActionPreference = 'Stop'<br />
-$ExchangeServer = 'you_exchange_server'<br />
+<p>{% highlight ruby linenos %}
+# Modules
+Import-Module ActiveDirectory
+# Variables - Edit these
+#########################
+$ErrorActionPreference = 'Stop'
+$ExchangeServer = 'you_exchange_server'
 $FromAddress = 'Provisioning Service
-<provisioning@yourdomain.com>'<br />
-$ToAddress = 'you@yourdomain.com'<br />
-$ADUsername = 'YourDomain\service_acc'<br />
-$RoutingDomain = 'yourtenant.mail.onmicrosoft.com'<br />
-$ADEncryptedPwd = ''<br />
-$MSOLUsername = 'service_acc@yourtenant.onmicrosoft.com'<br />
-$MSOLEncryptedPwd = ''<br />
-$Cert = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Subject -like 'CN=Provisioning Service*'}<br />
-$E3SKU = 'yourtenant:ENTERPRISEPACK'<br />
-$EP2SKU = 'yourtenant:EXCHANGEENTERPRISE'</p>
-<p>#Email Styling<br />
-$EmailBody = @"<br />
-<html><br />
-<head></p>
+<provisioning@yourdomain.com>'
+$ToAddress = 'you@yourdomain.com'
+$ADUsername = 'YourDomain\service_acc'
+$RoutingDomain = 'yourtenant.mail.onmicrosoft.com'
+$ADEncryptedPwd = ''
+$MSOLUsername = 'service_acc@yourtenant.onmicrosoft.com'
+$MSOLEncryptedPwd = ''
+$Cert = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Subject -like 'CN=Provisioning Service*'}
+$E3SKU = 'yourtenant:ENTERPRISEPACK'
+$EP2SKU = 'yourtenant:EXCHANGEENTERPRISE'
+#Email Styling
+$EmailBody = @"
+<html>
+<head>
 <style>
-	.table {<br />
-		border:1px solid #F0F0F0;<br />
-        border-collapse: collapse;<br />
-		padding:10px;<br />
-	}<br />
-	.table th {<br />
-		border:1px solid #F0F0F0;<br />
-		padding:10px;<br />
-		background:#F0F0F0;<br />
-	}<br />
-	.table td {<br />
-		border:1px solid #F0F0F0;<br />
-		padding:10px;<br />
-	}<br />
+	.table {
+		border:1px solid #F0F0F0;
+        border-collapse: collapse;
+		padding:10px;
+	}
+	.table th {
+		border:1px solid #F0F0F0;
+		padding:10px;
+		background:#F0F0F0;
+	}
+	.table td {
+		border:1px solid #F0F0F0;
+		padding:10px;
+	}
 </style>
-<p></head><br />
-<body></p>
-<p>Hello,</p>
-<p>This is an automated report from the Office 365 Provisioning Service. The following user accounts have been successfully provisioned in Office 365:</p>
+</head>
+<body>
+Hello,
+This is an automated report from the Office 365 Provisioning Service. The following user accounts have been successfully provisioned in Office 365:
 <table class="table">
 <thead>
 <tr>
@@ -121,191 +121,183 @@ $EmailBody = @"<br />
 </tr>
 </thead>
 <tbody>
-"@<br />
-$EmailBodyClosure = @"</p>
-<p>Regards,
-<p>Provisioning Service</p>
-<p> </body><br />
- </html><br />
-"@<br />
-###########################</p>
-<p># Functions<br />
-# Function to create report email<br />
-function Send-Report{<br />
-    $Msg = New-Object Net.Mail.MailMessage<br />
-    $Smtp = New-Object Net.Mail.SmtpClient($ExchangeServer)<br />
-    $Msg.From = $FromAddress<br />
-    $Msg.To.Add($ToAddress)<br />
-    $Msg.Subject = $EmailSubject<br />
-    $Msg.Body = $EmailBody<br />
-    $Msg.IsBodyHTML = $true<br />
-    $Smtp.Send($Msg)<br />
-    }</p>
-<p># Function for Exchange Connection<br />
-function Connect-Exchange{<br />
-    $ADEncryptedBytes = [System.Convert]::FromBase64String($ADEncryptedPwd)<br />
-    $ADDecryptedBytes = $Cert.PrivateKey.Decrypt($ADEncryptedBytes, $true)<br />
-    $ADDecryptedPwd = [system.text.encoding]::UTF8.GetString($ADDecryptedBytes) | ConvertTo-SecureString -AsPlainText -Force<br />
-    $ADCredentials = New-Object System.Management.Automation.PSCredential ($ADUsername,$ADDecryptedPwd)<br />
-    $ExchSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://$ExchangeServer/PowerShell/ -Authentication Kerberos -Credential $ADCredentials<br />
-    Import-PSSession $ExchSession<br />
-    } </p>
-<p># Function for MSOL Connection<br />
-function Connect-MSOL{<br />
-    $MSOLEncryptedBytes = [System.Convert]::FromBase64String($MSOLEncryptedPwd)<br />
-    $MSOLDecryptedBytes = $Cert.PrivateKey.Decrypt($MSOLEncryptedBytes, $true)<br />
-    $MSOLDecryptedPwd = [system.text.encoding]::UTF8.GetString($MSOLDecryptedBytes) | ConvertTo-SecureString -AsPlainText -Force<br />
-    $MSOLCredentials = New-Object System.Management.Automation.PSCredential ($MSOLUsername,$MSOLDecryptedPwd)<br />
-    Connect-MSOLService -Credential $MSOLCredentials<br />
-    }<br />
-[/powershell]</p>
+"@
+$EmailBodyClosure = @"
+Regards,
+Provisioning Service
+</body>
+ </html>
+"@
+###########################
+# Functions
+# Function to create report email
+function Send-Report{
+    $Msg = New-Object Net.Mail.MailMessage
+    $Smtp = New-Object Net.Mail.SmtpClient($ExchangeServer)
+    $Msg.From = $FromAddress
+    $Msg.To.Add($ToAddress)
+    $Msg.Subject = $EmailSubject
+    $Msg.Body = $EmailBody
+    $Msg.IsBodyHTML = $true
+    $Smtp.Send($Msg)
+    }
+# Function for Exchange Connection
+function Connect-Exchange{
+    $ADEncryptedBytes = [System.Convert]::FromBase64String($ADEncryptedPwd)
+    $ADDecryptedBytes = $Cert.PrivateKey.Decrypt($ADEncryptedBytes, $true)
+    $ADDecryptedPwd = [system.text.encoding]::UTF8.GetString($ADDecryptedBytes) | ConvertTo-SecureString -AsPlainText -Force
+    $ADCredentials = New-Object System.Management.Automation.PSCredential ($ADUsername,$ADDecryptedPwd)
+    $ExchSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://$ExchangeServer/PowerShell/ -Authentication Kerberos -Credential $ADCredentials
+    Import-PSSession $ExchSession
+    }
+# Function for MSOL Connection
+function Connect-MSOL{
+    $MSOLEncryptedBytes = [System.Convert]::FromBase64String($MSOLEncryptedPwd)
+    $MSOLDecryptedBytes = $Cert.PrivateKey.Decrypt($MSOLEncryptedBytes, $true)
+    $MSOLDecryptedPwd = [system.text.encoding]::UTF8.GetString($MSOLDecryptedBytes) | ConvertTo-SecureString -AsPlainText -Force
+    $MSOLCredentials = New-Object System.Management.Automation.PSCredential ($MSOLUsername,$MSOLDecryptedPwd)
+    Connect-MSOLService -Credential $MSOLCredentials
+    }
+{% endhighlight %}
 <p>Next we have the &lsquo;licensing phase&rsquo; &ndash; This phase also generates the email report because a user is considered to be fully provisioned once they have a license assigned. We can also catch any errors and generate an error report email for those.</p>
-<p>[powershell]<br />
-# Licensing Phase - Check if any users need to have licenses assigned<br />
-$NeedLicense = Get-AdGroupMember -Identity O365_License<br />
-If ($NeedLicense) {<br />
-        $HasMbxArray = @()<br />
-        Connect-MSOL<br />
-        Foreach ($User in $NeedLicense) {<br />
-            $UserInfo = Get-ADUser $User.SamAccountName -Properties *<br />
-            $Username = $UserInfo.SamAccountName<br />
-            $UserEmail = $UserInfo.Mail<br />
-            $UserLic = $UserInfo.extensionAttribute1<br />
-            $UserLoc = $UserInfo.c<br />
-            $UPN = $UserInfo.UserPrincipalName<br />
-            $MsolUser = Get-MsolUser -UserPrincipalName $UPN<br />
-            $HasLic = $MsolUser.IsLicensed<br />
-                If ($MsolUser -and $UserLic -and $UserLoc) {<br />
-                    Try {<br />
-						If ($HasLic) {<br />
-	                    $ExistingLic = $MsolUser.Licenses.AccountSkuId<br />
-	                    Set-MsolUserLicense -UserPrincipalName $UPN -RemoveLicenses $ExistingLic<br />
-	                    }<br />
-	                    If ($UserLic -eq 'Exchange 2') {<br />
-	                    Set-MsolUser -UserPrincipalName $UPN -UsageLocation $UserLoc<br />
-	                    Set-MsolUserLicense -UserPrincipalName $UPN -AddLicenses $EP2SKU<br />
-                            Remove-AdGroupMember -Identity O365_License -Members $Username -Confirm:$False<br />
-	                    }<br />
-	                    ElseIf ($UserLic -eq 'E3') {<br />
-	                    Set-MsolUser -UserPrincipalName $UPN -UsageLocation $UserLoc<br />
-	                    Set-MsolUserLicense -UserPrincipalName $UPN -AddLicenses $E3SKU<br />
-                            Remove-AdGroupMember -Identity O365_License -Members $Username -Confirm:$False<br />
-                       }<br />
-					 }<br />
-					Catch {<br />
-        			$EmailSubject = 'Office 365 Provisioning Error'<br />
-        			$EmailBody = @"<br />
-<html><br />
-<head><br />
-</head><br />
-<body></p>
-<p>Hello,</p>
-<p>This is an automated report from the Office 365 Provisioning Service. The following errors occurred when attempting to provision users in Office 365:</p>
-<p><span style="color:#B22222;">$Error</span></p>
-<p><strong>Additional Diagnostic Info:</strong><br />
-Username: $Username<br />
-Email Address: $UserEmail<br />
-License Assigned: $UserLic<br />
-Usage Location: $UserLoc</p>
-<p>Regards,
-<p>Provisioning Service</p>
-<p></body><br />
-</html><br />
-"@<br />
-			        Send-Report<br />
-			        }<br />
-                    $EmailBody += '<br />
-<tr>'<br />
-	            $EmailBody += "
-<td>$Username</td>
-<p>"<br />
-	            $EmailBody += "
-<td>$UserEmail</td>
-<p>"<br />
-	            $EmailBody += "
-<td>$UserLic</td>
-<p>"<br />
-	            $EmailBody += '</tr>
-<p>'<br />
-                      }<br />
-                     }<br />
-	        $Licenses = Get-MsolAccountSku<br />
-	        $E3Consumed = $Licenses[0].ConsumedUnits<br />
-	        $E3Total = $Licenses[0].ActiveUnits<br />
-	        $E3Remaining = $E3Total - $E3Consumed<br />
-	        $ExP2Consumed = $Licenses[1].ConsumedUnits<br />
-	        $ExP2Total = $Licenses[1].ActiveUnits<br />
-	        $ExP2Remaining = $ExP2Total - $ExP2Consumed<br />
-	        $EmailBodyLic = @"<br />
+{% highlight ruby linenos %}
+# Licensing Phase - Check if any users need to have licenses assigned
+$NeedLicense = Get-AdGroupMember -Identity O365_License
+If ($NeedLicense) {
+        $HasMbxArray = @()
+        Connect-MSOL
+        Foreach ($User in $NeedLicense) {
+            $UserInfo = Get-ADUser $User.SamAccountName -Properties *
+            $Username = $UserInfo.SamAccountName
+            $UserEmail = $UserInfo.Mail
+            $UserLic = $UserInfo.extensionAttribute1
+            $UserLoc = $UserInfo.c
+            $UPN = $UserInfo.UserPrincipalName
+            $MsolUser = Get-MsolUser -UserPrincipalName $UPN
+            $HasLic = $MsolUser.IsLicensed
+                If ($MsolUser -and $UserLic -and $UserLoc) {
+                    Try {
+						If ($HasLic) {
+	                    $ExistingLic = $MsolUser.Licenses.AccountSkuId
+	                    Set-MsolUserLicense -UserPrincipalName $UPN -RemoveLicenses $ExistingLic
+	                    }
+	                    If ($UserLic -eq 'Exchange 2') {
+	                    Set-MsolUser -UserPrincipalName $UPN -UsageLocation $UserLoc
+	                    Set-MsolUserLicense -UserPrincipalName $UPN -AddLicenses $EP2SKU
+                            Remove-AdGroupMember -Identity O365_License -Members $Username -Confirm:$False
+	                    }
+	                    ElseIf ($UserLic -eq 'E3') {
+	                    Set-MsolUser -UserPrincipalName $UPN -UsageLocation $UserLoc
+	                    Set-MsolUserLicense -UserPrincipalName $UPN -AddLicenses $E3SKU
+                            Remove-AdGroupMember -Identity O365_License -Members $Username -Confirm:$False
+                       }
+					 }
+					Catch {
+        			$EmailSubject = 'Office 365 Provisioning Error'
+        			$EmailBody = @"
+<html>
+<head>
+</head>
+<body>
+Hello,
+This is an automated report from the Office 365 Provisioning Service. The following errors occurred when attempting to provision users in Office 365:
+$Error
+Additional Diagnostic Info:
+Username: $Username
+Email Address: $UserEmail
+License Assigned: $UserLic
+Usage Location: $UserLoc
+Regards,
+Provisioning Service
+</body>
+</html>
+"@
+Send-Report
+			        }
+$EmailBody += '<tr>'
+$EmailBody += "<td>$Username</td>"
+$EmailBody += "<td>$UserEmail</td>"
+$EmailBody += "<td>$UserLic</td>"
+$EmailBody += '</tr>'
+}
+}
+$Licenses = Get-MsolAccountSku
+$E3Consumed = $Licenses[0].ConsumedUnits
+$E3Total = $Licenses[0].ActiveUnits
+$E3Remaining = $E3Total - $E3Consumed
+$ExP2Consumed = $Licenses[1].ConsumedUnits
+$ExP2Total = $Licenses[1].ActiveUnits
+$ExP2Remaining = $ExP2Total - $ExP2Consumed
+$EmailBodyLic = @"
 	</tbody>
 </table>
-<p><strong>License Summary:</strong></p>
+<strong>License Summary:</strong>
 <ul>
 <li>You have consumed <strong>$E3Consumed</strong> Exchange Online (Plan 2) licenses and have <strong>$E3Remaining</strong> remaining</li>
-<li>You have consumed <strong>$ExP2Consumed</strong> Office 365 Enterprise E3 licenses and have <strong>$ExP2Remaining</strong> remaining</span></li>
+<li>You have consumed <strong>$ExP2Consumed</strong> Office 365 Enterprise E3 licenses and have <strong>$ExP2Remaining</strong> remaining</li>
 </ul>
-<p>"@<br />
-	        $EmailSubject = 'Office 365 Provisioning Report'<br />
-	        $EmailBody += $EmailBodyLic<br />
-	        $EmailBody += $EmailBodyClosure<br />
-	        Send-Report<br />
-    }<br />
-[/powershell]</p>
-<p>The &lsquo;mailbox enablement phase&rsquo; connects to the local Exchange server and creates a new remote mailbox. <a href="http://www.cgoosen.com/2016/01/how-to-create-a-remote-office-365-mailbox-in-a-hybrid-deployment/" target="_blank">See this post for more information</a> on this process. This phase also attempts to generate error notification emails.</p>
-<p>[powershell]<br />
-# Mailbox Enablement Phase - Check if any new mailboxes need to be provisioned<br />
-$NeedMailbox = Get-AdGroupMember -Identity O365_Provisioning<br />
-If ($NeedMailbox) {<br />
-    Connect-Exchange<br />
-    Foreach ($User in $NeedMailbox) {<br />
-    $Username = $User.SamAccountName<br />
-    $UserInfo = Get-ADUser $Username -Properties *<br />
-    $UserLic = $UserInfo.extensionAttribute1<br />
-    $UserLoc = $UserInfo.c<br />
-    If ($UserLic -and $UserLoc){<br />
-        Try {<br />
-            Enable-RemoteMailbox $Username -RemoteRoutingAddress "$Username@$RoutingDomain"<br />
-            Add-ADGroupMember -Identity O365_License -Members $Username<br />
-            Remove-AdGroupMember -Identity O365_Provisioning -Members $Username -Confirm:$False<br />
-                }<br />
-        Catch {<br />
-        $EmailSubject = 'Office 365 Provisioning Error'<br />
-        $EmailBody = @"<br />
-<html><br />
-<head><br />
-</head><br />
-<body></p>
-<p>Hello,</p>
-<p>This is an automated report from the Office 365 Provisioning Service. The following errors occurred when attempting to mail-enable users:</p>
-<p><span style="color:#B22222;">$Error</span></p>
-<p><strong>Additional Diagnostic Info:</strong><br />
-Username: $Username</p>
-<p>Regards,
-<p>Provisioning Service</p>
-<p></body><br />
-</html><br />
-"@<br />
-        Send-Report<br />
-        }<br />
-        }<br />
-    Else {<br />
-        $EmailSubject = 'Office 365 Provisioning Error'<br />
-        $EmailBody = @"<br />
-<html><br />
-<head><br />
-</head><br />
-<body></p>
-<p>Hello,</p>
-<p>This is an automated report from the Office 365 Provisioning Service. The following user could not be provisioned, please check to ensure that the required license type has been correctly entered in the "Company" field and that the "Country/region" has been set:</p>
-<p><span style="color:#B22222;">User: $Username</span></p>
-<p>Regards,
-<p>Provisioning Service</p>
-<p></body><br />
-</html><br />
-"@<br />
-        Send-Report<br />
-        }<br />
-    }<br />
-}<br />
-[/powershell]</p>
+"@
+	        $EmailSubject = 'Office 365 Provisioning Report'
+	        $EmailBody += $EmailBodyLic
+	        $EmailBody += $EmailBodyClosure
+	        Send-Report
+    }
+{% endhighlight %}</p>
+<p>The &lsquo;mailbox enablement phase&rsquo; connects to the local Exchange server and creates a new remote mailbox. <a href="/2016/01/how-to-create-a-remote-office-365-mailbox-in-a-hybrid-deployment/" target="_blank">See this post for more information</a> on this process. This phase also attempts to generate error notification emails.</p>
+<p>{% highlight ruby linenos %}
+# Mailbox Enablement Phase - Check if any new mailboxes need to be provisioned
+$NeedMailbox = Get-AdGroupMember -Identity O365_Provisioning
+If ($NeedMailbox) {
+    Connect-Exchange
+    Foreach ($User in $NeedMailbox) {
+    $Username = $User.SamAccountName
+    $UserInfo = Get-ADUser $Username -Properties *
+    $UserLic = $UserInfo.extensionAttribute1
+    $UserLoc = $UserInfo.c
+    If ($UserLic -and $UserLoc){
+        Try {
+            Enable-RemoteMailbox $Username -RemoteRoutingAddress "$Username@$RoutingDomain"
+            Add-ADGroupMember -Identity O365_License -Members $Username
+            Remove-AdGroupMember -Identity O365_Provisioning -Members $Username -Confirm:$False
+                }
+        Catch {
+        $EmailSubject = 'Office 365 Provisioning Error'
+        $EmailBody = @"
+<html>
+<head>
+</head>
+<body>
+Hello,
+This is an automated report from the Office 365 Provisioning Service. The following errors occurred when attempting to mail-enable users:
+<span style="color:#B22222;">$Error</span>
+<strong>Additional Diagnostic Info:</strong>
+Username: $Username
+Regards,
+Provisioning Service
+</body>
+</html>
+"@
+        Send-Report
+        }
+        }
+    Else {
+        $EmailSubject = 'Office 365 Provisioning Error'
+        $EmailBody = @"
+<html>
+<head>
+</head>
+<body>
+Hello,
+This is an automated report from the Office 365 Provisioning Service. The following user could not be provisioned, please check to ensure that the required license type has been correctly entered in the "Company" field and that the "Country/region" has been set:
+<span style="color:#B22222;">User: $Username</span>
+Regards,
+Provisioning Service
+</body>
+</html>
+"@
+        Send-Report
+        }
+    }
+}
+{% endhighlight %}</p>
 <p>Putting this all together will hopefully form be a great foundation to help you build your own workflow. Once done, you can simply schedule your script to run using task scheduler.</p>

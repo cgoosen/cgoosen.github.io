@@ -107,15 +107,19 @@ comments:
 ---
 <p>In today&rsquo;s browser first, cloud first world, many organizations look at reducing risk by imposing strict session timeout settings on their productivity tools and applications. The idea generally is that if a user is not actively using and application for 10 &ndash;15 mins, they have completed the task they were working on and have forgotten to logoff correctly. This can be especially dangerous when these applications are accessed on shared terminals or public computers. Given that email remains a vitally important business tool for many organizations, reducing the session timeout on Exchange Online (and Exchange 2016) is a fairly common request and it is really simple to do.</p>
 <p>By default, session timeout is enabled for OWA (let&rsquo;s just call it that, shall we?) and it set to 6 hours. You can confirm this configuration via PowerShell using the Get-OrganizationConfig cmdlet:</p>
-<p>[powershell]Get-OrganizationConfig | FL ActivityBasedAuthenticationTimeout*[/powershell]</p>
-<p><a href="http://www.cgoosen.com/wp-content/uploads/2017/01/cap1.png"><img class="aligncenter size-medium wp-image-2456" src="http://www.cgoosen.com/wp-content/uploads/2017/01/cap1-300x65.png" alt="" width="300" height="65" /></a></p>
+<p>{% highlight ruby linenos %}
+  Get-OrganizationConfig | FL ActivityBasedAuthenticationTimeout*
+  {% endhighlight %}</p>
+<p><a href="/assets/img/2017/01/cap1.png"><img src="/assets/img/2017/01/cap1.png" style="width:300px;height:65px;" /></a></p>
 <p>There are two parameters in particular worth paying attention to:</p>
 <ul>
 <li>ActivityBasedAuthenticationTimeoutEnabled</li>
 <li>ActivityBasedAuthenticationTimeoutInterval</li>
 </ul>
 <p><em>ActivityBasedAuthenticationTimeoutEnabled </em>is pretty self-explanatory, you will want to keep it enabled if you intended to set the timeout interval. The&nbsp;<em>ActivityBasedAuthenticationTimeoutInterval </em>parameter&nbsp;controls the actual timeout interval in&nbsp;<em>hh</em>:<em>mm</em>:<em>ss</em>&nbsp;format where&nbsp;<em>hh</em>&nbsp;= hours,&nbsp;<em>mm</em>&nbsp;= minutes and&nbsp;<em>ss</em>&nbsp;= seconds. Note that this parameter has a range of 5 min - 8 hrs. Changes can be made using the Set-OrganizationConfig cmdlet, for example to set the timeout interval to 15 mins we'd issue the following cmd:</p>
-<p>[powershell]Set-OrganizationConfig -ActivityBasedAuthenticationTimeoutInterval 00:15:00[/powershell]</p>
-<p><a href="http://www.cgoosen.com/wp-content/uploads/2017/02/cap2.png"><img class="aligncenter size-medium wp-image-2480" src="http://www.cgoosen.com/wp-content/uploads/2017/02/cap2-300x50.png" alt="" width="300" height="50" /></a></p>
+<p>{% highlight ruby linenos %}
+  Set-OrganizationConfig -ActivityBasedAuthenticationTimeoutInterval 00:15:00
+  {% endhighlight %}</p>
+<p><a href="/assets/img/2017/02/cap2.png"><img src="/assets/img/2017/02/cap2.png" style="width:300px;height:50px;" /></a></p>
 <p>During my testing, it took a really long time (12+ hrs) for this to take effect so don't be alarmed if it doesn't work right away.</p>
 <p>For more information on the <a href="https://technet.microsoft.com/en-us/library/aa997443(v=exchg.160).aspx" target="_blank">Set-OrganizationConfig parameters, see TechNet</a>.</p>
