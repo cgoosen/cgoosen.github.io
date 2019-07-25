@@ -392,16 +392,17 @@ comments:
 ---
 <p>I&rsquo;ve recently seen the same issue pop up in a few different environments so I thought I would put together a short post that explains how to create a &ldquo;Office 365&rdquo; mailbox when using a hybrid deployment of Exchange. One of the questions I&rsquo;ve had had answer a few times recently is &ldquo;Why do newly created Exchange Online mailboxes not appear in the on-premises Exchange Admin Center as &ldquo;Office 365&rdquo; mailboxes like migrated mailboxes do?&rdquo;</p>
 <p>There appears to be some confusion around provisioning of new user mailboxes once a hybrid deployment has been configured as this issue is caused when the mailbox has not be correctly provisioned in the on-premises environment.</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap3.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap3" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap3_thumb.png" alt="cap3" width="725" height="314" border="0" /></a></p>
+<p><a href="/assets/img/2016/01/cap3.png"><img src="/assets/img/2016/01/cap3.png" style="width:725px;height:314px;" /></a></p>
 <p>While it is technically possible to create a new user account in Active Directory, wait for AAD Connect to provision that account to AAD and then assign an Exchange Online license to that user to create their mailbox, but the problem with that process is that it does not set the msExchRecipientType (and other) Exchange related attributes for that user object and that is why it will never appear in the on-premises Exchange Admin Center:</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap2" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap2_thumb.png" alt="cap2" width="344" height="456" border="0" /></a></p>
+<p><a href="/assets/img/2016/01/cap2.png"><img src="/assets/img/2016/01/cap2.png" style="width:344px;height:456px;" /></a></p>
 <p align="left">In order to correctly popular these attributes, you either need to create the new user and mailbox via the Exchange Admin Center by clicking on the &ldquo;+&rdquo; icon and selecting &ldquo;Office 365 Mailbox&rdquo; or you need to enable a remote mailbox for a previously created user using the <em>Enable-RemoteMailbox </em>cmdlet</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap4.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap4" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap4_thumb.png" alt="cap4" width="345" height="131" border="0" /></a></p>
+<p><a href="/assets/img/2016/01/cap4.png"><img src="/assets/img/2016/01/cap4.png" style="width:345px;height:131px;" /></a></p>
 <p align="left">Many organizations already have automated provisioning processes in place so adjusting the mailbox enablement workflow may be the preferred method, an example of the cmdlet is shown below:</p>
-<p>[powershell]<br />
+<p>
+{% highlight ruby linenos %}
 #Syntax is: Enable-RemoteMailbox <user> &ndash;RemoteRoutingAddress <user@tenant.mail.onmicrosoft.com><br />
 Enable-RemoteMailbox homer -RemoteRoutingAddress homer@gooselabs.mail.onmicrosoft.com<br />
-[/powershell]</p>
-<p align="center"><a href="http://www.cgoosen.com/wp-content/uploads/2016/01/cap1.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="cap1" src="http://www.cgoosen.com/wp-content/uploads/2016/01/cap1_thumb.png" alt="cap1" width="694" height="240" border="0" /></a></p>
+{% endhighlight %}</p>
+<p><a href="/assets/img/2016/01/cap1.png"><img src="/assets/img/2016/01/cap1.png" style="width:694px;height:240px;" /></a></p>
 <p align="left">The <em>Enable-RemoteMailbox </em>cmdlet can be run immediately after creating the user account in Active Directory so there is no need to wait for the next AAD Connect synchronization cycle to complete before enabling the mailbox. Once the user account has been provisioned to AAD, the mailbox will automatically created and the appropriate license should then be assigned to the user.</p>
 <p align="left">More information on the <em>Enable-RemoteMailbox</em> cmdlet can be <a href="https://technet.microsoft.com/en-us/library/ff607313%28v=exchg.160%29.aspx" target="_blank">found on TechNet here</a></p>
