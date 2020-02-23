@@ -8,12 +8,13 @@ categories:
 - Cloud
 - Office365
 - Exchange
+- Guest Posts
 tags: []
 comments: []
 
 ---
 
-<img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" width="10" height="10" /> This post was originally published TechTarget, you can view the original post [here](https://searchwindowsserver.techtarget.com/tip/How-to-keep-an-Office-365-outage-from-ruining-your-day)
+*__This post was originally published TechTarget, you can view the original post [here](https://searchwindowsserver.techtarget.com/tip/How-to-keep-an-Office-365-outage-from-ruining-your-day)__*
 
 Microsoft employs many engineering teams to make its hosted email service Exchange Online as highly available as possible, but no system is perfect. An Office 365 outage can occur at any time as well as any Azure service you depend on, but with some advance preparation, you can try to make a disruption less jarring.
 
@@ -29,7 +30,7 @@ The specifics of what to monitor depends on your environment and the services yo
 
 You use agents with Azure AD Connect Health, so you only configure it for the services you want to monitor. For example, if you don't use AD FS, then there is no need to install and configure that agent.
 
-![Monitoring](/assets/img/2019/06/monitoring-data.png){:style="float: center; height="365px" width="469px"}
+<p><a href="/assets/img/2019/06/monitoring-data.png"><img src="/assets/img/2019/06/monitoring-data.png" style="width:469px;height:365px;"/></a></p>
 
 ### Check the status of your Office 365 services
 
@@ -37,7 +38,7 @@ In addition to monitoring your identity and authentication infrastructure, it is
 
 Office 365 is a massive service with thousands of servers, so it stands to reason that there will always be an incident or service advisory. Some have a wider-reaching effects than others, but it's a good idea to monitor the service health daily to understand which affect your tenant and users. You can access the service health dashboard from the Health node in the Microsoft 365 admin center.
 
-![Service Health](/assets/img/2019/06/service-health.png){:style="float: center; height="281px" width="476px"}
+<p><a href="/assets/img/2019/06/service-health.png"><img src="/assets/img/2019/06/service-health.png" style="width:476px;height:281px;"/></a></p>
 
 There are a plethora of third-party monitoring tools that provide in-depth monitoring and reporting of your environment and the Office 365 services you consume. Some include additional monitoring features and will alert you if things like user experience become suboptimal.
 

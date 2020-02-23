@@ -6,11 +6,12 @@ date: '2019-09-06 08:00:00'
 layout: post
 categories:
 - Exchange
+- Guest Posts
 tags: []
 comments: []
 ---
 
-<img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" width="10" height="10" /> This post was originally published TechTarget, you can view the original post [here](https://searchwindowsserver.techtarget.com/tip/Are-you-ready-for-the-Exchange-2010-end-of-life)
+*__This post was originally published TechTarget, you can view the original post [here](https://searchwindowsserver.techtarget.com/tip/Are-you-ready-for-the-Exchange-2010-end-of-life)__*
 
 Exchange Server 2010 end of life is approaching -- do you have your migration plan plotted out yet?
 
