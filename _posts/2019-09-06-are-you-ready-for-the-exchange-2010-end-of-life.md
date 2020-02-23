@@ -10,13 +10,13 @@ tags: []
 comments: []
 ---
 
-:warning: This post was originally published TechTarget, you can view the original post [here](https://searchwindowsserver.techtarget.com/tip/Are-you-ready-for-the-Exchange-2010-end-of-life)
+![Warning](https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8){:style="float: left;margin-right: 10px;margin-top: 10px;" height="10px" width="10px"} This post was originally published TechTarget, you can view the original post [here](https://searchwindowsserver.techtarget.com/tip/Are-you-ready-for-the-Exchange-2010-end-of-life)
 
 Exchange Server 2010 end of life is approaching -- do you have your migration plan plotted out yet?
 
 Exchange Server 2010 reached general availability on November 9, 2009, and has been the cornerstone of the collaboration strategy for many organizations over the last decade. Since that time, Microsoft also produced three releases of Exchange Server, with Exchange Server 2019 being the most recent. Exchange Server 2010 continues to serve the needs of many organizations, but they must look to migrate from this platform when support ends on January 14, 2020.
 
-> Editor’s note: [A Sept. 16 blog] (https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Microsoft-Extending-End-of-Support-for-Exchange-Server-2010-to/ba-p/753591) on the Exchange Team site indicated Microsoft would push the extended support of Exchange Server 2010 from Jan. 14, 2020 to Oct. 13, 2020 "to give Exchange Server 2010 customers more time to complete their migrations. This extension also aligns with the end of support for Office 2010 and SharePoint Server 2010." Administrators who run Exchange Server 2010 workloads on Windows Server 2008 will need to make adjustments due to the Jan. 14, 2020, end-of-life for that server operating system.
+*__Editor’s note:__ [A Sept. 16 blog] (https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Microsoft-Extending-End-of-Support-for-Exchange-Server-2010-to/ba-p/753591) on the Exchange Team site indicated Microsoft would push the extended support of Exchange Server 2010 from Jan. 14, 2020 to Oct. 13, 2020 "to give Exchange Server 2010 customers more time to complete their migrations. This extension also aligns with the end of support for Office 2010 and SharePoint Server 2010." Administrators who run Exchange Server 2010 workloads on Windows Server 2008 will need to make adjustments due to the Jan. 14, 2020, end-of-life for that server operating system.*
 
 What exactly does end of support mean for existing Exchange Server 2010 deployments? Your Exchange 2010 servers will continue to operate with full functionality after this date; however, Microsoft will no longer provide technical support for the product. In addition, bug fixes, security patches and time zone updates will no longer be provided after the end-of-support date. If you haven't already started your migration from Exchange Server 2010, now is the time to start by seeing what your options are.
 
