@@ -13,7 +13,7 @@ comments: []
 
 ---
 
-![Warning](https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8) This post was originally published TechTarget, you can view the original post [here](https://searchwindowsserver.techtarget.com/tip/How-to-keep-an-Office-365-outage-from-ruining-your-day)
+<img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" width="10" height="10" /> This post was originally published TechTarget, you can view the original post [here](https://searchwindowsserver.techtarget.com/tip/How-to-keep-an-Office-365-outage-from-ruining-your-day)
 
 Microsoft employs many engineering teams to make its hosted email service Exchange Online as highly available as possible, but no system is perfect. An Office 365 outage can occur at any time as well as any Azure service you depend on, but with some advance preparation, you can try to make a disruption less jarring.
 
