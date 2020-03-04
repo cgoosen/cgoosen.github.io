@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Episode 32: Adoption vs Consumption (and feeding your kids broccoli)'
+title: 'TCA Podcast Episode 32: Adoption vs Consumption (and feeding your kids broccoli)'
 slug: tca-podcast-episode-32-adoption-vs-consumption-and-broccoli
 date: '2019-11-01 17:20:00'
 layout: post

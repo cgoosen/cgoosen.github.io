@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Episode 38: Outlook for Mac - No longer a second-class citizen..'
+title: 'TCA Podcast Episode 38: Outlook for Mac - No longer a second-class citizen..'
 slug: tca-podcast-episode-38-outlook-for-mac-no-longer-a-second-class-citizen
 date: '2020-01-27 11:11:00'
 layout: post

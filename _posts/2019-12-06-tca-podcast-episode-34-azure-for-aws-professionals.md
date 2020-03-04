@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Episode 34: Azure for AWS Professionals'
+title: 'TCA Podcast Episode 34: Azure for AWS Professionals'
 slug: tca-podcast-episode-34-azure-for-aws-professionals
 date: '2019-12-06 10:19:00'
 layout: post

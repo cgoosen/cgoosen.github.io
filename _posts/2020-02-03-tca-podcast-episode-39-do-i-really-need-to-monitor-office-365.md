@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Episode 39: "Do I really need to monitor Office 365?"'
+title: 'TCA Podcast Episode 39: "Do I really need to monitor Office 365?"'
 slug: tca-podcast-episode-39-do-i-really-need-to-monitor-office-365
 date: '2020-02-03 08:18:00'
 layout: post

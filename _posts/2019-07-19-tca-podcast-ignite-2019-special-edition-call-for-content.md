@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Ignite 2019 Special Edition - Call for Content'
+title: 'TCA Podcast Ignite 2019 Special Edition - Call for Content'
 slug: tca-podcast-ignite-2019-special-edition-call-for-content
 date: '2019-07-19 09:38:00'
 layout: post

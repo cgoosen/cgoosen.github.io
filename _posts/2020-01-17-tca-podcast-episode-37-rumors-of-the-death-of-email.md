@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Episode 37: "Rumors of the death of email have been greatly exaggerated"'
+title: 'TCA Podcast Episode 37: "Rumors of the death of email have been greatly exaggerated"'
 slug: tca-podcast-episode-37-rumors-of-the-death-of-email
 date: '2020-01-17 16:36:00'
 layout: post

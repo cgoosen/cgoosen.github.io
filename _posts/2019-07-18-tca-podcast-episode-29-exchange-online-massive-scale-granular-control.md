@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Episode 29: Exchange Online - "Massive scale.. granular control"'
+title: 'TCA Podcast Episode 29: Exchange Online - "Massive scale.. granular control"'
 slug: tca-podcast-episode-29-exchange-online-massive-scale-granular-control
 date: '2019-07-18 06:46:00'
 layout: post

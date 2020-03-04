@@ -1,6 +1,6 @@
 ---
 author: chris
-title: "Episode 36: All about Microsoft FastTrack"
+title: "TCA Podcast Episode 36: All about Microsoft FastTrack"
 slug: tca-podcast-episode-36-all-about-microsoft-fasttrack
 date: '2020-01-09 09:12:00'
 layout: post

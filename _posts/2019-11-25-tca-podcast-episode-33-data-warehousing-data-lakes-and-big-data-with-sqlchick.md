@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Episode 33: Data warehousing, data lakes and big data with SQLChick'
+title: 'TCA Podcast Episode 33: Data warehousing, data lakes and big data with SQLChick'
 slug: tca-podcast-episode-33-data-warehousing-data-lakes-and-big-data-with-sqlchick
 date: '2019-11-25 09:20:00'
 layout: post

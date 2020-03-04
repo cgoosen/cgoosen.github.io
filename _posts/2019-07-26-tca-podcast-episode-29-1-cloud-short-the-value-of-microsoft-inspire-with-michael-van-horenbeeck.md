@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Episode 29.1: Cloud Short - The value of Microsoft Inspire with Michael Van Horenbeeck'
+title: 'TCA Podcast Episode 29.1: Cloud Short - The value of Microsoft Inspire with Michael Van Horenbeeck'
 slug: tca-podcast-episode-29-1-cloud-short-the-value-of-microsoft-inspire
 date: '2019-07-26 11:53:00'
 layout: post
