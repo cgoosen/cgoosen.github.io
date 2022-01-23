@@ -8,7 +8,7 @@ categories:
 - AzureAD
 - Security
 - Authentication
-- Guest Posts
+- GuestPosts
 tags: []
 comments: []
 ---
