@@ -1,6 +1,6 @@
 ---
 author: chris
-title: 'Azure AD (ADSync) Event 6900'
+title: 'Azure AD Connect (ADSync) Event 6900'
 slug: azure-ad-connect-event-6900
 date: '2022-03-30 08:00:00'
 layout: post
