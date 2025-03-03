@@ -2,12 +2,12 @@
 name: Chris's Blog
 job_title: It's called thinking...  go with it!
 email: /contact
-description: 
+description:
 avatar: /assets/img/headshot.png
 favicon: /favicon.ico
 twitter_handler: chrisgoosen
 analytics_code: UA-13143939-1
-disqus: 
+disqus:
 
 # Social Accounts
 social_networks:
@@ -42,7 +42,7 @@ show_categories: 1
 show_tags: 1
 show_email: 1
 show_rss: 1
-show_comments: 
+show_comments:
 show_menu: 1
 fixed_sidebar: 1
 
@@ -78,4 +78,3 @@ excerpt_separator: <!--more-->
 sass:
   sass_dir: assets/partials
   style: compressed
-
