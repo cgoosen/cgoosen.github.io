@@ -5,10 +5,6 @@ slug: tca-podcast-episode-95-passkeys
 date: '2025-01-08 16:00:00'
 layout: post
 comments: false
-image:
-    path: images/uploads/2025/01/ep95.png
-    width: 1280
-    height: 720
 categories:
   - Interviews
 ---

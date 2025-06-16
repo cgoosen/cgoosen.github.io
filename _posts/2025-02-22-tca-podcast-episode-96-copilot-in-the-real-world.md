@@ -5,10 +5,6 @@ slug: tca-podcast-episode-96-copilot-in-the-real-world
 date: '2025-02-22 18:00:00'
 layout: post
 comments: false
-image:
-    path: images/uploads/2025/02/ep96.png
-    width: 1280
-    height: 720
 categories:
   - Interviews
 ---
