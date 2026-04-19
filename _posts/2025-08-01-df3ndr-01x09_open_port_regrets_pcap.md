@@ -28,7 +28,7 @@ Microsoft Global Secure Access (GSA) is a modern network access solution built o
   * Private Access
   * Internet Access
 
-<img src="/assets/images/s01e09/01x09-GSA-Profiles.png" alt="GSA Profiles" width="100%">
+<img src="https://df3ndr.io/assets/images/s01e09/01x09-GSA-Profiles.png" alt="GSA Profiles" width="100%">
 
 The Microsoft Traffic Profile is a specialized traffic forwarding configuration within GSA that focuses on securing and optimizing access to Microsoft 365 services like Exchange Online, SharePoint, OneDrive, Teams, and Office Online. It is included with Microsoft Entra ID P1 or P2, which is part of Microsoft 365 Business Premium and E3/E5 plans—no extra license needed beyond that
 
@@ -223,6 +223,6 @@ I'm currently in touch with the engineering team of MDEASM because I think two t
 
 Mikael Karlsson has created IntuneManagement - A PowerShell tool to Copy, export, import, delete, document and compare policies and profiles in Intune and Azure with a nice WPF UI. This tool makes it easy to backup or clone a complete Intune environment. The scripts can export and import objects including assignments and support import/export between tenants.
 
-<img src="/assets/images/s01e09/IntuneManagement.PNG" alt="IntuneManagement" width="100%">
+<img src="https://df3ndr.io/assets/images/s01e09/IntuneManagement.PNG" alt="IntuneManagement" width="100%">
 
 Check out IntuneManagement [on Github](https://github.com/Micke-K/IntuneManagement)

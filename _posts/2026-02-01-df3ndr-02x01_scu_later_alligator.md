@@ -89,13 +89,13 @@ Microsoft provides several Agents from their "Security Store" like the "Phishing
 
 You can also find a lot of third-party agents in this store or even build your own.
 
-<img src="/assets/images/02x01/02x01-security-copilot-agents.png" alt="Security Copilot Agents" width="100%">
+<img src="https://df3ndr.io/assets/images/02x01/02x01-security-copilot-agents.png" alt="Security Copilot Agents" width="100%">
 
 **PRO TIP** set your incident summary generation to _“Generate on Demand”_ (`Settings` —> `Copilot in Defender` —> `Preferences`)
 
 This will save you A LOT of unnecessary SCU usage!
 
-<img src="/assets/images/02x01/02x01-security-copilot-incident-summary-generation.png" alt="Security Copilot Incident Summary Generation" width="100%">
+<img src="https://df3ndr.io/assets/images/02x01/02x01-security-copilot-incident-summary-generation.png" alt="Security Copilot Incident Summary Generation" width="100%">
 
 The bad news unfortunately is that Microsoft is still rolling out to customers. It's probably a capacity problem. If you're eligible you'll receive a notification 30-days in advance before they activate it for you.
 

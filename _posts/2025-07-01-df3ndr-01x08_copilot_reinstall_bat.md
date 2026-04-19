@@ -28,7 +28,7 @@ But there are some nice improvements!
 > Billing is calculated on hourly blocks based on provisioned capacity rather than by 60-minute increments and has a minimum of one hour. Any usage consumed within the same hour is billed as a full SCU for provisioned capacity, regardless of start or end times within that hour. For overage units, SCUs are billed up to one decimal increments for the exact consumed units. Consumed units are not rounded up to whole numbers. This means that you're charged precisely based on your usage (to one decimal place).
 > For instance, if you provision an SCU at 9:05 a.m., then deprovision it at 9:35 am, and then provision another SCU at 9:45 am, you'll be charged for two units within the 9:00 a.m. to 10:00 a.m. hour. To maximize usage, make SCU provisioning changes at the beginning of the hour. For more information, see Manage usage.
 
-<img src="/assets/images/01x08/01x08_usage-monitor-filter.png" alt="summary_rules" width="100%">
+<img src="https://df3ndr.io/assets/images/01x08/01x08_usage-monitor-filter.png" alt="summary_rules" width="100%">
 
 ### Practical tips
 
@@ -95,7 +95,7 @@ Licensing Options for Microsoft Entra:
 * Microsoft Entra ID P2 – Includes advanced security features and is available as a standalone product or bundled with Microsoft 365 E5.
 * Microsoft Entra Suite – Combines multiple Entra products, including Private Access, Internet Access, ID Governance, ID Protection, and Verified ID Premium. It requires an Entra ID P1 subscription and is priced at $12 (USD) per user/month
 
-<img src="/assets/images/01x08/01x08_entraSuite.png" alt="summary_rules" width="100%">
+<img src="https://df3ndr.io/assets/images/01x08/01x08_entraSuite.png" alt="summary_rules" width="100%">
 
 ### Real-world use cases
 
@@ -141,6 +141,6 @@ With 77 requests in his demo he burned through 2 million tokens but payed only $
 
 [Check it out here and try it yourself](https://mortenknudsen.net/?p=5098) There's also [a video](https://www.youtube.com/watch?v=QbUJInHLBDc) of his script in action.
 
-<img src="/assets/images/01x08/01x08_PIMRoleAdvisor.png" alt="summary_rules" width="100%">
+<img src="https://df3ndr.io/assets/images/01x08/01x08_PIMRoleAdvisor.png" alt="summary_rules" width="100%">
 
 If you're not already following Morton, please do. He's probably the most hard-working community member I've ever met. He's cranking out different sessions at events, organizing Experts Live Denmark and still able to write blogs like these while also running a company.

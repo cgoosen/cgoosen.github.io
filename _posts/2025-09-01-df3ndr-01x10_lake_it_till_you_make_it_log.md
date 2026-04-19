@@ -49,7 +49,7 @@ Then we had **Basic logs**, which were arguably already superseded by Aux logs �
 
 It’s a much more **refined and streamlined experience**, in my opinion.
 
-<img src="/assets/images/01x10/01x10-datalake_meme.jpeg" alt="datalake_meme" width="100%">
+<img src="https://df3ndr.io/assets/images/01x10/01x10-datalake_meme.jpeg" alt="datalake_meme" width="100%">
 
 > Although I appreciated the humor of this meme, I think it doesn’t do data lake enough justice. It's _much more_ than just Auxiliary logs with a new name.
 
@@ -59,7 +59,7 @@ A Jupyter Notebook contains an ordered list of input/output cells which can cont
 
 Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by the Microsoft Sentinel Visual Studio Code extension (preview) that allows you to interact with the data lake using Python for Spark (PySpark). Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment.
 
-<img src="/assets/images/01x10/01x10-datalake_jupyter.jpg" alt="jupyternotebook" width="100%">
+<img src="https://df3ndr.io/assets/images/01x10/01x10-datalake_jupyter.jpg" alt="jupyternotebook" width="100%">
 
 ### Caveats
 
@@ -108,7 +108,7 @@ Microsoft Entra Privileged Identity Management (PIM) is a security and governanc
 * Audit logging: Full visibility into who activated what, when, and why.
 * Notifications: Alerts when privileged roles are activated.
 
-<img src="/assets/images/01x10/01x10-pim.png" alt="PIM" width="100%">
+<img src="https://df3ndr.io/assets/images/01x10/01x10-pim.png" alt="PIM" width="100%">
 
 ### More Licenses?
 
@@ -116,7 +116,7 @@ As always, licensing is.. well, complicated. PIM is a Microsoft Entra ID P2 feat
 
 PIM is also included with Microsoft Entra ID Governance which is available as an add-on or part of Microsoft Entra Suite
 
-<img src="/assets/images/01x10/01x10-pim-license.png" alt="PIM Licenses" width="100%">
+<img src="https://df3ndr.io/assets/images/01x10/01x10-pim-license.png" alt="PIM Licenses" width="100%">
 
 ### Deployment Tips
 
@@ -155,7 +155,7 @@ All other roles are typically ok with 8 hour activations - your environment may 
 
 I prefer to always directly assign roles to admin users, however there are use-cases where it doesn't make sense - for example you may have help desk users that perform several different tasks and these don't map directly to a specific built-in role in Entra. Expecting users to always know which is the best least privilege fit for a specific task isn't always viable. In these cases, creating a group that has the various roles assigned makes sense and allows users to activate group membership instead and as a member of that group they will inherit the relevant roles.
 
-<img src="/assets/images/01x10/01x10-pim-groups.png" alt="PIM Groups" width="100%">
+<img src="https://df3ndr.io/assets/images/01x10/01x10-pim-groups.png" alt="PIM Groups" width="100%">
 
 #### Tip 4 - Always MFA!
 
